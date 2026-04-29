@@ -1,0 +1,246 @@
+/* ============================================
+   THE OFFSET — Home Page
+   ============================================ */
+
+/* ---- Hero ---- */
+.hero {
+  min-height: calc(100vh - var(--nav-height));
+  display: flex;
+  align-items: center;
+  position: relative;
+  padding-block: var(--space-10);
+}
+
+.hero__frame {
+  position: absolute;
+  top: var(--space-5);
+  left: var(--space-5);
+  right: var(--space-5);
+  bottom: var(--space-5);
+  border: 1px solid var(--color-border-light);
+  pointer-events: none;
+  opacity: 0;
+  animation: frameReveal 1.5s var(--ease-out) 1.2s forwards;
+}
+
+@keyframes frameReveal {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@media (min-width: 1024px) {
+  .hero__frame {
+    top: var(--space-6);
+    left: var(--space-9);
+    right: var(--space-9);
+    bottom: var(--space-6);
+  }
+}
+
+.hero__content {
+  max-width: 900px;
+}
+
+.hero__title {
+  margin-bottom: var(--space-6);
+}
+
+.hero__subtitle {
+  max-width: 480px;
+  margin-bottom: var(--space-6);
+  opacity: 0;
+  transform: translateY(16px);
+  animation: fadeUp 0.8s var(--ease-out) 0.8s forwards;
+}
+
+.hero__cta {
+  opacity: 0;
+  animation: fadeUp 0.8s var(--ease-out) 1s forwards;
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero__subtitle,
+  .hero__cta,
+  .hero__frame {
+    opacity: 1;
+    animation: none;
+    transform: none;
+  }
+}
+
+/* ---- Studio Intro ---- */
+.home-intro {
+  border-top: var(--border-light);
+}
+
+.home-intro__left {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.home-intro__content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+}
+
+.home-intro__image {
+  aspect-ratio: 3 / 4;
+  margin-top: var(--space-6);
+}
+
+@media (min-width: 768px) {
+  .home-intro__grid {
+    align-items: start;
+  }
+  .home-intro__left {
+    grid-column: 1 / 5;
+  }
+  .home-intro__content {
+    grid-column: 6 / 12;
+  }
+}
+
+/* ---- Selected Work ---- */
+.home-work {
+  border-top: var(--border-light);
+}
+
+.home-work__grid {
+  display: grid;
+  gap: var(--space-5);
+}
+
+@media (min-width: 768px) {
+  .home-work__grid {
+    grid-template-columns: repeat(12, 1fr);
+    gap: var(--grid-gutter);
+  }
+}
+
+.project-card {
+  position: relative;
+  overflow: hidden;
+}
+
+.project-card__image {
+  overflow: hidden;
+}
+
+.project-card__image .img-placeholder {
+  transition: transform var(--duration-slow) var(--ease-out);
+}
+
+.project-card:hover .project-card__image .img-placeholder {
+  transform: scale(1.03);
+}
+
+.project-card__info {
+  margin-top: var(--space-4);
+}
+
+.project-card__title {
+  font-family: var(--font-serif);
+  font-size: var(--text-lg);
+  font-weight: var(--weight-bold);
+  line-height: var(--leading-heading);
+}
+
+.project-card__category {
+  margin-top: var(--space-2);
+}
+
+@media (min-width: 768px) {
+  .project-card--large {
+    grid-column: 1 / 8;
+  }
+  .project-card--medium {
+    grid-column: 8 / 13;
+    padding-top: var(--space-10);
+  }
+  .project-card--wide {
+    grid-column: 1 / 13;
+  }
+}
+
+/* ---- Practice Areas ---- */
+.home-practice__grid {
+  display: grid;
+  gap: 0;
+}
+
+@media (min-width: 768px) {
+  .home-practice__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .home-practice__grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.practice-item {
+  border-top: 1px solid rgba(245, 240, 235, 0.15);
+  padding: var(--space-6) var(--space-5) var(--space-6) 0;
+}
+
+.practice-item:last-child {
+  border-bottom: 1px solid rgba(245, 240, 235, 0.15);
+}
+
+@media (min-width: 1024px) {
+  .practice-item {
+    padding: var(--space-6) var(--space-5);
+    border-bottom: none;
+  }
+  .practice-item:last-child {
+    border-bottom: none;
+  }
+}
+
+.practice-item__number {
+  font-family: var(--font-serif);
+  font-size: var(--text-xl);
+  font-weight: var(--weight-black);
+  color: rgba(245, 240, 235, 0.2);
+  margin-bottom: var(--space-4);
+}
+
+.practice-item__title {
+  font-family: var(--font-sans);
+  font-size: var(--text-sm);
+  font-weight: var(--weight-medium);
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-wide);
+  margin-bottom: var(--space-3);
+}
+
+.practice-item__desc {
+  font-size: var(--text-sm);
+  color: var(--color-border-light);
+  line-height: var(--leading-body);
+}
+
+/* ---- Ethos Statement ---- */
+.home-ethos {
+  border-top: var(--border-light);
+  border-bottom: var(--border-light);
+  text-align: center;
+}
+
+.home-ethos__quote {
+  max-width: 900px;
+  margin-inline: auto;
+}
+
+.home-ethos__attribution {
+  margin-top: var(--space-6);
+}

@@ -1,0 +1,95 @@
+/* ============================================
+   THE OFFSET — Process Page
+   ============================================ */
+
+.process-intro__text {
+  max-width: 640px;
+}
+
+/* ---- Phases Timeline ---- */
+.process-phases {
+  border-top: var(--border-light);
+  position: relative;
+}
+
+/* Vertical connecting line */
+.process-phases__timeline {
+  position: relative;
+}
+
+@media (min-width: 768px) {
+  .process-phases__timeline::before {
+    content: '';
+    position: absolute;
+    left: 30px;
+    top: 0;
+    bottom: 0;
+    width: 1px;
+    background-color: var(--color-border-light);
+  }
+}
+
+.phase {
+  padding: var(--space-8) 0;
+  border-top: var(--border-light);
+}
+
+.phase:first-child {
+  border-top: none;
+}
+
+.phase__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-5);
+}
+
+@media (min-width: 768px) {
+  .phase__grid {
+    grid-template-columns: 80px 1fr;
+    gap: var(--space-8);
+  }
+}
+
+.phase__number {
+  font-family: var(--font-serif);
+  font-size: var(--text-2xl);
+  font-weight: var(--weight-black);
+  color: var(--color-border-light);
+  line-height: 1;
+}
+
+.phase__content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.phase__duration {
+  margin-top: var(--space-1);
+}
+
+.phase__text {
+  max-width: 640px;
+}
+
+.phase__deliverables {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  margin-top: var(--space-2);
+}
+
+/* ---- Investment ---- */
+.process-investment__text {
+  max-width: 640px;
+}
+
+.process-investment__text p + p {
+  margin-top: var(--space-4);
+}
+
+/* ---- FAQ ---- */
+.process-faq {
+  border-top: var(--border-light);
+}

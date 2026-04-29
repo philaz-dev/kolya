@@ -1,0 +1,94 @@
+/* ============================================
+   THE OFFSET — Practice Page
+   ============================================ */
+
+.practice-overview {
+  text-align: center;
+}
+
+.practice-overview__text {
+  max-width: 640px;
+  margin-inline: auto;
+}
+
+/* ---- Discipline Blocks ---- */
+.discipline {
+  border-top: var(--border-light);
+}
+
+.discipline__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-6);
+  align-items: start;
+}
+
+@media (min-width: 768px) {
+  .discipline__grid {
+    grid-template-columns: repeat(12, 1fr);
+    gap: var(--grid-gutter);
+  }
+
+  .discipline__content {
+    grid-column: 1 / 7;
+  }
+
+  .discipline__image {
+    grid-column: 8 / 13;
+  }
+
+  /* Alternate layout */
+  .discipline--reverse .discipline__content {
+    grid-column: 7 / 13;
+    order: 2;
+  }
+
+  .discipline--reverse .discipline__image {
+    grid-column: 1 / 6;
+    order: 1;
+  }
+}
+
+.discipline__number {
+  font-family: var(--font-serif);
+  font-size: var(--text-3xl);
+  font-weight: var(--weight-black);
+  color: var(--color-border-light);
+  margin-bottom: var(--space-4);
+}
+
+.discipline__title {
+  margin-bottom: var(--space-5);
+}
+
+.discipline__text {
+  margin-bottom: var(--space-5);
+}
+
+.discipline__includes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+}
+
+.discipline__image .img-placeholder {
+  aspect-ratio: 4 / 5;
+}
+
+/* ---- Occasions Note ---- */
+.practice-occasions {
+  border-top: var(--border-light);
+  border-bottom: var(--border-light);
+}
+
+.practice-occasions__content {
+  max-width: 700px;
+}
+
+.practice-occasions__content .body-text {
+  margin-top: var(--space-4);
+}
+
+.practice-occasions__content .body-text + .body-text {
+  margin-top: var(--space-4);
+}
