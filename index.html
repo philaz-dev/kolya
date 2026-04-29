@@ -1,1209 +1,1024 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Noir Manor — Creative Studio</title>
-  <meta name="description" content="Le studio developpe des recits visuels pour les marques, les artistes et les projets culturels. Film, Image, Narration.">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300;1,9..40,400&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
-  <style>
-    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-
-    :root {
-      --canvas: #FBFBFA;
-      --surface: #FFFFFF;
-      --text-primary: #2F3437;
-      --text-heading: #111111;
-      --text-muted: #787774;
-      --border: #EAEAEA;
-      --border-rgb: 0,0,0;
-      --accent-warm: #F7F6F3;
-      --pale-blue-bg: #E1F3FE;
-      --pale-blue-text: #1F6C9F;
-      --pale-green-bg: #EDF3EC;
-      --pale-green-text: #346538;
-      --pale-yellow-bg: #FBF3DB;
-      --pale-yellow-text: #956400;
-      --pale-red-bg: #FDEBEC;
-      --pale-red-text: #9F2F2D;
-      --font-serif: 'Instrument Serif', 'Lyon Text', 'Newsreader', serif;
-      --font-sans: 'DM Sans', 'SF Pro Display', 'Helvetica Neue', sans-serif;
-      --font-mono: 'JetBrains Mono', 'SF Mono', monospace;
-    }
-
-    html { scroll-behavior: smooth; }
-
-    body {
-      font-family: var(--font-sans);
-      background: var(--canvas);
-      color: var(--text-primary);
-      line-height: 1.6;
-      font-size: 16px;
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
-    }
-
-    /* ── Ambient Background ── */
-    .ambient {
-      position: fixed;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
-      pointer-events: none;
-      z-index: 0;
-      background:
-        radial-gradient(ellipse 80% 60% at 20% 10%, rgba(200,190,170,0.03) 0%, transparent 60%),
-        radial-gradient(ellipse 60% 80% at 80% 90%, rgba(180,170,160,0.03) 0%, transparent 60%);
-    }
-
-    /* ── Layout ── */
-    .page { position: relative; z-index: 1; }
-
-    .container {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 32px;
-    }
-
-    .container--narrow {
-      max-width: 800px;
-      margin: 0 auto;
-      padding: 0 32px;
-    }
-
-    section {
-      padding: 128px 0;
-      border-bottom: 1px solid var(--border);
-    }
-
-    section:last-of-type { border-bottom: none; }
-
-    /* ── Typography ── */
-    h1, h2, h3 { color: var(--text-heading); }
-
-    .heading-xl {
-      font-family: var(--font-serif);
-      font-size: clamp(3rem, 8vw, 7rem);
-      line-height: 1.05;
-      letter-spacing: -0.03em;
-      font-weight: 400;
-    }
-
-    .heading-lg {
-      font-family: var(--font-serif);
-      font-size: clamp(2rem, 5vw, 3.5rem);
-      line-height: 1.1;
-      letter-spacing: -0.02em;
-      font-weight: 400;
-    }
-
-    .heading-md {
-      font-family: var(--font-serif);
-      font-size: clamp(1.5rem, 3vw, 2rem);
-      line-height: 1.2;
-      letter-spacing: -0.01em;
-      font-weight: 400;
-    }
-
-    .heading-sm {
-      font-family: var(--font-sans);
-      font-size: 0.75rem;
-      font-weight: 500;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: var(--text-muted);
-    }
-
-    .text-body {
-      font-size: 1.05rem;
-      line-height: 1.7;
-      color: var(--text-primary);
-      max-width: 600px;
-    }
-
-    .text-large {
-      font-family: var(--font-serif);
-      font-size: clamp(1.25rem, 2.5vw, 1.75rem);
-      line-height: 1.45;
-      color: var(--text-heading);
-      letter-spacing: -0.01em;
-    }
-
-    .text-muted {
-      color: var(--text-muted);
-      font-size: 0.875rem;
-      line-height: 1.6;
-    }
-
-    .mono {
-      font-family: var(--font-mono);
-      font-size: 0.75rem;
-      letter-spacing: 0.02em;
-      color: var(--text-muted);
-    }
-
-    /* ── Tags ── */
-    .tag {
-      display: inline-block;
-      padding: 4px 14px;
-      border-radius: 9999px;
-      font-size: 0.7rem;
-      font-weight: 500;
-      letter-spacing: 0.05em;
-      text-transform: uppercase;
-    }
-
-    .tag--blue { background: var(--pale-blue-bg); color: var(--pale-blue-text); }
-    .tag--green { background: var(--pale-green-bg); color: var(--pale-green-text); }
-    .tag--yellow { background: var(--pale-yellow-bg); color: var(--pale-yellow-text); }
-    .tag--red { background: var(--pale-red-bg); color: var(--pale-red-text); }
-    .tag--neutral { background: var(--accent-warm); color: var(--text-muted); }
-
-    /* ── Navigation ── */
-    .nav {
-      position: fixed;
-      top: 0; left: 0; right: 0;
-      z-index: 100;
-      background: rgba(251,251,250,0.85);
-      backdrop-filter: blur(16px);
-      -webkit-backdrop-filter: blur(16px);
-      border-bottom: 1px solid var(--border);
-    }
-
-    .nav__inner {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 32px;
-      height: 64px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-
-    .nav__logo {
-      text-decoration: none;
-      display: flex;
-      align-items: center;
-    }
-
-    .nav__logo img {
-      height: 40px;
-      width: auto;
-    }
-
-    .nav__links {
-      display: flex;
-      gap: 32px;
-      list-style: none;
-    }
-
-    .nav__links a {
-      font-size: 0.8rem;
-      color: var(--text-muted);
-      text-decoration: none;
-      transition: color 200ms ease;
-      letter-spacing: 0.02em;
-    }
-
-    .nav__links a:hover { color: var(--text-heading); }
-
-    .nav__menu-btn {
-      display: none;
-      background: none;
-      border: none;
-      cursor: pointer;
-      width: 24px;
-      height: 24px;
-      position: relative;
-    }
-
-    .nav__menu-btn span {
-      display: block;
-      width: 18px;
-      height: 1.5px;
-      background: var(--text-heading);
-      position: absolute;
-      left: 3px;
-      transition: all 300ms cubic-bezier(0.16, 1, 0.3, 1);
-    }
-
-    .nav__menu-btn span:nth-child(1) { top: 8px; }
-    .nav__menu-btn span:nth-child(2) { top: 14px; }
-
-    /* ── Hero ── */
-    .hero {
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      padding-top: 64px;
-      border-bottom: 1px solid var(--border);
-      position: relative;
-      overflow: hidden;
-    }
-
-    .hero__video {
-      position: absolute;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
-      object-fit: cover;
-      z-index: 0;
-    }
-
-    .hero__overlay {
-      position: absolute;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
-      background: rgba(0,0,0,0.35);
-      z-index: 1;
-    }
-
-    .hero__content {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 32px;
-      width: 100%;
-      position: relative;
-      z-index: 2;
-    }
-
-    .hero__disciplines {
-      display: flex;
-      gap: 24px;
-      margin-bottom: 48px;
-    }
-
-    .hero__disciplines span {
-      font-family: var(--font-mono);
-      font-size: 0.75rem;
-      color: rgba(255,255,255,0.6);
-      letter-spacing: 0.04em;
-    }
-
-    .hero__title {
-      margin-bottom: 48px;
-      color: #FFFFFF;
-    }
-
-    .hero__logo {
-      display: block;
-      height: 80px;
-      width: auto;
-      margin-bottom: 48px;
-      filter: brightness(0) invert(1);
-      mix-blend-mode: screen;
-    }
-
-    .hero__subtitle {
-      font-family: var(--font-serif);
-      font-style: italic;
-      font-size: 1.25rem;
-      color: rgba(255,255,255,0.7);
-      margin-bottom: 24px;
-    }
-
-    .hero__description {
-      max-width: 520px;
-      margin-bottom: 48px;
-      color: rgba(255,255,255,0.85);
-    }
-
-    .hero__meta {
-      display: flex;
-      gap: 48px;
-      padding-top: 48px;
-      border-top: 1px solid rgba(255,255,255,0.15);
-    }
-
-    .hero__meta-item {
-      display: flex;
-      flex-direction: column;
-      gap: 4px;
-    }
-
-    .hero__meta-item .mono { color: rgba(255,255,255,0.4); }
-    .hero__meta-value { font-size: 0.9rem; color: rgba(255,255,255,0.85); }
-
-    /* ── Buttons ── */
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 12px 28px;
-      font-family: var(--font-sans);
-      font-size: 0.8rem;
-      font-weight: 500;
-      letter-spacing: 0.04em;
-      text-decoration: none;
-      border: none;
-      cursor: pointer;
-      transition: all 200ms ease;
-    }
-
-    .btn--primary {
-      background: var(--text-heading);
-      color: #FFFFFF;
-      border-radius: 4px;
-    }
-
-    .btn--primary:hover { background: #333333; }
-    .btn--primary:active { transform: scale(0.98); }
-
-    .btn--ghost {
-      background: transparent;
-      color: var(--text-heading);
-      border: 1px solid var(--border);
-      border-radius: 4px;
-    }
-
-    .btn--ghost:hover { border-color: var(--text-heading); }
-
-    /* ── Section Headers ── */
-    .section-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-end;
-      margin-bottom: 80px;
-      gap: 48px;
-    }
-
-    .section-header__left { flex: 1; }
-    .section-header__right { max-width: 400px; }
-
-    .section-number {
-      font-family: var(--font-mono);
-      font-size: 0.7rem;
-      color: var(--text-muted);
-      letter-spacing: 0.08em;
-      margin-bottom: 16px;
-      display: block;
-    }
-
-    /* ── Services Grid (Bento) ── */
-    .services-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 1px;
-      background: var(--border);
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      overflow: hidden;
-    }
-
-    .service-card {
-      background: var(--surface);
-      padding: 40px;
-      transition: background 300ms ease;
-    }
-
-    .service-card:hover { background: var(--accent-warm); }
-
-    .service-card__number {
-      font-family: var(--font-mono);
-      font-size: 0.7rem;
-      color: var(--text-muted);
-      margin-bottom: 24px;
-      display: block;
-    }
-
-    .service-card__title {
-      font-family: var(--font-serif);
-      font-size: 1.5rem;
-      color: var(--text-heading);
-      margin-bottom: 16px;
-      letter-spacing: -0.01em;
-    }
-
-    .service-card__text {
-      font-size: 0.9rem;
-      color: var(--text-muted);
-      line-height: 1.6;
-    }
-
-    /* ── Projects ── */
-    .projects-list { display: flex; flex-direction: column; }
-
-    .project-item {
-      display: grid;
-      grid-template-columns: 1fr 1fr auto;
-      align-items: center;
-      padding: 32px 0;
-      border-bottom: 1px solid var(--border);
-      gap: 24px;
-      transition: padding-left 300ms cubic-bezier(0.16, 1, 0.3, 1);
-      cursor: default;
-    }
-
-    .project-item:first-child { border-top: 1px solid var(--border); }
-    .project-item:hover { padding-left: 16px; }
-
-    .project-item__title {
-      font-family: var(--font-serif);
-      font-size: 1.75rem;
-      color: var(--text-heading);
-      letter-spacing: -0.02em;
-    }
-
-    .project-item__meta {
-      display: flex;
-      gap: 16px;
-      align-items: center;
-    }
-
-    .project-item__year {
-      font-family: var(--font-mono);
-      font-size: 0.75rem;
-      color: var(--text-muted);
-    }
-
-    .project-item__arrow {
-      width: 32px;
-      height: 32px;
-      border-radius: 50%;
-      border: 1px solid var(--border);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      transition: all 200ms ease;
-    }
-
-    .project-item:hover .project-item__arrow {
-      background: var(--text-heading);
-      border-color: var(--text-heading);
-    }
-
-    .project-item:hover .project-item__arrow svg { stroke: #fff; }
-
-    .project-item__arrow svg {
-      width: 14px;
-      height: 14px;
-      stroke: var(--text-muted);
-      stroke-width: 1.5;
-      fill: none;
-      transition: stroke 200ms ease;
-    }
-
-    /* ── Expertise ── */
-    .expertise-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 1px;
-      background: var(--border);
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      overflow: hidden;
-    }
-
-    .expertise-card {
-      background: var(--surface);
-      padding: 48px 36px;
-      display: flex;
-      flex-direction: column;
-      gap: 24px;
-    }
-
-    .expertise-card__title {
-      font-family: var(--font-serif);
-      font-size: 1.5rem;
-      color: var(--text-heading);
-      letter-spacing: -0.01em;
-    }
-
-    .expertise-card__text {
-      font-size: 0.9rem;
-      color: var(--text-muted);
-      line-height: 1.6;
-      flex: 1;
-    }
-
-    .expertise-card__tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 6px;
-    }
-
-    /* ── Manifesto ── */
-    .manifesto-section { background: var(--surface); }
-
-    .manifesto__text {
-      font-family: var(--font-serif);
-      font-size: clamp(1.25rem, 2.5vw, 1.6rem);
-      line-height: 1.65;
-      color: var(--text-heading);
-      letter-spacing: -0.01em;
-      max-width: 740px;
-    }
-
-    .manifesto__sig {
-      margin-top: 64px;
-      padding-top: 32px;
-      border-top: 1px solid var(--border);
-    }
-
-    /* ── Founder ── */
-    .founder-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 80px;
-      align-items: start;
-    }
-
-    .founder__image-wrap {
-      aspect-ratio: 3/4;
-      background: var(--accent-warm);
-      border-radius: 8px;
-      border: 1px solid var(--border);
-      overflow: hidden;
-      position: relative;
-    }
-
-    .founder__image-wrap img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      filter: grayscale(20%) contrast(1.05);
-    }
-
-    .founder__image-caption {
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      padding: 16px 20px;
-      background: rgba(251,251,250,0.9);
-      backdrop-filter: blur(8px);
-      font-size: 0.75rem;
-      color: var(--text-muted);
-    }
-
-    .founder__content { padding-top: 24px; }
-
-    .founder__bio {
-      font-size: 1.05rem;
-      line-height: 1.7;
-      margin-bottom: 48px;
-    }
-
-    .founder__education {
-      display: flex;
-      flex-direction: column;
-      gap: 16px;
-      padding-top: 32px;
-      border-top: 1px solid var(--border);
-    }
-
-    .founder__edu-item {
-      display: flex;
-      justify-content: space-between;
-      padding-bottom: 16px;
-      border-bottom: 1px solid var(--border);
-    }
-
-    .founder__edu-item:last-child { border-bottom: none; padding-bottom: 0; }
-
-    /* ── Contact ── */
-    .contact-section {
-      background: var(--text-heading);
-      color: #FFFFFF;
-      border-bottom: none;
-    }
-
-    .contact-section .heading-lg { color: #FFFFFF; }
-    .contact-section .text-muted { color: rgba(255,255,255,0.5); }
-    .contact-section .mono { color: rgba(255,255,255,0.4); }
-
-    .contact-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 80px;
-      margin-top: 80px;
-    }
-
-    .contact__email-link {
-      font-family: var(--font-serif);
-      font-size: clamp(1.25rem, 2.5vw, 1.75rem);
-      color: #FFFFFF;
-      text-decoration: none;
-      border-bottom: 1px solid rgba(255,255,255,0.2);
-      padding-bottom: 4px;
-      transition: border-color 200ms ease;
-    }
-
-    .contact__email-link:hover { border-color: #FFFFFF; }
-
-    .contact__details {
-      display: flex;
-      flex-direction: column;
-      gap: 24px;
-    }
-
-    .contact__detail-item {
-      display: flex;
-      flex-direction: column;
-      gap: 4px;
-    }
-
-    .contact__detail-label {
-      font-size: 0.7rem;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      color: rgba(255,255,255,0.4);
-    }
-
-    .contact__detail-value {
-      font-size: 0.95rem;
-      color: rgba(255,255,255,0.8);
-    }
-
-    /* ── Footer ── */
-    footer {
-      background: var(--text-heading);
-      padding: 32px 0;
-      border-top: 1px solid rgba(255,255,255,0.08);
-    }
-
-    .footer__inner {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 32px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    .footer__copy {
-      font-size: 0.75rem;
-      color: rgba(255,255,255,0.35);
-    }
-
-    .footer__links {
-      display: flex;
-      gap: 24px;
-      list-style: none;
-    }
-
-    .footer__links a {
-      font-size: 0.75rem;
-      color: rgba(255,255,255,0.35);
-      text-decoration: none;
-      transition: color 200ms ease;
-    }
-
-    .footer__links a:hover { color: rgba(255,255,255,0.7); }
-
-    /* ── Scroll Animations ── */
-    .reveal {
-      opacity: 0;
-      transform: translateY(12px);
-      transition: opacity 600ms cubic-bezier(0.16, 1, 0.3, 1),
-                  transform 600ms cubic-bezier(0.16, 1, 0.3, 1);
-    }
-
-    .reveal.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    .stagger { transition-delay: calc(var(--i, 0) * 80ms); }
-
-    /* ── Responsive ── */
-    @media (max-width: 900px) {
-      section { padding: 80px 0; }
-
-      .nav__links { display: none; }
-      .nav__menu-btn { display: block; }
-
-      .nav__links.open {
-        display: flex;
-        flex-direction: column;
-        position: absolute;
-        top: 64px;
-        left: 0;
-        right: 0;
-        background: rgba(251,251,250,0.97);
-        backdrop-filter: blur(16px);
-        padding: 24px 32px;
-        gap: 16px;
-        border-bottom: 1px solid var(--border);
-      }
-
-      .section-header {
-        flex-direction: column;
-        align-items: flex-start;
-        margin-bottom: 48px;
-      }
-
-      .services-grid { grid-template-columns: 1fr; }
-      .expertise-grid { grid-template-columns: 1fr; }
-
-      .project-item {
-        grid-template-columns: 1fr;
-        gap: 12px;
-      }
-
-      .project-item__arrow { display: none; }
-
-      .founder-grid {
-        grid-template-columns: 1fr;
-        gap: 48px;
-      }
-
-      .contact-grid {
-        grid-template-columns: 1fr;
-        gap: 48px;
-      }
-
-      .hero__meta {
-        flex-direction: column;
-        gap: 24px;
-      }
-
-      .footer__inner {
-        flex-direction: column;
-        gap: 16px;
-        text-align: center;
-      }
-    }
-  </style>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Kolya — Des solutions IA simples. Des résultats concrets.</title>
+<meta name="description" content="KOLYA — agence d'implémentation IA. Nous aidons les entreprises à gagner du temps, automatiser leurs opérations et augmenter leur chiffre d'affaires." />
+<link rel="icon" type="image/png" href="assets/kolya-mark.png" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;1,9..144,400&family=Inter+Tight:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
+<style>
+  :root {
+    --bg: #FFFFFF;
+    --soft: #F5F5F2;
+    --soft-2: #ECECE6;
+    --ink: #0E0E0C;
+    --ink-2: #1A1A18;
+    --muted: #6B6B66;
+    --line: rgba(14,14,12,0.1);
+    --accent: #C5F548;
+    --accent-deep: #1F2D0A;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { background: var(--bg); color: var(--ink); }
+  body {
+    font-family: 'Inter Tight', system-ui, sans-serif;
+    font-size: 16px; line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+  ::selection { background: var(--accent); color: var(--ink); }
+
+  .serif { font-family: 'Fraunces', serif; font-weight: 400; letter-spacing: -0.025em; }
+  .mono  { font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.04em; text-transform: uppercase; }
+  a { color: inherit; text-decoration: none; }
+  button { font: inherit; cursor: pointer; border: none; background: none; color: inherit; }
+  img, svg { display: block; max-width: 100%; }
+  ul { list-style: none; }
+
+  .wrap { width: 100%; max-width: 1320px; margin: 0 auto; padding: 0 32px; }
+  @media (max-width: 720px) { .wrap { padding: 0 20px; } }
+
+  .h-display {
+    font-family: 'Fraunces', serif; font-weight: 400;
+    letter-spacing: -0.035em; line-height: 0.94;
+    font-variation-settings: "opsz" 144;
+  }
+
+  /* Buttons */
+  .btn-lime, .btn-ghost, .btn-dark {
+    display: inline-flex; align-items: center; gap: 10px;
+    padding: 16px 24px; border-radius: 999px;
+    font-weight: 500; font-size: 14px;
+    transition: transform 0.2s, background 0.2s, color 0.2s, border-color 0.2s;
+  }
+  .btn-lime  { background: var(--accent); color: var(--ink); }
+  .btn-lime:hover { background: var(--ink); color: var(--accent); transform: translateY(-1px); }
+  .btn-ghost { border: 1px solid var(--line); color: var(--ink); }
+  .btn-ghost:hover { background: var(--ink); color: white; border-color: var(--ink); }
+  .btn-dark  { background: var(--ink); color: white; }
+  .btn-dark:hover { background: var(--accent); color: var(--ink); transform: translateY(-1px); }
+
+  .arr { width: 14px; height: 14px; }
+
+  @keyframes pulse-dot { 0%,100% { opacity: 0.3; } 50% { opacity: 1; } }
+  @keyframes float-soft { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-6px); } }
+
+  /* Reveal on scroll */
+  .reveal { opacity: 0; transform: translateY(24px);
+    transition: opacity 0.9s cubic-bezier(.2,.7,.2,1), transform 0.9s cubic-bezier(.2,.7,.2,1); }
+  .reveal.in { opacity: 1; transform: translateY(0); }
+
+  /* Photo placeholder (used in hero pill + cas d'usage cards) */
+  .photo {
+    position: relative; width: 100%;
+    border-radius: 24px; overflow: hidden;
+    aspect-ratio: 4/5;
+  }
+  .photo.r-pill   { border-radius: 999px; aspect-ratio: auto; }
+  .photo.r-20     { border-radius: 20px; }
+  .photo.r-24     { border-radius: 24px; }
+  .photo.ratio-auto   { aspect-ratio: auto; }
+  .photo.ratio-3\/2   { aspect-ratio: 3/2; }
+  .photo.ratio-1\/1   { aspect-ratio: 1/1; }
+
+  .photo.t-sage   { background: linear-gradient(155deg, #C8D4B8 0%, #8FA378 100%); }
+  .photo.t-forest { background: linear-gradient(155deg, #2D3D24 0%, #1F2D18 100%); }
+  .photo.t-cream  { background: linear-gradient(155deg, #F0EBDF 0%, #E0D8C5 100%); }
+  .photo.t-sand   { background: linear-gradient(155deg, #E8DBC4 0%, #C9B391 100%); }
+  .photo.t-ink    { background: linear-gradient(155deg, #1A1A18 0%, #0A0A08 100%); }
+  .photo.t-lime   { background: linear-gradient(155deg, #DEF77A 0%, #A8D332 100%); }
+
+  .photo::before {
+    content: ""; position: absolute; inset: 0;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 0.5 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+    mix-blend-mode: overlay; opacity: 0.4; pointer-events: none;
+  }
+  .photo::after {
+    content: ""; position: absolute; inset: 0;
+    background: radial-gradient(ellipse at 30% 20%, transparent 35%, rgba(0,0,0,0.25) 100%);
+    pointer-events: none;
+  }
+  .photo > .photo-overlay { position: relative; z-index: 2; }
+
+  /* === NAV ============================================================ */
+  .nav {
+    position: sticky; top: 0; z-index: 50;
+    background: transparent;
+    border-bottom: 1px solid transparent;
+    transition: background 0.3s, border-color 0.3s, backdrop-filter 0.3s;
+  }
+  .nav.scrolled {
+    background: rgba(255,255,255,0.85);
+    backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
+    border-bottom: 1px solid var(--line);
+  }
+  .nav-inner { display: flex; align-items: center; justify-content: space-between; height: 76px; }
+  .brand { display: flex; align-items: center; gap: 10px; }
+  .brand img { display: block; object-fit: contain; }
+  .brand .name { font-family: 'Fraunces', serif; font-size: 24px; letter-spacing: -0.02em; }
+  .nav-min {
+    display: flex; gap: 8px; padding: 6px;
+    background: var(--soft); border: 1px solid var(--line);
+    border-radius: 999px;
+  }
+  .nav-min a {
+    padding: 8px 16px; font-size: 13px; color: var(--ink-2);
+    border-radius: 999px; transition: background 0.2s;
+  }
+  .nav-min a:hover { background: white; }
+  .nav-cta { padding: 12px 20px; font-size: 13px; }
+  @media (max-width: 980px) { .nav-min { display: none; } }
+
+  /* === HERO =========================================================== */
+  .hero {
+    padding: 32px 0 96px;
+    min-height: calc(100vh - 76px);
+    display: flex; flex-direction: column; justify-content: center;
+  }
+  .hero-meta {
+    display: flex; justify-content: space-between; align-items: center;
+    padding-bottom: 20px; margin-bottom: 56px; color: var(--muted);
+  }
+  .hero-meta .dot { display: inline-flex; align-items: center; gap: 8px; }
+  .hero-meta .dot::before {
+    content: ""; width: 6px; height: 6px; border-radius: 50%;
+    background: var(--accent); animation: pulse-dot 1.6s infinite;
+  }
+  .hero-eyebrow {
+    font-family: 'JetBrains Mono', monospace; font-size: 12px;
+    letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--muted); margin-bottom: 24px;
+  }
+  .hero-title { font-size: clamp(48px, 8vw, 132px); color: var(--ink); }
+  .hero-row {
+    display: flex; align-items: center; flex-wrap: wrap;
+    gap: clamp(20px, 2.4vw, 36px);
+    line-height: 1.05;
+    padding: 0.05em 0;
+  }
+  .hero-pill {
+    position: relative;
+    width: clamp(140px, 16vw, 240px);
+    height: clamp(80px, 9vw, 124px);
+    flex-shrink: 0;
+  }
+  .hero-pill .photo { position: absolute; inset: 0; }
+  .hero-pill .wing-wrap {
+    position: absolute; inset: 0; z-index: 2;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .hero-pill svg.wing { width: 70%; height: 70%; }
+  .hero-pill svg.wing g { transform-origin: 50% 50%; animation: float-soft 4s ease-in-out infinite; }
+  .hero-row em {
+    font-style: italic; font-weight: 300; color: var(--ink);
+    white-space: nowrap; font-variation-settings: "opsz" 144;
+  }
+  .hero-bot {
+    display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 64px;
+    align-items: end; margin-top: 56px;
+  }
+  .hero-bot p.lede { font-size: 19px; line-height: 1.5; color: var(--ink-2); max-width: 520px; }
+  .hero-bot .ctas { display: flex; gap: 12px; margin-top: 32px; flex-wrap: wrap; }
+  @media (max-width: 900px) { .hero-bot { grid-template-columns: 1fr; } }
+
+  /* hero side panel */
+  .panel {
+    position: relative; border-radius: 24px; overflow: hidden;
+    border: 1px solid var(--line); background: white;
+    box-shadow: 0 30px 60px -30px rgba(14,14,12,0.18), 0 4px 16px -8px rgba(14,14,12,0.08);
+  }
+  .panel-hd {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 14px 18px; border-bottom: 1px solid var(--line);
+  }
+  .panel-hd .left { display: flex; align-items: center; gap: 8px; color: var(--muted); }
+  .panel-hd .left::before {
+    content: ""; width: 8px; height: 8px; border-radius: 50%; background: var(--accent);
+  }
+  .panel-body { padding: 24px; }
+  .panel-body .comment { color: var(--muted); margin-bottom: 14px; }
+  .panel-body .code {
+    font-family: 'JetBrains Mono', monospace; font-size: 13px;
+    line-height: 1.8; color: var(--ink-2);
+  }
+  .panel-body .code .key { color: var(--muted); }
+  .panel-body .chips { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 18px; }
+  .panel-body .chip {
+    padding: 6px 12px; border-radius: 999px; background: var(--soft);
+    font-size: 11px; color: var(--ink-2);
+  }
+  .panel-body .chip .lab { color: var(--muted); }
+  .panel-body .chip b { font-weight: 600; }
+  .panel-body .spark-row { margin-top: 18px; padding-top: 16px; border-top: 1px solid var(--line); }
+  .panel-body .spark-row .legend {
+    display: flex; justify-content: space-between;
+    font-size: 11px; color: var(--muted); margin-bottom: 8px;
+  }
+  .panel-body .spark-row .legend b { color: var(--accent-deep); font-weight: 600; }
+
+  /* === SECTION HEADER PRIMITIVE ======================================= */
+  .sec-label { color: var(--muted); margin-bottom: 24px; }
+  .sec-head {
+    display: grid; grid-template-columns: 1fr 1.6fr; gap: 80px; align-items: end;
+    margin-bottom: 64px;
+  }
+  .sec-head h2 { font-size: clamp(40px, 5.4vw, 80px); color: var(--ink); }
+  .sec-head em { font-style: italic; color: var(--muted); }
+  .sec-head p.lede { font-size: 16px; color: var(--ink-2); max-width: 360px; }
+  @media (max-width: 900px) { .sec-head { grid-template-columns: 1fr; gap: 24px; } }
+
+  /* === PROBLEME ======================================================= */
+  .probleme { padding: 120px 0; background: var(--soft); border-radius: 40px 40px 0 0; }
+  .pain-list { display: flex; flex-direction: column; }
+  .pain {
+    display: grid; grid-template-columns: 80px 1fr auto; gap: 24px; align-items: center;
+    padding: 28px 0;
+    border-top: 1px solid var(--line);
+    transition: padding-left 0.3s;
+  }
+  .pain:last-child { border-bottom: 1px solid var(--line); }
+  .pain .num { color: var(--muted); }
+  .pain .text {
+    font-family: 'Fraunces', serif; font-weight: 400; letter-spacing: -0.025em;
+    font-size: clamp(22px, 2.4vw, 32px); color: var(--ink);
+  }
+  .pain .text small {
+    display: block; font-family: 'Inter Tight', sans-serif; font-style: normal;
+    font-size: 14px; letter-spacing: 0; color: var(--muted); margin-top: 6px;
+  }
+  .pain .arrcircle {
+    width: 40px; height: 40px; border-radius: 50%;
+    background: white; border: 1px solid var(--line);
+    display: flex; align-items: center; justify-content: center;
+    transition: background 0.3s, color 0.3s, border-color 0.3s, transform 0.3s;
+  }
+  .pain:hover { padding-left: 16px; }
+  .pain:hover .arrcircle { background: var(--ink); color: white; border-color: var(--ink); transform: rotate(-45deg); }
+
+  /* === SOLUTION ======================================================= */
+  .solution { padding: 140px 0; background: white; }
+  .solution .inner { max-width: 880px; margin: 0 auto; text-align: center; }
+  .solution .label { color: var(--muted); margin-bottom: 24px; }
+  .solution h2 {
+    font-size: clamp(44px, 6vw, 88px); color: var(--ink);
+    margin-bottom: 32px;
+  }
+  .solution em { font-style: italic; color: var(--muted); }
+  .solution p {
+    font-size: clamp(18px, 1.6vw, 22px); color: var(--ink-2);
+    line-height: 1.5; max-width: 640px; margin: 0 auto;
+  }
+  .solution .accent-mark {
+    display: inline-flex; align-items: center; justify-content: center;
+    width: 64px; height: 64px; border-radius: 50%; background: var(--accent);
+    margin-bottom: 32px;
+  }
+
+  /* === SERVICES ======================================================= */
+  .services { padding: 120px 0; background: var(--soft); border-radius: 40px 40px 0 0; }
+  .srv-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
+  .srv-card {
+    background: white; color: var(--ink);
+    border-radius: 28px; padding: 36px 32px;
+    transition: background 0.4s cubic-bezier(.2,.7,.2,1), color 0.4s cubic-bezier(.2,.7,.2,1);
+    cursor: pointer; position: relative; overflow: hidden;
+    min-height: 320px;
+    display: flex; flex-direction: column; justify-content: space-between;
+    border: 1px solid var(--line);
+  }
+  .srv-card .top { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 28px; }
+  .srv-card .top .num { color: var(--muted); transition: color 0.3s; }
+  .srv-card .top .arrcircle {
+    width: 44px; height: 44px; border-radius: 50%;
+    background: var(--soft); color: var(--ink);
+    display: flex; align-items: center; justify-content: center;
+    transition: transform 0.3s, background 0.3s;
+  }
+  .srv-card h3 {
+    font-family: 'Fraunces', serif; font-weight: 400; letter-spacing: -0.025em;
+    font-size: clamp(26px, 3vw, 36px); line-height: 1.05; margin-bottom: 14px;
+  }
+  .srv-card p { font-size: 15px; color: var(--ink-2); margin-bottom: 20px; line-height: 1.55; transition: color 0.3s; }
+  .srv-card .tags { display: flex; gap: 8px; flex-wrap: wrap; }
+  .srv-card .tag {
+    font-size: 11px; padding: 5px 11px; border-radius: 999px;
+    background: var(--soft); color: var(--ink-2); border: 1px solid var(--line);
+    font-family: 'JetBrains Mono', monospace; letter-spacing: 0.04em; text-transform: uppercase;
+    transition: background 0.3s, color 0.3s, border-color 0.3s;
+  }
+  .srv-card:hover { background: var(--ink); color: white; border-color: var(--ink); }
+  .srv-card:hover .top .num { color: var(--accent); }
+  .srv-card:hover .top .arrcircle { background: var(--accent); transform: rotate(-45deg); }
+  .srv-card:hover p { color: rgba(255,255,255,0.7); }
+  .srv-card:hover .tag {
+    background: rgba(255,255,255,0.1); color: white; border-color: rgba(255,255,255,0.15);
+  }
+  @media (max-width: 900px) { .srv-grid { grid-template-columns: 1fr; } }
+
+  /* === CAS D'USAGE ===================================================== */
+  .cases { padding: 120px 0; background: white; }
+  .case-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+  .case-card {
+    background: white; border-radius: 24px; overflow: hidden;
+    border: 1px solid var(--line);
+    transition: transform 0.3s, box-shadow 0.3s;
+    cursor: pointer;
+  }
+  .case-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 20px 40px -20px rgba(14,14,12,0.18), 0 4px 12px -6px rgba(14,14,12,0.08);
+  }
+  .case-card .photo { aspect-ratio: 4/3; border-radius: 0; }
+  .case-card .body { padding: 24px 24px 28px; }
+  .case-card .sector { color: var(--muted); margin-bottom: 8px; }
+  .case-card h3 {
+    font-family: 'Fraunces', serif; font-weight: 400; letter-spacing: -0.025em;
+    font-size: 22px; color: var(--ink); line-height: 1.2; margin-bottom: 12px;
+  }
+  .case-card p { font-size: 14px; color: var(--ink-2); line-height: 1.5; }
+  @media (max-width: 1000px) { .case-grid { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 540px)  { .case-grid { grid-template-columns: 1fr; } }
+
+  /* === METHODE ======================================================== */
+  .method { padding: 120px 0; background: var(--soft); border-radius: 40px 40px 0 0; }
+  .meth-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+  .meth-card {
+    background: white; border-radius: 24px; padding: 28px 24px;
+    min-height: 280px;
+    display: flex; flex-direction: column; justify-content: space-between;
+    border: 1px solid var(--line);
+  }
+  .meth-num {
+    width: 42px; height: 42px; border-radius: 50%; background: var(--soft);
+    display: flex; align-items: center; justify-content: center; margin-bottom: 24px;
+  }
+  .meth-card.first .meth-num { background: var(--accent); }
+  .meth-num span { color: var(--ink); font-size: 12px; }
+  .meth-card h3 {
+    font-family: 'Fraunces', serif; font-weight: 400; letter-spacing: -0.025em;
+    font-size: 28px; color: var(--ink); margin-bottom: 10px;
+  }
+  .meth-card p { font-size: 14px; color: var(--ink-2); line-height: 1.5; }
+  .meth-card .duration { color: var(--muted); margin-top: 20px; padding-top: 16px; border-top: 1px solid var(--line); }
+  @media (max-width: 1100px) { .meth-grid { grid-template-columns: 1fr 1fr; } }
+  @media (max-width: 600px)  { .meth-grid { grid-template-columns: 1fr; } }
+
+  /* === RESULTATS ====================================================== */
+  .results { background: var(--ink); color: white; padding: 96px 0; border-radius: 40px 40px 0 0; }
+  .results .label { color: rgba(255,255,255,0.5); margin-bottom: 40px; }
+  .results-head {
+    display: grid; grid-template-columns: 1fr 1.6fr; gap: 80px; align-items: end;
+    margin-bottom: 64px;
+  }
+  .results-head h2 { font-size: clamp(40px, 5.4vw, 80px); color: white; }
+  .results-head em { font-style: italic; color: rgba(255,255,255,0.5); }
+  .results-head p { font-size: 16px; color: rgba(255,255,255,0.7); max-width: 380px; }
+  .res-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 32px; }
+  .res-cell {
+    padding-left: 32px;
+    border-left: 1px solid rgba(255,255,255,0.15);
+  }
+  .res-cell:first-child { padding-left: 0; border-left: none; }
+  .res-cell .icon {
+    width: 36px; height: 36px; border-radius: 50%;
+    background: var(--accent); color: var(--ink);
+    display: flex; align-items: center; justify-content: center;
+    margin-bottom: 24px;
+  }
+  .res-cell .h {
+    font-family: 'Fraunces', serif; font-weight: 400; letter-spacing: -0.025em;
+    font-size: clamp(28px, 3vw, 40px); color: white; line-height: 1.05; margin-bottom: 12px;
+  }
+  .res-cell p { font-size: 14px; color: rgba(255,255,255,0.7); line-height: 1.55; max-width: 220px; }
+  @media (max-width: 1000px) {
+    .results-head { grid-template-columns: 1fr; gap: 24px; }
+    .res-grid { grid-template-columns: 1fr 1fr; gap: 40px; }
+    .res-cell { padding-left: 0; border-left: none; }
+  }
+  @media (max-width: 540px) { .res-grid { grid-template-columns: 1fr; } }
+
+  /* === CTA ============================================================ */
+  .cta { padding: 80px 0 120px; background: white; }
+  .cta-card {
+    background: var(--accent); border-radius: 40px;
+    padding: clamp(48px, 7vw, 96px);
+    position: relative; overflow: hidden;
+  }
+  .cta-card .deco {
+    position: absolute; top: -30%; right: -10%;
+    width: 480px; height: 480px; border-radius: 50%;
+    background: rgba(31,45,10,0.08);
+  }
+  .cta-card .inner { position: relative; }
+  .cta-card .label { color: var(--accent-deep); margin-bottom: 32px; }
+  .cta-card h2 {
+    font-size: clamp(48px, 8vw, 132px); color: var(--ink);
+    line-height: 0.95; margin-bottom: 40px;
+  }
+  .cta-card em { font-style: italic; color: var(--accent-deep); }
+  .cta-row {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 64px;
+    align-items: end; max-width: 1100px;
+  }
+  .cta-row p { font-size: 17px; color: var(--accent-deep); max-width: 480px; opacity: 0.85; }
+  .cta-row .ctas { display: flex; gap: 12px; flex-wrap: wrap; }
+  .cta-row .btn-ghost { background: transparent; border-color: rgba(31,45,10,0.3); color: var(--accent-deep); }
+  .cta-row .btn-ghost:hover { background: var(--ink); color: white; border-color: var(--ink); }
+  @media (max-width: 900px) { .cta-row { grid-template-columns: 1fr; gap: 32px; } }
+
+  /* === FOOTER ========================================================= */
+  .footer { background: var(--ink); color: white; padding: 60px 0 32px; border-radius: 40px 40px 0 0; }
+  .foot-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 48px; margin-bottom: 64px; }
+  .foot-brand { display: flex; align-items: center; gap: 10px; margin-bottom: 20px; }
+  .foot-brand .name { font-family: 'Fraunces', serif; font-size: 26px; }
+  .foot-blurb { font-size: 14px; color: rgba(255,255,255,0.65); max-width: 320px; }
+  .foot-col h6 {
+    font-family: 'JetBrains Mono', monospace; font-size: 11px; font-weight: 500;
+    letter-spacing: 0.04em; text-transform: uppercase;
+    color: rgba(255,255,255,0.5); margin-bottom: 16px;
+  }
+  .foot-col ul { display: flex; flex-direction: column; gap: 10px; }
+  .foot-col a { font-size: 14px; color: white; opacity: 0.85; }
+  .foot-col a:hover { opacity: 1; }
+  .foot-word {
+    font-family: 'Fraunces', serif; font-weight: 400;
+    font-size: clamp(120px, 22vw, 360px); line-height: 0.9;
+    letter-spacing: -0.05em;
+    border-top: 1px solid rgba(255,255,255,0.15); padding-top: 32px;
+  }
+  .foot-word .dot { color: var(--accent); }
+  .foot-meta {
+    display: flex; justify-content: space-between; flex-wrap: wrap; gap: 16px;
+    padding-top: 24px; color: rgba(255,255,255,0.5); font-size: 13px;
+  }
+  .foot-meta nav { display: flex; gap: 24px; }
+  @media (max-width: 900px) { .foot-grid { grid-template-columns: 1fr 1fr; } }
+  @media (max-width: 540px) { .foot-grid { grid-template-columns: 1fr; } }
+</style>
 </head>
 <body>
 
-  <div class="ambient"></div>
+<!-- Reusable arrow icon -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="arr" viewBox="0 0 14 14">
+    <path d="M2 12L12 2M12 2H5M12 2V9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" fill="none"/>
+  </symbol>
+  <symbol id="check" viewBox="0 0 16 16">
+    <path d="M3 8.5L6.5 12L13 4.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+  </symbol>
+</svg>
 
-  <!-- ── Navigation ── -->
-  <nav class="nav">
-    <div class="nav__inner">
-      <a href="#" class="nav__logo"><img src="noir-manor-logo.png" alt="Noir Manor"></a>
-      <ul class="nav__links" id="navLinks">
-        <li><a href="#studio">Le Studio</a></li>
-        <li><a href="#services">Services</a></li>
-        <li><a href="#projets">Projets</a></li>
-        <li><a href="#expertise">Expertise</a></li>
-        <li><a href="#manifeste">Manifeste</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
-      <button class="nav__menu-btn" id="menuBtn" aria-label="Menu">
-        <span></span>
-        <span></span>
-      </button>
+<!-- ============== NAV ============== -->
+<nav class="nav" id="nav">
+  <div class="wrap nav-inner">
+    <a href="#" class="brand">
+      <img src="assets/kolya-mark.png" width="26" height="26" alt="Kolya" />
+      <span class="name">Kolya</span>
+    </a>
+    <div class="nav-min">
+      <a href="#probleme">Problème</a>
+      <a href="#services">Services</a>
+      <a href="#cas">Cas d'usage</a>
+      <a href="#methode">Méthode</a>
+      <a href="#resultats">Résultats</a>
     </div>
-  </nav>
-
-  <div class="page">
-
-    <!-- ── Hero ── -->
-    <section class="hero">
-      <video class="hero__video" autoplay muted loop playsinline>
-        <source src="SL_Studio_Hero_Cinematique.mp4" type="video/mp4">
-      </video>
-      <div class="hero__overlay"></div>
-      <div class="hero__content">
-        <div class="hero__disciplines reveal">
-          <span>Film</span>
-          <span>Image</span>
-          <span>Narration</span>
-        </div>
-        <h1 class="heading-xl hero__title reveal">
-          Noir<br>Manor
-        </h1>
-        <p class="hero__subtitle reveal">Fond&eacute; par Sacha Laznowski</p>
-        <p class="text-body hero__description reveal">
-          Le studio d&eacute;veloppe des r&eacute;cits visuels pour les marques, les artistes et les projets culturels.
-        </p>
-        <div class="hero__meta reveal">
-          <div class="hero__meta-item">
-            <span class="mono">Localisation</span>
-            <span class="hero__meta-value">Paris, France</span>
-          </div>
-          <div class="hero__meta-item">
-            <span class="mono">Port&eacute;e</span>
-            <span class="hero__meta-value">International</span>
-          </div>
-          <div class="hero__meta-item">
-            <span class="mono">Disciplines</span>
-            <span class="hero__meta-value">Film, Image, Direction artistique</span>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ── 01 — Le Studio ── -->
-    <section id="studio">
-      <div class="container">
-        <div class="section-header reveal">
-          <div class="section-header__left">
-            <span class="section-number">01</span>
-            <h2 class="heading-lg">Le Studio</h2>
-          </div>
-          <div class="section-header__right">
-            <p class="text-muted">
-              &Agrave; la fronti&egrave;re entre cin&eacute;ma, direction artistique et narration de marque.
-            </p>
-          </div>
-        </div>
-
-        <div class="reveal" style="max-width:740px; margin-bottom:80px;">
-          <p class="text-large">
-            Nous accompagnons des marques, des chefs, des artistes et des lieux dans la construction de leur univers visuel.
-          </p>
-        </div>
-
-        <div class="reveal" style="max-width:600px; margin-bottom:64px;">
-          <p class="text-body">
-            Notre approche s'inspire du langage cin&eacute;matographique. Chaque projet est con&ccedil;u comme un r&eacute;cit. Chaque image comme une sc&egrave;ne.
-          </p>
-        </div>
-
-        <div style="display:flex; gap:12px;" class="reveal">
-          <span class="tag tag--neutral">Rythme</span>
-          <span class="tag tag--neutral">Atmosph&egrave;re</span>
-          <span class="tag tag--neutral">Narration</span>
-        </div>
-      </div>
-    </section>
-
-    <!-- ── 02 — Services ── -->
-    <section id="services">
-      <div class="container">
-        <div class="section-header reveal">
-          <div class="section-header__left">
-            <span class="section-number">02</span>
-            <h2 class="heading-lg">Services</h2>
-          </div>
-          <div class="section-header__right">
-            <p class="text-muted">
-              Quatre lignes de service con&ccedil;ues pour construire une pr&eacute;sence visuelle coh&eacute;rente, distincte et durable.
-            </p>
-          </div>
-        </div>
-
-        <div class="services-grid">
-          <div class="service-card reveal stagger" style="--i:0">
-            <span class="service-card__number">01</span>
-            <h3 class="service-card__title">Cr&eacute;ation de contenu</h3>
-            <p class="service-card__text">
-              Production de contenus photo et vid&eacute;o &agrave; haute valeur narrative. Chaque image est pens&eacute;e comme un langage, chaque s&eacute;rie comme un r&eacute;cit visuel coh&eacute;rent et m&eacute;morable.
-            </p>
-          </div>
-          <div class="service-card reveal stagger" style="--i:1">
-            <span class="service-card__number">02</span>
-            <h3 class="service-card__title">Direction artistique</h3>
-            <p class="service-card__text">
-              Conception de l'univers visuel global d'une marque ou d'un projet. Nous d&eacute;finissons les codes, les tonalit&eacute;s et les atmosph&egrave;res qui rendent une identit&eacute; reconnaissable et distinctive.
-            </p>
-          </div>
-          <div class="service-card reveal stagger" style="--i:2">
-            <span class="service-card__number">03</span>
-            <h3 class="service-card__title">Personal branding</h3>
-            <p class="service-card__text">
-              Construction d'une pr&eacute;sence visuelle forte et singuli&egrave;re pour les cr&eacute;ateurs, entrepreneurs et personnalit&eacute;s. Une image qui vous ressemble, qui vous distingue et qui inspire confiance.
-            </p>
-          </div>
-          <div class="service-card reveal stagger" style="--i:3">
-            <span class="service-card__number">04</span>
-            <h3 class="service-card__title">Community management</h3>
-            <p class="service-card__text">
-              Gestion &eacute;ditoriale et visuelle de vos plateformes digitales. Nous traduisons votre identit&eacute; en un flux coh&eacute;rent, rythm&eacute; et engageant, pens&eacute; pour cr&eacute;er une communaut&eacute; fid&egrave;le.
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ── 03 — Projets ── -->
-    <section id="projets">
-      <div class="container">
-        <div class="section-header reveal">
-          <div class="section-header__left">
-            <span class="section-number">03</span>
-            <h2 class="heading-lg">Projets</h2>
-          </div>
-          <div class="section-header__right">
-            <p class="text-muted">
-              Nous collaborons avec un nombre limit&eacute; de projets chaque ann&eacute;e afin de pr&eacute;server la singularit&eacute; de chaque production.
-            </p>
-          </div>
-        </div>
-
-        <div class="projects-list">
-          <div class="project-item reveal stagger" style="--i:0">
-            <h3 class="project-item__title">L'Art de l'Essence</h3>
-            <div class="project-item__meta">
-              <span class="tag tag--yellow">Film de marque</span>
-              <span class="text-muted">Maison de Luxe &mdash; Paris</span>
-              <span class="project-item__year">2024</span>
-            </div>
-            <div class="project-item__arrow">
-              <svg viewBox="0 0 24 24"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
-            </div>
-          </div>
-          <div class="project-item reveal stagger" style="--i:1">
-            <h3 class="project-item__title">Lumi&egrave;res de Nuit</h3>
-            <div class="project-item__meta">
-              <span class="tag tag--blue">Campagne visuelle</span>
-              <span class="text-muted">H&ocirc;tel &mdash; Paris</span>
-              <span class="project-item__year">2024</span>
-            </div>
-            <div class="project-item__arrow">
-              <svg viewBox="0 0 24 24"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
-            </div>
-          </div>
-          <div class="project-item reveal stagger" style="--i:2">
-            <h3 class="project-item__title">Saisons</h3>
-            <div class="project-item__meta">
-              <span class="tag tag--green">Direction artistique</span>
-              <span class="text-muted">Restaurant &mdash; &Eacute;toil&eacute;</span>
-              <span class="project-item__year">2023</span>
-            </div>
-            <div class="project-item__arrow">
-              <svg viewBox="0 0 24 24"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
-            </div>
-          </div>
-          <div class="project-item reveal stagger" style="--i:3">
-            <h3 class="project-item__title">Feu &amp; Mati&egrave;re</h3>
-            <div class="project-item__meta">
-              <span class="tag tag--red">Direction artistique</span>
-              <span class="text-muted">Restaurant Gastronomique &mdash; Paris</span>
-              <span class="project-item__year">2023</span>
-            </div>
-            <div class="project-item__arrow">
-              <svg viewBox="0 0 24 24"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
-            </div>
-          </div>
-          <div class="project-item reveal stagger" style="--i:4">
-            <h3 class="project-item__title">Nuit Urbaine</h3>
-            <div class="project-item__meta">
-              <span class="tag tag--blue">Campagne visuelle</span>
-              <span class="text-muted">Marque de Mode &mdash; Paris</span>
-              <span class="project-item__year">2023</span>
-            </div>
-            <div class="project-item__arrow">
-              <svg viewBox="0 0 24 24"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ── 04 — Expertise ── -->
-    <section id="expertise">
-      <div class="container">
-        <div class="section-header reveal">
-          <div class="section-header__left">
-            <span class="section-number">04</span>
-            <h2 class="heading-lg">Expertise</h2>
-          </div>
-          <div class="section-header__right">
-            <p class="text-muted">Ce que nous construisons</p>
-          </div>
-        </div>
-
-        <div class="expertise-grid">
-          <div class="expertise-card reveal stagger" style="--i:0">
-            <span class="section-number">01</span>
-            <h3 class="expertise-card__title">Narration de marque</h3>
-            <p class="expertise-card__text">
-              D&eacute;veloppement d'un territoire narratif et visuel pour les marques. Nous construisons l'univers de sens qui sous-tend chaque prise de parole visuelle.
-            </p>
-            <div class="expertise-card__tags">
-              <span class="tag tag--neutral">Direction artistique</span>
-              <span class="tag tag--neutral">Storytelling</span>
-              <span class="tag tag--neutral">Concept de campagne</span>
-              <span class="tag tag--neutral">Films de marque</span>
-            </div>
-          </div>
-          <div class="expertise-card reveal stagger" style="--i:1">
-            <span class="section-number">02</span>
-            <h3 class="expertise-card__title">Film et image</h3>
-            <p class="expertise-card__text">
-              Production de films et s&eacute;ries photographiques &agrave; dimension cin&eacute;matographique. Chaque tournage est pens&eacute; comme une mise en sc&egrave;ne.
-            </p>
-            <div class="expertise-card__tags">
-              <span class="tag tag--neutral">Films &eacute;ditoriaux</span>
-              <span class="tag tag--neutral">Campagnes visuelles</span>
-              <span class="tag tag--neutral">Films de marque</span>
-            </div>
-          </div>
-          <div class="expertise-card reveal stagger" style="--i:2">
-            <span class="section-number">03</span>
-            <h3 class="expertise-card__title">Narration digitale</h3>
-            <p class="expertise-card__text">
-              Les plateformes digitales deviennent un espace narratif. Nous concevons des univers visuels coh&eacute;rents permettant &agrave; une marque d'exister dans le temps.
-            </p>
-            <div class="expertise-card__tags">
-              <span class="tag tag--neutral">Strat&eacute;gie visuelle</span>
-              <span class="tag tag--neutral">Identit&eacute; digitale</span>
-              <span class="tag tag--neutral">Contenu &eacute;ditorial</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ── 05 — Manifeste ── -->
-    <section id="manifeste" class="manifesto-section">
-      <div class="container--narrow">
-        <div class="reveal">
-          <span class="section-number">05</span>
-          <p class="heading-sm" style="margin-bottom:48px;">Noir Manor &mdash; Paris, 2024</p>
-        </div>
-
-        <div class="reveal">
-          <p class="manifesto__text">
-            Nous vivons dans un monde satur&eacute; d'images. Chaque jour, des milliers de contenus sont produits, diffus&eacute;s, oubli&eacute;s. Mais certaines images restent. Parce qu'elles portent une intention. Parce qu'elles racontent quelque chose de plus profond qu'un simple message.
-          </p>
-        </div>
-
-        <div class="reveal" style="margin-top:40px;">
-          <p class="manifesto__text">
-            Le studio est n&eacute; de cette conviction : les marques ne manquent pas d'images. Elles manquent d'histoires. &Agrave; travers le film, la photographie et la direction artistique, nous construisons des r&eacute;cits visuels capables de donner forme &agrave; ces imaginaires.
-          </p>
-        </div>
-
-        <div class="reveal" style="margin-top:40px;">
-          <p class="manifesto__text" style="font-style:italic; color:var(--text-muted);">
-            Nous ne produisons pas simplement du contenu. Nous cr&eacute;ons des univers.
-          </p>
-        </div>
-
-        <div class="manifesto__sig reveal">
-          <p class="mono">Sacha Laznowski</p>
-          <p class="text-muted" style="margin-top:4px;">R&eacute;alisatrice &amp; Directrice artistique</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- ── 06 — Sacha Laznowski ── -->
-    <section id="fondatrice">
-      <div class="container">
-        <div class="section-header reveal">
-          <div class="section-header__left">
-            <span class="section-number">06</span>
-            <h2 class="heading-lg">Sacha Laznowski</h2>
-          </div>
-          <div class="section-header__right">
-            <p class="text-muted">R&eacute;alisatrice &amp; Directrice artistique</p>
-          </div>
-        </div>
-
-        <div class="founder-grid">
-          <div class="founder__image-wrap reveal">
-            <img src="https://picsum.photos/seed/sacha-portrait/800/1067" alt="Sacha Laznowski, r&eacute;alisatrice et directrice artistique" loading="lazy">
-            <div class="founder__image-caption">Sacha Laznowski &mdash; R&eacute;alisatrice &amp; Directrice artistique</div>
-          </div>
-          <div class="founder__content reveal">
-            <p class="founder__bio">
-              Form&eacute;e &agrave; EICAR &agrave; Paris puis &agrave; l'UCLA, Los Angeles, Sacha Laznowski d&eacute;veloppe une approche de l'image profond&eacute;ment influenc&eacute;e par le cin&eacute;ma. Son travail explore les liens entre narration, atmosph&egrave;re et identit&eacute; visuelle.
-            </p>
-            <p class="text-body" style="margin-bottom:48px;">
-              &Agrave; travers le studio, elle collabore avec des marques et des institutions souhaitant d&eacute;velopper une pr&eacute;sence visuelle forte et singuli&egrave;re.
-            </p>
-            <div class="founder__education">
-              <p class="heading-sm" style="margin-bottom:8px;">Formation</p>
-              <div class="founder__edu-item">
-                <span style="font-size:0.95rem; color:var(--text-heading);">EICAR</span>
-                <span class="text-muted">Paris, France</span>
-              </div>
-              <div class="founder__edu-item">
-                <span style="font-size:0.95rem; color:var(--text-heading);">UCLA</span>
-                <span class="text-muted">Los Angeles, USA</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ── 07 — Contact ── -->
-    <section id="contact" class="contact-section">
-      <div class="container">
-        <div class="reveal">
-          <span class="section-number" style="color:rgba(255,255,255,0.3);">07</span>
-          <p class="mono" style="color:rgba(255,255,255,0.4); margin-bottom:16px;">Pour toute collaboration</p>
-          <h2 class="heading-lg">Travaillons ensemble</h2>
-        </div>
-
-        <div class="contact-grid">
-          <div class="reveal">
-            <a href="mailto:contact@studiolaznowski.com" class="contact__email-link">
-              contact@studiolaznowski.com
-            </a>
-            <p class="text-muted" style="margin-top:32px; color:rgba(255,255,255,0.45); max-width:400px;">
-              Nous collaborons avec un nombre limit&eacute; de projets chaque ann&eacute;e afin de pr&eacute;server la singularit&eacute; et la profondeur de chaque production.
-            </p>
-          </div>
-          <div class="contact__details reveal">
-            <div class="contact__detail-item">
-              <span class="contact__detail-label">Localisation</span>
-              <span class="contact__detail-value">Paris, France</span>
-            </div>
-            <div class="contact__detail-item">
-              <span class="contact__detail-label">Port&eacute;e</span>
-              <span class="contact__detail-value">Collaborations internationales</span>
-            </div>
-            <div class="contact__detail-item">
-              <span class="contact__detail-label">Email</span>
-              <span class="contact__detail-value">contact@studiolaznowski.com</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
+    <a href="#contact" class="btn-lime nav-cta">
+      Audit gratuit&nbsp;&nbsp;<svg class="arr"><use href="#arr"/></svg>
+    </a>
   </div>
+</nav>
 
-  <!-- ── Footer ── -->
-  <footer>
-    <div class="footer__inner">
-      <span class="footer__copy">&copy; 2024 Noir Manor &mdash; Paris. Tous droits r&eacute;serv&eacute;s.</span>
-      <ul class="footer__links">
-        <li><a href="#">Accueil</a></li>
-        <li><a href="#manifeste">Manifeste</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
+<!-- ============== HERO ============== -->
+<section class="hero">
+  <div class="wrap">
+    <div class="hero-meta">
+      <span class="mono dot">Audit gratuit — sans engagement</span>
+      <span class="mono">[01/08]</span>
     </div>
-  </footer>
 
-  <!-- ── Scripts ── -->
-  <script>
-    // Scroll reveal via IntersectionObserver
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-          observer.unobserve(entry.target);
-        }
+    <div class="reveal">
+      <div class="hero-eyebrow">KOLYA — agence IA</div>
+      <h1 class="h-display hero-title">
+        <span style="display:block">Des solutions</span>
+        <span class="hero-row">
+          <em>simples.</em>
+          <span class="hero-pill">
+            <span class="photo r-pill ratio-auto t-lime"></span>
+            <span class="wing-wrap">
+              <svg class="wing" viewBox="0 0 100 60">
+                <g>
+                  <path d="M22 30 Q 38 18, 56 24 L 70 22 L 78 30 L 70 36 Q 56 36, 48 40 Q 36 44, 22 30 Z" fill="var(--accent-deep)" opacity="0.9"/>
+                  <circle cx="73" cy="27" r="1.6" fill="white"/>
+                </g>
+              </svg>
+            </span>
+          </span>
+        </span>
+        <span style="display:block">Des résultats <em>concrets.</em></span>
+      </h1>
+    </div>
+
+    <div class="hero-bot">
+      <div class="reveal" data-delay="120">
+        <p class="lede">
+          Nous aidons les entreprises à gagner du temps, automatiser
+          leurs opérations et augmenter leur chiffre d'affaires
+          grâce à des outils intelligents.
+        </p>
+        <div class="ctas">
+          <a href="#contact" class="btn-lime">Audit gratuit&nbsp;&nbsp;<svg class="arr"><use href="#arr"/></svg></a>
+          <a href="#services" class="btn-ghost">Découvrir nos solutions</a>
+        </div>
+      </div>
+
+      <div class="reveal" data-delay="250">
+        <div class="panel">
+          <div class="panel-hd">
+            <span class="left mono">kolya / automation · live</span>
+            <span class="mono" style="color:var(--muted)">v 1.0</span>
+          </div>
+          <div class="panel-body">
+            <div class="mono comment">// relance clients dormants</div>
+            <div class="code">
+              <div><span class="key">segment&nbsp;</span>142 clients · 60+ jours</div>
+              <div><span class="key">canal&nbsp;&nbsp;&nbsp;</span>SMS + email</div>
+              <div><span class="key">retour&nbsp;&nbsp;</span>28% en 7 jours</div>
+            </div>
+            <div class="chips">
+              <div class="chip"><span class="lab">temps gagné</span>&nbsp;&nbsp;<b>7h/sem</b></div>
+              <div class="chip"><span class="lab">CA additionnel</span>&nbsp;&nbsp;<b>+4 800€/mois</b></div>
+              <div class="chip"><span class="lab">ROI</span>&nbsp;&nbsp;<b>6.4×</b></div>
+            </div>
+            <div class="spark-row">
+              <div class="legend">
+                <span>chiffre d'affaires · 7j</span>
+                <b>+18.4%</b>
+              </div>
+              <svg viewBox="0 0 320 56" width="100%" height="56" preserveAspectRatio="none">
+                <defs>
+                  <linearGradient id="sp-min" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="0" stop-color="var(--accent)" stop-opacity="0.55"/>
+                    <stop offset="1" stop-color="var(--accent)" stop-opacity="0"/>
+                  </linearGradient>
+                </defs>
+                <path d="M 0 56 L 0 43.08 L 24.62 36.62 L 49.23 40.92 L 73.85 32.31 L 98.46 35.54 L 123.08 25.85 L 147.69 28.00 L 172.31 19.38 L 196.92 23.69 L 221.54 15.08 L 246.15 10.77 L 270.77 12.92 L 295.38 4.31 L 320 0 L 320 56 Z" fill="url(#sp-min)"/>
+                <path d="M 0 43.08 L 24.62 36.62 L 49.23 40.92 L 73.85 32.31 L 98.46 35.54 L 123.08 25.85 L 147.69 28.00 L 172.31 19.38 L 196.92 23.69 L 221.54 15.08 L 246.15 10.77 L 270.77 12.92 L 295.38 4.31 L 320 0" stroke="var(--accent-deep)" stroke-width="1.5" fill="none"/>
+                <circle cx="320" cy="0" r="3" fill="var(--accent-deep)"/>
+              </svg>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============== PROBLEME ============== -->
+<section id="probleme" class="probleme">
+  <div class="wrap">
+    <div class="reveal">
+      <div class="sec-head">
+        <div>
+          <div class="mono sec-label">[02] — Problème</div>
+        </div>
+        <div>
+          <h2 class="h-display">
+            Les entreprises perdent<br/>
+            <em>du temps</em> et des opportunités.
+          </h2>
+        </div>
+      </div>
+    </div>
+
+    <div class="reveal" data-delay="120">
+      <div class="pain-list">
+        <div class="pain">
+          <div class="num mono">01</div>
+          <div class="text">Tâches répétitives qui mangent les journées
+            <small>Saisies, relances, exports, copier-coller — un temps qui ne sert ni vos clients, ni votre marge.</small>
+          </div>
+          <div class="arrcircle"><svg class="arr"><use href="#arr"/></svg></div>
+        </div>
+        <div class="pain">
+          <div class="num mono">02</div>
+          <div class="text">Manque d'organisation et d'information
+            <small>Données éparpillées, process oraux, dépendance aux personnes-clés.</small>
+          </div>
+          <div class="arrcircle"><svg class="arr"><use href="#arr"/></svg></div>
+        </div>
+        <div class="pain">
+          <div class="num mono">03</div>
+          <div class="text">Perte de clients par défaut de suivi
+            <small>Pas de relance, pas de rappel, pas de réponse — et le client passe ailleurs.</small>
+          </div>
+          <div class="arrcircle"><svg class="arr"><use href="#arr"/></svg></div>
+        </div>
+        <div class="pain">
+          <div class="num mono">04</div>
+          <div class="text">Outils inefficaces, mal connectés
+            <small>Trop de logiciels, peu de valeur. Personne ne sait quoi utiliser pour quoi.</small>
+          </div>
+          <div class="arrcircle"><svg class="arr"><use href="#arr"/></svg></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============== SOLUTION ============== -->
+<section class="solution">
+  <div class="wrap">
+    <div class="reveal">
+      <div class="inner">
+        <div class="accent-mark">
+          <svg width="24" height="24" viewBox="0 0 16 16" style="color: var(--accent-deep)">
+            <use href="#check"/>
+          </svg>
+        </div>
+        <div class="mono label">[03] — Solution</div>
+        <h2 class="h-display">
+          Une approche simple<br/>
+          <em>et efficace.</em>
+        </h2>
+        <p>
+          Chez KOLYA, nous créons des solutions IA concrètes,
+          adaptées à votre métier — pas une démo technique,
+          un outil qui sert tous les jours.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============== SERVICES ============== -->
+<section id="services" class="services">
+  <div class="wrap">
+    <div class="reveal">
+      <div class="sec-head">
+        <div>
+          <div class="mono sec-label">[04] — Services</div>
+        </div>
+        <div>
+          <h2 class="h-display">
+            Quatre leviers,<br/>
+            <em>une seule promesse&nbsp;:</em><br/>
+            produire des résultats.
+          </h2>
+        </div>
+      </div>
+    </div>
+
+    <div class="srv-grid">
+      <div class="reveal" data-delay="0">
+        <article class="srv-card">
+          <div class="top">
+            <span class="num mono">01</span>
+            <span class="arrcircle"><svg class="arr"><use href="#arr"/></svg></span>
+          </div>
+          <div>
+            <h3>Automatisation intelligente</h3>
+            <p>On identifie les tâches qui se répètent et on les fait tourner toutes seules — sans casser votre façon de travailler.</p>
+            <div class="tags">
+              <span class="tag">Workflows</span>
+              <span class="tag">Intégrations</span>
+              <span class="tag">Sans code</span>
+            </div>
+          </div>
+        </article>
+      </div>
+      <div class="reveal" data-delay="80">
+        <article class="srv-card">
+          <div class="top">
+            <span class="num mono">02</span>
+            <span class="arrcircle"><svg class="arr"><use href="#arr"/></svg></span>
+          </div>
+          <div>
+            <h3>Optimisation des opérations</h3>
+            <p>On fluidifie vos process : commandes, planning, devis, suivi. Moins d'erreurs, moins de friction, plus de marge.</p>
+            <div class="tags">
+              <span class="tag">Process</span>
+              <span class="tag">Tableaux de bord</span>
+              <span class="tag">Reporting</span>
+            </div>
+          </div>
+        </article>
+      </div>
+      <div class="reveal" data-delay="160">
+        <article class="srv-card">
+          <div class="top">
+            <span class="num mono">03</span>
+            <span class="arrcircle"><svg class="arr"><use href="#arr"/></svg></span>
+          </div>
+          <div>
+            <h3>Relation client automatisée</h3>
+            <p>Réponses instantanées, relances ciblées, suivi personnalisé — un service client qui ne dort jamais et ne lâche personne.</p>
+            <div class="tags">
+              <span class="tag">Chatbot</span>
+              <span class="tag">SMS / email</span>
+              <span class="tag">CRM</span>
+            </div>
+          </div>
+        </article>
+      </div>
+      <div class="reveal" data-delay="240">
+        <article class="srv-card">
+          <div class="top">
+            <span class="num mono">04</span>
+            <span class="arrcircle"><svg class="arr"><use href="#arr"/></svg></span>
+          </div>
+          <div>
+            <h3>Croissance &amp; performance</h3>
+            <p>On branche l'IA sur vos leviers commerciaux : acquisition, conversion, fidélisation — pour ouvrir des points de marge.</p>
+            <div class="tags">
+              <span class="tag">Acquisition</span>
+              <span class="tag">Conversion</span>
+              <span class="tag">Fidélisation</span>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============== CAS D'USAGE ============== -->
+<section id="cas" class="cases">
+  <div class="wrap">
+    <div class="reveal">
+      <div class="sec-head">
+        <div>
+          <div class="mono sec-label">[05] — Cas d'usage</div>
+        </div>
+        <div>
+          <h2 class="h-display">
+            Concret,<br/>
+            <em>par métier.</em>
+          </h2>
+        </div>
+      </div>
+    </div>
+
+    <div class="case-grid">
+      <div class="reveal" data-delay="0">
+        <article class="case-card">
+          <div class="photo t-sage"></div>
+          <div class="body">
+            <div class="sector mono">Marchés</div>
+            <h3>Gestion de file d'attente</h3>
+            <p>Annonce des passages, prise de commande à l'avance, équilibrage du flux. Moins d'attente, plus de ventes.</p>
+          </div>
+        </article>
+      </div>
+      <div class="reveal" data-delay="80">
+        <article class="case-card">
+          <div class="photo t-lime"></div>
+          <div class="body">
+            <div class="sector mono">Salles de sport</div>
+            <h3>Relance clients inactifs</h3>
+            <p>Détection des abonnés qui décrochent et message personnalisé au bon moment. Le churn baisse, la rétention monte.</p>
+          </div>
+        </article>
+      </div>
+      <div class="reveal" data-delay="160">
+        <article class="case-card">
+          <div class="photo t-sand"></div>
+          <div class="body">
+            <div class="sector mono">Artisans</div>
+            <h3>Devis automatique</h3>
+            <p>Le client décrit son projet, le devis se génère en minutes — adapté à votre catalogue, votre marge, votre style.</p>
+          </div>
+        </article>
+      </div>
+      <div class="reveal" data-delay="240">
+        <article class="case-card">
+          <div class="photo t-cream"></div>
+          <div class="body">
+            <div class="sector mono">Restaurants</div>
+            <h3>Gestion réservations</h3>
+            <p>Confirmation, rappel, no-show géré, table optimisée — un assistant qui parle à vos clients et remplit la salle.</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============== METHODE ============== -->
+<section id="methode" class="method">
+  <div class="wrap">
+    <div class="reveal">
+      <div class="sec-head">
+        <div>
+          <div class="mono sec-label">[06] — Méthode</div>
+        </div>
+        <div>
+          <h2 class="h-display">
+            Quatre étapes,<br/>
+            <em>aucune zone d'ombre.</em>
+          </h2>
+        </div>
+      </div>
+    </div>
+
+    <div class="meth-grid">
+      <div class="reveal" data-delay="0">
+        <div class="meth-card first">
+          <div>
+            <div class="meth-num"><span class="mono">01</span></div>
+            <h3>Analyse</h3>
+            <p>On regarde comment vous travaillez aujourd'hui. On repère où ça coince et où on peut gagner.</p>
+          </div>
+          <div class="duration mono">Durée — 1 sem.</div>
+        </div>
+      </div>
+      <div class="reveal" data-delay="80">
+        <div class="meth-card">
+          <div>
+            <div class="meth-num"><span class="mono">02</span></div>
+            <h3>Conception</h3>
+            <p>On dessine la solution la plus simple qui résout le problème — ni plus, ni moins.</p>
+          </div>
+          <div class="duration mono">Durée — 2 sem.</div>
+        </div>
+      </div>
+      <div class="reveal" data-delay="160">
+        <div class="meth-card">
+          <div>
+            <div class="meth-num"><span class="mono">03</span></div>
+            <h3>Implémentation</h3>
+            <p>On la met en place chez vous, avec vos outils. Vos équipes sont formées, l'outil tourne.</p>
+          </div>
+          <div class="duration mono">Durée — 3 sem.</div>
+        </div>
+      </div>
+      <div class="reveal" data-delay="240">
+        <div class="meth-card">
+          <div>
+            <div class="meth-num"><span class="mono">04</span></div>
+            <h3>Optimisation</h3>
+            <p>On mesure, on ajuste, on fait évoluer. La solution s'améliore en continu.</p>
+          </div>
+          <div class="duration mono">Durée — continu</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============== RESULTATS ============== -->
+<section id="resultats" class="results">
+  <div class="wrap">
+    <div class="reveal">
+      <div class="results-head">
+        <div>
+          <div class="mono label">[07] — Résultats</div>
+          <h2 class="h-display">
+            Ce que vous<br/>
+            <em>en retirez.</em>
+          </h2>
+        </div>
+        <p>
+          Pas un livrable de plus dans un dossier. Un changement
+          mesurable dans votre quotidien — et dans vos chiffres.
+        </p>
+      </div>
+    </div>
+
+    <div class="res-grid">
+      <div class="reveal res-cell" data-delay="0">
+        <div class="icon"><svg width="16" height="16"><use href="#check"/></svg></div>
+        <div class="h">+ de temps</div>
+        <p>Les heures perdues sur les tâches sans valeur reviennent à vos équipes — et à vos clients.</p>
+      </div>
+      <div class="reveal res-cell" data-delay="80">
+        <div class="icon"><svg width="16" height="16"><use href="#check"/></svg></div>
+        <div class="h">+ de clients</div>
+        <p>Plus aucun lead oublié, plus aucune relance manquée. Le suivi tourne, les conversions montent.</p>
+      </div>
+      <div class="reveal res-cell" data-delay="160">
+        <div class="icon"><svg width="16" height="16"><use href="#check"/></svg></div>
+        <div class="h">+ de CA</div>
+        <p>De nouveaux points de marge sur l'existant — et la capacité de vendre plus, sans embaucher.</p>
+      </div>
+      <div class="reveal res-cell" data-delay="240">
+        <div class="icon"><svg width="16" height="16"><use href="#check"/></svg></div>
+        <div class="h">− de stress</div>
+        <p>Une organisation qui tient toute seule. Moins d'urgences, plus de visibilité, plus de sérénité.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============== CTA ============== -->
+<section id="contact" class="cta">
+  <div class="wrap">
+    <div class="cta-card">
+      <div class="deco"></div>
+      <div class="inner">
+        <div class="mono label">[08] — Démarrer</div>
+        <h2 class="h-display">
+          Réservez votre<br/>
+          <em>audit gratuit.</em>
+        </h2>
+        <div class="cta-row">
+          <p>
+            45 minutes pour comprendre votre activité, repérer
+            les gains rapides et vous dire honnêtement si l'IA
+            peut — ou non — vous faire avancer.
+          </p>
+          <div class="ctas">
+            <a href="mailto:bonjour@kolya.ai" class="btn-dark">Prendre rendez-vous&nbsp;&nbsp;<svg class="arr"><use href="#arr"/></svg></a>
+            <a href="mailto:bonjour@kolya.ai" class="btn-ghost">bonjour@kolya.ai</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============== FOOTER ============== -->
+<footer class="footer">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <div class="foot-brand">
+          <img src="assets/kolya-mark.png" width="28" height="28" alt="Kolya" />
+          <span class="name">Kolya</span>
+        </div>
+        <p class="foot-blurb">
+          Agence d'implémentation IA. Des solutions simples,
+          des résultats concrets.
+        </p>
+      </div>
+      <div class="foot-col">
+        <h6>Agence</h6>
+        <ul>
+          <li><a href="#probleme">Problème</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#methode">Méthode</a></li>
+          <li><a href="#resultats">Résultats</a></li>
+        </ul>
+      </div>
+      <div class="foot-col">
+        <h6>Cas d'usage</h6>
+        <ul>
+          <li><a href="#cas">Marchés</a></li>
+          <li><a href="#cas">Salles de sport</a></li>
+          <li><a href="#cas">Artisans</a></li>
+          <li><a href="#cas">Restaurants</a></li>
+        </ul>
+      </div>
+      <div class="foot-col">
+        <h6>Contact</h6>
+        <ul>
+          <li><a href="mailto:bonjour@kolya.ai">bonjour@kolya.ai</a></li>
+          <li><a href="#contact">Audit gratuit</a></li>
+          <li><a href="#">LinkedIn ↗</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="foot-word serif">Kolya<span class="dot">.</span></div>
+
+    <div class="foot-meta">
+      <div>© 2026 Kolya — Des solutions simples. Des résultats concrets.</div>
+      <nav>
+        <a href="#">Mentions légales</a>
+        <a href="#">Confidentialité</a>
+        <a href="#">CGV</a>
+      </nav>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Sticky nav scrolled state
+  (function () {
+    const nav = document.getElementById('nav');
+    const onScroll = () => nav.classList.toggle('scrolled', window.scrollY > 8);
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+  })();
+
+  // Reveal on scroll
+  (function () {
+    const els = document.querySelectorAll('.reveal');
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach((e) => {
+        if (!e.isIntersecting) return;
+        const d = parseInt(e.target.dataset.delay || '0', 10);
+        setTimeout(() => e.target.classList.add('in'), d);
+        io.unobserve(e.target);
       });
-    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
-
-    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-
-    // Mobile menu toggle
-    const menuBtn = document.getElementById('menuBtn');
-    const navLinks = document.getElementById('navLinks');
-    menuBtn.addEventListener('click', () => {
-      navLinks.classList.toggle('open');
-      const spans = menuBtn.querySelectorAll('span');
-      if (navLinks.classList.contains('open')) {
-        spans[0].style.transform = 'rotate(45deg) translate(2px, 2px)';
-        spans[1].style.transform = 'rotate(-45deg) translate(2px, -2px)';
-      } else {
-        spans[0].style.transform = '';
-        spans[1].style.transform = '';
-      }
-    });
-
-    // Close menu on link click
-    navLinks.querySelectorAll('a').forEach(link => {
-      link.addEventListener('click', () => {
-        navLinks.classList.remove('open');
-        const spans = menuBtn.querySelectorAll('span');
-        spans[0].style.transform = '';
-        spans[1].style.transform = '';
-      });
-    });
-  </script>
+    }, { threshold: 0.1 });
+    els.forEach((el) => io.observe(el));
+  })();
+</script>
 
 </body>
 </html>
