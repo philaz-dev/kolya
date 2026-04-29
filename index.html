@@ -186,40 +186,25 @@
   .hero-bot .ctas { display: flex; gap: 12px; margin-top: 32px; flex-wrap: wrap; }
   @media (max-width: 900px) { .hero-bot { grid-template-columns: 1fr; } }
 
-  /* hero side panel */
-  .panel {
+  /* hero side illustration */
+  .hero-illu {
     position: relative; border-radius: 24px; overflow: hidden;
-    border: 1px solid var(--line); background: white;
-    box-shadow: 0 30px 60px -30px rgba(14,14,12,0.18), 0 4px 16px -8px rgba(14,14,12,0.08);
+    background: #0F2A2D;
+    box-shadow: 0 30px 60px -30px rgba(14,14,12,0.22), 0 4px 16px -8px rgba(14,14,12,0.08);
   }
-  .panel-hd {
-    display: flex; align-items: center; justify-content: space-between;
-    padding: 14px 18px; border-bottom: 1px solid var(--line);
+  .hero-illu img { width: 100%; height: auto; display: block; }
+  .hero-illu .badge {
+    position: absolute; top: 16px; left: 16px;
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 8px 14px; border-radius: 999px;
+    background: rgba(255,255,255,0.92); backdrop-filter: blur(8px);
+    color: var(--ink); font-family: 'JetBrains Mono', monospace;
+    font-size: 11px; letter-spacing: 0.04em; text-transform: uppercase;
   }
-  .panel-hd .left { display: flex; align-items: center; gap: 8px; color: var(--muted); }
-  .panel-hd .left::before {
-    content: ""; width: 8px; height: 8px; border-radius: 50%; background: var(--accent);
+  .hero-illu .badge::before {
+    content: ""; width: 6px; height: 6px; border-radius: 50%;
+    background: var(--accent); animation: pulse-dot 1.6s infinite;
   }
-  .panel-body { padding: 24px; }
-  .panel-body .comment { color: var(--muted); margin-bottom: 14px; }
-  .panel-body .code {
-    font-family: 'JetBrains Mono', monospace; font-size: 13px;
-    line-height: 1.8; color: var(--ink-2);
-  }
-  .panel-body .code .key { color: var(--muted); }
-  .panel-body .chips { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 18px; }
-  .panel-body .chip {
-    padding: 6px 12px; border-radius: 999px; background: var(--soft);
-    font-size: 11px; color: var(--ink-2);
-  }
-  .panel-body .chip .lab { color: var(--muted); }
-  .panel-body .chip b { font-weight: 600; }
-  .panel-body .spark-row { margin-top: 18px; padding-top: 16px; border-top: 1px solid var(--line); }
-  .panel-body .spark-row .legend {
-    display: flex; justify-content: space-between;
-    font-size: 11px; color: var(--muted); margin-bottom: 8px;
-  }
-  .panel-body .spark-row .legend b { color: var(--accent-deep); font-weight: 600; }
 
   /* === SECTION HEADER PRIMITIVE ======================================= */
   .sec-label { color: var(--muted); margin-bottom: 24px; }
@@ -284,39 +269,51 @@
   .srv-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
   .srv-card {
     background: white; color: var(--ink);
-    border-radius: 28px; padding: 36px 32px;
-    transition: background 0.4s cubic-bezier(.2,.7,.2,1), color 0.4s cubic-bezier(.2,.7,.2,1);
-    cursor: pointer; position: relative; overflow: hidden;
-    min-height: 320px;
-    display: flex; flex-direction: column; justify-content: space-between;
+    border-radius: 28px; overflow: hidden;
     border: 1px solid var(--line);
+    display: flex; flex-direction: column;
+    transition: transform 0.3s cubic-bezier(.2,.7,.2,1), box-shadow 0.3s;
+    cursor: pointer;
   }
-  .srv-card .top { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 28px; }
-  .srv-card .top .num { color: var(--muted); transition: color 0.3s; }
-  .srv-card .top .arrcircle {
+  .srv-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 24px 48px -24px rgba(14,14,12,0.22), 0 4px 12px -6px rgba(14,14,12,0.08);
+  }
+  .srv-illu {
+    aspect-ratio: 1/1; overflow: hidden; background: #0F2A2D;
+    position: relative;
+  }
+  .srv-illu img {
+    width: 100%; height: 100%; object-fit: cover; display: block;
+    transition: transform 0.6s cubic-bezier(.2,.7,.2,1);
+  }
+  .srv-card:hover .srv-illu img { transform: scale(1.03); }
+  .srv-body {
+    padding: 32px;
+    display: flex; flex-direction: column; gap: 14px;
+    flex: 1;
+  }
+  .srv-body .top {
+    display: flex; justify-content: space-between; align-items: flex-start;
+  }
+  .srv-body .top .num { color: var(--muted); }
+  .srv-body .top .arrcircle {
     width: 44px; height: 44px; border-radius: 50%;
     background: var(--soft); color: var(--ink);
     display: flex; align-items: center; justify-content: center;
     transition: transform 0.3s, background 0.3s;
   }
-  .srv-card h3 {
+  .srv-card:hover .arrcircle { background: var(--accent); transform: rotate(-45deg); }
+  .srv-body h3 {
     font-family: 'Fraunces', serif; font-weight: 400; letter-spacing: -0.025em;
-    font-size: clamp(26px, 3vw, 36px); line-height: 1.05; margin-bottom: 14px;
+    font-size: clamp(26px, 3vw, 34px); line-height: 1.05;
   }
-  .srv-card p { font-size: 15px; color: var(--ink-2); margin-bottom: 20px; line-height: 1.55; transition: color 0.3s; }
-  .srv-card .tags { display: flex; gap: 8px; flex-wrap: wrap; }
-  .srv-card .tag {
+  .srv-body p { font-size: 15px; color: var(--ink-2); line-height: 1.55; }
+  .srv-body .tags { display: flex; gap: 8px; flex-wrap: wrap; margin-top: auto; padding-top: 8px; }
+  .srv-body .tag {
     font-size: 11px; padding: 5px 11px; border-radius: 999px;
     background: var(--soft); color: var(--ink-2); border: 1px solid var(--line);
     font-family: 'JetBrains Mono', monospace; letter-spacing: 0.04em; text-transform: uppercase;
-    transition: background 0.3s, color 0.3s, border-color 0.3s;
-  }
-  .srv-card:hover { background: var(--ink); color: white; border-color: var(--ink); }
-  .srv-card:hover .top .num { color: var(--accent); }
-  .srv-card:hover .top .arrcircle { background: var(--accent); transform: rotate(-45deg); }
-  .srv-card:hover p { color: rgba(255,255,255,0.7); }
-  .srv-card:hover .tag {
-    background: rgba(255,255,255,0.1); color: white; border-color: rgba(255,255,255,0.15);
   }
   @media (max-width: 900px) { .srv-grid { grid-template-columns: 1fr; } }
 
@@ -537,41 +534,9 @@
       </div>
 
       <div class="reveal" data-delay="250">
-        <div class="panel">
-          <div class="panel-hd">
-            <span class="left mono">kolya / automation · live</span>
-            <span class="mono" style="color:var(--muted)">v 1.0</span>
-          </div>
-          <div class="panel-body">
-            <div class="mono comment">// relance clients dormants</div>
-            <div class="code">
-              <div><span class="key">segment&nbsp;</span>142 clients · 60+ jours</div>
-              <div><span class="key">canal&nbsp;&nbsp;&nbsp;</span>SMS + email</div>
-              <div><span class="key">retour&nbsp;&nbsp;</span>28% en 7 jours</div>
-            </div>
-            <div class="chips">
-              <div class="chip"><span class="lab">temps gagné</span>&nbsp;&nbsp;<b>7h/sem</b></div>
-              <div class="chip"><span class="lab">CA additionnel</span>&nbsp;&nbsp;<b>+4 800€/mois</b></div>
-              <div class="chip"><span class="lab">ROI</span>&nbsp;&nbsp;<b>6.4×</b></div>
-            </div>
-            <div class="spark-row">
-              <div class="legend">
-                <span>chiffre d'affaires · 7j</span>
-                <b>+18.4%</b>
-              </div>
-              <svg viewBox="0 0 320 56" width="100%" height="56" preserveAspectRatio="none">
-                <defs>
-                  <linearGradient id="sp-min" x1="0" y1="0" x2="0" y2="1">
-                    <stop offset="0" stop-color="var(--accent)" stop-opacity="0.55"/>
-                    <stop offset="1" stop-color="var(--accent)" stop-opacity="0"/>
-                  </linearGradient>
-                </defs>
-                <path d="M 0 56 L 0 43.08 L 24.62 36.62 L 49.23 40.92 L 73.85 32.31 L 98.46 35.54 L 123.08 25.85 L 147.69 28.00 L 172.31 19.38 L 196.92 23.69 L 221.54 15.08 L 246.15 10.77 L 270.77 12.92 L 295.38 4.31 L 320 0 L 320 56 Z" fill="url(#sp-min)"/>
-                <path d="M 0 43.08 L 24.62 36.62 L 49.23 40.92 L 73.85 32.31 L 98.46 35.54 L 123.08 25.85 L 147.69 28.00 L 172.31 19.38 L 196.92 23.69 L 221.54 15.08 L 246.15 10.77 L 270.77 12.92 L 295.38 4.31 L 320 0" stroke="var(--accent-deep)" stroke-width="1.5" fill="none"/>
-                <circle cx="320" cy="0" r="3" fill="var(--accent-deep)"/>
-              </svg>
-            </div>
-          </div>
+        <div class="hero-illu">
+          <span class="badge">Live · IA en production</span>
+          <img src="assets/illu-hero.png" alt="L'IA au service de vos performances" />
         </div>
       </div>
     </div>
@@ -676,11 +641,14 @@
     <div class="srv-grid">
       <div class="reveal" data-delay="0">
         <article class="srv-card">
-          <div class="top">
-            <span class="num mono">01</span>
-            <span class="arrcircle"><svg class="arr"><use href="#arr"/></svg></span>
+          <div class="srv-illu">
+            <img src="assets/illu-developpement.png" loading="lazy" decoding="async" alt="Développement IA sur mesure" />
           </div>
-          <div>
+          <div class="srv-body">
+            <div class="top">
+              <span class="num mono">01</span>
+              <span class="arrcircle"><svg class="arr"><use href="#arr"/></svg></span>
+            </div>
             <h3>Automatisation intelligente</h3>
             <p>On identifie les tâches qui se répètent et on les fait tourner toutes seules — sans casser votre façon de travailler.</p>
             <div class="tags">
@@ -693,11 +661,14 @@
       </div>
       <div class="reveal" data-delay="80">
         <article class="srv-card">
-          <div class="top">
-            <span class="num mono">02</span>
-            <span class="arrcircle"><svg class="arr"><use href="#arr"/></svg></span>
+          <div class="srv-illu">
+            <img src="assets/illu-integration.png" loading="lazy" decoding="async" alt="Intégration et déploiement IA" />
           </div>
-          <div>
+          <div class="srv-body">
+            <div class="top">
+              <span class="num mono">02</span>
+              <span class="arrcircle"><svg class="arr"><use href="#arr"/></svg></span>
+            </div>
             <h3>Optimisation des opérations</h3>
             <p>On fluidifie vos process : commandes, planning, devis, suivi. Moins d'erreurs, moins de friction, plus de marge.</p>
             <div class="tags">
@@ -710,11 +681,14 @@
       </div>
       <div class="reveal" data-delay="160">
         <article class="srv-card">
-          <div class="top">
-            <span class="num mono">03</span>
-            <span class="arrcircle"><svg class="arr"><use href="#arr"/></svg></span>
+          <div class="srv-illu">
+            <img src="assets/illu-formation.png" loading="lazy" decoding="async" alt="Formation et accompagnement IA" />
           </div>
-          <div>
+          <div class="srv-body">
+            <div class="top">
+              <span class="num mono">03</span>
+              <span class="arrcircle"><svg class="arr"><use href="#arr"/></svg></span>
+            </div>
             <h3>Relation client automatisée</h3>
             <p>Réponses instantanées, relances ciblées, suivi personnalisé — un service client qui ne dort jamais et ne lâche personne.</p>
             <div class="tags">
@@ -727,11 +701,14 @@
       </div>
       <div class="reveal" data-delay="240">
         <article class="srv-card">
-          <div class="top">
-            <span class="num mono">04</span>
-            <span class="arrcircle"><svg class="arr"><use href="#arr"/></svg></span>
+          <div class="srv-illu">
+            <img src="assets/illu-strategie.png" loading="lazy" decoding="async" alt="Stratégie IA pour la croissance" />
           </div>
-          <div>
+          <div class="srv-body">
+            <div class="top">
+              <span class="num mono">04</span>
+              <span class="arrcircle"><svg class="arr"><use href="#arr"/></svg></span>
+            </div>
             <h3>Croissance &amp; performance</h3>
             <p>On branche l'IA sur vos leviers commerciaux : acquisition, conversion, fidélisation — pour ouvrir des points de marge.</p>
             <div class="tags">
