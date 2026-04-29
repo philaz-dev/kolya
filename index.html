@@ -136,9 +136,39 @@
 
   /* === HERO =========================================================== */
   .hero {
+    position: relative;
     padding: 32px 0 96px;
     min-height: calc(100vh - 76px);
     display: flex; flex-direction: column; justify-content: center;
+    overflow: hidden;
+  }
+  .hero-bg-img {
+    position: absolute; inset: 0; z-index: 0;
+    width: 100%; height: 100%;
+    object-fit: cover; object-position: center right;
+    display: block;
+  }
+  .hero-overlay {
+    position: absolute; inset: 0; z-index: 1;
+    background:
+      linear-gradient(90deg,
+        rgba(255,255,255,0.96) 0%,
+        rgba(255,255,255,0.82) 32%,
+        rgba(255,255,255,0.4) 60%,
+        rgba(255,255,255,0.05) 100%),
+      linear-gradient(180deg, rgba(255,255,255,0.18) 0%, transparent 28%, rgba(255,255,255,0.5) 100%);
+  }
+  .hero > .wrap { position: relative; z-index: 2; }
+  @media (max-width: 900px) {
+    .hero-bg-img { object-position: center; }
+    .hero-overlay {
+      background:
+        linear-gradient(180deg,
+          rgba(255,255,255,0.55) 0%,
+          rgba(255,255,255,0.88) 45%,
+          rgba(255,255,255,0.98) 80%,
+          white 100%);
+    }
   }
   .hero-meta {
     display: flex; justify-content: space-between; align-items: center;
@@ -178,13 +208,9 @@
     font-style: italic; font-weight: 300; color: var(--ink);
     white-space: nowrap; font-variation-settings: "opsz" 144;
   }
-  .hero-bot {
-    display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 64px;
-    align-items: end; margin-top: 56px;
-  }
+  .hero-bot { margin-top: 56px; max-width: 640px; }
   .hero-bot p.lede { font-size: 19px; line-height: 1.5; color: var(--ink-2); max-width: 520px; }
   .hero-bot .ctas { display: flex; gap: 12px; margin-top: 32px; flex-wrap: wrap; }
-  @media (max-width: 900px) { .hero-bot { grid-template-columns: 1fr; } }
 
   /* hero side illustration */
   .hero-illu {
@@ -330,7 +356,12 @@
     transform: translateY(-4px);
     box-shadow: 0 20px 40px -20px rgba(14,14,12,0.18), 0 4px 12px -6px rgba(14,14,12,0.08);
   }
-  .case-card .photo { aspect-ratio: 4/3; border-radius: 0; }
+  .case-card .case-img {
+    width: 100%; aspect-ratio: 1/1; display: block;
+    object-fit: cover; background: var(--soft);
+    transition: transform 0.6s cubic-bezier(.2,.7,.2,1);
+  }
+  .case-card:hover .case-img { transform: scale(1.03); }
   .case-card .body { padding: 24px 24px 28px; }
   .case-card .sector { color: var(--muted); margin-bottom: 8px; }
   .case-card h3 {
@@ -492,6 +523,8 @@
 
 <!-- ============== HERO ============== -->
 <section class="hero">
+  <img src="assets/hero-photo.png" class="hero-bg-img" alt="Dirigeant interagissant avec une interface IA dans un bureau lumineux" />
+  <div class="hero-overlay"></div>
   <div class="wrap">
     <div class="hero-meta">
       <span class="mono dot">Audit gratuit — sans engagement</span>
@@ -520,24 +553,15 @@
       </h1>
     </div>
 
-    <div class="hero-bot">
-      <div class="reveal" data-delay="120">
-        <p class="lede">
-          Nous aidons les entreprises à gagner du temps, automatiser
-          leurs opérations et augmenter leur chiffre d'affaires
-          grâce à des outils intelligents.
-        </p>
-        <div class="ctas">
-          <a href="#contact" class="btn-lime">Audit gratuit&nbsp;&nbsp;<svg class="arr"><use href="#arr"/></svg></a>
-          <a href="#services" class="btn-ghost">Découvrir nos solutions</a>
-        </div>
-      </div>
-
-      <div class="reveal" data-delay="250">
-        <div class="hero-illu">
-          <span class="badge">Live · IA en production</span>
-          <img src="assets/illu-hero.png" alt="L'IA au service de vos performances" />
-        </div>
+    <div class="reveal hero-bot" data-delay="120">
+      <p class="lede">
+        Nous aidons les entreprises à gagner du temps, automatiser
+        leurs opérations et augmenter leur chiffre d'affaires
+        grâce à des outils intelligents.
+      </p>
+      <div class="ctas">
+        <a href="#contact" class="btn-lime">Audit gratuit&nbsp;&nbsp;<svg class="arr"><use href="#arr"/></svg></a>
+        <a href="#services" class="btn-ghost">Découvrir nos solutions</a>
       </div>
     </div>
   </div>
@@ -743,7 +767,7 @@
     <div class="case-grid">
       <div class="reveal" data-delay="0">
         <article class="case-card">
-          <div class="photo t-sage"></div>
+          <img class="case-img" src="assets/case-marches.png" loading="lazy" decoding="async" alt="Gestion de file d'attente" />
           <div class="body">
             <div class="sector mono">Marchés</div>
             <h3>Gestion de file d'attente</h3>
@@ -753,7 +777,7 @@
       </div>
       <div class="reveal" data-delay="80">
         <article class="case-card">
-          <div class="photo t-lime"></div>
+          <img class="case-img" src="assets/case-salles-sport.png" loading="lazy" decoding="async" alt="Relance clients inactifs" />
           <div class="body">
             <div class="sector mono">Salles de sport</div>
             <h3>Relance clients inactifs</h3>
@@ -763,7 +787,7 @@
       </div>
       <div class="reveal" data-delay="160">
         <article class="case-card">
-          <div class="photo t-sand"></div>
+          <img class="case-img" src="assets/case-artisans.png" loading="lazy" decoding="async" alt="Devis automatique" />
           <div class="body">
             <div class="sector mono">Artisans</div>
             <h3>Devis automatique</h3>
@@ -773,7 +797,7 @@
       </div>
       <div class="reveal" data-delay="240">
         <article class="case-card">
-          <div class="photo t-cream"></div>
+          <img class="case-img" src="assets/case-restaurants.png" loading="lazy" decoding="async" alt="Gestion des réservations" />
           <div class="body">
             <div class="sector mono">Restaurants</div>
             <h3>Gestion réservations</h3>
