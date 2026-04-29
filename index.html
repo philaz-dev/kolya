@@ -1,226 +1,1209 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>THE OFFSET | Creative Direction Studio — Visual Identity & Branding</title>
-  <meta name="description" content="THE OFFSET is a Paris-based creative direction studio specializing in visual identity, typography, art direction, scenography, and refined branding for forward-thinking clients.">
-  <meta name="keywords" content="creative direction studio, visual identity, wedding branding, luxury wedding identity, art direction Paris, scenography, branding studio">
-  <meta property="og:title" content="THE OFFSET | Creative Direction Studio">
-  <meta property="og:description" content="Visual identity, art direction, and creative direction from Paris. Curated restraint.">
-  <meta property="og:type" content="website">
-  <link rel="stylesheet" href="css/reset.css">
-  <link rel="stylesheet" href="css/variables.css">
-  <link rel="stylesheet" href="css/global.css">
-  <link rel="stylesheet" href="css/components.css">
-  <link rel="stylesheet" href="css/home.css">
+  <title>Noir Manor — Creative Studio</title>
+  <meta name="description" content="Le studio developpe des recits visuels pour les marques, les artistes et les projets culturels. Film, Image, Narration.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300;1,9..40,400&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --canvas: #FBFBFA;
+      --surface: #FFFFFF;
+      --text-primary: #2F3437;
+      --text-heading: #111111;
+      --text-muted: #787774;
+      --border: #EAEAEA;
+      --border-rgb: 0,0,0;
+      --accent-warm: #F7F6F3;
+      --pale-blue-bg: #E1F3FE;
+      --pale-blue-text: #1F6C9F;
+      --pale-green-bg: #EDF3EC;
+      --pale-green-text: #346538;
+      --pale-yellow-bg: #FBF3DB;
+      --pale-yellow-text: #956400;
+      --pale-red-bg: #FDEBEC;
+      --pale-red-text: #9F2F2D;
+      --font-serif: 'Instrument Serif', 'Lyon Text', 'Newsreader', serif;
+      --font-sans: 'DM Sans', 'SF Pro Display', 'Helvetica Neue', sans-serif;
+      --font-mono: 'JetBrains Mono', 'SF Mono', monospace;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--font-sans);
+      background: var(--canvas);
+      color: var(--text-primary);
+      line-height: 1.6;
+      font-size: 16px;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    /* ── Ambient Background ── */
+    .ambient {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      pointer-events: none;
+      z-index: 0;
+      background:
+        radial-gradient(ellipse 80% 60% at 20% 10%, rgba(200,190,170,0.03) 0%, transparent 60%),
+        radial-gradient(ellipse 60% 80% at 80% 90%, rgba(180,170,160,0.03) 0%, transparent 60%);
+    }
+
+    /* ── Layout ── */
+    .page { position: relative; z-index: 1; }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 32px;
+    }
+
+    .container--narrow {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 0 32px;
+    }
+
+    section {
+      padding: 128px 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    section:last-of-type { border-bottom: none; }
+
+    /* ── Typography ── */
+    h1, h2, h3 { color: var(--text-heading); }
+
+    .heading-xl {
+      font-family: var(--font-serif);
+      font-size: clamp(3rem, 8vw, 7rem);
+      line-height: 1.05;
+      letter-spacing: -0.03em;
+      font-weight: 400;
+    }
+
+    .heading-lg {
+      font-family: var(--font-serif);
+      font-size: clamp(2rem, 5vw, 3.5rem);
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      font-weight: 400;
+    }
+
+    .heading-md {
+      font-family: var(--font-serif);
+      font-size: clamp(1.5rem, 3vw, 2rem);
+      line-height: 1.2;
+      letter-spacing: -0.01em;
+      font-weight: 400;
+    }
+
+    .heading-sm {
+      font-family: var(--font-sans);
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+    }
+
+    .text-body {
+      font-size: 1.05rem;
+      line-height: 1.7;
+      color: var(--text-primary);
+      max-width: 600px;
+    }
+
+    .text-large {
+      font-family: var(--font-serif);
+      font-size: clamp(1.25rem, 2.5vw, 1.75rem);
+      line-height: 1.45;
+      color: var(--text-heading);
+      letter-spacing: -0.01em;
+    }
+
+    .text-muted {
+      color: var(--text-muted);
+      font-size: 0.875rem;
+      line-height: 1.6;
+    }
+
+    .mono {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      letter-spacing: 0.02em;
+      color: var(--text-muted);
+    }
+
+    /* ── Tags ── */
+    .tag {
+      display: inline-block;
+      padding: 4px 14px;
+      border-radius: 9999px;
+      font-size: 0.7rem;
+      font-weight: 500;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+
+    .tag--blue { background: var(--pale-blue-bg); color: var(--pale-blue-text); }
+    .tag--green { background: var(--pale-green-bg); color: var(--pale-green-text); }
+    .tag--yellow { background: var(--pale-yellow-bg); color: var(--pale-yellow-text); }
+    .tag--red { background: var(--pale-red-bg); color: var(--pale-red-text); }
+    .tag--neutral { background: var(--accent-warm); color: var(--text-muted); }
+
+    /* ── Navigation ── */
+    .nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      background: rgba(251,251,250,0.85);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav__inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 32px;
+      height: 64px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .nav__logo {
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+    }
+
+    .nav__logo img {
+      height: 40px;
+      width: auto;
+    }
+
+    .nav__links {
+      display: flex;
+      gap: 32px;
+      list-style: none;
+    }
+
+    .nav__links a {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      text-decoration: none;
+      transition: color 200ms ease;
+      letter-spacing: 0.02em;
+    }
+
+    .nav__links a:hover { color: var(--text-heading); }
+
+    .nav__menu-btn {
+      display: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+      width: 24px;
+      height: 24px;
+      position: relative;
+    }
+
+    .nav__menu-btn span {
+      display: block;
+      width: 18px;
+      height: 1.5px;
+      background: var(--text-heading);
+      position: absolute;
+      left: 3px;
+      transition: all 300ms cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .nav__menu-btn span:nth-child(1) { top: 8px; }
+    .nav__menu-btn span:nth-child(2) { top: 14px; }
+
+    /* ── Hero ── */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding-top: 64px;
+      border-bottom: 1px solid var(--border);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero__video {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      object-fit: cover;
+      z-index: 0;
+    }
+
+    .hero__overlay {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0,0,0,0.35);
+      z-index: 1;
+    }
+
+    .hero__content {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 32px;
+      width: 100%;
+      position: relative;
+      z-index: 2;
+    }
+
+    .hero__disciplines {
+      display: flex;
+      gap: 24px;
+      margin-bottom: 48px;
+    }
+
+    .hero__disciplines span {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      color: rgba(255,255,255,0.6);
+      letter-spacing: 0.04em;
+    }
+
+    .hero__title {
+      margin-bottom: 48px;
+      color: #FFFFFF;
+    }
+
+    .hero__logo {
+      display: block;
+      height: 80px;
+      width: auto;
+      margin-bottom: 48px;
+      filter: brightness(0) invert(1);
+      mix-blend-mode: screen;
+    }
+
+    .hero__subtitle {
+      font-family: var(--font-serif);
+      font-style: italic;
+      font-size: 1.25rem;
+      color: rgba(255,255,255,0.7);
+      margin-bottom: 24px;
+    }
+
+    .hero__description {
+      max-width: 520px;
+      margin-bottom: 48px;
+      color: rgba(255,255,255,0.85);
+    }
+
+    .hero__meta {
+      display: flex;
+      gap: 48px;
+      padding-top: 48px;
+      border-top: 1px solid rgba(255,255,255,0.15);
+    }
+
+    .hero__meta-item {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .hero__meta-item .mono { color: rgba(255,255,255,0.4); }
+    .hero__meta-value { font-size: 0.9rem; color: rgba(255,255,255,0.85); }
+
+    /* ── Buttons ── */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 28px;
+      font-family: var(--font-sans);
+      font-size: 0.8rem;
+      font-weight: 500;
+      letter-spacing: 0.04em;
+      text-decoration: none;
+      border: none;
+      cursor: pointer;
+      transition: all 200ms ease;
+    }
+
+    .btn--primary {
+      background: var(--text-heading);
+      color: #FFFFFF;
+      border-radius: 4px;
+    }
+
+    .btn--primary:hover { background: #333333; }
+    .btn--primary:active { transform: scale(0.98); }
+
+    .btn--ghost {
+      background: transparent;
+      color: var(--text-heading);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+    }
+
+    .btn--ghost:hover { border-color: var(--text-heading); }
+
+    /* ── Section Headers ── */
+    .section-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      margin-bottom: 80px;
+      gap: 48px;
+    }
+
+    .section-header__left { flex: 1; }
+    .section-header__right { max-width: 400px; }
+
+    .section-number {
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      color: var(--text-muted);
+      letter-spacing: 0.08em;
+      margin-bottom: 16px;
+      display: block;
+    }
+
+    /* ── Services Grid (Bento) ── */
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1px;
+      background: var(--border);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      overflow: hidden;
+    }
+
+    .service-card {
+      background: var(--surface);
+      padding: 40px;
+      transition: background 300ms ease;
+    }
+
+    .service-card:hover { background: var(--accent-warm); }
+
+    .service-card__number {
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      color: var(--text-muted);
+      margin-bottom: 24px;
+      display: block;
+    }
+
+    .service-card__title {
+      font-family: var(--font-serif);
+      font-size: 1.5rem;
+      color: var(--text-heading);
+      margin-bottom: 16px;
+      letter-spacing: -0.01em;
+    }
+
+    .service-card__text {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    /* ── Projects ── */
+    .projects-list { display: flex; flex-direction: column; }
+
+    .project-item {
+      display: grid;
+      grid-template-columns: 1fr 1fr auto;
+      align-items: center;
+      padding: 32px 0;
+      border-bottom: 1px solid var(--border);
+      gap: 24px;
+      transition: padding-left 300ms cubic-bezier(0.16, 1, 0.3, 1);
+      cursor: default;
+    }
+
+    .project-item:first-child { border-top: 1px solid var(--border); }
+    .project-item:hover { padding-left: 16px; }
+
+    .project-item__title {
+      font-family: var(--font-serif);
+      font-size: 1.75rem;
+      color: var(--text-heading);
+      letter-spacing: -0.02em;
+    }
+
+    .project-item__meta {
+      display: flex;
+      gap: 16px;
+      align-items: center;
+    }
+
+    .project-item__year {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      color: var(--text-muted);
+    }
+
+    .project-item__arrow {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      border: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 200ms ease;
+    }
+
+    .project-item:hover .project-item__arrow {
+      background: var(--text-heading);
+      border-color: var(--text-heading);
+    }
+
+    .project-item:hover .project-item__arrow svg { stroke: #fff; }
+
+    .project-item__arrow svg {
+      width: 14px;
+      height: 14px;
+      stroke: var(--text-muted);
+      stroke-width: 1.5;
+      fill: none;
+      transition: stroke 200ms ease;
+    }
+
+    /* ── Expertise ── */
+    .expertise-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: var(--border);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      overflow: hidden;
+    }
+
+    .expertise-card {
+      background: var(--surface);
+      padding: 48px 36px;
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+
+    .expertise-card__title {
+      font-family: var(--font-serif);
+      font-size: 1.5rem;
+      color: var(--text-heading);
+      letter-spacing: -0.01em;
+    }
+
+    .expertise-card__text {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+      flex: 1;
+    }
+
+    .expertise-card__tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+
+    /* ── Manifesto ── */
+    .manifesto-section { background: var(--surface); }
+
+    .manifesto__text {
+      font-family: var(--font-serif);
+      font-size: clamp(1.25rem, 2.5vw, 1.6rem);
+      line-height: 1.65;
+      color: var(--text-heading);
+      letter-spacing: -0.01em;
+      max-width: 740px;
+    }
+
+    .manifesto__sig {
+      margin-top: 64px;
+      padding-top: 32px;
+      border-top: 1px solid var(--border);
+    }
+
+    /* ── Founder ── */
+    .founder-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: start;
+    }
+
+    .founder__image-wrap {
+      aspect-ratio: 3/4;
+      background: var(--accent-warm);
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      overflow: hidden;
+      position: relative;
+    }
+
+    .founder__image-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: grayscale(20%) contrast(1.05);
+    }
+
+    .founder__image-caption {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 16px 20px;
+      background: rgba(251,251,250,0.9);
+      backdrop-filter: blur(8px);
+      font-size: 0.75rem;
+      color: var(--text-muted);
+    }
+
+    .founder__content { padding-top: 24px; }
+
+    .founder__bio {
+      font-size: 1.05rem;
+      line-height: 1.7;
+      margin-bottom: 48px;
+    }
+
+    .founder__education {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      padding-top: 32px;
+      border-top: 1px solid var(--border);
+    }
+
+    .founder__edu-item {
+      display: flex;
+      justify-content: space-between;
+      padding-bottom: 16px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .founder__edu-item:last-child { border-bottom: none; padding-bottom: 0; }
+
+    /* ── Contact ── */
+    .contact-section {
+      background: var(--text-heading);
+      color: #FFFFFF;
+      border-bottom: none;
+    }
+
+    .contact-section .heading-lg { color: #FFFFFF; }
+    .contact-section .text-muted { color: rgba(255,255,255,0.5); }
+    .contact-section .mono { color: rgba(255,255,255,0.4); }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      margin-top: 80px;
+    }
+
+    .contact__email-link {
+      font-family: var(--font-serif);
+      font-size: clamp(1.25rem, 2.5vw, 1.75rem);
+      color: #FFFFFF;
+      text-decoration: none;
+      border-bottom: 1px solid rgba(255,255,255,0.2);
+      padding-bottom: 4px;
+      transition: border-color 200ms ease;
+    }
+
+    .contact__email-link:hover { border-color: #FFFFFF; }
+
+    .contact__details {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+
+    .contact__detail-item {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .contact__detail-label {
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: rgba(255,255,255,0.4);
+    }
+
+    .contact__detail-value {
+      font-size: 0.95rem;
+      color: rgba(255,255,255,0.8);
+    }
+
+    /* ── Footer ── */
+    footer {
+      background: var(--text-heading);
+      padding: 32px 0;
+      border-top: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .footer__inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 32px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .footer__copy {
+      font-size: 0.75rem;
+      color: rgba(255,255,255,0.35);
+    }
+
+    .footer__links {
+      display: flex;
+      gap: 24px;
+      list-style: none;
+    }
+
+    .footer__links a {
+      font-size: 0.75rem;
+      color: rgba(255,255,255,0.35);
+      text-decoration: none;
+      transition: color 200ms ease;
+    }
+
+    .footer__links a:hover { color: rgba(255,255,255,0.7); }
+
+    /* ── Scroll Animations ── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(12px);
+      transition: opacity 600ms cubic-bezier(0.16, 1, 0.3, 1),
+                  transform 600ms cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .stagger { transition-delay: calc(var(--i, 0) * 80ms); }
+
+    /* ── Responsive ── */
+    @media (max-width: 900px) {
+      section { padding: 80px 0; }
+
+      .nav__links { display: none; }
+      .nav__menu-btn { display: block; }
+
+      .nav__links.open {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 64px;
+        left: 0;
+        right: 0;
+        background: rgba(251,251,250,0.97);
+        backdrop-filter: blur(16px);
+        padding: 24px 32px;
+        gap: 16px;
+        border-bottom: 1px solid var(--border);
+      }
+
+      .section-header {
+        flex-direction: column;
+        align-items: flex-start;
+        margin-bottom: 48px;
+      }
+
+      .services-grid { grid-template-columns: 1fr; }
+      .expertise-grid { grid-template-columns: 1fr; }
+
+      .project-item {
+        grid-template-columns: 1fr;
+        gap: 12px;
+      }
+
+      .project-item__arrow { display: none; }
+
+      .founder-grid {
+        grid-template-columns: 1fr;
+        gap: 48px;
+      }
+
+      .contact-grid {
+        grid-template-columns: 1fr;
+        gap: 48px;
+      }
+
+      .hero__meta {
+        flex-direction: column;
+        gap: 24px;
+      }
+
+      .footer__inner {
+        flex-direction: column;
+        gap: 16px;
+        text-align: center;
+      }
+    }
+  </style>
 </head>
 <body>
 
-  <a href="#main-content" class="skip-link">Skip to content</a>
+  <div class="ambient"></div>
 
-  <!-- Navigation -->
-  <header class="nav" role="banner">
-    <nav class="nav__inner" aria-label="Main navigation">
-      <a href="index.html" class="nav__logo">
-        <span class="nav__logo-full">THE OFFSET</span>
-        <span class="nav__logo-mobile">O&</span>
-      </a>
-      <button class="nav__toggle" aria-label="Toggle menu" aria-expanded="false">
+  <!-- ── Navigation ── -->
+  <nav class="nav">
+    <div class="nav__inner">
+      <a href="#" class="nav__logo"><img src="noir-manor-logo.png" alt="Noir Manor"></a>
+      <ul class="nav__links" id="navLinks">
+        <li><a href="#studio">Le Studio</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#projets">Projets</a></li>
+        <li><a href="#expertise">Expertise</a></li>
+        <li><a href="#manifeste">Manifeste</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <button class="nav__menu-btn" id="menuBtn" aria-label="Menu">
         <span></span>
         <span></span>
       </button>
-      <ul class="nav__links">
-        <li><a href="studio.html">Studio</a></li>
-        <li><a href="work.html">Work</a></li>
-        <li><a href="practice.html">Practice</a></li>
-        <li><a href="process.html">Process</a></li>
-        <li><a href="contact.html">Contact</a></li>
-      </ul>
-      <div class="nav__overlay">
-        <a href="studio.html">Studio</a>
-        <a href="work.html">Work</a>
-        <a href="practice.html">Practice</a>
-        <a href="process.html">Process</a>
-        <a href="contact.html">Contact</a>
-      </div>
-    </nav>
-  </header>
+    </div>
+  </nav>
 
-  <main id="main-content">
+  <div class="page">
 
-    <!-- Hero -->
-    <section class="hero section">
-      <div class="hero__frame"></div>
-      <div class="container">
-        <div class="hero__content">
-          <h1 class="headline-display hero__title word-reveal">Visual identity as structure.</h1>
-          <p class="body-lead hero__subtitle">THE OFFSET is a creative direction studio. We build visual systems for those who value precision over decoration.</p>
-          <a href="work.html" class="link-arrow hero__cta">Explore the work</a>
+    <!-- ── Hero ── -->
+    <section class="hero">
+      <video class="hero__video" autoplay muted loop playsinline>
+        <source src="SL_Studio_Hero_Cinematique.mp4" type="video/mp4">
+      </video>
+      <div class="hero__overlay"></div>
+      <div class="hero__content">
+        <div class="hero__disciplines reveal">
+          <span>Film</span>
+          <span>Image</span>
+          <span>Narration</span>
+        </div>
+        <h1 class="heading-xl hero__title reveal">
+          Noir<br>Manor
+        </h1>
+        <p class="hero__subtitle reveal">Fond&eacute; par Sacha Laznowski</p>
+        <p class="text-body hero__description reveal">
+          Le studio d&eacute;veloppe des r&eacute;cits visuels pour les marques, les artistes et les projets culturels.
+        </p>
+        <div class="hero__meta reveal">
+          <div class="hero__meta-item">
+            <span class="mono">Localisation</span>
+            <span class="hero__meta-value">Paris, France</span>
+          </div>
+          <div class="hero__meta-item">
+            <span class="mono">Port&eacute;e</span>
+            <span class="hero__meta-value">International</span>
+          </div>
+          <div class="hero__meta-item">
+            <span class="mono">Disciplines</span>
+            <span class="hero__meta-value">Film, Image, Direction artistique</span>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- Studio Introduction -->
-    <section class="home-intro section" aria-label="Studio introduction">
+    <!-- ── 01 — Le Studio ── -->
+    <section id="studio">
       <div class="container">
-        <div class="grid home-intro__grid">
-          <div class="home-intro__left reveal">
-            <span class="section-header__number">01</span>
-            <span class="caption">The Studio</span>
-            <div class="home-intro__image img-placeholder parallax-wrap">
-              <div class="parallax-img img-placeholder" style="aspect-ratio: 3/4;">
-                <span>Overhead shot of printed materials on concrete surface. Stationery suite with mathematical precision.</span>
+        <div class="section-header reveal">
+          <div class="section-header__left">
+            <span class="section-number">01</span>
+            <h2 class="heading-lg">Le Studio</h2>
+          </div>
+          <div class="section-header__right">
+            <p class="text-muted">
+              &Agrave; la fronti&egrave;re entre cin&eacute;ma, direction artistique et narration de marque.
+            </p>
+          </div>
+        </div>
+
+        <div class="reveal" style="max-width:740px; margin-bottom:80px;">
+          <p class="text-large">
+            Nous accompagnons des marques, des chefs, des artistes et des lieux dans la construction de leur univers visuel.
+          </p>
+        </div>
+
+        <div class="reveal" style="max-width:600px; margin-bottom:64px;">
+          <p class="text-body">
+            Notre approche s'inspire du langage cin&eacute;matographique. Chaque projet est con&ccedil;u comme un r&eacute;cit. Chaque image comme une sc&egrave;ne.
+          </p>
+        </div>
+
+        <div style="display:flex; gap:12px;" class="reveal">
+          <span class="tag tag--neutral">Rythme</span>
+          <span class="tag tag--neutral">Atmosph&egrave;re</span>
+          <span class="tag tag--neutral">Narration</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── 02 — Services ── -->
+    <section id="services">
+      <div class="container">
+        <div class="section-header reveal">
+          <div class="section-header__left">
+            <span class="section-number">02</span>
+            <h2 class="heading-lg">Services</h2>
+          </div>
+          <div class="section-header__right">
+            <p class="text-muted">
+              Quatre lignes de service con&ccedil;ues pour construire une pr&eacute;sence visuelle coh&eacute;rente, distincte et durable.
+            </p>
+          </div>
+        </div>
+
+        <div class="services-grid">
+          <div class="service-card reveal stagger" style="--i:0">
+            <span class="service-card__number">01</span>
+            <h3 class="service-card__title">Cr&eacute;ation de contenu</h3>
+            <p class="service-card__text">
+              Production de contenus photo et vid&eacute;o &agrave; haute valeur narrative. Chaque image est pens&eacute;e comme un langage, chaque s&eacute;rie comme un r&eacute;cit visuel coh&eacute;rent et m&eacute;morable.
+            </p>
+          </div>
+          <div class="service-card reveal stagger" style="--i:1">
+            <span class="service-card__number">02</span>
+            <h3 class="service-card__title">Direction artistique</h3>
+            <p class="service-card__text">
+              Conception de l'univers visuel global d'une marque ou d'un projet. Nous d&eacute;finissons les codes, les tonalit&eacute;s et les atmosph&egrave;res qui rendent une identit&eacute; reconnaissable et distinctive.
+            </p>
+          </div>
+          <div class="service-card reveal stagger" style="--i:2">
+            <span class="service-card__number">03</span>
+            <h3 class="service-card__title">Personal branding</h3>
+            <p class="service-card__text">
+              Construction d'une pr&eacute;sence visuelle forte et singuli&egrave;re pour les cr&eacute;ateurs, entrepreneurs et personnalit&eacute;s. Une image qui vous ressemble, qui vous distingue et qui inspire confiance.
+            </p>
+          </div>
+          <div class="service-card reveal stagger" style="--i:3">
+            <span class="service-card__number">04</span>
+            <h3 class="service-card__title">Community management</h3>
+            <p class="service-card__text">
+              Gestion &eacute;ditoriale et visuelle de vos plateformes digitales. Nous traduisons votre identit&eacute; en un flux coh&eacute;rent, rythm&eacute; et engageant, pens&eacute; pour cr&eacute;er une communaut&eacute; fid&egrave;le.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── 03 — Projets ── -->
+    <section id="projets">
+      <div class="container">
+        <div class="section-header reveal">
+          <div class="section-header__left">
+            <span class="section-number">03</span>
+            <h2 class="heading-lg">Projets</h2>
+          </div>
+          <div class="section-header__right">
+            <p class="text-muted">
+              Nous collaborons avec un nombre limit&eacute; de projets chaque ann&eacute;e afin de pr&eacute;server la singularit&eacute; de chaque production.
+            </p>
+          </div>
+        </div>
+
+        <div class="projects-list">
+          <div class="project-item reveal stagger" style="--i:0">
+            <h3 class="project-item__title">L'Art de l'Essence</h3>
+            <div class="project-item__meta">
+              <span class="tag tag--yellow">Film de marque</span>
+              <span class="text-muted">Maison de Luxe &mdash; Paris</span>
+              <span class="project-item__year">2024</span>
+            </div>
+            <div class="project-item__arrow">
+              <svg viewBox="0 0 24 24"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
+            </div>
+          </div>
+          <div class="project-item reveal stagger" style="--i:1">
+            <h3 class="project-item__title">Lumi&egrave;res de Nuit</h3>
+            <div class="project-item__meta">
+              <span class="tag tag--blue">Campagne visuelle</span>
+              <span class="text-muted">H&ocirc;tel &mdash; Paris</span>
+              <span class="project-item__year">2024</span>
+            </div>
+            <div class="project-item__arrow">
+              <svg viewBox="0 0 24 24"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
+            </div>
+          </div>
+          <div class="project-item reveal stagger" style="--i:2">
+            <h3 class="project-item__title">Saisons</h3>
+            <div class="project-item__meta">
+              <span class="tag tag--green">Direction artistique</span>
+              <span class="text-muted">Restaurant &mdash; &Eacute;toil&eacute;</span>
+              <span class="project-item__year">2023</span>
+            </div>
+            <div class="project-item__arrow">
+              <svg viewBox="0 0 24 24"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
+            </div>
+          </div>
+          <div class="project-item reveal stagger" style="--i:3">
+            <h3 class="project-item__title">Feu &amp; Mati&egrave;re</h3>
+            <div class="project-item__meta">
+              <span class="tag tag--red">Direction artistique</span>
+              <span class="text-muted">Restaurant Gastronomique &mdash; Paris</span>
+              <span class="project-item__year">2023</span>
+            </div>
+            <div class="project-item__arrow">
+              <svg viewBox="0 0 24 24"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
+            </div>
+          </div>
+          <div class="project-item reveal stagger" style="--i:4">
+            <h3 class="project-item__title">Nuit Urbaine</h3>
+            <div class="project-item__meta">
+              <span class="tag tag--blue">Campagne visuelle</span>
+              <span class="text-muted">Marque de Mode &mdash; Paris</span>
+              <span class="project-item__year">2023</span>
+            </div>
+            <div class="project-item__arrow">
+              <svg viewBox="0 0 24 24"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── 04 — Expertise ── -->
+    <section id="expertise">
+      <div class="container">
+        <div class="section-header reveal">
+          <div class="section-header__left">
+            <span class="section-number">04</span>
+            <h2 class="heading-lg">Expertise</h2>
+          </div>
+          <div class="section-header__right">
+            <p class="text-muted">Ce que nous construisons</p>
+          </div>
+        </div>
+
+        <div class="expertise-grid">
+          <div class="expertise-card reveal stagger" style="--i:0">
+            <span class="section-number">01</span>
+            <h3 class="expertise-card__title">Narration de marque</h3>
+            <p class="expertise-card__text">
+              D&eacute;veloppement d'un territoire narratif et visuel pour les marques. Nous construisons l'univers de sens qui sous-tend chaque prise de parole visuelle.
+            </p>
+            <div class="expertise-card__tags">
+              <span class="tag tag--neutral">Direction artistique</span>
+              <span class="tag tag--neutral">Storytelling</span>
+              <span class="tag tag--neutral">Concept de campagne</span>
+              <span class="tag tag--neutral">Films de marque</span>
+            </div>
+          </div>
+          <div class="expertise-card reveal stagger" style="--i:1">
+            <span class="section-number">02</span>
+            <h3 class="expertise-card__title">Film et image</h3>
+            <p class="expertise-card__text">
+              Production de films et s&eacute;ries photographiques &agrave; dimension cin&eacute;matographique. Chaque tournage est pens&eacute; comme une mise en sc&egrave;ne.
+            </p>
+            <div class="expertise-card__tags">
+              <span class="tag tag--neutral">Films &eacute;ditoriaux</span>
+              <span class="tag tag--neutral">Campagnes visuelles</span>
+              <span class="tag tag--neutral">Films de marque</span>
+            </div>
+          </div>
+          <div class="expertise-card reveal stagger" style="--i:2">
+            <span class="section-number">03</span>
+            <h3 class="expertise-card__title">Narration digitale</h3>
+            <p class="expertise-card__text">
+              Les plateformes digitales deviennent un espace narratif. Nous concevons des univers visuels coh&eacute;rents permettant &agrave; une marque d'exister dans le temps.
+            </p>
+            <div class="expertise-card__tags">
+              <span class="tag tag--neutral">Strat&eacute;gie visuelle</span>
+              <span class="tag tag--neutral">Identit&eacute; digitale</span>
+              <span class="tag tag--neutral">Contenu &eacute;ditorial</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── 05 — Manifeste ── -->
+    <section id="manifeste" class="manifesto-section">
+      <div class="container--narrow">
+        <div class="reveal">
+          <span class="section-number">05</span>
+          <p class="heading-sm" style="margin-bottom:48px;">Noir Manor &mdash; Paris, 2024</p>
+        </div>
+
+        <div class="reveal">
+          <p class="manifesto__text">
+            Nous vivons dans un monde satur&eacute; d'images. Chaque jour, des milliers de contenus sont produits, diffus&eacute;s, oubli&eacute;s. Mais certaines images restent. Parce qu'elles portent une intention. Parce qu'elles racontent quelque chose de plus profond qu'un simple message.
+          </p>
+        </div>
+
+        <div class="reveal" style="margin-top:40px;">
+          <p class="manifesto__text">
+            Le studio est n&eacute; de cette conviction : les marques ne manquent pas d'images. Elles manquent d'histoires. &Agrave; travers le film, la photographie et la direction artistique, nous construisons des r&eacute;cits visuels capables de donner forme &agrave; ces imaginaires.
+          </p>
+        </div>
+
+        <div class="reveal" style="margin-top:40px;">
+          <p class="manifesto__text" style="font-style:italic; color:var(--text-muted);">
+            Nous ne produisons pas simplement du contenu. Nous cr&eacute;ons des univers.
+          </p>
+        </div>
+
+        <div class="manifesto__sig reveal">
+          <p class="mono">Sacha Laznowski</p>
+          <p class="text-muted" style="margin-top:4px;">R&eacute;alisatrice &amp; Directrice artistique</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── 06 — Sacha Laznowski ── -->
+    <section id="fondatrice">
+      <div class="container">
+        <div class="section-header reveal">
+          <div class="section-header__left">
+            <span class="section-number">06</span>
+            <h2 class="heading-lg">Sacha Laznowski</h2>
+          </div>
+          <div class="section-header__right">
+            <p class="text-muted">R&eacute;alisatrice &amp; Directrice artistique</p>
+          </div>
+        </div>
+
+        <div class="founder-grid">
+          <div class="founder__image-wrap reveal">
+            <img src="https://picsum.photos/seed/sacha-portrait/800/1067" alt="Sacha Laznowski, r&eacute;alisatrice et directrice artistique" loading="lazy">
+            <div class="founder__image-caption">Sacha Laznowski &mdash; R&eacute;alisatrice &amp; Directrice artistique</div>
+          </div>
+          <div class="founder__content reveal">
+            <p class="founder__bio">
+              Form&eacute;e &agrave; EICAR &agrave; Paris puis &agrave; l'UCLA, Los Angeles, Sacha Laznowski d&eacute;veloppe une approche de l'image profond&eacute;ment influenc&eacute;e par le cin&eacute;ma. Son travail explore les liens entre narration, atmosph&egrave;re et identit&eacute; visuelle.
+            </p>
+            <p class="text-body" style="margin-bottom:48px;">
+              &Agrave; travers le studio, elle collabore avec des marques et des institutions souhaitant d&eacute;velopper une pr&eacute;sence visuelle forte et singuli&egrave;re.
+            </p>
+            <div class="founder__education">
+              <p class="heading-sm" style="margin-bottom:8px;">Formation</p>
+              <div class="founder__edu-item">
+                <span style="font-size:0.95rem; color:var(--text-heading);">EICAR</span>
+                <span class="text-muted">Paris, France</span>
+              </div>
+              <div class="founder__edu-item">
+                <span style="font-size:0.95rem; color:var(--text-heading);">UCLA</span>
+                <span class="text-muted">Los Angeles, USA</span>
               </div>
             </div>
           </div>
-          <div class="home-intro__content reveal reveal--delay-1">
-            <p class="body-lead">A creative direction practice rooted in editorial precision and intellectual rigor. Based in Paris. Working without borders.</p>
-            <p class="body-text">We shape identity systems for brands, cultural projects, and individuals who understand that restraint is the highest form of intention.</p>
-            <a href="studio.html" class="link-arrow mt-4">About the studio</a>
-          </div>
         </div>
       </div>
     </section>
 
-    <!-- Selected Work -->
-    <section class="home-work section" aria-label="Selected work">
+    <!-- ── 07 — Contact ── -->
+    <section id="contact" class="contact-section">
       <div class="container">
-        <div class="section-header reveal">
-          <span class="section-header__number">02</span>
-          <span class="caption">Selected Work</span>
+        <div class="reveal">
+          <span class="section-number" style="color:rgba(255,255,255,0.3);">07</span>
+          <p class="mono" style="color:rgba(255,255,255,0.4); margin-bottom:16px;">Pour toute collaboration</p>
+          <h2 class="heading-lg">Travaillons ensemble</h2>
         </div>
 
-        <div class="home-work__grid">
-          <article class="project-card project-card--large reveal">
-            <a href="work.html">
-              <div class="project-card__image">
-                <div class="img-placeholder" style="aspect-ratio: 4/5;">
-                  <span>Embossed monogram on heavy cotton stock, shallow depth of field, warm neutral tones</span>
-                </div>
-              </div>
-              <div class="project-card__info">
-                <h3 class="project-card__title">The Morrow Identity</h3>
-                <p class="caption project-card__category">Visual Identity / Print System</p>
-              </div>
+        <div class="contact-grid">
+          <div class="reveal">
+            <a href="mailto:contact@studiolaznowski.com" class="contact__email-link">
+              contact@studiolaznowski.com
             </a>
-          </article>
-
-          <article class="project-card project-card--medium reveal reveal--delay-1">
-            <a href="work.html">
-              <div class="project-card__image">
-                <div class="img-placeholder" style="aspect-ratio: 3/4;">
-                  <span>Typographic poster suite, black ink on off-white uncoated paper, brutalist grid</span>
-                </div>
-              </div>
-              <div class="project-card__info">
-                <h3 class="project-card__title">Atelier Forme</h3>
-                <p class="caption project-card__category">Creative Direction / Typography</p>
-              </div>
-            </a>
-          </article>
-
-          <article class="project-card project-card--wide reveal">
-            <a href="work.html">
-              <div class="project-card__image">
-                <div class="img-placeholder" style="aspect-ratio: 16/5;">
-                  <span>Open magazine spread on marble surface, strong directional shadows</span>
-                </div>
-              </div>
-              <div class="project-card__info">
-                <h3 class="project-card__title">Revue Noire</h3>
-                <p class="caption project-card__category">Editorial Design</p>
-              </div>
-            </a>
-          </article>
-        </div>
-
-        <a href="work.html" class="link-arrow mt-8 reveal">View all work</a>
-      </div>
-    </section>
-
-    <!-- Practice Areas -->
-    <section class="section section--dark" aria-label="Practice overview">
-      <div class="container">
-        <div class="section-header reveal">
-          <span class="section-header__number">03</span>
-          <span class="caption">The Practice</span>
-        </div>
-
-        <div class="home-practice__grid">
-          <div class="practice-item reveal">
-            <div class="practice-item__number">01</div>
-            <h3 class="practice-item__title">Visual Identity</h3>
-            <p class="practice-item__desc">Logos, typography systems, color architecture, brand guidelines.</p>
+            <p class="text-muted" style="margin-top:32px; color:rgba(255,255,255,0.45); max-width:400px;">
+              Nous collaborons avec un nombre limit&eacute; de projets chaque ann&eacute;e afin de pr&eacute;server la singularit&eacute; et la profondeur de chaque production.
+            </p>
           </div>
-          <div class="practice-item reveal reveal--delay-1">
-            <div class="practice-item__number">02</div>
-            <h3 class="practice-item__title">Art Direction</h3>
-            <p class="practice-item__desc">Photographic direction, editorial layouts, visual narratives.</p>
-          </div>
-          <div class="practice-item reveal reveal--delay-2">
-            <div class="practice-item__number">03</div>
-            <h3 class="practice-item__title">Print & Object</h3>
-            <p class="practice-item__desc">Stationery suites, invitations, packaging, material selection.</p>
-          </div>
-          <div class="practice-item reveal reveal--delay-3">
-            <div class="practice-item__number">04</div>
-            <h3 class="practice-item__title">Creative Direction</h3>
-            <p class="practice-item__desc">Brand strategy, scenography, spatial identity, event direction.</p>
+          <div class="contact__details reveal">
+            <div class="contact__detail-item">
+              <span class="contact__detail-label">Localisation</span>
+              <span class="contact__detail-value">Paris, France</span>
+            </div>
+            <div class="contact__detail-item">
+              <span class="contact__detail-label">Port&eacute;e</span>
+              <span class="contact__detail-value">Collaborations internationales</span>
+            </div>
+            <div class="contact__detail-item">
+              <span class="contact__detail-label">Email</span>
+              <span class="contact__detail-value">contact@studiolaznowski.com</span>
+            </div>
           </div>
         </div>
-
-        <a href="practice.html" class="link-arrow mt-8 reveal" style="color: var(--color-text-inv);">Explore our practice</a>
       </div>
     </section>
 
-    <!-- Ethos Statement -->
-    <section class="home-ethos section" aria-label="Ethos">
-      <div class="container">
-        <blockquote class="home-ethos__quote reveal">
-          <p class="headline-primary">Design is not what it looks like.<br>Design is what it refuses to be.</p>
-        </blockquote>
-        <p class="caption home-ethos__attribution reveal reveal--delay-1">The Offset Principle</p>
-      </div>
-    </section>
+  </div>
 
-    <!-- Contact Teaser -->
-    <section class="cta-block" aria-label="Contact">
-      <div class="container">
-        <h2 class="headline-secondary reveal">Let's build something<br>with intention.</h2>
-        <a href="mailto:studio@theoffset.co" class="body-lead hover-line cta-block__email reveal reveal--delay-1">studio@theoffset.co</a>
-        <p class="caption cta-block__location reveal reveal--delay-2">Paris, France</p>
-      </div>
-    </section>
-
-  </main>
-
-  <!-- Footer -->
-  <footer class="footer" role="contentinfo">
+  <!-- ── Footer ── -->
+  <footer>
     <div class="footer__inner">
-      <div class="footer__brand">
-        <span class="footer__logo">THE OFFSET</span>
-        <span class="footer__tagline">Curated Restraint</span>
-      </div>
-      <nav class="footer__nav" aria-label="Footer navigation">
-        <a href="studio.html">Studio</a>
-        <a href="work.html">Work</a>
-        <a href="practice.html">Practice</a>
-        <a href="process.html">Process</a>
-        <a href="contact.html">Contact</a>
-      </nav>
-      <div class="footer__contact">
-        <a href="mailto:studio@theoffset.co">studio@theoffset.co</a>
-        <span>Paris, France</span>
-        <a href="#">Instagram</a>
-        <a href="#">Pinterest</a>
-      </div>
-    </div>
-    <div class="footer__bottom">
-      <p class="footer__copyright">&copy; 2026 The Offset. All rights reserved.</p>
+      <span class="footer__copy">&copy; 2024 Noir Manor &mdash; Paris. Tous droits r&eacute;serv&eacute;s.</span>
+      <ul class="footer__links">
+        <li><a href="#">Accueil</a></li>
+        <li><a href="#manifeste">Manifeste</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
     </div>
   </footer>
 
-  <script src="js/main.js"></script>
+  <!-- ── Scripts ── -->
+  <script>
+    // Scroll reveal via IntersectionObserver
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+    // Mobile menu toggle
+    const menuBtn = document.getElementById('menuBtn');
+    const navLinks = document.getElementById('navLinks');
+    menuBtn.addEventListener('click', () => {
+      navLinks.classList.toggle('open');
+      const spans = menuBtn.querySelectorAll('span');
+      if (navLinks.classList.contains('open')) {
+        spans[0].style.transform = 'rotate(45deg) translate(2px, 2px)';
+        spans[1].style.transform = 'rotate(-45deg) translate(2px, -2px)';
+      } else {
+        spans[0].style.transform = '';
+        spans[1].style.transform = '';
+      }
+    });
+
+    // Close menu on link click
+    navLinks.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        navLinks.classList.remove('open');
+        const spans = menuBtn.querySelectorAll('span');
+        spans[0].style.transform = '';
+        spans[1].style.transform = '';
+      });
+    });
+  </script>
+
 </body>
 </html>
