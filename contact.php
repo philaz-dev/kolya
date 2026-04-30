@@ -17,11 +17,11 @@ declare(strict_types=1);
 $CONFIG = [
     // Where the form's content lands (your inbox).
     // Use a real address on a domain you control on Hostinger.
-    'to'         => 'bonjour@kolya.ai',
+    'to'         => 'contact@kolya.fr',
 
     // From address. MUST be on a domain hosted on this Hostinger account
     // for the mail to pass SPF/DKIM. Anything else gets flagged as spam.
-    'from'       => 'noreply@kolya.ai',
+    'from'       => 'noreply@kolya.fr',
     'from_name'  => 'Kolya · Site',
 
     // Subject prefix.
@@ -112,7 +112,7 @@ $sectorLabel = $sectorLabels[$sector] ?? '';
 
 $subject = $CONFIG['subject'] . $name;
 
-$body = "Nouvelle demande d'audit gratuit depuis kolya.ai\n\n";
+$body = "Nouvelle demande d'audit gratuit depuis kolya.fr\n\n";
 $body .= "Nom        : $name\n";
 if ($company !== '') $body .= "Entreprise : $company\n";
 $body .= "Email      : $email\n";
