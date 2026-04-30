@@ -1,0 +1,367 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-04-30T00:00:00Z",
+  "title": "Design System: Kolya",
+  "extensions": {
+    "colorMeta": {
+      "citron-net": {
+        "role": "primary",
+        "displayName": "Citron Net",
+        "canonical": "oklch(91.8% 0.21 121)",
+        "tonalRamp": [
+          "oklch(15% 0.04 121)",
+          "oklch(25% 0.08 121)",
+          "oklch(38% 0.12 121)",
+          "oklch(52% 0.16 121)",
+          "oklch(66% 0.19 121)",
+          "oklch(79% 0.22 121)",
+          "oklch(91.8% 0.21 121)",
+          "oklch(96% 0.10 121)"
+        ]
+      },
+      "citron-net-deep": {
+        "role": "support",
+        "displayName": "Citron Net Profond",
+        "canonical": "oklch(28.5% 0.06 121)",
+        "tonalRamp": [
+          "oklch(12% 0.03 121)",
+          "oklch(20% 0.05 121)",
+          "oklch(28.5% 0.06 121)",
+          "oklch(38% 0.08 121)",
+          "oklch(50% 0.10 121)",
+          "oklch(64% 0.13 121)",
+          "oklch(78% 0.18 121)",
+          "oklch(91.8% 0.21 121)"
+        ]
+      },
+      "encre-carbone": {
+        "role": "neutral",
+        "displayName": "Encre Carbone",
+        "canonical": "oklch(13% 0.002 86)",
+        "tonalRamp": [
+          "oklch(8% 0.002 86)",
+          "oklch(13% 0.002 86)",
+          "oklch(22% 0.003 86)",
+          "oklch(35% 0.004 86)",
+          "oklch(50% 0.005 86)",
+          "oklch(68% 0.005 86)",
+          "oklch(85% 0.005 86)",
+          "oklch(95% 0.005 86)"
+        ]
+      },
+      "encre-carbone-lift": {
+        "role": "neutral",
+        "displayName": "Encre Carbone Lift",
+        "canonical": "oklch(18% 0.002 86)",
+        "tonalRamp": [
+          "oklch(10% 0.002 86)",
+          "oklch(18% 0.002 86)",
+          "oklch(28% 0.003 86)",
+          "oklch(40% 0.004 86)",
+          "oklch(55% 0.005 86)",
+          "oklch(72% 0.005 86)",
+          "oklch(88% 0.005 86)",
+          "oklch(97% 0.005 86)"
+        ]
+      },
+      "papier": {
+        "role": "neutral",
+        "displayName": "Papier",
+        "canonical": "oklch(100% 0 0)",
+        "tonalRamp": [
+          "oklch(40% 0.005 86)",
+          "oklch(55% 0.004 86)",
+          "oklch(70% 0.004 86)",
+          "oklch(82% 0.004 86)",
+          "oklch(90% 0.004 86)",
+          "oklch(95% 0.003 86)",
+          "oklch(98% 0.002 86)",
+          "oklch(100% 0 0)"
+        ]
+      },
+      "creme-atelier": {
+        "role": "neutral",
+        "displayName": "Crème Atelier",
+        "canonical": "oklch(96% 0.005 86)",
+        "tonalRamp": [
+          "oklch(28% 0.005 86)",
+          "oklch(42% 0.006 86)",
+          "oklch(56% 0.007 86)",
+          "oklch(72% 0.007 86)",
+          "oklch(86% 0.006 86)",
+          "oklch(92% 0.006 86)",
+          "oklch(96% 0.005 86)",
+          "oklch(99% 0.003 86)"
+        ]
+      },
+      "creme-atelier-deep": {
+        "role": "neutral",
+        "displayName": "Crème Atelier Profonde",
+        "canonical": "oklch(93.5% 0.008 86)",
+        "tonalRamp": [
+          "oklch(26% 0.008 86)",
+          "oklch(40% 0.009 86)",
+          "oklch(54% 0.010 86)",
+          "oklch(68% 0.009 86)",
+          "oklch(82% 0.009 86)",
+          "oklch(89% 0.008 86)",
+          "oklch(93.5% 0.008 86)",
+          "oklch(98% 0.005 86)"
+        ]
+      },
+      "gris-tirage": {
+        "role": "neutral",
+        "displayName": "Gris de Tirage",
+        "canonical": "oklch(48% 0.003 86)",
+        "tonalRamp": [
+          "oklch(15% 0.003 86)",
+          "oklch(25% 0.003 86)",
+          "oklch(35% 0.003 86)",
+          "oklch(48% 0.003 86)",
+          "oklch(62% 0.003 86)",
+          "oklch(75% 0.003 86)",
+          "oklch(86% 0.003 86)",
+          "oklch(95% 0.003 86)"
+        ]
+      },
+      "hairline": {
+        "role": "neutral",
+        "displayName": "Hairline (Ink 8%)",
+        "canonical": "rgba(14, 14, 12, 0.08)",
+        "tonalRamp": []
+      },
+      "hairline-soft": {
+        "role": "neutral",
+        "displayName": "Hairline Soft (Ink 5%)",
+        "canonical": "rgba(14, 14, 12, 0.05)",
+        "tonalRamp": []
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Display",
+        "purpose": "Hero H1 only. Fraunces forced to opsz 144 for maximum editorial contrast. One occurrence per page."
+      },
+      "headline": {
+        "displayName": "Headline",
+        "purpose": "Section H2. Fraunces large, with one italic fragment (300 weight) per phrase to color emotionally."
+      },
+      "title": {
+        "displayName": "Title",
+        "purpose": "Card titles in services, methode, cas d'usage, and pain rows. Fraunces, smaller scale."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "Paragraph text. Plus Jakarta Sans 400 with line-height 1.55. Cap line length at 65–75ch in long paragraphs."
+      },
+      "lede": {
+        "displayName": "Lede",
+        "purpose": "Introductory paragraph under H1, section subtitle. Slightly larger and lighter than body."
+      },
+      "label": {
+        "displayName": "Label / Mono",
+        "purpose": "Eyebrow, section numbers ([01/08]), tags, durations. JetBrains Mono with letter-spacing 0.04 to 0.22em, uppercase."
+      }
+    },
+    "shadows": [
+      {
+        "name": "card-lift",
+        "value": "inset 0 0 0 1px rgba(14,14,12,0.08), 0 24px 48px -24px rgba(14,14,12,0.24)",
+        "purpose": "Hover state on cas d'usage cards. Soft, low, far-blurred ambient shadow."
+      },
+      {
+        "name": "card-lift-heavy",
+        "value": "inset 0 0 0 1px rgba(14,14,12,0.08), 0 32px 64px -32px rgba(14,14,12,0.28)",
+        "purpose": "Hover state on services cards. Higher emphasis variant."
+      },
+      {
+        "name": "card-lift-soft",
+        "value": "inset 0 0 0 1px rgba(14,14,12,0.07), 0 20px 40px -20px rgba(14,14,12,0.18)",
+        "purpose": "Hover state on methode cards. Calmer variant."
+      },
+      {
+        "name": "citron-glow",
+        "value": "0 16px 40px -16px rgba(31,45,10,0.32)",
+        "purpose": "Tinted shadow under Citron Net surfaces (hero pill, accent mark, CTA card)."
+      },
+      {
+        "name": "citron-halo",
+        "value": "0 8px 20px -8px rgba(197,245,72,0.6)",
+        "purpose": "Visible lime halo under res-icon on dark sections (Résultats)."
+      },
+      {
+        "name": "nav-float-rest",
+        "value": "inset 0 1px 0 rgba(255,255,255,0.7), inset 0 0 0 1px rgba(14,14,12,0.06), 0 14px 40px -16px rgba(14,14,12,0.18)",
+        "purpose": "Floating island nav resting state. The single exception to plat-au-repos."
+      },
+      {
+        "name": "nav-float-scrolled",
+        "value": "inset 0 1px 0 rgba(255,255,255,0.8), inset 0 0 0 1px rgba(14,14,12,0.08), 0 18px 48px -16px rgba(14,14,12,0.22)",
+        "purpose": "Nav after scroll passes 8px. Heavier shadow, more opaque background."
+      },
+      {
+        "name": "cta-card-elevation",
+        "value": "inset 0 1px 0 rgba(255,255,255,0.5), 0 32px 80px -32px rgba(31,45,10,0.40)",
+        "purpose": "The lime CTA card. Tinted Citron-deep shadow, very wide and far."
+      },
+      {
+        "name": "core-inset-highlight",
+        "value": "inset 0 1px 1px rgba(255,255,255,0.6)",
+        "purpose": "Top-edge light line on the core layer of every shell+core card. Simulates the meeting plane between the two layers."
+      }
+    ],
+    "motion": [
+      {
+        "name": "ease-snap",
+        "value": "cubic-bezier(0.32, 0.72, 0, 1)",
+        "purpose": "Default state changes (button hover, card lift, nav scroll). Apple-like snap, 380ms typical."
+      },
+      {
+        "name": "ease-out-quart",
+        "value": "cubic-bezier(0.16, 1, 0.3, 1)",
+        "purpose": "Entry animations on scroll reveal. Long tail, exponential ease-out, 1100ms typical."
+      },
+      {
+        "name": "duration-fast",
+        "value": "380ms",
+        "purpose": "Button states, nav state changes, micro-interactions."
+      },
+      {
+        "name": "duration-default",
+        "value": "700ms",
+        "purpose": "Card transforms, larger state changes."
+      },
+      {
+        "name": "duration-reveal",
+        "value": "1100ms",
+        "purpose": "Scroll entry of major elements (titles, cards). Paired with ease-out-quart."
+      },
+      {
+        "name": "pulse-dot",
+        "value": "@keyframes pulse-dot { 0%,100% { opacity: 0.4; } 50% { opacity: 1; } } 1.6s infinite",
+        "purpose": "The Citron Net dot in the hero eyebrow signaling availability."
+      },
+      {
+        "name": "float-soft",
+        "value": "@keyframes float-soft { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-6px); } } 4.2s ease-in-out infinite",
+        "purpose": "Subtle vertical float on the hero hummingbird wing."
+      }
+    ],
+    "breakpoints": [
+      { "name": "tight", "value": "540px" },
+      { "name": "compact", "value": "720px" },
+      { "name": "comfy", "value": "900px" },
+      { "name": "wide", "value": "1100px" },
+      { "name": "open", "value": "1320px" }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary CTA",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "Pilule lime avec icône encapsulée à droite. Le bouton signature, utilisé partout pour 'Audit gratuit'.",
+      "html": "<button class=\"ds-btn-primary\"><span>Audit gratuit</span><span class=\"ds-btn-primary__icon\"><svg width=\"12\" height=\"12\" viewBox=\"0 0 14 14\" aria-hidden=\"true\"><path d=\"M2 12L12 2M12 2H5M12 2V9\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" fill=\"none\"/></svg></span></button>",
+      "css": ".ds-btn-primary { display: inline-flex; align-items: center; gap: 12px; padding: 6px 6px 6px 22px; border-radius: 999px; background: #C5F548; color: #0E0E0C; font-family: 'Plus Jakarta Sans', system-ui, sans-serif; font-weight: 500; font-size: 14px; border: none; cursor: pointer; user-select: none; white-space: nowrap; transition: background 380ms cubic-bezier(0.32, 0.72, 0, 1), transform 380ms cubic-bezier(0.32, 0.72, 0, 1); will-change: transform; } .ds-btn-primary__icon { width: 36px; height: 36px; border-radius: 999px; background: rgba(14,14,12,0.10); display: inline-flex; align-items: center; justify-content: center; transition: transform 380ms cubic-bezier(0.32, 0.72, 0, 1), background 380ms cubic-bezier(0.32, 0.72, 0, 1); } .ds-btn-primary:hover { background: #D2FA60; } .ds-btn-primary:hover .ds-btn-primary__icon { background: rgba(14,14,12,0.18); transform: translate(2px, -1px) scale(1.04); } .ds-btn-primary:active { transform: scale(0.98); } .ds-btn-primary:focus-visible { outline: 2px solid #1F2D0A; outline-offset: 3px; }"
+    },
+    {
+      "name": "Ghost CTA",
+      "kind": "button",
+      "refersTo": "button-ghost",
+      "description": "Pilule glass blanche translucide pour CTA secondaire (ex: 'Découvrir nos solutions'). Hover: inversion vers ink.",
+      "html": "<button class=\"ds-btn-ghost\"><span>Découvrir nos solutions</span><span class=\"ds-btn-ghost__icon\"><svg width=\"12\" height=\"12\" viewBox=\"0 0 14 14\" aria-hidden=\"true\"><path d=\"M2 12L12 2M12 2H5M12 2V9\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" fill=\"none\"/></svg></span></button>",
+      "css": ".ds-btn-ghost { display: inline-flex; align-items: center; gap: 12px; padding: 6px 6px 6px 22px; border-radius: 999px; background: rgba(255,255,255,0.6); color: #0E0E0C; font-family: 'Plus Jakarta Sans', system-ui, sans-serif; font-weight: 500; font-size: 14px; border: none; cursor: pointer; box-shadow: inset 0 0 0 1px rgba(14,14,12,0.10); backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px); transition: background 380ms cubic-bezier(0.32, 0.72, 0, 1), color 380ms cubic-bezier(0.32, 0.72, 0, 1), box-shadow 380ms cubic-bezier(0.32, 0.72, 0, 1); } .ds-btn-ghost__icon { width: 36px; height: 36px; border-radius: 999px; background: rgba(14,14,12,0.06); display: inline-flex; align-items: center; justify-content: center; transition: transform 380ms cubic-bezier(0.32, 0.72, 0, 1), background 380ms cubic-bezier(0.32, 0.72, 0, 1); } .ds-btn-ghost:hover { background: #0E0E0C; color: white; box-shadow: inset 0 0 0 1px #0E0E0C; } .ds-btn-ghost:hover .ds-btn-ghost__icon { background: rgba(255,255,255,0.14); transform: translate(2px, -1px) scale(1.04); } .ds-btn-ghost:active { transform: scale(0.98); } .ds-btn-ghost:focus-visible { outline: 2px solid #0E0E0C; outline-offset: 3px; }"
+    },
+    {
+      "name": "Dark CTA",
+      "kind": "button",
+      "refersTo": "button-dark",
+      "description": "Pilule sombre, posée sur fond Citron Net (CTA card finale). Au hover, inverse complet vers Citron Net.",
+      "html": "<button class=\"ds-btn-dark\"><span>Prendre rendez-vous</span><span class=\"ds-btn-dark__icon\"><svg width=\"12\" height=\"12\" viewBox=\"0 0 14 14\" aria-hidden=\"true\"><path d=\"M2 12L12 2M12 2H5M12 2V9\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" fill=\"none\"/></svg></span></button>",
+      "css": ".ds-btn-dark { display: inline-flex; align-items: center; gap: 12px; padding: 6px 6px 6px 22px; border-radius: 999px; background: #0E0E0C; color: white; font-family: 'Plus Jakarta Sans', system-ui, sans-serif; font-weight: 500; font-size: 14px; border: none; cursor: pointer; box-shadow: inset 0 1px 0 rgba(255,255,255,0.06); transition: background 380ms cubic-bezier(0.32, 0.72, 0, 1), color 380ms cubic-bezier(0.32, 0.72, 0, 1); } .ds-btn-dark__icon { width: 36px; height: 36px; border-radius: 999px; background: rgba(255,255,255,0.10); display: inline-flex; align-items: center; justify-content: center; transition: transform 380ms cubic-bezier(0.32, 0.72, 0, 1), background 380ms cubic-bezier(0.32, 0.72, 0, 1); } .ds-btn-dark:hover { background: #C5F548; color: #0E0E0C; } .ds-btn-dark:hover .ds-btn-dark__icon { background: rgba(14,14,12,0.10); transform: translate(2px, -1px) scale(1.04); } .ds-btn-dark:active { transform: scale(0.98); } .ds-btn-dark:focus-visible { outline: 2px solid #C5F548; outline-offset: 3px; }"
+    },
+    {
+      "name": "Eyebrow Pill",
+      "kind": "chip",
+      "refersTo": "eyebrow",
+      "description": "Micropill mono uppercase tracking 0.22em qui précède chaque H2 et le hero. Optionnel: dot Citron Net pulsant pour signaler une disponibilité.",
+      "html": "<span class=\"ds-eyebrow\"><span class=\"ds-eyebrow__dot\"></span>Audit gratuit, sans engagement</span>",
+      "css": ".ds-eyebrow { display: inline-flex; align-items: center; gap: 8px; padding: 7px 14px; border-radius: 999px; background: rgba(14,14,12,0.04); box-shadow: inset 0 0 0 1px rgba(14,14,12,0.06); font-family: 'JetBrains Mono', monospace; font-size: 10px; font-weight: 500; letter-spacing: 0.22em; text-transform: uppercase; color: #6B6B66; } .ds-eyebrow__dot { width: 5px; height: 5px; border-radius: 50%; background: #C5F548; display: inline-block; animation: ds-pulse-dot 1.6s ease-in-out infinite; } @keyframes ds-pulse-dot { 0%, 100% { opacity: 0.4; } 50% { opacity: 1; } }"
+    },
+    {
+      "name": "Service Card (Shell + Core)",
+      "kind": "card",
+      "refersTo": "shell",
+      "description": "La card signature du système : double-coque (shell extérieur 32px, core intérieur 26px), illustration carrée en tête, body en bas. Hover: lift 6px + flèche en cercle qui tourne -45deg + image scale 1.04.",
+      "html": "<article class=\"ds-srv-card\"><div class=\"ds-srv-card__core\"><div class=\"ds-srv-card__illu\"><div class=\"ds-srv-card__placeholder\"></div></div><div class=\"ds-srv-card__body\"><div class=\"ds-srv-card__top\"><span class=\"ds-srv-card__num\">01</span><span class=\"ds-srv-card__arr\"><svg width=\"12\" height=\"12\" viewBox=\"0 0 14 14\" aria-hidden=\"true\"><path d=\"M2 12L12 2M12 2H5M12 2V9\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" fill=\"none\"/></svg></span></div><h3>Automatisation intelligente</h3><p>On identifie les tâches qui se répètent et on les fait tourner toutes seules, sans casser votre façon de travailler.</p><div class=\"ds-srv-card__tags\"><span class=\"ds-srv-card__tag\">Workflows</span><span class=\"ds-srv-card__tag\">Intégrations</span><span class=\"ds-srv-card__tag\">Sans code</span></div></div></div></article>",
+      "css": ".ds-srv-card { background: rgba(14,14,12,0.045); border-radius: 32px; padding: 6px; box-shadow: inset 0 0 0 1px rgba(14,14,12,0.05); transition: transform 700ms cubic-bezier(0.32, 0.72, 0, 1), box-shadow 700ms cubic-bezier(0.32, 0.72, 0, 1); cursor: pointer; max-width: 480px; } .ds-srv-card:hover { transform: translateY(-6px); box-shadow: inset 0 0 0 1px rgba(14,14,12,0.08), 0 32px 64px -32px rgba(14,14,12,0.28); } .ds-srv-card__core { background: white; border-radius: 26px; overflow: hidden; box-shadow: inset 0 1px 1px rgba(255,255,255,0.6); display: flex; flex-direction: column; } .ds-srv-card__illu { aspect-ratio: 1/1; overflow: hidden; background: #0F2A2D; } .ds-srv-card__placeholder { width: 100%; height: 100%; background: linear-gradient(155deg, #0F2A2D 0%, #1A4A40 100%); transition: transform 1100ms cubic-bezier(0.32, 0.72, 0, 1); } .ds-srv-card:hover .ds-srv-card__placeholder { transform: scale(1.04); } .ds-srv-card__body { padding: 32px; display: flex; flex-direction: column; gap: 14px; flex: 1; font-family: 'Plus Jakarta Sans', system-ui, sans-serif; } .ds-srv-card__top { display: flex; justify-content: space-between; align-items: flex-start; } .ds-srv-card__num { font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 0.22em; color: #6B6B66; padding-top: 14px; } .ds-srv-card__arr { width: 44px; height: 44px; border-radius: 50%; background: rgba(14,14,12,0.04); box-shadow: inset 0 0 0 1px rgba(14,14,12,0.06); display: flex; align-items: center; justify-content: center; color: #0E0E0C; transition: transform 380ms cubic-bezier(0.32, 0.72, 0, 1), background 380ms cubic-bezier(0.32, 0.72, 0, 1); } .ds-srv-card:hover .ds-srv-card__arr { background: #C5F548; transform: rotate(-45deg); box-shadow: inset 0 0 0 1px rgba(31,45,10,0.16); } .ds-srv-card h3 { font-family: 'Fraunces', serif; font-weight: 400; font-size: 32px; letter-spacing: -0.025em; line-height: 1.05; color: #0E0E0C; margin: 0; } .ds-srv-card p { font-size: 15px; color: #1A1A18; line-height: 1.55; margin: 0; } .ds-srv-card__tags { display: flex; gap: 8px; flex-wrap: wrap; margin-top: auto; padding-top: 8px; } .ds-srv-card__tag { font-size: 11px; padding: 6px 12px; border-radius: 999px; background: rgba(14,14,12,0.04); color: #1A1A18; box-shadow: inset 0 0 0 1px rgba(14,14,12,0.06); font-family: 'JetBrains Mono', monospace; letter-spacing: 0.06em; text-transform: uppercase; }"
+    },
+    {
+      "name": "Pain Row",
+      "kind": "custom",
+      "refersTo": null,
+      "description": "Ligne unique au site Kolya : grille 80/1fr/auto, hairline top et bottom, hover indente la ligne entière de 16px et fait tourner le cercle de flèche en ink.",
+      "html": "<div class=\"ds-pain\"><div class=\"ds-pain__num\">01</div><div class=\"ds-pain__text\">Tâches répétitives qui mangent les journées<small>Saisies, relances, exports, copier-coller. Un temps qui ne sert ni vos clients, ni votre marge.</small></div><div class=\"ds-pain__arr\"><svg width=\"14\" height=\"14\" viewBox=\"0 0 14 14\" aria-hidden=\"true\"><path d=\"M2 12L12 2M12 2H5M12 2V9\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" fill=\"none\"/></svg></div></div>",
+      "css": ".ds-pain { display: grid; grid-template-columns: 80px 1fr auto; gap: 24px; align-items: center; padding: 32px 4px; border-top: 1px solid rgba(14,14,12,0.08); transition: padding-left 700ms cubic-bezier(0.32, 0.72, 0, 1); cursor: pointer; } .ds-pain:hover { padding-left: 16px; } .ds-pain__num { color: #6B6B66; font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.04em; text-transform: uppercase; } .ds-pain__text { font-family: 'Fraunces', serif; font-weight: 400; font-size: 28px; letter-spacing: -0.025em; line-height: 1.1; color: #0E0E0C; } .ds-pain__text small { display: block; font-family: 'Plus Jakarta Sans', system-ui, sans-serif; font-style: normal; font-size: 14px; letter-spacing: 0; color: #6B6B66; margin-top: 6px; line-height: 1.5; font-weight: 400; } .ds-pain__arr { width: 44px; height: 44px; border-radius: 50%; background: rgba(14,14,12,0.04); box-shadow: inset 0 0 0 1px rgba(14,14,12,0.06); display: flex; align-items: center; justify-content: center; color: #0E0E0C; transition: background 380ms cubic-bezier(0.32, 0.72, 0, 1), color 380ms cubic-bezier(0.32, 0.72, 0, 1), transform 380ms cubic-bezier(0.32, 0.72, 0, 1), box-shadow 380ms cubic-bezier(0.32, 0.72, 0, 1); } .ds-pain:hover .ds-pain__arr { background: #0E0E0C; color: white; box-shadow: inset 0 0 0 1px #0E0E0C; transform: rotate(-45deg); }"
+    },
+    {
+      "name": "Floating Island Nav",
+      "kind": "nav",
+      "refersTo": null,
+      "description": "Pilule glass flottante, fixée à 18px du top. Brand à gauche, segmented links au centre, CTA primaire à droite. Backdrop blur 28px, hairline + inset highlight + ombre douce.",
+      "html": "<nav class=\"ds-nav\"><div class=\"ds-nav__inner\"><a class=\"ds-nav__brand\" href=\"#\"><span class=\"ds-nav__brand-name\">Kolya</span></a><div class=\"ds-nav__links\"><a href=\"#\">Problème</a><a href=\"#\" class=\"ds-nav__link--active\">Services</a><a href=\"#\">Méthode</a><a href=\"#\">Résultats</a></div><a href=\"#\" class=\"ds-nav__cta\"><span>Audit gratuit</span><span class=\"ds-nav__cta-icon\"><svg width=\"11\" height=\"11\" viewBox=\"0 0 14 14\" aria-hidden=\"true\"><path d=\"M2 12L12 2M12 2H5M12 2V9\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" fill=\"none\"/></svg></span></a></div></nav>",
+      "css": ".ds-nav { padding: 18px 20px; pointer-events: none; } .ds-nav__inner { pointer-events: auto; max-width: 980px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 8px 8px 8px 22px; background: rgba(255,255,255,0.62); backdrop-filter: blur(28px) saturate(180%); -webkit-backdrop-filter: blur(28px) saturate(180%); border-radius: 999px; box-shadow: inset 0 1px 0 rgba(255,255,255,0.7), inset 0 0 0 1px rgba(14,14,12,0.06), 0 14px 40px -16px rgba(14,14,12,0.18); font-family: 'Plus Jakarta Sans', system-ui, sans-serif; } .ds-nav__brand-name { font-family: 'Fraunces', serif; font-size: 22px; letter-spacing: -0.02em; line-height: 1; color: #0E0E0C; } .ds-nav__links { display: flex; gap: 2px; padding: 4px; background: rgba(14,14,12,0.04); box-shadow: inset 0 0 0 1px rgba(14,14,12,0.05); border-radius: 999px; } .ds-nav__links a { padding: 8px 16px; font-size: 13px; font-weight: 500; color: #1A1A18; border-radius: 999px; text-decoration: none; transition: background 380ms cubic-bezier(0.32, 0.72, 0, 1), color 380ms cubic-bezier(0.32, 0.72, 0, 1); } .ds-nav__links a:hover { background: rgba(255,255,255,0.7); color: #0E0E0C; } .ds-nav__link--active { background: white; color: #0E0E0C; box-shadow: 0 1px 2px rgba(14,14,12,0.06), inset 0 0 0 1px rgba(14,14,12,0.04); } .ds-nav__cta { display: inline-flex; align-items: center; gap: 10px; padding: 5px 5px 5px 16px; border-radius: 999px; background: #C5F548; color: #0E0E0C; font-weight: 500; font-size: 13px; text-decoration: none; transition: background 380ms cubic-bezier(0.32, 0.72, 0, 1); } .ds-nav__cta:hover { background: #D2FA60; } .ds-nav__cta-icon { width: 30px; height: 30px; border-radius: 999px; background: rgba(14,14,12,0.10); display: inline-flex; align-items: center; justify-content: center; transition: transform 380ms cubic-bezier(0.32, 0.72, 0, 1); } .ds-nav__cta:hover .ds-nav__cta-icon { transform: translate(2px, -1px) scale(1.04); }"
+    }
+  ],
+  "narrative": {
+    "northStar": "Le Cabinet Lumineux",
+    "overview": "Imagine un cabinet d'avocat ou de médecin haut de gamme dans un immeuble haussmannien. Parquet large, lumière naturelle, peu de meubles, du marbre froid réchauffé par un mur d'atelier en fond. Personne n'élève la voix, personne ne survend. Tu rentres, tu t'installes, tu sens que tu es entre des mains compétentes. C'est ça, l'expérience Kolya. Pas un cabinet glacial, pas une boutique brutaliste, pas un SaaS clinique. Un cabinet qui a une âme d'atelier. Le système est calme par défaut : le visiteur ne se fait pas agresser visuellement. Les surfaces sont posées à plat, le mouvement n'apparaît qu'à son interaction. Le Citron Net (la seule couleur de marque) est rare et précieux, jamais saupoudré.",
+    "keyCharacteristics": [
+      "Cream tiède + ink sombre + un seul accent vert citron, jamais plus.",
+      "Architecture en double-coque (shell + core) pour chaque carte, sans exception.",
+      "Typographie display variable (Fraunces opsz 144) à très grande échelle.",
+      "Sections empilées avec coins arrondis 48px qui se chevauchent comme des plaques.",
+      "Motion exponentielle (ease-out quart) pour les entrées, ease snap (Apple-like) pour les états.",
+      "Repos plat, ascension au survol seulement.",
+      "Film grain fixe à 4,5% d'opacité sur tout l'écran pour la matière."
+    ],
+    "rules": [
+      { "name": "The One Voice Rule", "body": "Le Citron Net est la seule couleur de marque. Aucun bleu, aucun violet, aucun rouge n'apparaît jamais sur ce site.", "section": "colors" },
+      { "name": "The Sparingly Rule", "body": "Le Citron Net occupe au maximum 5% de la surface visible d'une page à un instant donné. Sa rareté est ce qui le rend précieux.", "section": "colors" },
+      { "name": "The No-Pure-Black Rule", "body": "#000000 est interdit. Tout noir tend vers Encre Carbone (#0E0E0C), légèrement chaud.", "section": "colors" },
+      { "name": "The Italics-as-Color Rule", "body": "L'italique de Fraunces (variation 1, weight 300) n'est jamais utilisé pour insister, mais pour colorer émotionnellement un fragment. Maximum un fragment italique par phrase.", "section": "typography" },
+      { "name": "The opsz Rule", "body": "À grande échelle (Display, Headline), forcer font-variation-settings: opsz 144. Sans cet axe forcé, Fraunces ressemble à du Times. Avec, ça ressemble à un magazine de mode.", "section": "typography" },
+      { "name": "The Mono-as-Signal Rule", "body": "JetBrains Mono ne porte jamais du texte de lecture. Il porte des signaux : numéros, codes, tags, badges.", "section": "typography" },
+      { "name": "The Calm-At-Rest Rule", "body": "Aucune surface ne porte d'ombre projetée au repos, sauf la nav flottante et les surfaces Citron Net. L'élévation est une réponse à l'interaction.", "section": "elevation" },
+      { "name": "The Hairline-First Rule", "body": "Avant d'envisager une ombre pour séparer deux surfaces, essayer le hairline 1px ou l'inset shadow. L'ombre projetée est la dernière option.", "section": "elevation" },
+      { "name": "The No-Drop-Shadow-Décoratif Rule", "body": "Une ombre signale une élévation ou une interaction. Une ombre derrière un texte ou pour faire joli est interdite.", "section": "elevation" }
+    ],
+    "dos": [
+      "Do utiliser le Citron Net comme un trésor : maximum 5% de la surface visible à tout instant.",
+      "Do appliquer la double-coque (shell + core) à chaque card, sans exception. shell = 32px / 6px / core = 26px (concentriques calculés).",
+      "Do précéder chaque H2 d'un eyebrow micropill mono uppercase tracking 0.22em.",
+      "Do italiquer un fragment de chaque headline avec Fraunces italic 300 pour porter la couleur émotionnelle (jamais plus d'un fragment par phrase).",
+      "Do transitionner avec les courbes du système : cubic-bezier(0.32, 0.72, 0, 1) pour les états (380ms), cubic-bezier(0.16, 1, 0.3, 1) pour les entrées au scroll (1100ms).",
+      "Do garder les surfaces plates au repos. L'ombre projetée n'apparaît qu'à l'interaction.",
+      "Do terminer chaque section qui change de fond avec un radius 48px 48px 0 0 qui crée la sensation de plaques empilées.",
+      "Do chevaucher la nav comme une île flottante (top 18px, jamais collée au bord).",
+      "Do parler en français, ton calme, vocabulaire de dirigeant de PME (temps, clients, CA, sérénité)."
+    ],
+    "donts": [
+      "Don't utiliser une seconde couleur d'accent. Ni bleu, ni violet, ni rouge, ni teal. Le Citron Net est seul. (PRODUCT.md: SaaS IA générique)",
+      "Don't utiliser #000000. Tout noir passe par Encre Carbone (#0E0E0C).",
+      "Don't appliquer un dégradé sur du texte (background-clip: text). L'emphase passe par le poids ou la taille.",
+      "Don't poser des bordures latérales colorées (border-left > 1px en couleur d'accent). Utiliser un eyebrow ou un badge.",
+      "Don't faire du glassmorphism décoratif. Le backdrop-filter est utilisé exclusivement sur la nav flottante et le bouton ghost.",
+      "Don't écrire le hero-metric template (gros chiffre + label + accent gradient). (PRODUCT.md: hero-metric template)",
+      "Don't générer une grille de cartes identiques avec icône Lucide + heading + paragraphe répétée.",
+      "Don't utiliser la palette navy-and-gold du consultancy générique. (PRODUCT.md: Consultancy corporate cliché)",
+      "Don't semer des buzzwords IA dans le copy : transformation digitale, IA-powered, synergies, écosystème, révolution IA, x10 votre business. (PRODUCT.md: Buzzword overload)",
+      "Don't utiliser transition: all linear ou ease-in-out plat. Toutes les courbes sont exponentielles.",
+      "Don't animer top, left, width, height. Uniquement transform et opacity.",
+      "Don't appliquer backdrop-blur à un conteneur qui défile. Réservé aux éléments fixed ou sticky.",
+      "Don't utiliser d'em dash. Virgule, deux-points, point-virgule, point, parenthèses uniquement.",
+      "Don't injecter des modales par réflexe. Préférer un inline ou une page dédiée."
+    ]
+  }
+}

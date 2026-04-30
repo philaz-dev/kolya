@@ -3,35 +3,58 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>Kolya — Des solutions IA simples. Des résultats concrets.</title>
-<meta name="description" content="KOLYA — agence d'implémentation IA. Nous aidons les entreprises à gagner du temps, automatiser leurs opérations et augmenter leur chiffre d'affaires." />
+<title>Kolya · Des solutions IA simples. Des résultats concrets.</title>
+<meta name="description" content="Kolya, agence d'implémentation IA. Nous aidons les entreprises à gagner du temps, automatiser leurs opérations et augmenter leur chiffre d'affaires." />
 <link rel="icon" type="image/png" href="assets/kolya-mark.png" />
 
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;1,9..144,400&family=Inter+Tight:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;1,9..144,400&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
 
 <style>
   :root {
     --bg: #FFFFFF;
-    --soft: #F5F5F2;
-    --soft-2: #ECECE6;
+    --soft: #F5F4EF;
+    --soft-2: #ECEAE2;
     --ink: #0E0E0C;
     --ink-2: #1A1A18;
     --muted: #6B6B66;
-    --line: rgba(14,14,12,0.1);
+    --line: rgba(14,14,12,0.08);
+    --line-2: rgba(14,14,12,0.05);
     --accent: #C5F548;
     --accent-deep: #1F2D0A;
+
+    /* motion */
+    --ease:     cubic-bezier(0.32, 0.72, 0, 1);
+    --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+    --dur:      700ms;
+    --dur-fast: 380ms;
+
+    /* radii */
+    --r-shell: 32px;
+    --r-core:  26px;
+    --r-section: 48px;
   }
-  * { box-sizing: border-box; margin: 0; padding: 0; }
-  html, body { background: var(--bg); color: var(--ink); }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
   body {
-    font-family: 'Inter Tight', system-ui, sans-serif;
-    font-size: 16px; line-height: 1.5;
+    background: var(--bg); color: var(--ink);
+    font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+    font-size: 16px; line-height: 1.55;
+    font-feature-settings: "ss01", "cv11";
     -webkit-font-smoothing: antialiased;
     overflow-x: hidden;
   }
   ::selection { background: var(--accent); color: var(--ink); }
+
+  /* === Film grain — fixed, pointer-events-none, single layer === */
+  body::after {
+    content: ""; position: fixed; inset: 0;
+    z-index: 9999; pointer-events: none;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 240 240'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 0.55 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+    opacity: 0.045;
+    mix-blend-mode: multiply;
+  }
 
   .serif { font-family: 'Fraunces', serif; font-weight: 400; letter-spacing: -0.025em; }
   .mono  { font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.04em; text-transform: uppercase; }
@@ -45,100 +68,177 @@
 
   .h-display {
     font-family: 'Fraunces', serif; font-weight: 400;
-    letter-spacing: -0.035em; line-height: 0.94;
+    letter-spacing: -0.04em; line-height: 0.92;
     font-variation-settings: "opsz" 144;
   }
 
-  /* Buttons */
-  .btn-lime, .btn-ghost, .btn-dark {
-    display: inline-flex; align-items: center; gap: 10px;
-    padding: 16px 24px; border-radius: 999px;
-    font-weight: 500; font-size: 14px;
-    transition: transform 0.2s, background 0.2s, color 0.2s, border-color 0.2s;
+  /* === Eyebrow micro pill === */
+  .eyebrow {
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 7px 14px; border-radius: 999px;
+    background: rgba(14,14,12,0.04);
+    box-shadow: inset 0 0 0 1px rgba(14,14,12,0.06);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px; font-weight: 500;
+    letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--muted);
   }
-  .btn-lime  { background: var(--accent); color: var(--ink); }
-  .btn-lime:hover { background: var(--ink); color: var(--accent); transform: translateY(-1px); }
-  .btn-ghost { border: 1px solid var(--line); color: var(--ink); }
-  .btn-ghost:hover { background: var(--ink); color: white; border-color: var(--ink); }
-  .btn-dark  { background: var(--ink); color: white; }
-  .btn-dark:hover { background: var(--accent); color: var(--ink); transform: translateY(-1px); }
-
-  .arr { width: 14px; height: 14px; }
-
-  @keyframes pulse-dot { 0%,100% { opacity: 0.3; } 50% { opacity: 1; } }
+  .eyebrow .dot {
+    width: 5px; height: 5px; border-radius: 50%;
+    background: var(--accent); display: inline-block;
+    animation: pulse-dot 1.6s ease-in-out infinite;
+  }
+  .eyebrow.on-dark {
+    background: rgba(255,255,255,0.06);
+    box-shadow: inset 0 0 0 1px rgba(255,255,255,0.12);
+    color: rgba(255,255,255,0.7);
+  }
+  .eyebrow.on-lime {
+    background: rgba(31,45,10,0.08);
+    box-shadow: inset 0 0 0 1px rgba(31,45,10,0.12);
+    color: var(--accent-deep);
+  }
+  @keyframes pulse-dot { 0%,100% { opacity: 0.4; } 50% { opacity: 1; } }
   @keyframes float-soft { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-6px); } }
 
-  /* Reveal on scroll */
-  .reveal { opacity: 0; transform: translateY(24px);
-    transition: opacity 0.9s cubic-bezier(.2,.7,.2,1), transform 0.9s cubic-bezier(.2,.7,.2,1); }
-  .reveal.in { opacity: 1; transform: translateY(0); }
-
-  /* Photo placeholder (used in hero pill + cas d'usage cards) */
-  .photo {
-    position: relative; width: 100%;
-    border-radius: 24px; overflow: hidden;
-    aspect-ratio: 4/5;
+  /* === BUTTONS — Button-in-Button + magnetic hover === */
+  .btn {
+    display: inline-flex; align-items: center; gap: 12px;
+    padding: 6px 6px 6px 22px;
+    border-radius: 999px;
+    font-family: inherit; font-weight: 500; font-size: 14px;
+    cursor: pointer; user-select: none; white-space: nowrap;
+    transition:
+      transform var(--dur-fast) var(--ease),
+      background var(--dur-fast) var(--ease),
+      color var(--dur-fast) var(--ease),
+      box-shadow var(--dur-fast) var(--ease);
+    will-change: transform;
   }
-  .photo.r-pill   { border-radius: 999px; aspect-ratio: auto; }
-  .photo.r-20     { border-radius: 20px; }
-  .photo.r-24     { border-radius: 24px; }
-  .photo.ratio-auto   { aspect-ratio: auto; }
-  .photo.ratio-3\/2   { aspect-ratio: 3/2; }
-  .photo.ratio-1\/1   { aspect-ratio: 1/1; }
-
-  .photo.t-sage   { background: linear-gradient(155deg, #C8D4B8 0%, #8FA378 100%); }
-  .photo.t-forest { background: linear-gradient(155deg, #2D3D24 0%, #1F2D18 100%); }
-  .photo.t-cream  { background: linear-gradient(155deg, #F0EBDF 0%, #E0D8C5 100%); }
-  .photo.t-sand   { background: linear-gradient(155deg, #E8DBC4 0%, #C9B391 100%); }
-  .photo.t-ink    { background: linear-gradient(155deg, #1A1A18 0%, #0A0A08 100%); }
-  .photo.t-lime   { background: linear-gradient(155deg, #DEF77A 0%, #A8D332 100%); }
-
-  .photo::before {
-    content: ""; position: absolute; inset: 0;
-    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 0.5 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
-    mix-blend-mode: overlay; opacity: 0.4; pointer-events: none;
+  .btn .btn-icon {
+    width: 36px; height: 36px; border-radius: 999px;
+    display: inline-flex; align-items: center; justify-content: center;
+    transition:
+      transform var(--dur-fast) var(--ease),
+      background var(--dur-fast) var(--ease);
   }
-  .photo::after {
-    content: ""; position: absolute; inset: 0;
-    background: radial-gradient(ellipse at 30% 20%, transparent 35%, rgba(0,0,0,0.25) 100%);
-    pointer-events: none;
-  }
-  .photo > .photo-overlay { position: relative; z-index: 2; }
+  .btn .btn-icon svg { width: 12px; height: 12px; }
+  .btn:active { transform: scale(0.98); }
+  .btn:hover .btn-icon { transform: translate(2px, -1px) scale(1.04); }
 
-  /* === NAV ============================================================ */
+  .btn-lime { background: var(--accent); color: var(--ink); }
+  .btn-lime .btn-icon { background: rgba(14,14,12,0.10); }
+  .btn-lime:hover { background: #D2FA60; }
+  .btn-lime:hover .btn-icon { background: rgba(14,14,12,0.18); }
+
+  .btn-ghost {
+    background: rgba(255,255,255,0.6);
+    color: var(--ink);
+    box-shadow: inset 0 0 0 1px rgba(14,14,12,0.10);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+  }
+  .btn-ghost .btn-icon { background: rgba(14,14,12,0.06); }
+  .btn-ghost:hover { background: var(--ink); color: white; box-shadow: inset 0 0 0 1px var(--ink); }
+  .btn-ghost:hover .btn-icon { background: rgba(255,255,255,0.14); }
+
+  .btn-dark { background: var(--ink); color: white; box-shadow: 0 1px 0 rgba(255,255,255,0.06) inset; }
+  .btn-dark .btn-icon { background: rgba(255,255,255,0.10); }
+  .btn-dark:hover { background: var(--accent); color: var(--ink); }
+  .btn-dark:hover .btn-icon { background: rgba(14,14,12,0.10); }
+
+  .btn-on-lime {
+    background: rgba(255,255,255,0.4);
+    color: var(--accent-deep);
+    box-shadow: inset 0 0 0 1px rgba(31,45,10,0.18);
+  }
+  .btn-on-lime .btn-icon { background: rgba(31,45,10,0.12); }
+  .btn-on-lime:hover { background: var(--ink); color: white; box-shadow: inset 0 0 0 1px var(--ink); }
+  .btn-on-lime:hover .btn-icon { background: rgba(255,255,255,0.14); }
+
+  /* Compact (used inside the floating nav) */
+  .btn-sm { padding: 5px 5px 5px 16px; font-size: 13px; gap: 10px; }
+  .btn-sm .btn-icon { width: 30px; height: 30px; }
+  .btn-sm .btn-icon svg { width: 11px; height: 11px; }
+
+  /* === Reveal on scroll: blur + translate + fade === */
+  .reveal {
+    opacity: 0;
+    transform: translate3d(0, 36px, 0);
+    filter: blur(10px);
+    transition:
+      opacity 1100ms var(--ease-out),
+      transform 1100ms var(--ease-out),
+      filter 900ms var(--ease-out);
+    will-change: transform, opacity, filter;
+  }
+  .reveal.in { opacity: 1; transform: translate3d(0, 0, 0); filter: blur(0); }
+
+  /* === FLOATING ISLAND NAV === */
   .nav {
-    position: sticky; top: 0; z-index: 50;
-    background: transparent;
-    border-bottom: 1px solid transparent;
-    transition: background 0.3s, border-color 0.3s, backdrop-filter 0.3s;
+    position: fixed; top: 0; left: 0; right: 0;
+    z-index: 50; padding: 18px 20px;
+    pointer-events: none;
+    transition: padding var(--dur) var(--ease);
   }
-  .nav.scrolled {
-    background: rgba(255,255,255,0.85);
-    backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
-    border-bottom: 1px solid var(--line);
+  .nav.scrolled { padding: 12px 20px; }
+  .nav-inner {
+    pointer-events: auto;
+    max-width: 1280px; margin: 0 auto;
+    display: flex; align-items: center; justify-content: space-between;
+    gap: 16px;
+    padding: 8px 8px 8px 22px;
+    background: rgba(255,255,255,0.62);
+    backdrop-filter: blur(28px) saturate(180%);
+    -webkit-backdrop-filter: blur(28px) saturate(180%);
+    border-radius: 999px;
+    box-shadow:
+      inset 0 1px 0 rgba(255,255,255,0.7),
+      inset 0 0 0 1px rgba(14,14,12,0.06),
+      0 14px 40px -16px rgba(14,14,12,0.18);
+    transition: background var(--dur) var(--ease), box-shadow var(--dur) var(--ease);
   }
-  .nav-inner { display: flex; align-items: center; justify-content: space-between; height: 76px; }
+  .nav.scrolled .nav-inner {
+    background: rgba(255,255,255,0.82);
+    box-shadow:
+      inset 0 1px 0 rgba(255,255,255,0.8),
+      inset 0 0 0 1px rgba(14,14,12,0.08),
+      0 18px 48px -16px rgba(14,14,12,0.22);
+  }
   .brand { display: flex; align-items: center; gap: 10px; }
-  .brand img { display: block; object-fit: contain; }
-  .brand .name { font-family: 'Fraunces', serif; font-size: 24px; letter-spacing: -0.02em; }
+  .brand img { width: 26px; height: 26px; object-fit: contain; }
+  .brand .name {
+    font-family: 'Fraunces', serif; font-size: 22px; letter-spacing: -0.02em;
+    line-height: 1;
+  }
   .nav-min {
-    display: flex; gap: 8px; padding: 6px;
-    background: var(--soft); border: 1px solid var(--line);
+    display: flex; gap: 2px; padding: 4px;
+    background: rgba(14,14,12,0.04);
+    box-shadow: inset 0 0 0 1px rgba(14,14,12,0.05);
     border-radius: 999px;
   }
   .nav-min a {
-    padding: 8px 16px; font-size: 13px; color: var(--ink-2);
-    border-radius: 999px; transition: background 0.2s;
+    padding: 8px 16px; font-size: 13px; font-weight: 500; color: var(--ink-2);
+    border-radius: 999px;
+    transition: background var(--dur-fast) var(--ease), color var(--dur-fast) var(--ease);
   }
-  .nav-min a:hover { background: white; }
-  .nav-cta { padding: 12px 20px; font-size: 13px; }
+  .nav-min a:hover { background: rgba(255,255,255,0.7); color: var(--ink); }
+  .nav-min a.active {
+    background: white; color: var(--ink);
+    box-shadow: 0 1px 2px rgba(14,14,12,0.06), inset 0 0 0 1px rgba(14,14,12,0.04);
+  }
   @media (max-width: 980px) { .nav-min { display: none; } }
+  @media (max-width: 540px) {
+    .nav-cta .btn-label { display: none; }
+    .nav-cta { padding: 4px; }
+  }
 
-  /* === HERO =========================================================== */
+  /* === HERO ============================================================ */
   .hero {
     position: relative;
-    padding: 32px 0 96px;
-    min-height: calc(100vh - 76px);
+    min-height: 100vh;
+    min-height: 100dvh;
+    padding: 140px 0 96px;
     display: flex; flex-direction: column; justify-content: center;
     overflow: hidden;
   }
@@ -154,9 +254,9 @@
       linear-gradient(90deg,
         rgba(255,255,255,0.96) 0%,
         rgba(255,255,255,0.82) 32%,
-        rgba(255,255,255,0.4) 60%,
+        rgba(255,255,255,0.42) 60%,
         rgba(255,255,255,0.05) 100%),
-      linear-gradient(180deg, rgba(255,255,255,0.18) 0%, transparent 28%, rgba(255,255,255,0.5) 100%);
+      linear-gradient(180deg, rgba(255,255,255,0.18) 0%, transparent 28%, rgba(255,255,255,0.55) 100%);
   }
   .hero > .wrap { position: relative; z-index: 2; }
   @media (max-width: 900px) {
@@ -165,319 +265,402 @@
       background:
         linear-gradient(180deg,
           rgba(255,255,255,0.55) 0%,
-          rgba(255,255,255,0.88) 45%,
+          rgba(255,255,255,0.88) 50%,
           rgba(255,255,255,0.98) 80%,
           white 100%);
     }
   }
+
   .hero-meta {
     display: flex; justify-content: space-between; align-items: center;
-    padding-bottom: 20px; margin-bottom: 56px; color: var(--muted);
+    margin-bottom: 64px; color: var(--muted);
   }
-  .hero-meta .dot { display: inline-flex; align-items: center; gap: 8px; }
-  .hero-meta .dot::before {
-    content: ""; width: 6px; height: 6px; border-radius: 50%;
-    background: var(--accent); animation: pulse-dot 1.6s infinite;
+  .hero-eyebrow { margin-bottom: 32px; }
+
+  .hero-title {
+    font-size: clamp(56px, 10vw, 168px);
+    color: var(--ink);
   }
-  .hero-eyebrow {
-    font-family: 'JetBrains Mono', monospace; font-size: 12px;
-    letter-spacing: 0.18em; text-transform: uppercase;
-    color: var(--muted); margin-bottom: 24px;
-  }
-  .hero-title { font-size: clamp(48px, 8vw, 132px); color: var(--ink); }
   .hero-row {
     display: flex; align-items: center; flex-wrap: wrap;
-    gap: clamp(20px, 2.4vw, 36px);
+    gap: clamp(20px, 2.4vw, 40px);
     line-height: 1.05;
     padding: 0.05em 0;
   }
   .hero-pill {
     position: relative;
-    width: clamp(140px, 16vw, 240px);
-    height: clamp(80px, 9vw, 124px);
+    width: clamp(140px, 16vw, 248px);
+    height: clamp(80px, 9vw, 128px);
     flex-shrink: 0;
+    border-radius: 999px;
+    background: linear-gradient(155deg, #DEF77A 0%, #A8D332 100%);
+    overflow: hidden;
+    box-shadow:
+      inset 0 1px 0 rgba(255,255,255,0.6),
+      0 16px 40px -16px rgba(31,45,10,0.32);
   }
-  .hero-pill .photo { position: absolute; inset: 0; }
-  .hero-pill .wing-wrap {
-    position: absolute; inset: 0; z-index: 2;
-    display: flex; align-items: center; justify-content: center;
+  .hero-pill::before {
+    content: ""; position: absolute; inset: 0;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 0.5 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+    mix-blend-mode: overlay; opacity: 0.4; pointer-events: none;
   }
-  .hero-pill svg.wing { width: 70%; height: 70%; }
-  .hero-pill svg.wing g { transform-origin: 50% 50%; animation: float-soft 4s ease-in-out infinite; }
+  .hero-pill svg.wing {
+    position: absolute; inset: 0; margin: auto;
+    width: 70%; height: 70%;
+    animation: float-soft 4.2s ease-in-out infinite;
+  }
   .hero-row em {
     font-style: italic; font-weight: 300; color: var(--ink);
     white-space: nowrap; font-variation-settings: "opsz" 144;
   }
-  .hero-bot { margin-top: 56px; max-width: 640px; }
-  .hero-bot p.lede { font-size: 19px; line-height: 1.5; color: var(--ink-2); max-width: 520px; }
-  .hero-bot .ctas { display: flex; gap: 12px; margin-top: 32px; flex-wrap: wrap; }
 
-  /* hero side illustration */
-  .hero-illu {
-    position: relative; border-radius: 24px; overflow: hidden;
-    background: #0F2A2D;
-    box-shadow: 0 30px 60px -30px rgba(14,14,12,0.22), 0 4px 16px -8px rgba(14,14,12,0.08);
+  .hero-bot { margin-top: 64px; max-width: 640px; }
+  .hero-bot p.lede {
+    font-size: clamp(18px, 1.4vw, 21px); line-height: 1.5;
+    color: var(--ink-2); max-width: 540px;
   }
-  .hero-illu img { width: 100%; height: auto; display: block; }
-  .hero-illu .badge {
-    position: absolute; top: 16px; left: 16px;
-    display: inline-flex; align-items: center; gap: 8px;
-    padding: 8px 14px; border-radius: 999px;
-    background: rgba(255,255,255,0.92); backdrop-filter: blur(8px);
-    color: var(--ink); font-family: 'JetBrains Mono', monospace;
-    font-size: 11px; letter-spacing: 0.04em; text-transform: uppercase;
-  }
-  .hero-illu .badge::before {
-    content: ""; width: 6px; height: 6px; border-radius: 50%;
-    background: var(--accent); animation: pulse-dot 1.6s infinite;
-  }
+  .hero-bot .ctas { display: flex; gap: 12px; margin-top: 36px; flex-wrap: wrap; }
 
-  /* === SECTION HEADER PRIMITIVE ======================================= */
-  .sec-label { color: var(--muted); margin-bottom: 24px; }
+  /* === SECTION HEAD primitive === */
   .sec-head {
-    display: grid; grid-template-columns: 1fr 1.6fr; gap: 80px; align-items: end;
-    margin-bottom: 64px;
+    display: grid; grid-template-columns: 1fr 1.6fr;
+    gap: 80px; align-items: end;
+    margin-bottom: 80px;
   }
-  .sec-head h2 { font-size: clamp(40px, 5.4vw, 80px); color: var(--ink); }
+  .sec-head h2 {
+    font-family: 'Fraunces', serif; font-weight: 400;
+    letter-spacing: -0.04em; line-height: 0.94;
+    font-size: clamp(44px, 6vw, 96px); color: var(--ink);
+    font-variation-settings: "opsz" 144;
+  }
   .sec-head em { font-style: italic; color: var(--muted); }
-  .sec-head p.lede { font-size: 16px; color: var(--ink-2); max-width: 360px; }
-  @media (max-width: 900px) { .sec-head { grid-template-columns: 1fr; gap: 24px; } }
+  .sec-head p.lede { font-size: 16px; color: var(--ink-2); max-width: 380px; }
+  @media (max-width: 900px) { .sec-head { grid-template-columns: 1fr; gap: 24px; margin-bottom: 56px; } }
+
+  /* Outer "shell" + inner "core" Double-Bezel pattern (shared) */
+  .shell {
+    background: rgba(14,14,12,0.045);
+    border-radius: var(--r-shell);
+    padding: 6px;
+    box-shadow: inset 0 0 0 1px rgba(14,14,12,0.05);
+    transition:
+      transform var(--dur) var(--ease),
+      box-shadow var(--dur) var(--ease);
+  }
+  .shell.tight { padding: 5px; border-radius: 28px; }
+  .core {
+    background: white;
+    border-radius: var(--r-core);
+    overflow: hidden;
+    box-shadow: inset 0 1px 1px rgba(255,255,255,0.6);
+  }
+  .core.tight { border-radius: 22px; }
+  .shell.dark { background: rgba(255,255,255,0.06); box-shadow: inset 0 0 0 1px rgba(255,255,255,0.10); }
+  .shell.dark .core { background: var(--ink-2); box-shadow: inset 0 1px 1px rgba(255,255,255,0.04); }
 
   /* === PROBLEME ======================================================= */
-  .probleme { padding: 120px 0; background: var(--soft); border-radius: 40px 40px 0 0; }
+  .probleme { padding: 160px 0; background: var(--soft); border-radius: var(--r-section) var(--r-section) 0 0; }
   .pain-list { display: flex; flex-direction: column; }
   .pain {
-    display: grid; grid-template-columns: 80px 1fr auto; gap: 24px; align-items: center;
-    padding: 28px 0;
+    display: grid; grid-template-columns: 80px 1fr auto;
+    gap: 24px; align-items: center;
+    padding: 32px 4px;
     border-top: 1px solid var(--line);
-    transition: padding-left 0.3s;
+    transition: padding-left var(--dur) var(--ease);
   }
   .pain:last-child { border-bottom: 1px solid var(--line); }
   .pain .num { color: var(--muted); }
   .pain .text {
     font-family: 'Fraunces', serif; font-weight: 400; letter-spacing: -0.025em;
-    font-size: clamp(22px, 2.4vw, 32px); color: var(--ink);
+    font-size: clamp(22px, 2.4vw, 34px); color: var(--ink);
   }
   .pain .text small {
-    display: block; font-family: 'Inter Tight', sans-serif; font-style: normal;
+    display: block; font-family: 'Plus Jakarta Sans', sans-serif; font-style: normal;
     font-size: 14px; letter-spacing: 0; color: var(--muted); margin-top: 6px;
+    line-height: 1.5;
   }
   .pain .arrcircle {
-    width: 40px; height: 40px; border-radius: 50%;
-    background: white; border: 1px solid var(--line);
+    width: 44px; height: 44px; border-radius: 50%;
+    background: rgba(14,14,12,0.04);
+    box-shadow: inset 0 0 0 1px rgba(14,14,12,0.06);
     display: flex; align-items: center; justify-content: center;
-    transition: background 0.3s, color 0.3s, border-color 0.3s, transform 0.3s;
+    transition:
+      background var(--dur-fast) var(--ease),
+      color var(--dur-fast) var(--ease),
+      transform var(--dur-fast) var(--ease),
+      box-shadow var(--dur-fast) var(--ease);
   }
   .pain:hover { padding-left: 16px; }
-  .pain:hover .arrcircle { background: var(--ink); color: white; border-color: var(--ink); transform: rotate(-45deg); }
+  .pain:hover .arrcircle {
+    background: var(--ink); color: white;
+    box-shadow: inset 0 0 0 1px var(--ink);
+    transform: rotate(-45deg);
+  }
 
   /* === SOLUTION ======================================================= */
-  .solution { padding: 140px 0; background: white; }
-  .solution .inner { max-width: 880px; margin: 0 auto; text-align: center; }
-  .solution .label { color: var(--muted); margin-bottom: 24px; }
+  .solution { padding: 200px 0; background: white; }
+  .solution .inner { max-width: 920px; margin: 0 auto; text-align: center; }
+  .solution .accent-mark {
+    display: inline-flex; align-items: center; justify-content: center;
+    width: 72px; height: 72px; border-radius: 999px;
+    background: var(--accent);
+    box-shadow:
+      inset 0 1px 0 rgba(255,255,255,0.5),
+      0 16px 32px -12px rgba(31,45,10,0.32);
+    margin-bottom: 36px;
+  }
+  .solution .accent-mark svg { width: 28px; height: 28px; color: var(--accent-deep); }
+  .solution .label { color: var(--muted); margin-bottom: 24px; display: inline-flex; }
   .solution h2 {
-    font-size: clamp(44px, 6vw, 88px); color: var(--ink);
-    margin-bottom: 32px;
+    font-size: clamp(48px, 7vw, 112px); color: var(--ink);
+    margin: 16px 0 36px;
   }
   .solution em { font-style: italic; color: var(--muted); }
   .solution p {
-    font-size: clamp(18px, 1.6vw, 22px); color: var(--ink-2);
-    line-height: 1.5; max-width: 640px; margin: 0 auto;
-  }
-  .solution .accent-mark {
-    display: inline-flex; align-items: center; justify-content: center;
-    width: 64px; height: 64px; border-radius: 50%; background: var(--accent);
-    margin-bottom: 32px;
+    font-size: clamp(18px, 1.5vw, 22px); color: var(--ink-2);
+    line-height: 1.55; max-width: 680px; margin: 0 auto;
   }
 
   /* === SERVICES ======================================================= */
-  .services { padding: 120px 0; background: var(--soft); border-radius: 40px 40px 0 0; }
-  .srv-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
-  .srv-card {
-    background: white; color: var(--ink);
-    border-radius: 28px; overflow: hidden;
-    border: 1px solid var(--line);
-    display: flex; flex-direction: column;
-    transition: transform 0.3s cubic-bezier(.2,.7,.2,1), box-shadow 0.3s;
-    cursor: pointer;
-  }
+  .services { padding: 160px 0; background: var(--soft); border-radius: var(--r-section) var(--r-section) 0 0; }
+  .srv-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+  .srv-card { /* outer shell */ cursor: pointer; }
   .srv-card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 24px 48px -24px rgba(14,14,12,0.22), 0 4px 12px -6px rgba(14,14,12,0.08);
+    transform: translateY(-6px);
+    box-shadow:
+      inset 0 0 0 1px rgba(14,14,12,0.08),
+      0 32px 64px -32px rgba(14,14,12,0.28);
   }
-  .srv-illu {
-    aspect-ratio: 1/1; overflow: hidden; background: #0F2A2D;
-    position: relative;
-  }
+  .srv-core { display: flex; flex-direction: column; }
+  .srv-illu { aspect-ratio: 1/1; overflow: hidden; background: #0F2A2D; }
   .srv-illu img {
     width: 100%; height: 100%; object-fit: cover; display: block;
-    transition: transform 0.6s cubic-bezier(.2,.7,.2,1);
+    transition: transform 1100ms var(--ease);
   }
-  .srv-card:hover .srv-illu img { transform: scale(1.03); }
+  .srv-card:hover .srv-illu img { transform: scale(1.04); }
   .srv-body {
     padding: 32px;
     display: flex; flex-direction: column; gap: 14px;
     flex: 1;
   }
-  .srv-body .top {
-    display: flex; justify-content: space-between; align-items: flex-start;
+  .srv-body .top { display: flex; justify-content: space-between; align-items: flex-start; }
+  .srv-body .top .num {
+    font-family: 'JetBrains Mono', monospace; font-size: 10px;
+    letter-spacing: 0.22em; color: var(--muted); padding-top: 14px;
   }
-  .srv-body .top .num { color: var(--muted); }
   .srv-body .top .arrcircle {
     width: 44px; height: 44px; border-radius: 50%;
-    background: var(--soft); color: var(--ink);
+    background: rgba(14,14,12,0.04);
+    box-shadow: inset 0 0 0 1px rgba(14,14,12,0.06);
     display: flex; align-items: center; justify-content: center;
-    transition: transform 0.3s, background 0.3s;
+    transition: transform var(--dur-fast) var(--ease), background var(--dur-fast) var(--ease), color var(--dur-fast) var(--ease);
   }
-  .srv-card:hover .arrcircle { background: var(--accent); transform: rotate(-45deg); }
+  .srv-card:hover .arrcircle { background: var(--accent); color: var(--ink); transform: rotate(-45deg); box-shadow: inset 0 0 0 1px rgba(31,45,10,0.16); }
   .srv-body h3 {
     font-family: 'Fraunces', serif; font-weight: 400; letter-spacing: -0.025em;
-    font-size: clamp(26px, 3vw, 34px); line-height: 1.05;
+    font-size: clamp(26px, 3vw, 36px); line-height: 1.05;
   }
   .srv-body p { font-size: 15px; color: var(--ink-2); line-height: 1.55; }
   .srv-body .tags { display: flex; gap: 8px; flex-wrap: wrap; margin-top: auto; padding-top: 8px; }
   .srv-body .tag {
-    font-size: 11px; padding: 5px 11px; border-radius: 999px;
-    background: var(--soft); color: var(--ink-2); border: 1px solid var(--line);
-    font-family: 'JetBrains Mono', monospace; letter-spacing: 0.04em; text-transform: uppercase;
+    font-size: 11px; padding: 6px 12px; border-radius: 999px;
+    background: rgba(14,14,12,0.04); color: var(--ink-2);
+    box-shadow: inset 0 0 0 1px rgba(14,14,12,0.06);
+    font-family: 'JetBrains Mono', monospace;
+    letter-spacing: 0.06em; text-transform: uppercase;
   }
   @media (max-width: 900px) { .srv-grid { grid-template-columns: 1fr; } }
 
   /* === CAS D'USAGE ===================================================== */
-  .cases { padding: 120px 0; background: white; }
-  .case-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+  .cases { padding: 160px 0; background: white; }
+  .case-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; align-items: stretch; }
+  .case-grid > .reveal { display: flex; }
   .case-card {
-    background: white; border-radius: 24px; overflow: hidden;
-    border: 1px solid var(--line);
-    transition: transform 0.3s, box-shadow 0.3s;
     cursor: pointer;
+    flex: 1; display: flex; flex-direction: column;
   }
   .case-card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 20px 40px -20px rgba(14,14,12,0.18), 0 4px 12px -6px rgba(14,14,12,0.08);
+    transform: translateY(-6px);
+    box-shadow:
+      inset 0 0 0 1px rgba(14,14,12,0.08),
+      0 24px 48px -24px rgba(14,14,12,0.24);
   }
-  .case-card .case-img {
+  .case-card > .core { flex: 1; display: flex; flex-direction: column; }
+  .case-img {
     width: 100%; aspect-ratio: 1/1; display: block;
     object-fit: cover; background: var(--soft);
-    transition: transform 0.6s cubic-bezier(.2,.7,.2,1);
+    transition: transform 1100ms var(--ease);
   }
-  .case-card:hover .case-img { transform: scale(1.03); }
-  .case-card .body { padding: 24px 24px 28px; }
-  .case-card .sector { color: var(--muted); margin-bottom: 8px; }
-  .case-card h3 {
+  .case-card:hover .case-img { transform: scale(1.04); }
+  .case-body {
+    padding: 24px 24px 28px;
+    flex: 1; display: flex; flex-direction: column;
+  }
+  .case-body .sector {
+    color: var(--muted); margin-bottom: 8px;
+    display: inline-flex; padding: 4px 10px; border-radius: 999px;
+    background: rgba(14,14,12,0.04);
+    box-shadow: inset 0 0 0 1px rgba(14,14,12,0.05);
+    font-size: 10px; letter-spacing: 0.2em;
+  }
+  .case-body h3 {
     font-family: 'Fraunces', serif; font-weight: 400; letter-spacing: -0.025em;
     font-size: 22px; color: var(--ink); line-height: 1.2; margin-bottom: 12px;
   }
-  .case-card p { font-size: 14px; color: var(--ink-2); line-height: 1.5; }
-  @media (max-width: 1000px) { .case-grid { grid-template-columns: repeat(2, 1fr); } }
+  .case-body p { font-size: 14px; color: var(--ink-2); line-height: 1.55; }
+  @media (max-width: 1100px) { .case-grid { grid-template-columns: repeat(2, 1fr); } }
   @media (max-width: 540px)  { .case-grid { grid-template-columns: 1fr; } }
 
   /* === METHODE ======================================================== */
-  .method { padding: 120px 0; background: var(--soft); border-radius: 40px 40px 0 0; }
-  .meth-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
-  .meth-card {
-    background: white; border-radius: 24px; padding: 28px 24px;
+  .method { padding: 160px 0; background: var(--soft); border-radius: var(--r-section) var(--r-section) 0 0; }
+  .meth-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
+  .meth-card { transition: transform var(--dur) var(--ease), box-shadow var(--dur) var(--ease); }
+  .meth-card:hover {
+    transform: translateY(-4px);
+    box-shadow: inset 0 0 0 1px rgba(14,14,12,0.07), 0 20px 40px -20px rgba(14,14,12,0.18);
+  }
+  .meth-core {
+    padding: 28px 24px;
     min-height: 280px;
     display: flex; flex-direction: column; justify-content: space-between;
-    border: 1px solid var(--line);
   }
   .meth-num {
-    width: 42px; height: 42px; border-radius: 50%; background: var(--soft);
-    display: flex; align-items: center; justify-content: center; margin-bottom: 24px;
+    width: 44px; height: 44px; border-radius: 50%;
+    background: rgba(14,14,12,0.04);
+    box-shadow: inset 0 0 0 1px rgba(14,14,12,0.06);
+    display: flex; align-items: center; justify-content: center;
+    margin-bottom: 24px;
   }
-  .meth-card.first .meth-num { background: var(--accent); }
-  .meth-num span { color: var(--ink); font-size: 12px; }
-  .meth-card h3 {
+  .meth-card.first .meth-num {
+    background: var(--accent);
+    box-shadow: inset 0 0 0 1px rgba(31,45,10,0.16),
+                inset 0 1px 0 rgba(255,255,255,0.5);
+  }
+  .meth-num span { color: var(--ink); font-size: 12px; font-family: 'JetBrains Mono', monospace; }
+  .meth-core h3 {
     font-family: 'Fraunces', serif; font-weight: 400; letter-spacing: -0.025em;
-    font-size: 28px; color: var(--ink); margin-bottom: 10px;
+    font-size: 30px; color: var(--ink); margin-bottom: 10px;
   }
-  .meth-card p { font-size: 14px; color: var(--ink-2); line-height: 1.5; }
-  .meth-card .duration { color: var(--muted); margin-top: 20px; padding-top: 16px; border-top: 1px solid var(--line); }
+  .meth-core p { font-size: 14px; color: var(--ink-2); line-height: 1.55; }
+  .meth-core .duration {
+    color: var(--muted); margin-top: 24px; padding-top: 18px;
+    border-top: 1px solid var(--line);
+    font-family: 'JetBrains Mono', monospace; font-size: 11px;
+    letter-spacing: 0.16em; text-transform: uppercase;
+  }
   @media (max-width: 1100px) { .meth-grid { grid-template-columns: 1fr 1fr; } }
   @media (max-width: 600px)  { .meth-grid { grid-template-columns: 1fr; } }
 
   /* === RESULTATS ====================================================== */
-  .results { background: var(--ink); color: white; padding: 96px 0; border-radius: 40px 40px 0 0; }
-  .results .label { color: rgba(255,255,255,0.5); margin-bottom: 40px; }
+  .results {
+    background: var(--ink); color: white;
+    padding: 160px 0; border-radius: var(--r-section) var(--r-section) 0 0;
+    position: relative; overflow: hidden;
+  }
+  .results::before {
+    content: ""; position: absolute; inset: 0; pointer-events: none;
+    background:
+      radial-gradient(ellipse 60% 50% at 80% 0%, rgba(197,245,72,0.10), transparent 60%),
+      radial-gradient(ellipse 50% 40% at 10% 100%, rgba(197,245,72,0.06), transparent 60%);
+  }
+  .results > .wrap { position: relative; }
+  .results .label { color: rgba(255,255,255,0.65); margin-bottom: 24px; }
   .results-head {
     display: grid; grid-template-columns: 1fr 1.6fr; gap: 80px; align-items: end;
-    margin-bottom: 64px;
+    margin-bottom: 80px;
   }
-  .results-head h2 { font-size: clamp(40px, 5.4vw, 80px); color: white; }
+  .results-head h2 {
+    font-family: 'Fraunces', serif; font-weight: 400;
+    font-size: clamp(44px, 6vw, 96px); letter-spacing: -0.04em; line-height: 0.94;
+    color: white;
+    font-variation-settings: "opsz" 144;
+  }
   .results-head em { font-style: italic; color: rgba(255,255,255,0.5); }
-  .results-head p { font-size: 16px; color: rgba(255,255,255,0.7); max-width: 380px; }
-  .res-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 32px; }
-  .res-cell {
-    padding-left: 32px;
-    border-left: 1px solid rgba(255,255,255,0.15);
+  .results-head p { font-size: 16px; color: rgba(255,255,255,0.72); max-width: 380px; }
+  .res-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
+  .res-cell { transition: transform var(--dur) var(--ease); }
+  .res-cell:hover { transform: translateY(-4px); }
+  .res-core {
+    background: rgba(255,255,255,0.04);
+    box-shadow: inset 0 0 0 1px rgba(255,255,255,0.10),
+                inset 0 1px 0 rgba(255,255,255,0.06);
+    padding: 32px 28px; min-height: 220px;
+    display: flex; flex-direction: column; justify-content: space-between;
   }
-  .res-cell:first-child { padding-left: 0; border-left: none; }
-  .res-cell .icon {
-    width: 36px; height: 36px; border-radius: 50%;
-    background: var(--accent); color: var(--ink);
+  .res-icon {
+    width: 40px; height: 40px; border-radius: 999px;
+    background: var(--accent); color: var(--accent-deep);
     display: flex; align-items: center; justify-content: center;
-    margin-bottom: 24px;
+    box-shadow:
+      inset 0 1px 0 rgba(255,255,255,0.5),
+      0 8px 20px -8px rgba(197,245,72,0.6);
   }
+  .res-icon svg { width: 16px; height: 16px; }
   .res-cell .h {
     font-family: 'Fraunces', serif; font-weight: 400; letter-spacing: -0.025em;
-    font-size: clamp(28px, 3vw, 40px); color: white; line-height: 1.05; margin-bottom: 12px;
+    font-size: clamp(28px, 3vw, 40px); color: white; line-height: 1.05; margin: 24px 0 12px;
   }
-  .res-cell p { font-size: 14px; color: rgba(255,255,255,0.7); line-height: 1.55; max-width: 220px; }
+  .res-cell p { font-size: 14px; color: rgba(255,255,255,0.72); line-height: 1.55; }
   @media (max-width: 1000px) {
-    .results-head { grid-template-columns: 1fr; gap: 24px; }
-    .res-grid { grid-template-columns: 1fr 1fr; gap: 40px; }
-    .res-cell { padding-left: 0; border-left: none; }
+    .results-head { grid-template-columns: 1fr; gap: 24px; margin-bottom: 56px; }
+    .res-grid { grid-template-columns: 1fr 1fr; }
   }
   @media (max-width: 540px) { .res-grid { grid-template-columns: 1fr; } }
 
   /* === CTA ============================================================ */
-  .cta { padding: 80px 0 120px; background: white; }
+  .cta { padding: 96px 0 160px; background: white; }
   .cta-card {
-    background: var(--accent); border-radius: 40px;
-    padding: clamp(48px, 7vw, 96px);
+    background: var(--accent); border-radius: var(--r-section);
+    padding: clamp(56px, 8vw, 112px);
     position: relative; overflow: hidden;
+    box-shadow:
+      inset 0 1px 0 rgba(255,255,255,0.5),
+      0 32px 80px -32px rgba(31,45,10,0.4);
+  }
+  .cta-card::before {
+    content: ""; position: absolute; inset: 0; pointer-events: none;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 0.4 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+    mix-blend-mode: overlay; opacity: 0.5;
   }
   .cta-card .deco {
     position: absolute; top: -30%; right: -10%;
-    width: 480px; height: 480px; border-radius: 50%;
-    background: rgba(31,45,10,0.08);
+    width: 540px; height: 540px; border-radius: 50%;
+    background: radial-gradient(circle at center, rgba(31,45,10,0.10), rgba(31,45,10,0));
   }
   .cta-card .inner { position: relative; }
-  .cta-card .label { color: var(--accent-deep); margin-bottom: 32px; }
+  .cta-card .label { color: var(--accent-deep); margin-bottom: 32px; display: inline-flex; }
   .cta-card h2 {
-    font-size: clamp(48px, 8vw, 132px); color: var(--ink);
-    line-height: 0.95; margin-bottom: 40px;
+    font-family: 'Fraunces', serif; font-weight: 400;
+    font-size: clamp(52px, 8vw, 140px); letter-spacing: -0.04em; line-height: 0.92;
+    color: var(--ink); margin-bottom: 48px;
+    font-variation-settings: "opsz" 144;
   }
   .cta-card em { font-style: italic; color: var(--accent-deep); }
-  .cta-row {
-    display: grid; grid-template-columns: 1fr 1fr; gap: 64px;
-    align-items: end; max-width: 1100px;
+  .cta-lede {
+    font-size: clamp(17px, 1.4vw, 19px); line-height: 1.5;
+    color: var(--accent-deep); max-width: 540px; opacity: 0.88;
   }
-  .cta-row p { font-size: 17px; color: var(--accent-deep); max-width: 480px; opacity: 0.85; }
-  .cta-row .ctas { display: flex; gap: 12px; flex-wrap: wrap; }
-  .cta-row .btn-ghost { background: transparent; border-color: rgba(31,45,10,0.3); color: var(--accent-deep); }
-  .cta-row .btn-ghost:hover { background: var(--ink); color: white; border-color: var(--ink); }
-  @media (max-width: 900px) { .cta-row { grid-template-columns: 1fr; gap: 32px; } }
 
   /* === FOOTER ========================================================= */
-  .footer { background: var(--ink); color: white; padding: 60px 0 32px; border-radius: 40px 40px 0 0; }
+  .footer { background: var(--ink); color: white; padding: 80px 0 40px; border-radius: var(--r-section) var(--r-section) 0 0; }
   .foot-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 48px; margin-bottom: 64px; }
   .foot-brand { display: flex; align-items: center; gap: 10px; margin-bottom: 20px; }
+  .foot-brand img { width: 28px; height: 28px; }
   .foot-brand .name { font-family: 'Fraunces', serif; font-size: 26px; }
   .foot-blurb { font-size: 14px; color: rgba(255,255,255,0.65); max-width: 320px; }
   .foot-col h6 {
-    font-family: 'JetBrains Mono', monospace; font-size: 11px; font-weight: 500;
-    letter-spacing: 0.04em; text-transform: uppercase;
-    color: rgba(255,255,255,0.5); margin-bottom: 16px;
+    font-family: 'JetBrains Mono', monospace; font-size: 10px; font-weight: 500;
+    letter-spacing: 0.22em; text-transform: uppercase;
+    color: rgba(255,255,255,0.5); margin-bottom: 18px;
   }
   .foot-col ul { display: flex; flex-direction: column; gap: 10px; }
-  .foot-col a { font-size: 14px; color: white; opacity: 0.85; }
+  .foot-col a { font-size: 14px; color: white; opacity: 0.78; transition: opacity var(--dur-fast) var(--ease); }
   .foot-col a:hover { opacity: 1; }
   .foot-word {
     font-family: 'Fraunces', serif; font-weight: 400;
-    font-size: clamp(120px, 22vw, 360px); line-height: 0.9;
-    letter-spacing: -0.05em;
-    border-top: 1px solid rgba(255,255,255,0.15); padding-top: 32px;
+    font-size: clamp(120px, 22vw, 360px); line-height: 0.88;
+    letter-spacing: -0.06em;
+    border-top: 1px solid rgba(255,255,255,0.12); padding-top: 32px;
   }
   .foot-word .dot { color: var(--accent); }
   .foot-meta {
@@ -485,13 +668,216 @@
     padding-top: 24px; color: rgba(255,255,255,0.5); font-size: 13px;
   }
   .foot-meta nav { display: flex; gap: 24px; }
+  .foot-meta a:hover { color: white; }
   @media (max-width: 900px) { .foot-grid { grid-template-columns: 1fr 1fr; } }
   @media (max-width: 540px) { .foot-grid { grid-template-columns: 1fr; } }
+
+  /* === POLISH: utility, a11y, focus, motion-reduce ============================ */
+
+  /* Replaces inline color on hero meta numerator */
+  .hero-meta-num { color: var(--muted); }
+
+  /* Footer link tap target + transition (was missing) */
+  .foot-col a {
+    display: inline-block;
+    padding: 4px 0;
+    transition: opacity var(--dur-fast) var(--ease);
+  }
+  .foot-meta a {
+    transition: color var(--dur-fast) var(--ease);
+  }
+
+  /* Cards lift on hover but are not clickable. Don't promise a click. */
+  .srv-card, .case-card, .pain { cursor: default; }
+
+  /* Focus ring : visible, calm, conforme WCAG AA */
+  :focus { outline: none; }
+  :focus-visible {
+    outline: 2px solid var(--accent-deep);
+    outline-offset: 3px;
+    border-radius: 999px;
+  }
+  .btn:focus-visible {
+    outline: 2px solid var(--accent-deep);
+    outline-offset: 3px;
+  }
+  .btn-on-lime:focus-visible,
+  .btn-dark:focus-visible {
+    outline-color: var(--ink);
+  }
+  .nav-min a:focus-visible {
+    outline: 2px solid var(--accent-deep);
+    outline-offset: 4px;
+    background: white;
+    color: var(--ink);
+  }
+  .foot-col a:focus-visible,
+  .foot-meta a:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+    color: white;
+    opacity: 1;
+  }
+
+  /* Skip link, visible only on focus, calm Cabinet voice. */
+  .skip-link {
+    position: absolute; top: 12px; left: 12px;
+    z-index: 100;
+    padding: 10px 16px; border-radius: 999px;
+    background: var(--ink); color: white;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase;
+    transform: translateY(-200%);
+    transition: transform var(--dur-fast) var(--ease);
+  }
+  .skip-link:focus-visible {
+    transform: translateY(0);
+    outline: 2px solid var(--accent);
+    outline-offset: 3px;
+  }
+
+  /* === CONTACT FORM (CTA card) ============================================ */
+  .contact-form-wrap { margin-top: 40px; }
+  .contact-form {
+    display: grid; gap: 14px;
+    max-width: 720px;
+  }
+  .contact-form .row-2 {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 12px;
+  }
+  @media (max-width: 640px) {
+    .contact-form .row-2 { grid-template-columns: 1fr; }
+  }
+  .field { display: flex; flex-direction: column; gap: 8px; }
+  .field label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px; font-weight: 500;
+    letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--accent-deep);
+    padding-left: 4px;
+  }
+  .field label .opt {
+    font-size: 9px; opacity: 0.55; margin-left: 6px;
+    text-transform: none; letter-spacing: 0.04em;
+  }
+  .field input,
+  .field select,
+  .field textarea {
+    appearance: none; -webkit-appearance: none;
+    background: rgba(255,255,255,0.72);
+    box-shadow: inset 0 0 0 1px rgba(31,45,10,0.18);
+    border: none;
+    border-radius: 18px;
+    padding: 14px 18px;
+    font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+    font-size: 15px; line-height: 1.45;
+    color: var(--ink);
+    transition:
+      background var(--dur-fast) var(--ease),
+      box-shadow var(--dur-fast) var(--ease);
+  }
+  .field input:hover,
+  .field select:hover,
+  .field textarea:hover {
+    background: rgba(255,255,255,0.86);
+  }
+  .field input:focus-visible,
+  .field select:focus-visible,
+  .field textarea:focus-visible {
+    outline: none;
+    background: white;
+    box-shadow: inset 0 0 0 1.5px var(--ink);
+  }
+  .field input:invalid:not(:placeholder-shown),
+  .field textarea:invalid:not(:placeholder-shown) {
+    box-shadow: inset 0 0 0 1.5px rgba(168, 25, 78, 0.55);
+  }
+  .field input::placeholder,
+  .field textarea::placeholder {
+    color: rgba(31,45,10,0.42);
+  }
+  .field textarea {
+    resize: vertical; min-height: 128px;
+  }
+  .field select {
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'><path fill='none' stroke='%231F2D0A' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round' d='M1 1.5l5 5 5-5'/></svg>");
+    background-repeat: no-repeat;
+    background-position: right 18px center;
+    padding-right: 44px;
+    cursor: pointer;
+  }
+  .field-pot { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+  .submit-row {
+    display: flex; align-items: center; justify-content: space-between;
+    flex-wrap: wrap; gap: 16px;
+    margin-top: 12px;
+  }
+  .submit-row .small {
+    font-size: 12px; line-height: 1.5;
+    color: var(--accent-deep); opacity: 0.72;
+    max-width: 320px;
+  }
+
+  /* Thank-you state */
+  .contact-thanks {
+    display: none;
+    margin-top: 40px;
+    max-width: 640px;
+    padding: 32px;
+    background: rgba(255,255,255,0.72);
+    border-radius: 24px;
+    box-shadow: inset 0 0 0 1px rgba(31,45,10,0.18);
+  }
+  .contact-thanks.show { display: block; }
+  .contact-form-wrap.hide { display: none; }
+  .contact-thanks h3 {
+    font-family: 'Fraunces', serif; font-weight: 400;
+    font-size: clamp(28px, 3.6vw, 40px);
+    letter-spacing: -0.025em; line-height: 1;
+    color: var(--ink); margin-bottom: 14px;
+  }
+  .contact-thanks h3 em { font-style: italic; color: var(--accent-deep); }
+  .contact-thanks p { color: var(--accent-deep); font-size: 16px; line-height: 1.55; }
+  .contact-thanks .check {
+    width: 56px; height: 56px; border-radius: 999px;
+    background: var(--ink); color: var(--accent);
+    display: inline-flex; align-items: center; justify-content: center;
+    margin-bottom: 24px;
+    box-shadow: inset 0 1px 0 rgba(255,255,255,0.12);
+  }
+  .contact-thanks .check svg { width: 22px; height: 22px; }
+
+  /* Error banner (when redirect ?sent=0) */
+  .contact-error {
+    display: none;
+    margin-bottom: 16px; padding: 12px 16px;
+    background: rgba(168, 25, 78, 0.08);
+    border-radius: 12px;
+    box-shadow: inset 0 0 0 1px rgba(168, 25, 78, 0.32);
+    font-size: 13px; color: #5a0f2e;
+  }
+  .contact-error.show { display: block; }
+
+  /* Reduced motion: respect the user's OS pref (PRODUCT.md A11y) */
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+    .reveal { opacity: 1 !important; transform: none !important; filter: none !important; }
+    .hero-pill svg.wing { animation: none !important; }
+    .eyebrow .dot { animation: none !important; opacity: 0.7; }
+    body::after { display: none; }
+  }
 </style>
 </head>
 <body>
 
-<!-- Reusable arrow icon -->
+<a href="#contact" class="skip-link">Aller au contenu</a>
+
+<!-- Reusable icons -->
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
   <symbol id="arr" viewBox="0 0 14 14">
     <path d="M2 12L12 2M12 2H5M12 2V9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" fill="none"/>
@@ -501,11 +887,11 @@
   </symbol>
 </svg>
 
-<!-- ============== NAV ============== -->
+<!-- ============== FLOATING ISLAND NAV ============== -->
 <nav class="nav" id="nav">
-  <div class="wrap nav-inner">
+  <div class="nav-inner">
     <a href="#" class="brand">
-      <img src="assets/kolya-mark.png" width="26" height="26" alt="Kolya" />
+      <img src="assets/kolya-mark.png" alt="Kolya" />
       <span class="name">Kolya</span>
     </a>
     <div class="nav-min">
@@ -515,8 +901,9 @@
       <a href="#methode">Méthode</a>
       <a href="#resultats">Résultats</a>
     </div>
-    <a href="#contact" class="btn-lime nav-cta">
-      Audit gratuit&nbsp;&nbsp;<svg class="arr"><use href="#arr"/></svg>
+    <a href="#contact" class="btn btn-lime btn-sm nav-cta" aria-label="Réserver l'audit gratuit">
+      <span class="btn-label">Audit gratuit</span>
+      <span class="btn-icon" aria-hidden="true"><svg><use href="#arr"/></svg></span>
     </a>
   </div>
 </nav>
@@ -527,28 +914,14 @@
   <div class="hero-overlay"></div>
   <div class="wrap">
     <div class="hero-meta">
-      <span class="mono dot">Audit gratuit — sans engagement</span>
-      <span class="mono">[01/08]</span>
+      <span class="eyebrow"><span class="dot"></span>Audit gratuit, sans engagement</span>
+      <span class="mono hero-meta-num">[01/08]</span>
     </div>
 
     <div class="reveal">
-      <div class="hero-eyebrow">KOLYA — agence IA</div>
+      <div class="hero-eyebrow eyebrow">Kolya · Agence IA</div>
       <h1 class="h-display hero-title">
-        <span style="display:block">Des solutions</span>
-        <span class="hero-row">
-          <em>simples.</em>
-          <span class="hero-pill">
-            <span class="photo r-pill ratio-auto t-lime"></span>
-            <span class="wing-wrap">
-              <svg class="wing" viewBox="0 0 100 60">
-                <g>
-                  <path d="M22 30 Q 38 18, 56 24 L 70 22 L 78 30 L 70 36 Q 56 36, 48 40 Q 36 44, 22 30 Z" fill="var(--accent-deep)" opacity="0.9"/>
-                  <circle cx="73" cy="27" r="1.6" fill="white"/>
-                </g>
-              </svg>
-            </span>
-          </span>
-        </span>
+        <span style="display:block">Des solutions <em>simples.</em></span>
         <span style="display:block">Des résultats <em>concrets.</em></span>
       </h1>
     </div>
@@ -560,8 +933,14 @@
         grâce à des outils intelligents.
       </p>
       <div class="ctas">
-        <a href="#contact" class="btn-lime">Audit gratuit&nbsp;&nbsp;<svg class="arr"><use href="#arr"/></svg></a>
-        <a href="#services" class="btn-ghost">Découvrir nos solutions</a>
+        <a href="#contact" class="btn btn-lime">
+          <span>Audit gratuit</span>
+          <span class="btn-icon"><svg><use href="#arr"/></svg></span>
+        </a>
+        <a href="#services" class="btn btn-ghost">
+          <span>Découvrir nos solutions</span>
+          <span class="btn-icon"><svg><use href="#arr"/></svg></span>
+        </a>
       </div>
     </div>
   </div>
@@ -573,10 +952,10 @@
     <div class="reveal">
       <div class="sec-head">
         <div>
-          <div class="mono sec-label">[02] — Problème</div>
+          <span class="eyebrow">[02] · Problème</span>
         </div>
         <div>
-          <h2 class="h-display">
+          <h2>
             Les entreprises perdent<br/>
             <em>du temps</em> et des opportunités.
           </h2>
@@ -589,30 +968,30 @@
         <div class="pain">
           <div class="num mono">01</div>
           <div class="text">Tâches répétitives qui mangent les journées
-            <small>Saisies, relances, exports, copier-coller — un temps qui ne sert ni vos clients, ni votre marge.</small>
+            <small>Saisies, relances, exports, copier-coller. Du temps qui ne sert ni vos clients, ni votre marge.</small>
           </div>
-          <div class="arrcircle"><svg class="arr"><use href="#arr"/></svg></div>
+          <div class="arrcircle"><svg width="14" height="14"><use href="#arr"/></svg></div>
         </div>
         <div class="pain">
           <div class="num mono">02</div>
           <div class="text">Manque d'organisation et d'information
             <small>Données éparpillées, process oraux, dépendance aux personnes-clés.</small>
           </div>
-          <div class="arrcircle"><svg class="arr"><use href="#arr"/></svg></div>
+          <div class="arrcircle"><svg width="14" height="14"><use href="#arr"/></svg></div>
         </div>
         <div class="pain">
           <div class="num mono">03</div>
           <div class="text">Perte de clients par défaut de suivi
-            <small>Pas de relance, pas de rappel, pas de réponse — et le client passe ailleurs.</small>
+            <small>Pas de relance, pas de rappel, pas de réponse. Et le client passe ailleurs.</small>
           </div>
-          <div class="arrcircle"><svg class="arr"><use href="#arr"/></svg></div>
+          <div class="arrcircle"><svg width="14" height="14"><use href="#arr"/></svg></div>
         </div>
         <div class="pain">
           <div class="num mono">04</div>
           <div class="text">Outils inefficaces, mal connectés
             <small>Trop de logiciels, peu de valeur. Personne ne sait quoi utiliser pour quoi.</small>
           </div>
-          <div class="arrcircle"><svg class="arr"><use href="#arr"/></svg></div>
+          <div class="arrcircle"><svg width="14" height="14"><use href="#arr"/></svg></div>
         </div>
       </div>
     </div>
@@ -625,18 +1004,16 @@
     <div class="reveal">
       <div class="inner">
         <div class="accent-mark">
-          <svg width="24" height="24" viewBox="0 0 16 16" style="color: var(--accent-deep)">
-            <use href="#check"/>
-          </svg>
+          <svg viewBox="0 0 16 16"><use href="#check"/></svg>
         </div>
-        <div class="mono label">[03] — Solution</div>
+        <span class="eyebrow label">[03] · Solution</span>
         <h2 class="h-display">
           Une approche simple<br/>
           <em>et efficace.</em>
         </h2>
         <p>
           Chez KOLYA, nous créons des solutions IA concrètes,
-          adaptées à votre métier — pas une démo technique,
+          adaptées à votre métier. Pas une démo technique,
           un outil qui sert tous les jours.
         </p>
       </div>
@@ -650,10 +1027,10 @@
     <div class="reveal">
       <div class="sec-head">
         <div>
-          <div class="mono sec-label">[04] — Services</div>
+          <span class="eyebrow">[04] · Services</span>
         </div>
         <div>
-          <h2 class="h-display">
+          <h2>
             Quatre leviers,<br/>
             <em>une seule promesse&nbsp;:</em><br/>
             produire des résultats.
@@ -664,81 +1041,92 @@
 
     <div class="srv-grid">
       <div class="reveal" data-delay="0">
-        <article class="srv-card">
-          <div class="srv-illu">
-            <img src="assets/illu-developpement.png" loading="lazy" decoding="async" alt="Développement IA sur mesure" />
-          </div>
-          <div class="srv-body">
-            <div class="top">
-              <span class="num mono">01</span>
-              <span class="arrcircle"><svg class="arr"><use href="#arr"/></svg></span>
+        <article class="srv-card shell">
+          <div class="srv-core core">
+            <div class="srv-illu">
+              <img src="assets/illu-developpement.png" loading="lazy" decoding="async" alt="Développement IA sur mesure" />
             </div>
-            <h3>Automatisation intelligente</h3>
-            <p>On identifie les tâches qui se répètent et on les fait tourner toutes seules — sans casser votre façon de travailler.</p>
-            <div class="tags">
-              <span class="tag">Workflows</span>
-              <span class="tag">Intégrations</span>
-              <span class="tag">Sans code</span>
+            <div class="srv-body">
+              <div class="top">
+                <span class="num">01</span>
+                <span class="arrcircle"><svg width="14" height="14"><use href="#arr"/></svg></span>
+              </div>
+              <h3>Automatisation intelligente</h3>
+              <p>On identifie les tâches qui se répètent et on les fait tourner toutes seules, sans casser votre façon de travailler.</p>
+              <div class="tags">
+                <span class="tag">Workflows</span>
+                <span class="tag">Intégrations</span>
+                <span class="tag">Sans code</span>
+              </div>
             </div>
           </div>
         </article>
       </div>
+
       <div class="reveal" data-delay="80">
-        <article class="srv-card">
-          <div class="srv-illu">
-            <img src="assets/illu-integration.png" loading="lazy" decoding="async" alt="Intégration et déploiement IA" />
-          </div>
-          <div class="srv-body">
-            <div class="top">
-              <span class="num mono">02</span>
-              <span class="arrcircle"><svg class="arr"><use href="#arr"/></svg></span>
+        <article class="srv-card shell">
+          <div class="srv-core core">
+            <div class="srv-illu">
+              <img src="assets/illu-integration.png" loading="lazy" decoding="async" alt="Intégration et déploiement IA" />
             </div>
-            <h3>Optimisation des opérations</h3>
-            <p>On fluidifie vos process : commandes, planning, devis, suivi. Moins d'erreurs, moins de friction, plus de marge.</p>
-            <div class="tags">
-              <span class="tag">Process</span>
-              <span class="tag">Tableaux de bord</span>
-              <span class="tag">Reporting</span>
+            <div class="srv-body">
+              <div class="top">
+                <span class="num">02</span>
+                <span class="arrcircle"><svg width="14" height="14"><use href="#arr"/></svg></span>
+              </div>
+              <h3>Optimisation des opérations</h3>
+              <p>On fluidifie vos process : commandes, planning, devis, suivi. Moins d'erreurs, moins de friction, plus de marge.</p>
+              <div class="tags">
+                <span class="tag">Process</span>
+                <span class="tag">Tableaux de bord</span>
+                <span class="tag">Reporting</span>
+              </div>
             </div>
           </div>
         </article>
       </div>
+
       <div class="reveal" data-delay="160">
-        <article class="srv-card">
-          <div class="srv-illu">
-            <img src="assets/illu-formation.png" loading="lazy" decoding="async" alt="Formation et accompagnement IA" />
-          </div>
-          <div class="srv-body">
-            <div class="top">
-              <span class="num mono">03</span>
-              <span class="arrcircle"><svg class="arr"><use href="#arr"/></svg></span>
+        <article class="srv-card shell">
+          <div class="srv-core core">
+            <div class="srv-illu">
+              <img src="assets/illu-formation.png" loading="lazy" decoding="async" alt="Formation et accompagnement IA" />
             </div>
-            <h3>Relation client automatisée</h3>
-            <p>Réponses instantanées, relances ciblées, suivi personnalisé — un service client qui ne dort jamais et ne lâche personne.</p>
-            <div class="tags">
-              <span class="tag">Chatbot</span>
-              <span class="tag">SMS / email</span>
-              <span class="tag">CRM</span>
+            <div class="srv-body">
+              <div class="top">
+                <span class="num">03</span>
+                <span class="arrcircle"><svg width="14" height="14"><use href="#arr"/></svg></span>
+              </div>
+              <h3>Relation client automatisée</h3>
+              <p>Réponses instantanées, relances ciblées, suivi personnalisé. Un service client qui ne dort jamais et ne lâche personne.</p>
+              <div class="tags">
+                <span class="tag">Chatbot</span>
+                <span class="tag">SMS / email</span>
+                <span class="tag">CRM</span>
+              </div>
             </div>
           </div>
         </article>
       </div>
+
       <div class="reveal" data-delay="240">
-        <article class="srv-card">
-          <div class="srv-illu">
-            <img src="assets/illu-strategie.png" loading="lazy" decoding="async" alt="Stratégie IA pour la croissance" />
-          </div>
-          <div class="srv-body">
-            <div class="top">
-              <span class="num mono">04</span>
-              <span class="arrcircle"><svg class="arr"><use href="#arr"/></svg></span>
+        <article class="srv-card shell">
+          <div class="srv-core core">
+            <div class="srv-illu">
+              <img src="assets/illu-strategie.png" loading="lazy" decoding="async" alt="Stratégie IA pour la croissance" />
             </div>
-            <h3>Croissance &amp; performance</h3>
-            <p>On branche l'IA sur vos leviers commerciaux : acquisition, conversion, fidélisation — pour ouvrir des points de marge.</p>
-            <div class="tags">
-              <span class="tag">Acquisition</span>
-              <span class="tag">Conversion</span>
-              <span class="tag">Fidélisation</span>
+            <div class="srv-body">
+              <div class="top">
+                <span class="num">04</span>
+                <span class="arrcircle"><svg width="14" height="14"><use href="#arr"/></svg></span>
+              </div>
+              <h3>Croissance &amp; performance</h3>
+              <p>On branche l'IA sur vos leviers commerciaux : acquisition, conversion, fidélisation. Pour ouvrir des points de marge.</p>
+              <div class="tags">
+                <span class="tag">Acquisition</span>
+                <span class="tag">Conversion</span>
+                <span class="tag">Fidélisation</span>
+              </div>
             </div>
           </div>
         </article>
@@ -753,10 +1141,10 @@
     <div class="reveal">
       <div class="sec-head">
         <div>
-          <div class="mono sec-label">[05] — Cas d'usage</div>
+          <span class="eyebrow">[05] · Cas d'usage</span>
         </div>
         <div>
-          <h2 class="h-display">
+          <h2>
             Concret,<br/>
             <em>par métier.</em>
           </h2>
@@ -766,42 +1154,50 @@
 
     <div class="case-grid">
       <div class="reveal" data-delay="0">
-        <article class="case-card">
-          <img class="case-img" src="assets/case-marches.png" loading="lazy" decoding="async" alt="Gestion de file d'attente" />
-          <div class="body">
-            <div class="sector mono">Marchés</div>
-            <h3>Gestion de file d'attente</h3>
-            <p>Annonce des passages, prise de commande à l'avance, équilibrage du flux. Moins d'attente, plus de ventes.</p>
+        <article class="case-card shell tight">
+          <div class="core tight">
+            <img class="case-img" src="assets/case-marches.png" loading="lazy" decoding="async" alt="Gestion de file d'attente" />
+            <div class="case-body">
+              <div class="sector mono">Marchés</div>
+              <h3>Gestion de file d'attente</h3>
+              <p>Annonce des passages, prise de commande à l'avance, équilibrage du flux. Moins d'attente, plus de ventes.</p>
+            </div>
           </div>
         </article>
       </div>
       <div class="reveal" data-delay="80">
-        <article class="case-card">
-          <img class="case-img" src="assets/case-salles-sport.png" loading="lazy" decoding="async" alt="Relance clients inactifs" />
-          <div class="body">
-            <div class="sector mono">Salles de sport</div>
-            <h3>Relance clients inactifs</h3>
-            <p>Détection des abonnés qui décrochent et message personnalisé au bon moment. Le churn baisse, la rétention monte.</p>
+        <article class="case-card shell tight">
+          <div class="core tight">
+            <img class="case-img" src="assets/case-salles-sport.png" loading="lazy" decoding="async" alt="Relance clients inactifs" />
+            <div class="case-body">
+              <div class="sector mono">Salles de sport</div>
+              <h3>Relance clients inactifs</h3>
+              <p>Détection des abonnés qui décrochent et message personnalisé au bon moment. Le churn baisse, la rétention monte.</p>
+            </div>
           </div>
         </article>
       </div>
       <div class="reveal" data-delay="160">
-        <article class="case-card">
-          <img class="case-img" src="assets/case-artisans.png" loading="lazy" decoding="async" alt="Devis automatique" />
-          <div class="body">
-            <div class="sector mono">Artisans</div>
-            <h3>Devis automatique</h3>
-            <p>Le client décrit son projet, le devis se génère en minutes — adapté à votre catalogue, votre marge, votre style.</p>
+        <article class="case-card shell tight">
+          <div class="core tight">
+            <img class="case-img" src="assets/case-artisans.png" loading="lazy" decoding="async" alt="Devis automatique" />
+            <div class="case-body">
+              <div class="sector mono">Artisans</div>
+              <h3>Devis automatique</h3>
+              <p>Le client décrit son projet, le devis se génère en minutes, adapté à votre catalogue, votre marge, votre style.</p>
+            </div>
           </div>
         </article>
       </div>
       <div class="reveal" data-delay="240">
-        <article class="case-card">
-          <img class="case-img" src="assets/case-restaurants.png" loading="lazy" decoding="async" alt="Gestion des réservations" />
-          <div class="body">
-            <div class="sector mono">Restaurants</div>
-            <h3>Gestion réservations</h3>
-            <p>Confirmation, rappel, no-show géré, table optimisée — un assistant qui parle à vos clients et remplit la salle.</p>
+        <article class="case-card shell tight">
+          <div class="core tight">
+            <img class="case-img" src="assets/case-restaurants.png" loading="lazy" decoding="async" alt="Gestion des réservations" />
+            <div class="case-body">
+              <div class="sector mono">Restaurants</div>
+              <h3>Gestion réservations</h3>
+              <p>Confirmation, rappel, no-show géré, table optimisée. Un assistant qui parle à vos clients et remplit la salle.</p>
+            </div>
           </div>
         </article>
       </div>
@@ -815,10 +1211,10 @@
     <div class="reveal">
       <div class="sec-head">
         <div>
-          <div class="mono sec-label">[06] — Méthode</div>
+          <span class="eyebrow">[06] · Méthode</span>
         </div>
         <div>
-          <h2 class="h-display">
+          <h2>
             Quatre étapes,<br/>
             <em>aucune zone d'ombre.</em>
           </h2>
@@ -828,43 +1224,51 @@
 
     <div class="meth-grid">
       <div class="reveal" data-delay="0">
-        <div class="meth-card first">
-          <div>
-            <div class="meth-num"><span class="mono">01</span></div>
-            <h3>Analyse</h3>
-            <p>On regarde comment vous travaillez aujourd'hui. On repère où ça coince et où on peut gagner.</p>
+        <div class="meth-card shell tight first">
+          <div class="meth-core core tight">
+            <div>
+              <div class="meth-num"><span>01</span></div>
+              <h3>Analyse</h3>
+              <p>On regarde comment vous travaillez aujourd'hui. On repère où ça coince et où on peut gagner.</p>
+            </div>
+            <div class="duration">Durée · 1 sem.</div>
           </div>
-          <div class="duration mono">Durée — 1 sem.</div>
         </div>
       </div>
       <div class="reveal" data-delay="80">
-        <div class="meth-card">
-          <div>
-            <div class="meth-num"><span class="mono">02</span></div>
-            <h3>Conception</h3>
-            <p>On dessine la solution la plus simple qui résout le problème — ni plus, ni moins.</p>
+        <div class="meth-card shell tight">
+          <div class="meth-core core tight">
+            <div>
+              <div class="meth-num"><span>02</span></div>
+              <h3>Conception</h3>
+              <p>On dessine la solution la plus simple qui résout le problème. Ni plus, ni moins.</p>
+            </div>
+            <div class="duration">Durée · 2 sem.</div>
           </div>
-          <div class="duration mono">Durée — 2 sem.</div>
         </div>
       </div>
       <div class="reveal" data-delay="160">
-        <div class="meth-card">
-          <div>
-            <div class="meth-num"><span class="mono">03</span></div>
-            <h3>Implémentation</h3>
-            <p>On la met en place chez vous, avec vos outils. Vos équipes sont formées, l'outil tourne.</p>
+        <div class="meth-card shell tight">
+          <div class="meth-core core tight">
+            <div>
+              <div class="meth-num"><span>03</span></div>
+              <h3>Implémentation</h3>
+              <p>On la met en place chez vous, avec vos outils. Vos équipes sont formées, l'outil tourne.</p>
+            </div>
+            <div class="duration">Durée · 3 sem.</div>
           </div>
-          <div class="duration mono">Durée — 3 sem.</div>
         </div>
       </div>
       <div class="reveal" data-delay="240">
-        <div class="meth-card">
-          <div>
-            <div class="meth-num"><span class="mono">04</span></div>
-            <h3>Optimisation</h3>
-            <p>On mesure, on ajuste, on fait évoluer. La solution s'améliore en continu.</p>
+        <div class="meth-card shell tight">
+          <div class="meth-core core tight">
+            <div>
+              <div class="meth-num"><span>04</span></div>
+              <h3>Optimisation</h3>
+              <p>On mesure, on ajuste, on fait évoluer. La solution s'améliore en continu.</p>
+            </div>
+            <div class="duration">Durée · continu</div>
           </div>
-          <div class="duration mono">Durée — continu</div>
         </div>
       </div>
     </div>
@@ -877,39 +1281,63 @@
     <div class="reveal">
       <div class="results-head">
         <div>
-          <div class="mono label">[07] — Résultats</div>
-          <h2 class="h-display">
+          <span class="eyebrow on-dark label">[07] · Résultats</span>
+          <h2 style="margin-top: 24px">
             Ce que vous<br/>
             <em>en retirez.</em>
           </h2>
         </div>
         <p>
           Pas un livrable de plus dans un dossier. Un changement
-          mesurable dans votre quotidien — et dans vos chiffres.
+          mesurable dans votre quotidien. Et dans vos chiffres.
         </p>
       </div>
     </div>
 
     <div class="res-grid">
       <div class="reveal res-cell" data-delay="0">
-        <div class="icon"><svg width="16" height="16"><use href="#check"/></svg></div>
-        <div class="h">+ de temps</div>
-        <p>Les heures perdues sur les tâches sans valeur reviennent à vos équipes — et à vos clients.</p>
+        <div class="shell dark tight">
+          <div class="res-core core tight">
+            <div class="res-icon"><svg viewBox="0 0 16 16"><use href="#check"/></svg></div>
+            <div>
+              <div class="h">+ de temps</div>
+              <p>Les heures perdues sur les tâches sans valeur reviennent à vos équipes. Et à vos clients.</p>
+            </div>
+          </div>
+        </div>
       </div>
       <div class="reveal res-cell" data-delay="80">
-        <div class="icon"><svg width="16" height="16"><use href="#check"/></svg></div>
-        <div class="h">+ de clients</div>
-        <p>Plus aucun lead oublié, plus aucune relance manquée. Le suivi tourne, les conversions montent.</p>
+        <div class="shell dark tight">
+          <div class="res-core core tight">
+            <div class="res-icon"><svg viewBox="0 0 16 16"><use href="#check"/></svg></div>
+            <div>
+              <div class="h">+ de clients</div>
+              <p>Plus aucun lead oublié, plus aucune relance manquée. Le suivi tourne, les conversions montent.</p>
+            </div>
+          </div>
+        </div>
       </div>
       <div class="reveal res-cell" data-delay="160">
-        <div class="icon"><svg width="16" height="16"><use href="#check"/></svg></div>
-        <div class="h">+ de CA</div>
-        <p>De nouveaux points de marge sur l'existant — et la capacité de vendre plus, sans embaucher.</p>
+        <div class="shell dark tight">
+          <div class="res-core core tight">
+            <div class="res-icon"><svg viewBox="0 0 16 16"><use href="#check"/></svg></div>
+            <div>
+              <div class="h">+ de CA</div>
+              <p>De nouveaux points de marge sur l'existant. Et la capacité de vendre plus, sans embaucher.</p>
+            </div>
+          </div>
+        </div>
       </div>
       <div class="reveal res-cell" data-delay="240">
-        <div class="icon"><svg width="16" height="16"><use href="#check"/></svg></div>
-        <div class="h">− de stress</div>
-        <p>Une organisation qui tient toute seule. Moins d'urgences, plus de visibilité, plus de sérénité.</p>
+        <div class="shell dark tight">
+          <div class="res-core core tight">
+            <div class="res-icon"><svg viewBox="0 0 16 16"><use href="#check"/></svg></div>
+            <div>
+              <div class="h">− de stress</div>
+              <p>Une organisation qui tient toute seule. Moins d'urgences, plus de visibilité, plus de sérénité.</p>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -921,21 +1349,82 @@
     <div class="cta-card">
       <div class="deco"></div>
       <div class="inner">
-        <div class="mono label">[08] — Démarrer</div>
-        <h2 class="h-display">
+        <span class="eyebrow on-lime label">[08] · Démarrer</span>
+        <h2>
           Réservez votre<br/>
           <em>audit gratuit.</em>
         </h2>
-        <div class="cta-row">
-          <p>
-            45 minutes pour comprendre votre activité, repérer
-            les gains rapides et vous dire honnêtement si l'IA
-            peut — ou non — vous faire avancer.
-          </p>
-          <div class="ctas">
-            <a href="mailto:bonjour@kolya.ai" class="btn-dark">Prendre rendez-vous&nbsp;&nbsp;<svg class="arr"><use href="#arr"/></svg></a>
-            <a href="mailto:bonjour@kolya.ai" class="btn-ghost">bonjour@kolya.ai</a>
-          </div>
+        <p class="cta-lede">
+          45 minutes pour comprendre votre activité, repérer
+          les gains rapides et vous dire honnêtement si l'IA
+          peut, ou non, vous faire avancer.
+        </p>
+
+        <div class="contact-error" id="contact-error" role="alert">
+          Une erreur est survenue. Vérifiez vos informations et réessayez.
+        </div>
+
+        <div class="contact-form-wrap" id="contact-form-wrap">
+          <form class="contact-form" action="contact.php" method="POST" novalidate>
+            <div class="row-2">
+              <div class="field">
+                <label for="f-name">Nom</label>
+                <input id="f-name" name="name" type="text" required maxlength="100" autocomplete="name" placeholder="Marie Lefranc" />
+              </div>
+              <div class="field">
+                <label for="f-company">Entreprise <span class="opt">(optionnel)</span></label>
+                <input id="f-company" name="company" type="text" maxlength="120" autocomplete="organization" placeholder="Boulangerie du marché" />
+              </div>
+            </div>
+
+            <div class="row-2">
+              <div class="field">
+                <label for="f-email">Email</label>
+                <input id="f-email" name="email" type="email" required maxlength="200" autocomplete="email" placeholder="vous@domaine.fr" />
+              </div>
+              <div class="field">
+                <label for="f-phone">Téléphone <span class="opt">(optionnel)</span></label>
+                <input id="f-phone" name="phone" type="tel" maxlength="40" autocomplete="tel" placeholder="06 12 34 56 78" />
+              </div>
+            </div>
+
+            <div class="field">
+              <label for="f-sector">Secteur d'activité</label>
+              <select id="f-sector" name="sector">
+                <option value="">Choisir un secteur</option>
+                <option value="marches">Marchés, commerce de proximité</option>
+                <option value="sport">Salles de sport, fitness</option>
+                <option value="artisans">Artisans, BTP</option>
+                <option value="restaurants">Restauration, hôtellerie</option>
+                <option value="services">Services aux entreprises</option>
+                <option value="autre">Autre</option>
+              </select>
+            </div>
+
+            <div class="field">
+              <label for="f-message">Votre situation en quelques lignes</label>
+              <textarea id="f-message" name="message" required maxlength="5000" placeholder="Ce qui vous fait perdre du temps aujourd'hui, ce que vous aimeriez automatiser, le résultat business que vous visez..."></textarea>
+            </div>
+
+            <div class="field-pot" aria-hidden="true">
+              <label for="f-website">Ne pas remplir ce champ.</label>
+              <input id="f-website" name="website" type="text" tabindex="-1" autocomplete="off" />
+            </div>
+
+            <div class="submit-row">
+              <button type="submit" class="btn btn-dark">
+                <span>Envoyer ma demande</span>
+                <span class="btn-icon" aria-hidden="true"><svg><use href="#arr"/></svg></span>
+              </button>
+              <p class="small">Réponse sous 24h ouvrées. Pas de pré-qualif commerciale, pas de discovery call interminable.</p>
+            </div>
+          </form>
+        </div>
+
+        <div class="contact-thanks" id="contact-thanks" role="status" aria-live="polite">
+          <div class="check"><svg viewBox="0 0 16 16" aria-hidden="true"><use href="#check"/></svg></div>
+          <h3>Message <em>bien reçu.</em></h3>
+          <p>On revient vers vous sous 24h ouvrées avec une proposition de créneau pour l'audit. À très vite.</p>
         </div>
       </div>
     </div>
@@ -948,7 +1437,7 @@
     <div class="foot-grid">
       <div>
         <div class="foot-brand">
-          <img src="assets/kolya-mark.png" width="28" height="28" alt="Kolya" />
+          <img src="assets/kolya-mark.png" alt="Kolya" />
           <span class="name">Kolya</span>
         </div>
         <p class="foot-blurb">
@@ -977,8 +1466,8 @@
       <div class="foot-col">
         <h6>Contact</h6>
         <ul>
-          <li><a href="mailto:bonjour@kolya.ai">bonjour@kolya.ai</a></li>
-          <li><a href="#contact">Audit gratuit</a></li>
+          <li><a href="#contact">Réserver un audit</a></li>
+          <li><a href="#contact">Demander un devis</a></li>
           <li><a href="#">LinkedIn ↗</a></li>
         </ul>
       </div>
@@ -987,7 +1476,7 @@
     <div class="foot-word serif">Kolya<span class="dot">.</span></div>
 
     <div class="foot-meta">
-      <div>© 2026 Kolya — Des solutions simples. Des résultats concrets.</div>
+      <div>© 2026 Kolya · Des solutions simples. Des résultats concrets.</div>
       <nav>
         <a href="#">Mentions légales</a>
         <a href="#">Confidentialité</a>
@@ -998,15 +1487,15 @@
 </footer>
 
 <script>
-  // Sticky nav scrolled state
+  // === Sticky-state on the floating nav ===
   (function () {
     const nav = document.getElementById('nav');
-    const onScroll = () => nav.classList.toggle('scrolled', window.scrollY > 8);
+    const onScroll = () => nav.classList.toggle('scrolled', window.scrollY > 16);
     window.addEventListener('scroll', onScroll, { passive: true });
     onScroll();
   })();
 
-  // Reveal on scroll
+  // === Reveal on scroll (IntersectionObserver, no scroll listener) ===
   (function () {
     const els = document.querySelectorAll('.reveal');
     const io = new IntersectionObserver((entries) => {
@@ -1016,8 +1505,77 @@
         setTimeout(() => e.target.classList.add('in'), d);
         io.unobserve(e.target);
       });
-    }, { threshold: 0.1 });
+    }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
     els.forEach((el) => io.observe(el));
+  })();
+
+  // === Contact form: thank-you / error states from URL param ===
+  (function () {
+    const params = new URLSearchParams(window.location.search);
+    const sent = params.get('sent');
+    if (sent === null) return;
+
+    const wrap = document.getElementById('contact-form-wrap');
+    const thanks = document.getElementById('contact-thanks');
+    const errBox = document.getElementById('contact-error');
+    if (!wrap || !thanks || !errBox) return;
+
+    if (sent === '1') {
+      wrap.classList.add('hide');
+      thanks.classList.add('show');
+      // Clean the URL (remove ?sent=1) without reloading
+      history.replaceState({}, '', window.location.pathname + '#contact');
+      // Scroll the thank-you into view smoothly
+      requestAnimationFrame(() => {
+        thanks.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      });
+    } else if (sent === '0') {
+      errBox.classList.add('show');
+      const code = params.get('error') || '';
+      if (code) {
+        errBox.textContent = errorMessage(code);
+      }
+      requestAnimationFrame(() => {
+        wrap.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      });
+    }
+
+    function errorMessage(code) {
+      const parts = code.split(',').filter(Boolean);
+      if (parts.includes('mail')) return "L'envoi a échoué côté serveur. Réessayez dans un instant ou écrivez-nous via LinkedIn.";
+      const labels = {
+        name: 'le nom',
+        email: 'un email valide',
+        message: 'un message',
+      };
+      const missing = parts.map((k) => labels[k]).filter(Boolean);
+      if (missing.length) return 'Merci de renseigner ' + missing.join(', ') + '.';
+      return 'Une erreur est survenue. Vérifiez vos informations et réessayez.';
+    }
+  })();
+
+  // === Section scroll-spy on the floating nav links ===
+  (function () {
+    const sections = document.querySelectorAll('section[id]');
+    const links = document.querySelectorAll('.nav-min a');
+    const map = new Map();
+    links.forEach((a) => {
+      const id = (a.getAttribute('href') || '').replace('#', '');
+      if (id) map.set(id, a);
+    });
+    if (!sections.length || !map.size) return;
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach((e) => {
+        const id = e.target.id;
+        const link = map.get(id);
+        if (!link) return;
+        if (e.isIntersecting) {
+          links.forEach((l) => l.classList.remove('active'));
+          link.classList.add('active');
+        }
+      });
+    }, { rootMargin: '-45% 0px -50% 0px', threshold: 0 });
+    sections.forEach((s) => io.observe(s));
   })();
 </script>
 
