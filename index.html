@@ -534,9 +534,22 @@
       0 24px 48px -24px rgba(14,14,12,0.24);
   }
   .case-card > .core { flex: 1; display: flex; flex-direction: column; }
+  /* Wrapper enforces square ratio as a flex child; img fills the wrapper.
+     Without the wrapper, the <img> as direct flex item gets vertically stretched
+     because flex-basis auto uses the source's intrinsic height, not aspect-ratio. */
+  .case-img-wrap {
+    width: 100%;
+    aspect-ratio: 1/1;
+    flex: 0 0 auto;
+    overflow: hidden;
+    background: var(--soft);
+    position: relative;
+  }
   .case-img {
-    width: 100%; aspect-ratio: 1/1; display: block;
-    object-fit: cover; background: var(--soft);
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover; object-position: center;
     transition: transform 1100ms var(--ease);
   }
   .case-card:hover .case-img { transform: scale(1.04); }
@@ -1204,7 +1217,9 @@
       <div class="reveal" data-delay="0">
         <article class="case-card shell tight">
           <div class="core tight">
-            <img class="case-img" src="assets/case-marches.png" width="660" height="660" loading="lazy" decoding="async" alt="Gestion de file d'attente" />
+            <div class="case-img-wrap">
+              <img class="case-img" src="assets/case-marches.png" loading="lazy" decoding="async" alt="Gestion de file d'attente" />
+            </div>
             <div class="case-body">
               <div class="sector mono">Marchés</div>
               <h3>Gestion de file d'attente</h3>
@@ -1216,7 +1231,9 @@
       <div class="reveal" data-delay="80">
         <article class="case-card shell tight">
           <div class="core tight">
-            <img class="case-img" src="assets/case-salles-sport.png" width="660" height="660" loading="lazy" decoding="async" alt="Relance clients inactifs" />
+            <div class="case-img-wrap">
+              <img class="case-img" src="assets/case-salles-sport.png" loading="lazy" decoding="async" alt="Relance clients inactifs" />
+            </div>
             <div class="case-body">
               <div class="sector mono">Salles de sport</div>
               <h3>Relance clients inactifs</h3>
@@ -1228,7 +1245,9 @@
       <div class="reveal" data-delay="160">
         <article class="case-card shell tight">
           <div class="core tight">
-            <img class="case-img" src="assets/case-artisans.png" width="660" height="660" loading="lazy" decoding="async" alt="Devis automatique" />
+            <div class="case-img-wrap">
+              <img class="case-img" src="assets/case-artisans.png" loading="lazy" decoding="async" alt="Devis automatique" />
+            </div>
             <div class="case-body">
               <div class="sector mono">Artisans</div>
               <h3>Devis automatique</h3>
@@ -1240,7 +1259,9 @@
       <div class="reveal" data-delay="240">
         <article class="case-card shell tight">
           <div class="core tight">
-            <img class="case-img" src="assets/case-restaurants.png" width="660" height="660" loading="lazy" decoding="async" alt="Gestion des réservations" />
+            <div class="case-img-wrap">
+              <img class="case-img" src="assets/case-restaurants.png" loading="lazy" decoding="async" alt="Gestion des réservations" />
+            </div>
             <div class="case-body">
               <div class="sector mono">Restaurants</div>
               <h3>Gestion réservations</h3>
