@@ -7,6 +7,9 @@
 <meta name="description" content="Kolya, agence d'implémentation IA. Nous aidons les entreprises à gagner du temps, automatiser leurs opérations et augmenter leur chiffre d'affaires." />
 <link rel="icon" type="image/png" href="assets/kolya-mark.png" />
 
+<!-- Preload the LCP hero image so the browser starts fetching it in parallel -->
+<link rel="preload" as="image" href="assets/hero-photo.jpg" fetchpriority="high" />
+
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;1,9..144,400&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
@@ -359,42 +362,112 @@
   .shell.dark .core { background: var(--ink-2); box-shadow: inset 0 1px 1px rgba(255,255,255,0.04); }
 
   /* === PROBLEME ======================================================= */
-  .probleme { padding: 160px 0; background: var(--soft); border-radius: var(--r-section) var(--r-section) 0 0; }
-  .pain-list { display: flex; flex-direction: column; }
+  .probleme {
+    padding: 200px 0;
+    background: var(--soft);
+    border-radius: var(--r-section) var(--r-section) 0 0;
+    overflow: hidden;
+  }
+  .pain-list { display: flex; flex-direction: column; margin-top: 32px; }
   .pain {
-    display: grid; grid-template-columns: 80px 1fr auto;
-    gap: 24px; align-items: center;
-    padding: 32px 4px;
+    display: grid;
+    grid-template-columns: minmax(110px, 0.32fr) 1fr auto;
+    gap: clamp(24px, 4vw, 80px);
+    align-items: baseline;
+    padding: clamp(48px, 7vw, 88px) 0;
     border-top: 1px solid var(--line);
     transition: padding-left var(--dur) var(--ease);
   }
   .pain:last-child { border-bottom: 1px solid var(--line); }
-  .pain .num { color: var(--muted); }
+
+  .pain .num {
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-weight: 300;
+    font-size: clamp(72px, 11vw, 184px);
+    line-height: 0.85;
+    letter-spacing: -0.05em;
+    color: var(--ink);
+    font-variation-settings: "opsz" 144;
+    /* opt out of mono inheritance from any parent */
+    text-transform: none;
+  }
+  .pain .num::after {
+    content: ".";
+    color: var(--accent);
+    font-style: normal;
+    font-weight: 400;
+    margin-left: -0.04em;
+    letter-spacing: 0;
+  }
+
   .pain .text {
-    font-family: 'Fraunces', serif; font-weight: 400; letter-spacing: -0.025em;
-    font-size: clamp(22px, 2.4vw, 34px); color: var(--ink);
+    font-family: 'Fraunces', serif;
+    font-weight: 400;
+    font-size: clamp(26px, 3.4vw, 48px);
+    letter-spacing: -0.03em;
+    line-height: 1.04;
+    color: var(--ink);
+    font-variation-settings: "opsz" 144;
   }
   .pain .text small {
-    display: block; font-family: 'Plus Jakarta Sans', sans-serif; font-style: normal;
-    font-size: 14px; letter-spacing: 0; color: var(--muted); margin-top: 6px;
-    line-height: 1.5;
+    display: block;
+    font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+    font-style: normal; font-weight: 400;
+    font-size: clamp(14px, 1.1vw, 17px);
+    letter-spacing: 0;
+    line-height: 1.55;
+    color: var(--muted);
+    margin-top: 18px;
+    max-width: 56ch;
   }
+
   .pain .arrcircle {
-    width: 44px; height: 44px; border-radius: 50%;
+    width: 56px; height: 56px; border-radius: 50%;
     background: rgba(14,14,12,0.04);
     box-shadow: inset 0 0 0 1px rgba(14,14,12,0.06);
     display: flex; align-items: center; justify-content: center;
+    align-self: center;
     transition:
       background var(--dur-fast) var(--ease),
       color var(--dur-fast) var(--ease),
       transform var(--dur-fast) var(--ease),
       box-shadow var(--dur-fast) var(--ease);
   }
-  .pain:hover { padding-left: 16px; }
+  .pain .arrcircle svg { width: 16px; height: 16px; }
+  .pain:hover { padding-left: 24px; }
   .pain:hover .arrcircle {
     background: var(--ink); color: white;
     box-shadow: inset 0 0 0 1px var(--ink);
     transform: rotate(-45deg);
+  }
+
+  @media (max-width: 900px) {
+    .probleme { padding: 140px 0 120px; }
+    .pain {
+      grid-template-columns: 1fr auto;
+      grid-template-rows: auto auto;
+      column-gap: 20px;
+      row-gap: 16px;
+      padding: 56px 0 64px;
+      align-items: end;
+    }
+    .pain .num {
+      grid-column: 1 / -1; grid-row: 1;
+      font-size: clamp(112px, 28vw, 200px);
+      margin-bottom: -12px;
+      align-self: start;
+    }
+    .pain .text {
+      grid-column: 1; grid-row: 2;
+      font-size: clamp(26px, 6.4vw, 38px);
+    }
+    .pain .arrcircle {
+      grid-column: 2; grid-row: 2;
+      align-self: end;
+      width: 48px; height: 48px;
+    }
+    .pain:hover { padding-left: 0; }
   }
 
   /* === SOLUTION ======================================================= */
@@ -891,7 +964,7 @@
 <nav class="nav" id="nav">
   <div class="nav-inner">
     <a href="#" class="brand">
-      <img src="assets/kolya-mark.png" alt="Kolya" />
+      <img src="assets/kolya-mark.png" width="56" height="51" alt="Kolya" />
       <span class="name">Kolya</span>
     </a>
     <div class="nav-min">
@@ -910,7 +983,7 @@
 
 <!-- ============== HERO ============== -->
 <section class="hero">
-  <img src="assets/hero-photo.png" class="hero-bg-img" alt="Dirigeant interagissant avec une interface IA dans un bureau lumineux" />
+  <img src="assets/hero-photo.jpg" class="hero-bg-img" width="1376" height="768" fetchpriority="high" alt="Dirigeant interagissant avec une interface IA dans un bureau lumineux" />
   <div class="hero-overlay"></div>
   <div class="wrap">
     <div class="hero-meta">
@@ -966,28 +1039,28 @@
     <div class="reveal" data-delay="120">
       <div class="pain-list">
         <div class="pain">
-          <div class="num mono">01</div>
+          <div class="num">01</div>
           <div class="text">Tâches répétitives qui mangent les journées
             <small>Saisies, relances, exports, copier-coller. Du temps qui ne sert ni vos clients, ni votre marge.</small>
           </div>
           <div class="arrcircle"><svg width="14" height="14"><use href="#arr"/></svg></div>
         </div>
         <div class="pain">
-          <div class="num mono">02</div>
+          <div class="num">02</div>
           <div class="text">Manque d'organisation et d'information
             <small>Données éparpillées, process oraux, dépendance aux personnes-clés.</small>
           </div>
           <div class="arrcircle"><svg width="14" height="14"><use href="#arr"/></svg></div>
         </div>
         <div class="pain">
-          <div class="num mono">03</div>
+          <div class="num">03</div>
           <div class="text">Perte de clients par défaut de suivi
             <small>Pas de relance, pas de rappel, pas de réponse. Et le client passe ailleurs.</small>
           </div>
           <div class="arrcircle"><svg width="14" height="14"><use href="#arr"/></svg></div>
         </div>
         <div class="pain">
-          <div class="num mono">04</div>
+          <div class="num">04</div>
           <div class="text">Outils inefficaces, mal connectés
             <small>Trop de logiciels, peu de valeur. Personne ne sait quoi utiliser pour quoi.</small>
           </div>
@@ -1044,7 +1117,7 @@
         <article class="srv-card shell">
           <div class="srv-core core">
             <div class="srv-illu">
-              <img src="assets/illu-developpement.png" loading="lazy" decoding="async" alt="Développement IA sur mesure" />
+              <img src="assets/illu-developpement.jpg" width="1280" height="1280" loading="lazy" decoding="async" alt="Développement IA sur mesure" />
             </div>
             <div class="srv-body">
               <div class="top">
@@ -1067,7 +1140,7 @@
         <article class="srv-card shell">
           <div class="srv-core core">
             <div class="srv-illu">
-              <img src="assets/illu-integration.png" loading="lazy" decoding="async" alt="Intégration et déploiement IA" />
+              <img src="assets/illu-integration.jpg" width="1280" height="1280" loading="lazy" decoding="async" alt="Intégration et déploiement IA" />
             </div>
             <div class="srv-body">
               <div class="top">
@@ -1090,7 +1163,7 @@
         <article class="srv-card shell">
           <div class="srv-core core">
             <div class="srv-illu">
-              <img src="assets/illu-formation.png" loading="lazy" decoding="async" alt="Formation et accompagnement IA" />
+              <img src="assets/illu-formation.jpg" width="1280" height="1280" loading="lazy" decoding="async" alt="Formation et accompagnement IA" />
             </div>
             <div class="srv-body">
               <div class="top">
@@ -1113,7 +1186,7 @@
         <article class="srv-card shell">
           <div class="srv-core core">
             <div class="srv-illu">
-              <img src="assets/illu-strategie.png" loading="lazy" decoding="async" alt="Stratégie IA pour la croissance" />
+              <img src="assets/illu-strategie.jpg" width="1280" height="1280" loading="lazy" decoding="async" alt="Stratégie IA pour la croissance" />
             </div>
             <div class="srv-body">
               <div class="top">
@@ -1156,7 +1229,7 @@
       <div class="reveal" data-delay="0">
         <article class="case-card shell tight">
           <div class="core tight">
-            <img class="case-img" src="assets/case-marches.png" loading="lazy" decoding="async" alt="Gestion de file d'attente" />
+            <img class="case-img" src="assets/case-marches.jpg" width="660" height="660" loading="lazy" decoding="async" alt="Gestion de file d'attente" />
             <div class="case-body">
               <div class="sector mono">Marchés</div>
               <h3>Gestion de file d'attente</h3>
@@ -1168,7 +1241,7 @@
       <div class="reveal" data-delay="80">
         <article class="case-card shell tight">
           <div class="core tight">
-            <img class="case-img" src="assets/case-salles-sport.png" loading="lazy" decoding="async" alt="Relance clients inactifs" />
+            <img class="case-img" src="assets/case-salles-sport.jpg" width="660" height="660" loading="lazy" decoding="async" alt="Relance clients inactifs" />
             <div class="case-body">
               <div class="sector mono">Salles de sport</div>
               <h3>Relance clients inactifs</h3>
@@ -1180,7 +1253,7 @@
       <div class="reveal" data-delay="160">
         <article class="case-card shell tight">
           <div class="core tight">
-            <img class="case-img" src="assets/case-artisans.png" loading="lazy" decoding="async" alt="Devis automatique" />
+            <img class="case-img" src="assets/case-artisans.jpg" width="660" height="660" loading="lazy" decoding="async" alt="Devis automatique" />
             <div class="case-body">
               <div class="sector mono">Artisans</div>
               <h3>Devis automatique</h3>
@@ -1192,7 +1265,7 @@
       <div class="reveal" data-delay="240">
         <article class="case-card shell tight">
           <div class="core tight">
-            <img class="case-img" src="assets/case-restaurants.png" loading="lazy" decoding="async" alt="Gestion des réservations" />
+            <img class="case-img" src="assets/case-restaurants.jpg" width="660" height="660" loading="lazy" decoding="async" alt="Gestion des réservations" />
             <div class="case-body">
               <div class="sector mono">Restaurants</div>
               <h3>Gestion réservations</h3>
@@ -1437,7 +1510,7 @@
     <div class="foot-grid">
       <div>
         <div class="foot-brand">
-          <img src="assets/kolya-mark.png" alt="Kolya" />
+          <img src="assets/kolya-mark.png" width="56" height="51" alt="Kolya" />
           <span class="name">Kolya</span>
         </div>
         <p class="foot-blurb">
