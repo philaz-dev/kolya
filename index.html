@@ -951,7 +951,7 @@
 <!-- ============== FLOATING ISLAND NAV ============== -->
 <nav class="nav" id="nav">
   <div class="nav-inner">
-    <a href="#" class="brand">
+    <a href="/" class="brand" aria-label="Retour à l'accueil">
       <img src="assets/kolya-mark.png" width="56" height="51" alt="Kolya" />
       <span class="name">Kolya</span>
     </a>
@@ -1556,6 +1556,26 @@
 </footer>
 
 <script>
+  // === Brand: smooth scroll to top instead of full page reload ===
+  (function () {
+    const brand = document.querySelector('.brand');
+    if (!brand) return;
+    brand.addEventListener('click', (e) => {
+      // Allow real navigation if the user opens in a new tab (cmd/ctrl-click)
+      if (e.metaKey || e.ctrlKey || e.shiftKey || e.button !== 0) return;
+      e.preventDefault();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  })();
+
+  // === Placeholder links: stop href="#" from appending # to the URL ===
+  (function () {
+    document.addEventListener('click', (e) => {
+      const link = e.target.closest('a[href="#"]');
+      if (link) e.preventDefault();
+    });
+  })();
+
   // === Sticky-state on the floating nav ===
   (function () {
     const nav = document.getElementById('nav');
