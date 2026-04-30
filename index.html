@@ -284,37 +284,12 @@
     font-size: clamp(56px, 10vw, 168px);
     color: var(--ink);
   }
-  .hero-row {
-    display: flex; align-items: center; flex-wrap: wrap;
-    gap: clamp(20px, 2.4vw, 40px);
-    line-height: 1.05;
-    padding: 0.05em 0;
-  }
-  .hero-pill {
-    position: relative;
-    width: clamp(140px, 16vw, 248px);
-    height: clamp(80px, 9vw, 128px);
-    flex-shrink: 0;
-    border-radius: 999px;
-    background: linear-gradient(155deg, #DEF77A 0%, #A8D332 100%);
-    overflow: hidden;
-    box-shadow:
-      inset 0 1px 0 rgba(255,255,255,0.6),
-      0 16px 40px -16px rgba(31,45,10,0.32);
-  }
-  .hero-pill::before {
-    content: ""; position: absolute; inset: 0;
-    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 0.5 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
-    mix-blend-mode: overlay; opacity: 0.4; pointer-events: none;
-  }
-  .hero-pill svg.wing {
-    position: absolute; inset: 0; margin: auto;
-    width: 70%; height: 70%;
-    animation: float-soft 4.2s ease-in-out infinite;
-  }
-  .hero-row em {
-    font-style: italic; font-weight: 300; color: var(--ink);
-    white-space: nowrap; font-variation-settings: "opsz" 144;
+  /* Hero headline italics: Fraunces italic 300, opsz 144 (Italics-as-Color Rule) */
+  .hero-title em {
+    font-style: italic;
+    font-weight: 300;
+    color: var(--ink);
+    font-variation-settings: "opsz" 144;
   }
 
   .hero-bot { margin-top: 64px; max-width: 640px; }
