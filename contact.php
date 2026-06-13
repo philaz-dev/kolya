@@ -37,9 +37,58 @@ $CONFIG = [
 
     // Log every attempt to this file (.htaccess blocks public access).
     'log_path'   => __DIR__ . '/contact.log',
+
+    // Supabase — insertion du lead dans le back-office (admin.kolya.fr).
+    // La clé anon est PUBLIQUE par design : protégée par RLS côté Supabase
+    // (elle ne peut qu'insérer un lead en stage 'prospect', rien d'autre).
+    'supabase_url'      => 'https://duwehquuwzsmndszdiai.supabase.co',
+    'supabase_anon_key' => 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImR1d2VocXV1d3pzbW5kc3pkaWFpIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODEzODE0NjcsImV4cCI6MjA5Njk1NzQ2N30.KhOHQv3LQI-DBQEgDd-CLG2Bs6hFgbIQB_WPtrZDYsU',
 ];
 
 /* --- Helpers --------------------------------------------------------- */
+
+/**
+ * Insère le lead dans Supabase (back-office admin.kolya.fr).
+ * Best-effort : toute erreur est loguée mais n'interrompt JAMAIS le flux —
+ * le mail + le log local restent la source de vérité (zéro perte de lead).
+ */
+function postLeadToSupabase(array $cfg, array $lead): void
+{
+    if (empty($cfg['supabase_url']) || empty($cfg['supabase_anon_key'])) return;
+    if (!function_exists('curl_init')) {
+        logAttempt($cfg['log_path'], 'SUPABASE skipped (curl indisponible)');
+        return;
+    }
+
+    $endpoint = rtrim($cfg['supabase_url'], '/') . '/rest/v1/leads';
+    $payload  = json_encode($lead, JSON_UNESCAPED_UNICODE);
+
+    $ch = curl_init($endpoint);
+    curl_setopt_array($ch, [
+        CURLOPT_POST           => true,
+        CURLOPT_POSTFIELDS     => $payload,
+        CURLOPT_HTTPHEADER     => [
+            'apikey: ' . $cfg['supabase_anon_key'],
+            'Authorization: Bearer ' . $cfg['supabase_anon_key'],
+            'Content-Type: application/json',
+            'Prefer: return=minimal',
+        ],
+        CURLOPT_RETURNTRANSFER => true,
+        CURLOPT_TIMEOUT        => 5,
+        CURLOPT_CONNECTTIMEOUT => 4,
+    ]);
+
+    $resp = curl_exec($ch);
+    $code = (int) curl_getinfo($ch, CURLINFO_HTTP_CODE);
+    $err  = curl_error($ch);
+    curl_close($ch);
+
+    if ($code >= 200 && $code < 300) {
+        logAttempt($cfg['log_path'], 'SUPABASE ok (' . $code . ')');
+    } else {
+        logAttempt($cfg['log_path'], 'SUPABASE fail (' . $code . ') ' . ($err !== '' ? $err : (string) $resp));
+    }
+}
 
 function logAttempt(string $logPath, string $line): void
 {
@@ -131,6 +180,21 @@ if ($message === '')                                   $errors[] = 'message';
 if ($errors) {
     fail($errors, $redirect, $CONFIG['log_path']);
 }
+
+/* --- Enregistrement dans le back-office Supabase (best-effort) -------- */
+
+postLeadToSupabase($CONFIG, [
+    'name'        => $name,
+    'company'     => $company !== '' ? $company : null,
+    'email'       => $email,
+    'phone'       => $phone !== '' ? $phone : null,
+    'sector'      => $sector !== '' ? $sector : null,
+    'message'     => $message,
+    'referer_url' => $_SERVER['HTTP_REFERER'] ?? null,
+    'ip'          => $_SERVER['REMOTE_ADDR'] ?? null,
+    'channel'     => 'form',
+    'stage'       => 'prospect',
+]);
 
 /* --- Build the email ------------------------------------------------- */
 
