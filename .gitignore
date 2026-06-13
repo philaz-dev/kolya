@@ -1,0 +1,47 @@
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Editor / IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Logs (PHP form submission log — runtime data, contains visitor IPs)
+contact.log
+*.log
+
+# Build artifacts / archives
+export/
+export.zip
+*.zip
+
+# Local secrets / config (jamais commit, même si on en avait)
+.env
+.env.local
+*.pem
+*.key
+
+# Hostinger upload helpers
+.hostinger/
+
+# Claude session state
+.claude/
+.agents/
+
+# Temp / scratch files at root (screenshots, drafts)
+Capture*.png
+Logo*.png
+image*.png
+*.tmp
+
+# Node (au cas où on rajoute du build plus tard)
+node_modules/
+dist/
+.cache/
+
+# Local tools cache (ffmpeg, etc.)
+.tools/

@@ -1,0 +1,15 @@
+# Kolya — robots.txt
+# Allow all crawlers, point to sitemap.
+
+User-agent: *
+Allow: /
+
+# Bloquer le handler PHP du formulaire (POST only, pas indexable)
+Disallow: /contact.php
+
+# Bloquer les éventuelles tentatives d'accès aux specs internes
+Disallow: /PRODUCT.md
+Disallow: /DESIGN.md
+Disallow: /DESIGN.json
+
+Sitemap: https://www.kolya.fr/sitemap.xml

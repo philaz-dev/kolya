@@ -1,0 +1,748 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+
+<title>Gestion file d'attente marché : intégration IA pour commerçants | Kolya</title>
+<meta name="description" content="Kolya, agence d'intégration IA pour les entreprises, automatise la file d'attente sur les marchés : annonce des passages, prise de commande, équilibrage du flux. Audit gratuit." />
+<link rel="canonical" href="https://www.kolya.fr/metiers/marches/" />
+
+<!-- Open Graph -->
+<meta property="og:type" content="website" />
+<meta property="og:locale" content="fr_FR" />
+<meta property="og:site_name" content="Kolya" />
+<meta property="og:title" content="Gestion de file d'attente marché : intégration IA pour commerçants" />
+<meta property="og:description" content="Kolya, agence d'intégration IA pour les entreprises de proximité. Annonce des passages, prise de commande, équilibrage du flux." />
+<meta property="og:url" content="https://www.kolya.fr/metiers/marches/" />
+<meta property="og:image" content="https://www.kolya.fr/assets/hero-marches.jpg" />
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Gestion de file d'attente marché : intégration IA pour commerçants" />
+<meta name="twitter:description" content="Kolya, agence d'intégration IA pour les entreprises de proximité. Plus d'attente, plus de ventes." />
+<meta name="twitter:image" content="https://www.kolya.fr/assets/hero-marches.jpg" />
+
+<link rel="preload" as="image" href="../../assets/hero-marches.jpg" fetchpriority="high" />
+<link rel="icon" type="image/png" href="../../assets/kolya-mark.png" />
+
+<!-- Fonts (non-blocking) -->
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;1,9..144,300;1,9..144,400&family=Plus+Jakarta+Sans:wght@400;500&family=JetBrains+Mono:wght@400;500&display=swap" onload="this.onload=null;this.rel='stylesheet'" />
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;1,9..144,300;1,9..144,400&family=Plus+Jakarta+Sans:wght@400;500&family=JetBrains+Mono:wght@400;500&display=swap" /></noscript>
+<style>
+:root{--bg:#fff;--soft:#F5F4EF;--ink:#0E0E0C;--ink-2:#1A1A18;--muted:#6B6B66;--line:rgba(14,14,12,.08);--accent:#C5F548;--accent-deep:#1F2D0A;--ease:cubic-bezier(.32,.72,0,1);--ease-out:cubic-bezier(.16,1,.3,1);--dur:700ms;--dur-fast:380ms}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--ink);font-family:'Plus Jakarta Sans',system-ui,sans-serif;font-size:16px;line-height:1.55;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img,svg{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+ul{list-style:none}
+.skip-link{position:absolute;left:-9999px}
+.wrap{width:100%;max-width:1320px;margin:0 auto;padding:0 32px}
+@media (max-width:720px){.wrap{padding:0 20px}}
+.eyebrow{display:inline-flex;align-items:center;gap:8px;padding:7px 14px;border-radius:999px;background:rgba(14,14,12,.04);box-shadow:inset 0 0 0 1px rgba(14,14,12,.06);font-family:'JetBrains Mono',monospace;font-size:10px;font-weight:500;letter-spacing:.22em;text-transform:uppercase;color:var(--muted)}
+.eyebrow .dot{width:5px;height:5px;border-radius:50%;background:var(--accent);display:inline-block;animation:pulse-dot 1.6s ease-in-out infinite}
+@keyframes pulse-dot{0%,100%{opacity:.4}50%{opacity:1}}
+.btn{display:inline-flex;align-items:center;gap:12px;padding:6px 6px 6px 22px;border-radius:999px;font-family:inherit;font-weight:500;font-size:14px;cursor:pointer;user-select:none;white-space:nowrap;transition:transform var(--dur-fast) var(--ease),background var(--dur-fast) var(--ease),color var(--dur-fast) var(--ease),box-shadow var(--dur-fast) var(--ease)}
+.btn .btn-icon{width:36px;height:36px;border-radius:999px;display:inline-flex;align-items:center;justify-content:center;transition:transform var(--dur-fast) var(--ease),background var(--dur-fast) var(--ease)}
+.btn .btn-icon svg{width:12px;height:12px}
+.btn-lime{background:var(--accent);color:var(--ink)}
+.btn-lime .btn-icon{background:rgba(14,14,12,.10)}
+.btn-ghost{background:rgba(255,255,255,.6);color:var(--ink);box-shadow:inset 0 0 0 1px rgba(14,14,12,.10);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px)}
+.btn-ghost .btn-icon{background:rgba(14,14,12,.06)}
+.btn-sm{padding:5px 5px 5px 16px;font-size:13px;gap:10px}
+.btn-sm .btn-icon{width:30px;height:30px}
+.btn-sm .btn-icon svg{width:11px;height:11px}
+.reveal{opacity:0;transform:translate3d(0,36px,0);filter:blur(10px);transition:opacity 1100ms var(--ease-out),transform 1100ms var(--ease-out),filter 900ms var(--ease-out);will-change:transform,opacity,filter}
+.reveal.in{opacity:1;transform:translate3d(0,0,0);filter:blur(0)}
+.nav{position:fixed;top:0;left:0;right:0;z-index:50;padding:18px 20px;pointer-events:none;transition:padding var(--dur) var(--ease)}
+.nav-inner{pointer-events:auto;max-width:1280px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:8px 8px 8px 22px;background:rgba(255,255,255,.62);backdrop-filter:blur(28px) saturate(180%);-webkit-backdrop-filter:blur(28px) saturate(180%);border-radius:999px;box-shadow:inset 0 1px 0 rgba(255,255,255,.7),inset 0 0 0 1px rgba(14,14,12,.06),0 14px 40px -16px rgba(14,14,12,.18)}
+.brand{display:flex;align-items:center;gap:10px}
+.brand img{height:56px;width:auto;object-fit:contain}
+.nav-min{display:flex;gap:2px;padding:4px;background:rgba(14,14,12,.04);box-shadow:inset 0 0 0 1px rgba(14,14,12,.05);border-radius:999px}
+.nav-min a{padding:8px 16px;font-size:13px;font-weight:500;color:var(--ink-2);border-radius:999px}
+@media (max-width:980px){.nav-min{display:none}}
+@media (max-width:540px){.nav-cta .btn-label{display:none}.nav-cta{padding:4px}}
+.breadcrumb{padding:110px 0 0}
+.breadcrumb ol{display:flex;align-items:center;flex-wrap:wrap;gap:10px;font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:var(--muted)}
+.breadcrumb li{display:inline-flex;align-items:center;gap:10px}
+.breadcrumb li:not(:last-child)::after{content:"/";color:var(--line);opacity:.6}
+.breadcrumb a{color:var(--muted)}
+.breadcrumb [aria-current="page"]{color:var(--ink)}
+.metier-hero{position:relative;min-height:80vh;min-height:80dvh;padding:56px 0 96px;display:flex;flex-direction:column;justify-content:center;overflow:hidden}
+.metier-hero .hero-bg-img{position:absolute;inset:0;z-index:0;width:100%;height:100%;object-fit:cover;object-position:center right;display:block}
+.metier-hero .hero-overlay{position:absolute;inset:0;z-index:1;background:linear-gradient(90deg,rgba(255,255,255,.96) 0%,rgba(255,255,255,.84) 30%,rgba(255,255,255,.5) 58%,rgba(255,255,255,.1) 100%),linear-gradient(180deg,rgba(255,255,255,.18) 0%,transparent 32%,rgba(255,255,255,.5) 100%)}
+.metier-hero>.wrap{position:relative;z-index:2}
+@media (max-width:900px){.metier-hero .hero-bg-img{object-position:center}.metier-hero .hero-overlay{background:linear-gradient(180deg,rgba(255,255,255,.55) 0%,rgba(255,255,255,.88) 50%,rgba(255,255,255,.98) 80%,white 100%)}}
+.metier-hero .eyebrow{margin-bottom:32px}
+.metier-hero h1{font-family:'Fraunces',serif;font-weight:400;font-variation-settings:"opsz" 144;font-size:clamp(48px,7vw,112px);letter-spacing:-.04em;line-height:.96;color:var(--ink);margin:0 0 32px;max-width:18ch}
+.metier-hero h1 em{font-style:italic;font-weight:300;color:var(--muted)}
+.metier-hero p.lede{font-size:clamp(18px,1.5vw,22px);color:var(--ink-2);line-height:1.55;max-width:60ch;margin-bottom:36px}
+.metier-hero .ctas{display:flex;gap:12px;flex-wrap:wrap}
+</style>
+<link rel="preload" as="style" href="../../assets/kolya.css?v=3" onload="this.onload=null;this.rel='stylesheet'" />
+<noscript><link rel="stylesheet" href="../../assets/kolya.css?v=3" /></noscript>
+
+<!-- Structured data: BreadcrumbList -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://www.kolya.fr/" },
+    { "@type": "ListItem", "position": 2, "name": "Métiers", "item": "https://www.kolya.fr/#cas" },
+    { "@type": "ListItem", "position": 3, "name": "Marchés" }
+  ]
+}
+</script>
+
+<!-- Structured data: Service -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "serviceType": "Intégration IA pour les entreprises de commerce de marché",
+  "provider": {
+    "@type": "Organization",
+    "name": "Kolya",
+    "url": "https://www.kolya.fr",
+    "logo": "https://www.kolya.fr/assets/kolya-logo.png",
+    "description": "Agence d'intégration IA pour les entreprises de proximité",
+    "areaServed": "FR"
+  },
+  "name": "Gestion de file d'attente sur les marchés",
+  "description": "Intégration IA Kolya pour les commerçants de marché : file d'attente intelligente, prise de commande à l'avance, équilibrage du flux clients, relance des habitués.",
+  "audience": {
+    "@type": "BusinessAudience",
+    "audienceType": "Commerçants de marché, primeurs, fromagers, bouchers, poissonniers, traiteurs ambulants"
+  },
+  "url": "https://www.kolya.fr/metiers/marches/"
+}
+</script>
+
+<!-- Structured data: FAQPage -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Mes clients doivent-ils télécharger une application ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Non. Le client scanne un QR code sur votre étal ou tape un numéro court sur son téléphone, il accède à votre file d'attente dans son navigateur. Aucune installation, aucun compte à créer. Une dame de 75 ans qui n'a jamais téléchargé d'app peut s'en servir."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Que se passe-t-il sur les marchés en plein air sans wifi ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Le système fonctionne sur la 4G du téléphone du client et sur celle de votre tablette / smartphone côté commerçant. Il consomme très peu de données. Si la connexion saute pendant 5 minutes, les commandes en cours sont conservées et synchronisées dès que le réseau revient."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Comment fonctionne la tarification ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Chaque intégration IA est cadrée au cas par cas, en fonction de votre activité : nombre de marchés par semaine, volume de clients, type de produits, équipement existant. Après l'audit gratuit de 45 minutes, on vous remet une proposition claire avec un montant ferme. Aucun coût caché, aucun engagement de durée."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Combien de temps avant de voir un retour sur investissement ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "La majorité de nos clients commerçants observe le delta dès les premières semaines, par les ventes additionnelles permises par la commande à l'avance et l'équilibrage du flux. Le retour sur investissement complet (incluant le temps gagné) se voit en général en moins d'un trimestre."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Est-ce compatible avec ma caisse / mon TPE ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "L'outil tourne en parallèle de votre caisse, sans la remplacer. Quand un client arrive avec sa commande, vous l'encaissez normalement. Pour les commerçants qui ont une caisse moderne (Square, SumUp, Tiller, L'Addition, etc.), nous pouvons brancher l'outil pour que les ventes s'enregistrent automatiquement, sans double saisie."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Et la conformité RGPD ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Le client donne son consentement explicite avant de communiquer son numéro. Les données sont hébergées en France, supprimées automatiquement 24h après la fin de la transaction (sauf opt-in pour les relances). Aucune revente de données, jamais. Tout est documenté dans nos CGU."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Si je ne suis pas convaincu, je peux arrêter ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Oui. Aucun engagement de durée, vous arrêtez quand vous voulez avec un préavis d'un mois. On préfère un commerçant content qui reste qu'un commerçant coincé qui râle."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "L'audit gratuit, c'est vraiment gratuit ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Oui. 45 minutes d'échange où on regarde votre activité, on identifie les vrais points de friction (file, perte de clients, gaspillage). Si l'IA est pertinente pour vous, on vous propose un cadrage. Si ce n'est pas pertinent, on vous le dit honnêtement et on vous oriente. Aucune carte bancaire demandée."
+      }
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Service","serviceType":"Intégration IA pour les commerçants des marchés alimentaires","provider":{"@type":"Organization","name":"Kolya","url":"https://www.kolya.fr","logo":"https://www.kolya.fr/assets/kolya-logo.png","description":"Agence d'intégration IA pour les entreprises de proximité","areaServed":[{"@type":"Country","name":"France"},{"@type":"AdministrativeArea","name":"Paris"}]},"name":"Gestion de file d'attente et pré-commande pour marchés","description":"Intégration IA Kolya pour les commerçants des marchés : annonce des passages, prise de commande à l'avance, équilibrage du flux client, fidélisation.","audience":{"@type":"BusinessAudience","audienceType":"Commerçants des marchés alimentaires, traiteurs, primeurs, fromagers, poissonniers, bouchers"},"url":"https://www.kolya.fr/metiers/marches/","areaServed":[{"@type":"Country","name":"France"},{"@type":"AdministrativeArea","name":"Paris"}]}</script>
+</head>
+<body>
+
+<a href="#audit" class="skip-link">Aller au contenu</a>
+
+<!-- Reusable icons -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="arr" viewBox="0 0 14 14">
+    <path d="M2 12L12 2M12 2H5M12 2V9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" fill="none"/>
+  </symbol>
+  <symbol id="check" viewBox="0 0 16 16">
+    <path d="M3 8.5L6.5 12L13 4.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+  </symbol>
+</svg>
+
+<!-- ============== FLOATING ISLAND NAV ============== -->
+<nav class="nav" id="nav">
+  <div class="nav-inner">
+    <a href="../../" class="brand" aria-label="Retour à l'accueil Kolya">
+<img src="../../assets/kolya-logo.png" width="800" height="273" alt="Kolya · Agence d'intégration IA" />
+    </a>
+    <div class="nav-min">
+      <a href="../../#probleme">Problème</a>
+      <a href="../../#services">Services</a>
+      <a href="../../#cas">Cas d'usage</a>
+      <a href="../../#methode">Méthode</a>
+      <a href="../../#resultats">Résultats</a>
+    </div>
+    <a href="#audit" class="btn btn-lime btn-sm nav-cta" aria-label="Réserver l'audit gratuit">
+      <span class="btn-label">Audit gratuit</span>
+      <span class="btn-icon" aria-hidden="true"><svg><use href="#arr"/></svg></span>
+    </a>
+  </div>
+</nav>
+
+<!-- ============== BREADCRUMB ============== -->
+<nav class="breadcrumb" aria-label="Fil d'Ariane">
+  <div class="wrap">
+    <ol>
+      <li><a href="../../">Accueil</a></li>
+      <li><a href="../../#cas">Métiers</a></li>
+      <li aria-current="page">Marchés</li>
+    </ol>
+  </div>
+</nav>
+
+<!-- ============== HERO (photo full-bleed) ============== -->
+<section class="metier-hero">
+  <img src="../../assets/hero-marches.jpg" class="hero-bg-img" width="1536" height="1024" fetchpriority="high" decoding="async" alt="Commerçant de marché présentant l'application Kolya sur son iPhone" />
+  <div class="hero-overlay"></div>
+  <div class="wrap">
+    <div class="reveal">
+      <span class="eyebrow"><span class="dot"></span>Métier · Marchés</span>
+      <h1>Gérer la file d'attente sur les marchés <em>sans app</em> à télécharger.</h1>
+      <p class="lede">
+        Kolya est une <strong>agence d'intégration IA pour les entreprises</strong> de proximité.
+        On installe une file d'attente intelligente sur votre étal : annonce des passages, prise de
+        commande à l'avance, équilibrage du flux entre vos clients. Vos clients ne perdent plus
+        20 minutes à attendre, vous ne perdez plus une vente sur deux à 11h30.
+      </p>
+      <div class="ctas">
+        <a href="#audit" class="btn btn-lime">
+          <span>Audit gratuit, 45 min</span>
+          <span class="btn-icon" aria-hidden="true"><svg><use href="#arr"/></svg></span>
+        </a>
+        <a href="#solution" class="btn btn-ghost">
+          <span>Voir comment ça marche</span>
+          <span class="btn-icon" aria-hidden="true"><svg><use href="#arr"/></svg></span>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============== APP MOCKUP ============== -->
+<section class="metier-section">
+  <div class="wrap">
+    <div class="app-mockup reveal">
+      <div class="app-mockup-cap">Aperçu · L'application Kolya pour votre marché</div>
+      <div class="app-screenshot">
+        <img src="../../assets/mockup-marches.jpg" width="1536" height="1024" loading="lazy" decoding="async" alt="Capture d'écran de l'application Kolya pour la file d'attente sur les marchés : tableau de bord temps réel, tickets B24-B29, affluence du jour, récapitulatif" />
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============== PROBLÈME MÉTIER ============== -->
+<section class="metier-section alt">
+  <div class="wrap">
+    <div class="metier-grid">
+      <article class="prose reveal">
+        <h2>Le vrai coût d'une file <em>mal gérée</em> sur un marché.</h2>
+        <p>
+          Un samedi matin sur le marché. À 10h30 votre étal est plein, à 11h45 il y a 14 personnes qui font la queue,
+          et à 12h05 vous voyez les 5 dernières partir parce qu'elles n'ont pas le temps avant la fin du marché.
+          Cinq paniers à 35 €, c'est 175 € envolés. Multipliez par les 4 ou 5 marchés que vous faites par semaine.
+        </p>
+        <p>
+          Le problème ne vient pas du fait que vous n'êtes pas assez rapide. Il vient du fait que le flux est
+          totalement aléatoire : <strong>tout le monde arrive en même temps</strong>, vous n'avez aucun moyen de
+          décaler les arrivées, et personne ne peut réserver son tour à l'avance.
+        </p>
+        <h3>Les pertes invisibles</h3>
+        <ul>
+          <li><strong>Clients fidèles qui ne reviennent pas</strong> parce qu'ils ont attendu trop longtemps trois fois de suite.</li>
+          <li><strong>Paniers moyens écrasés</strong> par la pression de la file : le client raccourcit sa commande pour libérer la place.</li>
+          <li><strong>Promotions inutilisables</strong> : impossible d'annoncer "il me reste 8 plateaux d'huîtres à 9€" sans déclencher une cohue impossible à gérer.</li>
+          <li><strong>Vous-même épuisé</strong> à parler en hâte, à compter de tête, à empiler les billets, à ne plus reconnaître les habitués.</li>
+        </ul>
+        <h3>Ce que vous avez essayé jusqu'ici</h3>
+        <p>
+          Le ticket distributeur n'aide pas : les gens viennent quand même tous à 11h. Le téléphone pour pré-commander
+          marche pour 3 ou 4 habitués, pas pour 200 clients. Et l'idée d'une "appli" est généralement morte avant de
+          naître : vos clients ont entre 30 et 80 ans, n'ont pas envie de télécharger quoi que ce soit, et vous-même
+          n'avez ni le temps ni l'envie d'apprendre un nouveau logiciel.
+        </p>
+      </article>
+
+      <aside class="side-panel" aria-label="Sommaire">
+        <h4>Sur cette page</h4>
+        <ul>
+          <li><a href="#solution">La solution Kolya</a></li>
+          <li><a href="#methode">Comment on déploie</a></li>
+          <li><a href="#resultats">Résultats à attendre</a></li>
+          <li><a href="#faq">Questions fréquentes</a></li>
+          <li><a href="#audit">Réserver l'audit gratuit</a></li>
+        </ul>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<!-- ============== SOLUTION ============== -->
+<section id="solution" class="metier-section">
+  <div class="wrap">
+    <article class="prose reveal">
+      <h2>Une file <em>fluide</em>, sans application, sans changer vos habitudes.</h2>
+      <p>
+        Kolya, en tant qu'<strong>agence d'intégration IA pour les entreprises</strong> de proximité, installe
+        une file d'attente intelligente accessible <strong>par simple QR code</strong> ou par un numéro de téléphone
+        à 4 chiffres affiché sur votre étal. Le client scanne, voit votre carte, passe sa commande, choisit l'heure
+        de retrait dans un créneau de 15 minutes, et reçoit un SMS à 5 minutes du tour.
+      </p>
+      <p>
+        De votre côté, vous voyez sur une tablette (ou sur votre téléphone) : qui arrive dans 5 minutes,
+        qui dans 15, ce qu'il a commandé, et combien il y a derrière. Vous préparez à l'avance, vous
+        appelez le suivant, le client arrive directement, paye, repart. <strong>Plus d'attente debout,
+        plus de file qui décourage.</strong>
+      </p>
+      <h3>Ce que l'IA fait pour vous, concrètement</h3>
+      <ol>
+        <li><strong>Équilibrage du flux</strong> : si trop de monde réserve à 11h30, le système propose automatiquement 11h45 ou 12h aux nouveaux clients, avec une petite incitation (priorité sur un produit en édition limitée, par exemple).</li>
+        <li><strong>Annonce des promotions au bon moment</strong> : "il reste 8 plateaux d'huîtres" est envoyé en push aux clients à proximité du marché qui ont commandé chez vous au moins une fois.</li>
+        <li><strong>Détection des habitués</strong> : si un client commande 3 fois la même chose, le système la lui propose en pré-rempli au prochain passage.</li>
+        <li><strong>Relance des absents</strong> : les clients qui ne sont pas venus depuis 4 semaines reçoivent (en option, opt-in) un message le vendredi soir avec votre carte de la semaine.</li>
+        <li><strong>Statistiques honnêtes</strong> : combien vous avez vendu, à quelle heure, qui est venu pour la première fois, quel produit s'écoule mal. Le tout dans un tableau lisible, sans Excel.</li>
+      </ol>
+      <blockquote>
+        Le but n'est pas de remplacer le contact humain qui fait le charme du marché.
+        Le but est de retirer la file qui mange vos ventes et le stress.
+        <cite>Principe de design Kolya</cite>
+      </blockquote>
+    </article>
+  </div>
+</section>
+
+<!-- ============== MÉTHODE ============== -->
+<section id="methode" class="metier-section alt">
+  <div class="wrap">
+    <article class="prose reveal">
+      <h2>Mise en place en <em>4 semaines</em>, opérationnel le premier samedi.</h2>
+      <p>
+        On ne vous demande pas de "transformer votre business". On installe l'outil, on le teste avec
+        vous sur un ou deux marchés, on ajuste, et vous gardez tout le reste comme avant.
+      </p>
+      <h3>Semaine 1 · On vous écoute</h3>
+      <p>
+        On vient sur vos marchés (ou on fait un appel vidéo si vous préférez), on observe les heures
+        de pointe, on regarde votre carte, vos prix, votre matériel, vos habitudes. On note tout.
+        Aucun engagement à ce stade.
+      </p>
+      <h3>Semaine 2 · On configure</h3>
+      <p>
+        On crée votre file Kolya avec votre carte, vos créneaux, votre logo. On imprime votre QR code
+        et votre numéro de téléphone court. On vous forme à la tablette en 30 minutes (c'est aussi
+        simple qu'un téléphone).
+      </p>
+      <h3>Semaine 3 · On teste</h3>
+      <p>
+        Premier samedi en vrai. On est avec vous (en personne ou en visio) toute la matinée. On ajuste
+        en direct ce qui ne tourne pas. À midi, vous saurez si ça marche pour vous ou pas.
+      </p>
+      <h3>Semaine 4 · On lâche</h3>
+      <p>
+        Les marchés suivants se font sans nous. On reste joignable par SMS et par téléphone si quoi
+        que ce soit cale. Au bout d'un mois, on fait un point ensemble pour voir le delta avant/après.
+      </p>
+    </article>
+  </div>
+</section>
+
+<!-- ============== RÉSULTATS ============== -->
+<section id="resultats" class="metier-section">
+  <div class="wrap">
+    <article class="prose reveal">
+      <h2>Ce que vous gagnez, <em>concrètement</em>.</h2>
+      <p>
+        Sur les commerçants de marché qui ont déployé Kolya, les chiffres convergent. Voici les
+        ordres de grandeur typiques sur les trois premiers mois.
+      </p>
+      <div class="stats-inline">
+        <div class="stat-pill">
+          <div class="v"><em>+ 20 %</em></div>
+          <div class="l">Chiffre d'affaires sur les samedis matin (commande à l'avance + relance habitués).</div>
+        </div>
+        <div class="stat-pill">
+          <div class="v"><em>− 60 %</em></div>
+          <div class="l">Temps d'attente moyen perçu par les clients (passage de 18 min à 7 min).</div>
+        </div>
+        <div class="stat-pill">
+          <div class="v"><em>× 2,4</em></div>
+          <div class="l">Ré-achat sur 8 semaines : les clients reviennent plus souvent quand l'expérience est fluide.</div>
+        </div>
+        <div class="stat-pill">
+          <div class="v"><em>5 h</em></div>
+          <div class="l">Économisées par semaine côté commerçant (préparation, comptage, gestion des invendus).</div>
+        </div>
+      </div>
+      <p>
+        Ces chiffres ne sont pas des promesses : c'est ce qu'on observe. Sur certains métiers
+        (poissonniers, ostréiculteurs, traiteurs), l'effet est plus marqué grâce à la pré-commande.
+        Sur d'autres (primeurs, fromagers), l'effet vient surtout de l'équilibrage du flux et de la
+        relance des habitués.
+      </p>
+    </article>
+  </div>
+</section>
+
+<!-- ============== FAQ ============== -->
+<section id="faq" class="metier-section alt">
+  <div class="wrap">
+    <article class="prose reveal" style="max-width: 920px;">
+      <h2>Questions fréquentes des <em>commerçants</em> de marché.</h2>
+      <div class="faq-list">
+        <details class="faq-item">
+          <summary>Mes clients (souvent âgés) doivent-ils télécharger une application ?</summary>
+          <div class="faq-body">
+            <p>Non. Le client scanne un QR code sur votre étal ou tape un numéro court sur son téléphone, il accède à votre file d'attente dans son navigateur. Aucune installation, aucun compte à créer. Une dame de 75 ans qui n'a jamais téléchargé d'app peut s'en servir.</p>
+          </div>
+        </details>
+        <details class="faq-item">
+          <summary>Que se passe-t-il sur les marchés en plein air sans wifi ?</summary>
+          <div class="faq-body">
+            <p>Le système fonctionne sur la 4G du téléphone du client et sur celle de votre tablette ou smartphone côté commerçant. Il consomme très peu de données. Si la connexion saute pendant 5 minutes, les commandes en cours sont conservées et synchronisées dès que le réseau revient.</p>
+          </div>
+        </details>
+        <details class="faq-item">
+          <summary>Comment fonctionne la tarification ?</summary>
+          <div class="faq-body">
+            <p>Chaque intégration IA est cadrée au cas par cas, en fonction de votre activité : nombre de marchés par semaine, volume de clients, type de produits, équipement existant. Il n'y a pas de grille standard, parce qu'il n'y a pas de commerçant standard.</p>
+            <p>Après l'audit gratuit de 45 minutes, on vous remet une proposition claire avec un montant ferme. Aucun coût caché, aucun engagement de durée.</p>
+          </div>
+        </details>
+        <details class="faq-item">
+          <summary>Combien de temps avant de voir un retour sur investissement ?</summary>
+          <div class="faq-body">
+            <p>La majorité de nos clients commerçants observe le delta dès les premières semaines, par les ventes additionnelles permises par la commande à l'avance et l'équilibrage du flux. Le retour sur investissement complet, incluant le temps gagné côté commerçant, se voit en général en moins d'un trimestre.</p>
+          </div>
+        </details>
+        <details class="faq-item">
+          <summary>Est-ce compatible avec ma caisse ou mon TPE ?</summary>
+          <div class="faq-body">
+            <p>L'outil tourne en parallèle de votre caisse, sans la remplacer. Quand un client arrive avec sa commande, vous l'encaissez normalement.</p>
+            <p>Pour les commerçants qui ont une caisse moderne (Square, SumUp, Tiller, L'Addition), nous pouvons brancher l'outil pour que les ventes s'enregistrent automatiquement, sans double saisie.</p>
+          </div>
+        </details>
+        <details class="faq-item">
+          <summary>Et la conformité RGPD ?</summary>
+          <div class="faq-body">
+            <p>Le client donne son consentement explicite avant de communiquer son numéro. Les données sont hébergées en France, supprimées automatiquement 24h après la fin de la transaction (sauf opt-in pour les relances). Aucune revente de données, jamais. Tout est documenté dans nos CGU.</p>
+          </div>
+        </details>
+        <details class="faq-item">
+          <summary>Si je ne suis pas convaincu, je peux arrêter ?</summary>
+          <div class="faq-body">
+            <p>Oui. Aucun engagement de durée, vous arrêtez quand vous voulez avec un préavis d'un mois. On préfère un commerçant content qui reste qu'un commerçant coincé qui râle.</p>
+          </div>
+        </details>
+        <details class="faq-item">
+          <summary>L'audit gratuit, c'est vraiment gratuit ?</summary>
+          <div class="faq-body">
+            <p>Oui. 45 minutes d'échange où on regarde votre activité, on identifie les vrais points de friction (file, perte de clients, gaspillage). Si l'IA est pertinente pour vous, on vous propose un cadrage. Si ce n'est pas pertinent, on vous le dit honnêtement et on vous oriente.</p>
+            <p>Aucune carte bancaire demandée.</p>
+          </div>
+        </details>
+      </div>
+    </article>
+  </div>
+</section>
+
+<!-- ============== CTA AUDIT ============== -->
+<section id="audit" class="cta">
+  <div class="wrap">
+    <div class="cta-card">
+      <div class="deco"></div>
+      <div class="inner">
+        <span class="eyebrow on-lime label">Démarrer</span>
+        <h2>Réservez votre<br/><em>audit gratuit.</em></h2>
+        <p class="cta-lede">
+          45 minutes pour comprendre votre activité de marché, repérer ce qui mange vos ventes,
+          et vous dire honnêtement si Kolya peut, ou non, vous faire avancer.
+        </p>
+
+        <div class="contact-error" id="contact-error" role="alert">
+          Une erreur est survenue. Vérifiez vos informations et réessayez.
+        </div>
+
+        <div class="contact-form-wrap" id="contact-form-wrap">
+          <form class="contact-form" action="../../contact.php" method="POST" novalidate>
+            <div class="row-2">
+              <div class="field">
+                <label for="f-name">Nom</label>
+                <input id="f-name" name="name" type="text" required maxlength="100" autocomplete="name" placeholder="Marie Lefranc" />
+              </div>
+              <div class="field">
+                <label for="f-company">Activité <span class="opt">(optionnel)</span></label>
+                <input id="f-company" name="company" type="text" maxlength="120" autocomplete="organization" placeholder="Poissonnerie Lefranc" />
+              </div>
+            </div>
+
+            <div class="row-2">
+              <div class="field">
+                <label for="f-email">Email</label>
+                <input id="f-email" name="email" type="email" required maxlength="200" autocomplete="email" placeholder="vous@domaine.fr" />
+              </div>
+              <div class="field">
+                <label for="f-phone">Téléphone <span class="opt">(optionnel)</span></label>
+                <input id="f-phone" name="phone" type="tel" maxlength="40" autocomplete="tel" placeholder="06 12 34 56 78" />
+              </div>
+            </div>
+
+            <input type="hidden" name="sector" value="marches" />
+
+            <div class="field">
+              <label for="f-message">Votre situation en quelques lignes</label>
+              <textarea id="f-message" name="message" required maxlength="5000" placeholder="Quels marchés vous faites, ce qui vous fait perdre du temps, ce que vous aimeriez automatiser..."></textarea>
+            </div>
+
+            <div class="field-pot" aria-hidden="true">
+              <label for="f-website">Ne pas remplir ce champ.</label>
+              <input id="f-website" name="website" type="text" tabindex="-1" autocomplete="off" />
+            </div>
+
+            <div class="submit-row">
+              <button type="submit" class="btn btn-dark">
+                <span>Envoyer ma demande</span>
+                <span class="btn-icon" aria-hidden="true"><svg><use href="#arr"/></svg></span>
+              </button>
+              <p class="small">Réponse sous 24h ouvrées. Pas de pré-qualif commerciale, pas de discovery call interminable.</p>
+            </div>
+          </form>
+        </div>
+
+        <div class="contact-thanks" id="contact-thanks" role="status" aria-live="polite">
+          <div class="check"><svg viewBox="0 0 16 16" aria-hidden="true"><use href="#check"/></svg></div>
+          <h3>Message <em>bien reçu.</em></h3>
+          <p>On revient vers vous sous 24h ouvrées avec une proposition de créneau pour l'audit. À très vite.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============== FOOTER ============== -->
+<footer class="footer">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <div class="foot-brand">
+<img src="../../assets/kolya-logo-white.png" width="800" height="339" alt="Kolya · Agence d'intégration IA" />
+        </div>
+        <p class="foot-blurb">
+          Agence d'implémentation IA. Des solutions simples,
+          des résultats concrets.
+        </p>
+      </div>
+      <div class="foot-col">
+        <h6>Agence</h6>
+        <ul>
+          <li><a href="../../#probleme">Problème</a></li>
+          <li><a href="../../#services">Services</a></li>
+          <li><a href="../../#methode">Méthode</a></li>
+          <li><a href="../../#resultats">Résultats</a></li>
+        </ul>
+      </div>
+      <div class="foot-col">
+        <h6>Cas d'usage</h6>
+        <ul>
+          <li><a href="./" aria-current="page">Marchés</a></li>
+          <li><a href="../../#cas">Salles de sport</a></li>
+          <li><a href="../../#cas">Artisans</a></li>
+          <li><a href="../../#cas">Restaurants</a></li>
+        </ul>
+      </div>
+      <div class="foot-col">
+        <h6>Contact</h6>
+        <ul>
+          <li><a href="#audit">Réserver un audit</a></li>
+          <li><a href="#audit">Demander un devis</a></li>
+          <li><a href="#">LinkedIn ↗</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="foot-word serif">Kolya<span class="dot">.</span></div>
+
+    <div class="foot-meta">
+      <div>© 2026 Kolya · Des solutions simples. Des résultats concrets.</div>
+      <nav>
+        <a href="#">Mentions légales</a>
+        <a href="#">Confidentialité</a>
+        <a href="#">CGV</a>
+      </nav>
+    </div>
+  </div>
+</footer>
+
+<script>(function(){const hash=window.location.hash;if(!hash||hash.length<2)return;if(hash==='#audit')return;const sc=()=>{const el=document.getElementById(hash.slice(1));if(!el)return;const nh=(document.getElementById('nav')?.offsetHeight||80)+24;const h=document.documentElement;const prev=h.style.scrollBehavior;h.style.scrollBehavior='auto';window.scrollTo(0,el.getBoundingClientRect().top+window.scrollY-nh);h.style.scrollBehavior=prev};requestAnimationFrame(()=>requestAnimationFrame(sc));setTimeout(sc,150);setTimeout(sc,400)})();
+  // === Brand: smooth scroll to top instead of full page reload ===
+  (function () {
+    const brand = document.querySelector('.brand');
+    if (!brand) return;
+    brand.addEventListener('click', (e) => {
+      // On a sub-page, we want full nav to "/" · only intercept if we're on home
+      if (window.location.pathname === '/' || window.location.pathname.endsWith('/index.html')) {
+        if (e.metaKey || e.ctrlKey || e.shiftKey || e.button !== 0) return;
+        e.preventDefault();
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+    });
+  })();
+
+  // === Placeholder links: stop href="#" from appending # to the URL ===
+  (function () {
+    document.addEventListener('click', (e) => {
+      const link = e.target.closest('a[href="#"]');
+      if (link) e.preventDefault();
+    });
+  })();
+
+  // === Sticky-state on the floating nav ===
+  (function () {
+    const nav = document.getElementById('nav');
+    if (!nav) return;
+    let scrolled = false;
+    const onScroll = () => {
+      const should = window.scrollY > 16;
+      if (should === scrolled) return;
+      scrolled = should;
+      nav.classList.toggle('scrolled', should);
+    };
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+  })();
+
+  // === Reveal on scroll ===
+  (function () {
+    const els = document.querySelectorAll('.reveal');
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach((e) => {
+        if (!e.isIntersecting) return;
+        const d = parseInt(e.target.dataset.delay || '0', 10);
+        setTimeout(() => e.target.classList.add('in'), d);
+        io.unobserve(e.target);
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
+    els.forEach((el) => io.observe(el));
+  })();
+
+  (function () {
+    const scrollToAudit = () => {
+      const target = document.getElementById('audit');
+      if (!target) return;
+      const navH = (document.getElementById('nav')?.offsetHeight || 80) + 24;
+      const html = document.documentElement;
+      const prev = html.style.scrollBehavior;
+      html.style.scrollBehavior = 'auto';
+      window.scrollTo(0, target.getBoundingClientRect().top + window.scrollY - navH);
+      html.style.scrollBehavior = prev;
+    };
+    document.addEventListener('click', (ev) => {
+      const link = ev.target.closest('a[href="#audit"]');
+      if (!link) return;
+      if (ev.metaKey || ev.ctrlKey || ev.shiftKey || ev.button !== 0) return;
+      ev.preventDefault();
+      const w = document.getElementById('contact-form-wrap');
+      const t = document.getElementById('contact-thanks');
+      const e = document.getElementById('contact-error');
+      if (w) w.classList.remove('hide');
+      if (t) t.classList.remove('show');
+      if (e) e.classList.remove('show');
+      scrollToAudit();
+      setTimeout(scrollToAudit, 50);
+      setTimeout(scrollToAudit, 200);
+      history.replaceState({}, '', window.location.pathname + '#audit');
+    });
+    window.addEventListener('pageshow', (ev) => {
+      if (!ev.persisted) return;
+      if (w) w.classList.remove('hide');
+      if (t) t.classList.remove('show');
+      if (e) e.classList.remove('show');
+    });
+  })();
+
+  // === Contact form: thank-you / error states from URL param ===
+  (function () {
+    const params = new URLSearchParams(window.location.search);
+    const sent = params.get('sent');
+    if (sent === null) return;
+
+    const wrap = document.getElementById('contact-form-wrap');
+    const thanks = document.getElementById('contact-thanks');
+    const errBox = document.getElementById('contact-error');
+    if (!wrap || !thanks || !errBox) return;
+
+    if (sent === '1') {
+      wrap.classList.add('hide');
+      thanks.classList.add('show');
+      history.replaceState({}, '', window.location.pathname);
+      setTimeout(() => thanks.scrollIntoView({ behavior: 'instant', block: 'start' }), 80);
+    } else if (sent === '0') {
+      errBox.classList.add('show');
+      const code = params.get('error') || '';
+      if (code) errBox.textContent = errorMessage(code);
+      setTimeout(() => wrap.scrollIntoView({ behavior: 'instant', block: 'start' }), 80);
+    }
+
+    function errorMessage(code) {
+      const parts = code.split(',').filter(Boolean);
+      if (parts.includes('mail')) return "L'envoi a échoué côté serveur. Réessayez dans un instant ou écrivez-nous via LinkedIn.";
+      const labels = { name: 'le nom', email: 'un email valide', message: 'un message' };
+      const missing = parts.map((k) => labels[k]).filter(Boolean);
+      if (missing.length) return 'Merci de renseigner ' + missing.join(', ') + '.';
+      return 'Une erreur est survenue. Vérifiez vos informations et réessayez.';
+    }
+  })();
+</script>
+
+</body>
+</html>

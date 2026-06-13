@@ -1,0 +1,765 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+
+<title>Estimation volume déménagement : intégration IA pour déménageurs | Kolya</title>
+<meta name="description" content="Kolya, agence d'intégration IA pour les entreprises de déménagement. Estimation de volume par vidéo, devis instantané, plus de visite préalable obligatoire. Audit gratuit." />
+<link rel="canonical" href="https://www.kolya.fr/metiers/demenageur/" />
+
+<!-- Open Graph -->
+<meta property="og:type" content="website" />
+<meta property="og:locale" content="fr_FR" />
+<meta property="og:site_name" content="Kolya" />
+<meta property="og:title" content="Estimation volume déménagement : intégration IA pour déménageurs" />
+<meta property="og:description" content="Kolya, agence d'intégration IA pour les entreprises de déménagement. Estimation par vidéo, devis instantané, fini les visites obligatoires." />
+<meta property="og:url" content="https://www.kolya.fr/metiers/demenageur/" />
+<meta property="og:image" content="https://www.kolya.fr/assets/hero-demenageur.jpg" />
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Estimation volume déménagement : intégration IA pour déménageurs" />
+<meta name="twitter:description" content="Kolya, agence d'intégration IA pour les déménageurs. Estimation par vidéo, devis instantané." />
+<meta name="twitter:image" content="https://www.kolya.fr/assets/hero-demenageur.jpg" />
+
+<link rel="preload" as="image" href="../../assets/hero-demenageur.jpg" fetchpriority="high" />
+<link rel="icon" type="image/png" href="../../assets/kolya-mark.png" />
+
+<!-- Fonts (non-blocking) -->
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;1,9..144,300;1,9..144,400&family=Plus+Jakarta+Sans:wght@400;500&family=JetBrains+Mono:wght@400;500&display=swap" onload="this.onload=null;this.rel='stylesheet'" />
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;1,9..144,300;1,9..144,400&family=Plus+Jakarta+Sans:wght@400;500&family=JetBrains+Mono:wght@400;500&display=swap" /></noscript>
+<style>
+:root{--bg:#fff;--soft:#F5F4EF;--ink:#0E0E0C;--ink-2:#1A1A18;--muted:#6B6B66;--line:rgba(14,14,12,.08);--accent:#C5F548;--accent-deep:#1F2D0A;--ease:cubic-bezier(.32,.72,0,1);--ease-out:cubic-bezier(.16,1,.3,1);--dur:700ms;--dur-fast:380ms}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--ink);font-family:'Plus Jakarta Sans',system-ui,sans-serif;font-size:16px;line-height:1.55;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img,svg{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+ul{list-style:none}
+.skip-link{position:absolute;left:-9999px}
+.wrap{width:100%;max-width:1320px;margin:0 auto;padding:0 32px}
+@media (max-width:720px){.wrap{padding:0 20px}}
+.eyebrow{display:inline-flex;align-items:center;gap:8px;padding:7px 14px;border-radius:999px;background:rgba(14,14,12,.04);box-shadow:inset 0 0 0 1px rgba(14,14,12,.06);font-family:'JetBrains Mono',monospace;font-size:10px;font-weight:500;letter-spacing:.22em;text-transform:uppercase;color:var(--muted)}
+.eyebrow .dot{width:5px;height:5px;border-radius:50%;background:var(--accent);display:inline-block;animation:pulse-dot 1.6s ease-in-out infinite}
+@keyframes pulse-dot{0%,100%{opacity:.4}50%{opacity:1}}
+.btn{display:inline-flex;align-items:center;gap:12px;padding:6px 6px 6px 22px;border-radius:999px;font-family:inherit;font-weight:500;font-size:14px;cursor:pointer;user-select:none;white-space:nowrap;transition:transform var(--dur-fast) var(--ease),background var(--dur-fast) var(--ease),color var(--dur-fast) var(--ease),box-shadow var(--dur-fast) var(--ease)}
+.btn .btn-icon{width:36px;height:36px;border-radius:999px;display:inline-flex;align-items:center;justify-content:center;transition:transform var(--dur-fast) var(--ease),background var(--dur-fast) var(--ease)}
+.btn .btn-icon svg{width:12px;height:12px}
+.btn-lime{background:var(--accent);color:var(--ink)}
+.btn-lime .btn-icon{background:rgba(14,14,12,.10)}
+.btn-ghost{background:rgba(255,255,255,.6);color:var(--ink);box-shadow:inset 0 0 0 1px rgba(14,14,12,.10);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px)}
+.btn-ghost .btn-icon{background:rgba(14,14,12,.06)}
+.btn-sm{padding:5px 5px 5px 16px;font-size:13px;gap:10px}
+.btn-sm .btn-icon{width:30px;height:30px}
+.btn-sm .btn-icon svg{width:11px;height:11px}
+.reveal{opacity:0;transform:translate3d(0,36px,0);filter:blur(10px);transition:opacity 1100ms var(--ease-out),transform 1100ms var(--ease-out),filter 900ms var(--ease-out);will-change:transform,opacity,filter}
+.reveal.in{opacity:1;transform:translate3d(0,0,0);filter:blur(0)}
+.nav{position:fixed;top:0;left:0;right:0;z-index:50;padding:18px 20px;pointer-events:none;transition:padding var(--dur) var(--ease)}
+.nav-inner{pointer-events:auto;max-width:1280px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:8px 8px 8px 22px;background:rgba(255,255,255,.62);backdrop-filter:blur(28px) saturate(180%);-webkit-backdrop-filter:blur(28px) saturate(180%);border-radius:999px;box-shadow:inset 0 1px 0 rgba(255,255,255,.7),inset 0 0 0 1px rgba(14,14,12,.06),0 14px 40px -16px rgba(14,14,12,.18)}
+.brand{display:flex;align-items:center;gap:10px}
+.brand img{height:56px;width:auto;object-fit:contain}
+.nav-min{display:flex;gap:2px;padding:4px;background:rgba(14,14,12,.04);box-shadow:inset 0 0 0 1px rgba(14,14,12,.05);border-radius:999px}
+.nav-min a{padding:8px 16px;font-size:13px;font-weight:500;color:var(--ink-2);border-radius:999px}
+@media (max-width:980px){.nav-min{display:none}}
+@media (max-width:540px){.nav-cta .btn-label{display:none}.nav-cta{padding:4px}}
+.breadcrumb{padding:110px 0 0}
+.breadcrumb ol{display:flex;align-items:center;flex-wrap:wrap;gap:10px;font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:var(--muted)}
+.breadcrumb li{display:inline-flex;align-items:center;gap:10px}
+.breadcrumb li:not(:last-child)::after{content:"/";color:var(--line);opacity:.6}
+.breadcrumb a{color:var(--muted)}
+.breadcrumb [aria-current="page"]{color:var(--ink)}
+.metier-hero{position:relative;min-height:80vh;min-height:80dvh;padding:56px 0 96px;display:flex;flex-direction:column;justify-content:center;overflow:hidden}
+.metier-hero .hero-bg-img{position:absolute;inset:0;z-index:0;width:100%;height:100%;object-fit:cover;object-position:center right;display:block}
+.metier-hero .hero-overlay{position:absolute;inset:0;z-index:1;background:linear-gradient(90deg,rgba(255,255,255,.96) 0%,rgba(255,255,255,.84) 30%,rgba(255,255,255,.5) 58%,rgba(255,255,255,.1) 100%),linear-gradient(180deg,rgba(255,255,255,.18) 0%,transparent 32%,rgba(255,255,255,.5) 100%)}
+.metier-hero>.wrap{position:relative;z-index:2}
+@media (max-width:900px){.metier-hero .hero-bg-img{object-position:center}.metier-hero .hero-overlay{background:linear-gradient(180deg,rgba(255,255,255,.55) 0%,rgba(255,255,255,.88) 50%,rgba(255,255,255,.98) 80%,white 100%)}}
+.metier-hero .eyebrow{margin-bottom:32px}
+.metier-hero h1{font-family:'Fraunces',serif;font-weight:400;font-variation-settings:"opsz" 144;font-size:clamp(48px,7vw,112px);letter-spacing:-.04em;line-height:.96;color:var(--ink);margin:0 0 32px;max-width:18ch}
+.metier-hero h1 em{font-style:italic;font-weight:300;color:var(--muted)}
+.metier-hero p.lede{font-size:clamp(18px,1.5vw,22px);color:var(--ink-2);line-height:1.55;max-width:60ch;margin-bottom:36px}
+.metier-hero .ctas{display:flex;gap:12px;flex-wrap:wrap}
+</style>
+<link rel="preload" as="style" href="../../assets/kolya.css?v=3" onload="this.onload=null;this.rel='stylesheet'" />
+<noscript><link rel="stylesheet" href="../../assets/kolya.css?v=3" /></noscript>
+
+<!-- Structured data: BreadcrumbList -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://www.kolya.fr/" },
+    { "@type": "ListItem", "position": 2, "name": "Métiers", "item": "https://www.kolya.fr/#cas" },
+    { "@type": "ListItem", "position": 3, "name": "Déménageur" }
+  ]
+}
+</script>
+
+<!-- Structured data: Service -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "serviceType": "Intégration IA pour les entreprises de déménagement",
+  "provider": {
+    "@type": "Organization",
+    "name": "Kolya",
+    "url": "https://www.kolya.fr",
+    "logo": "https://www.kolya.fr/assets/kolya-logo.png",
+    "description": "Agence d'intégration IA pour les entreprises de proximité",
+    "areaServed": "FR"
+  },
+  "name": "Estimation de volume et devis déménagement automatisé",
+  "description": "Intégration IA Kolya pour les déménageurs : estimation du volume par vidéo client, devis instantané paramétré sur votre tarification, plus de visite préalable systématique.",
+  "audience": {
+    "@type": "BusinessAudience",
+    "audienceType": "Entreprises de déménagement, déménageurs indépendants, sociétés de garde-meubles"
+  },
+  "url": "https://www.kolya.fr/metiers/demenageur/"
+}
+</script>
+
+<!-- Structured data: FAQPage -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Comment fonctionne l'estimation pour le client ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Le client reçoit un lien par SMS ou email. Il filme ses pièces une par une avec son smartphone (3 à 5 minutes par logement), valide les meubles encombrants, indique l'étage et l'accès. L'IA renvoie une estimation de volume en m³ et une fourchette de prix calée sur votre tarification. Le devis ferme est ensuite généré automatiquement après votre validation."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "L'estimation est-elle suffisamment précise pour engager un devis ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Sur les déménagements standards (T1 à T4 sans pièces atypiques), la marge d'erreur est de ±10 à 15 % en volume, ce qui équivaut à une visite physique rapide. Pour les dossiers complexes (caves très encombrées, antiquités fragiles, escaliers techniques), l'IA flagge le dossier et propose une visite physique courte avant signature."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Qu'est-ce qui n'est pas estimable par l'IA ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Trois cas restent humains : les biens fragiles à classer (œuvres d'art, instruments de musique, vins de cave), les accès complexes nécessitant un monte-meuble ou un autorisation de stationnement, et les dossiers internationaux. Dans ces cas, l'IA prépare le dossier, vous arrivez sur site avec le brief déjà fait."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Compatible avec mon logiciel devis (Movinga, MoveAgain, ProDevis, etc.) ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Oui. Notre intégration IA fonctionne en parallèle de votre logiciel de gestion sans le remplacer. Pour les outils les plus utilisés en France (MoveAgain, ProDevis, Movinga, Movestic), nous proposons une connexion directe pour que les estimations validées s'enregistrent automatiquement comme devis. Pour les autres, vous restez en double saisie pendant la phase de test, puis on développe le connecteur si la volumétrie le justifie."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Comment fonctionne la tarification ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Chaque intégration IA est cadrée au cas par cas, en fonction de votre activité : volume mensuel de devis, nombre de commerciaux, logiciel utilisé, périmètre géographique. Après l'audit gratuit de 45 minutes, on vous remet une proposition claire avec un montant ferme. Aucun coût caché, aucun engagement de durée."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Combien de temps avant un retour mesurable ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "La majorité des déménageurs observe le delta dès les premières semaines : moins de visites pré-déménagement, plus de devis traités par jour, taux de signature qui monte parce que le client a sa fourchette en quelques minutes au lieu de 48 heures. Le retour sur investissement complet se voit en général sur le premier trimestre, avec une stabilisation au sixième mois."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Comment gérez-vous les données vidéo des clients (RGPD) ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Le client donne son consentement explicite avant de filmer. Les vidéos sont hébergées en France, traitées par notre IA pour extraire le volume, puis automatiquement supprimées après validation du devis (sauf opt-in pour le dossier client). Aucune revente, aucun usage secondaire. Conforme RGPD, traçabilité complète des accès."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Si je ne suis pas convaincu, je peux arrêter ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Oui. Aucun engagement de durée, vous arrêtez quand vous voulez avec un préavis d'un mois. On préfère un déménageur content qui reste qu'un déménageur coincé qui râle."
+      }
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Service","serviceType":"Intégration IA pour les entreprises de déménagement","provider":{"@type":"Organization","name":"Kolya","url":"https://www.kolya.fr","logo":"https://www.kolya.fr/assets/kolya-logo.png","description":"Agence d'intégration IA pour les entreprises de proximité","areaServed":[{"@type":"Country","name":"France"},{"@type":"AdministrativeArea","name":"Paris"}]},"name":"Estimation de volume vidéo et qualification de devis déménagement","description":"Intégration IA Kolya pour les déménageurs : estimation de volume à partir d'une vidéo client, qualification automatique des demandes, planification des équipes, suivi de chantier.","audience":{"@type":"BusinessAudience","audienceType":"Entreprises de déménagement professionnel, transporteurs locaux et longue distance, garde-meubles"},"url":"https://www.kolya.fr/metiers/demenageur/","areaServed":[{"@type":"Country","name":"France"},{"@type":"AdministrativeArea","name":"Paris"}]}</script>
+</head>
+<body>
+
+<a href="#audit" class="skip-link">Aller au contenu</a>
+
+<!-- Reusable icons -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="arr" viewBox="0 0 14 14">
+    <path d="M2 12L12 2M12 2H5M12 2V9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" fill="none"/>
+  </symbol>
+  <symbol id="check" viewBox="0 0 16 16">
+    <path d="M3 8.5L6.5 12L13 4.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+  </symbol>
+</svg>
+
+<!-- ============== FLOATING ISLAND NAV ============== -->
+<nav class="nav" id="nav">
+  <div class="nav-inner">
+    <a href="../../" class="brand" aria-label="Retour à l'accueil Kolya">
+<img src="../../assets/kolya-logo.png" width="800" height="273" alt="Kolya · Agence d'intégration IA" />
+    </a>
+    <div class="nav-min">
+      <a href="../../#probleme">Problème</a>
+      <a href="../../#services">Services</a>
+      <a href="../../#cas">Cas d'usage</a>
+      <a href="../../#methode">Méthode</a>
+      <a href="../../#resultats">Résultats</a>
+    </div>
+    <a href="#audit" class="btn btn-lime btn-sm nav-cta" aria-label="Réserver l'audit gratuit">
+      <span class="btn-label">Audit gratuit</span>
+      <span class="btn-icon" aria-hidden="true"><svg><use href="#arr"/></svg></span>
+    </a>
+  </div>
+</nav>
+
+<!-- ============== BREADCRUMB ============== -->
+<nav class="breadcrumb" aria-label="Fil d'Ariane">
+  <div class="wrap">
+    <ol>
+      <li><a href="../../">Accueil</a></li>
+      <li><a href="../../#cas">Métiers</a></li>
+      <li aria-current="page">Déménageur</li>
+    </ol>
+  </div>
+</nav>
+
+<!-- ============== HERO (photo full-bleed) ============== -->
+<section class="metier-hero">
+  <img src="../../assets/hero-demenageur.jpg" class="hero-bg-img" width="1536" height="1024" fetchpriority="high" decoding="async" alt="Déménageur professionnel présentant l'application Kolya d'estimation de volume sur son iPhone" />
+  <div class="hero-overlay"></div>
+  <div class="wrap">
+    <div class="reveal">
+      <span class="eyebrow"><span class="dot"></span>Métier · Déménageur</span>
+      <h1>Estimer un volume de déménagement <em>en quelques minutes</em>, sans visite obligatoire.</h1>
+      <p class="lede">
+        Kolya est une <strong>agence d'intégration IA pour les entreprises</strong> de déménagement.
+        Le client filme ses pièces depuis son smartphone, l'IA estime le volume en m³, votre devis
+        sort en quelques minutes calé sur votre tarification. Vous traitez cinq fois plus de demandes
+        sans saturer vos commerciaux.
+      </p>
+      <div class="ctas">
+        <a href="#audit" class="btn btn-lime">
+          <span>Audit gratuit, 45 min</span>
+          <span class="btn-icon" aria-hidden="true"><svg><use href="#arr"/></svg></span>
+        </a>
+        <a href="#solution" class="btn btn-ghost">
+          <span>Voir comment ça marche</span>
+          <span class="btn-icon" aria-hidden="true"><svg><use href="#arr"/></svg></span>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============== APP MOCKUP ============== -->
+<section class="metier-section">
+  <div class="wrap">
+    <div class="app-mockup reveal">
+      <div class="app-mockup-cap">Aperçu · L'application Kolya pour votre entreprise de déménagement</div>
+      <div class="app-screenshot">
+        <img src="../../assets/mockup-demenageur.jpg" width="1536" height="1024" loading="lazy" decoding="async" alt="Capture d'écran de l'application Kolya pour déménageurs : nouvelle estimation, sélection des pièces, calcul de volume en m³, fourchette de prix automatique" />
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============== PROBLÈME MÉTIER ============== -->
+<section class="metier-section alt">
+  <div class="wrap">
+    <div class="metier-grid">
+      <article class="prose reveal">
+        <h2>Le vrai coût d'un devis qui prend <em>une journée</em> par dossier.</h2>
+        <p>
+          Un commercial déménageur passe 3 à 4 heures sur chaque visite préalable : trajet, mesures,
+          listing des meubles, calcul du volume, retour au bureau, édition du devis. À 5 ou 6 dossiers
+          par semaine, c'est presque la moitié du temps utile. Pendant ce temps, votre client a
+          contacté trois autres déménageurs et signé avec celui qui a répondu en 24 heures.
+        </p>
+        <p>
+          Le problème n'est pas votre vitesse de devis : c'est le <strong>passage obligatoire par la
+          visite physique</strong>. Pour les déménagements simples (T1, T2, T3 standard), cette visite
+          n'apporte rien que vos commerciaux ne pourraient extraire d'une vidéo bien cadrée.
+        </p>
+        <h3>Les pertes invisibles d'un devis lent</h3>
+        <ul>
+          <li><strong>Taux de signature qui plafonne</strong> à 30-40 % parce que le client a déjà choisi quand vous arrivez avec votre proposition.</li>
+          <li><strong>Sous-estimation systématique</strong> sur les visites express : le commercial pressé compte large, prestation tronquée le jour J.</li>
+          <li><strong>Surfacturation involontaire</strong> dans l'autre sens : pour se protéger, on majore le devis et on perd le client par téléphone.</li>
+          <li><strong>Pic de saison ingérable</strong> : entre juin et septembre, votre équipe ne peut tout simplement pas absorber le volume de visites.</li>
+          <li><strong>Comparateurs qui captent vos leads</strong> : Movinga, Mes-déménageurs, Bel-déménagement vous prennent 25 à 40 % de commission sur des dossiers que vous auriez pu signer en direct.</li>
+        </ul>
+        <h3>Ce que vous avez essayé jusqu'ici</h3>
+        <p>
+          Le devis téléphonique fonctionne pour les habitués mais reste très imprécis. Les comparateurs
+          en ligne (Mes-déménageurs &amp; co) prennent une commission lourde et vous transforment en
+          variable d'ajustement. Les outils de devis (ProDevis, MoveAgain) accélèrent l'édition mais
+          n'ont pas la capacité d'estimer un volume sans humain qui mesure. Et l'idée de "filmer une
+          maison pour estimer un déménagement" semblait inenvisageable jusqu'à très récemment.
+        </p>
+      </article>
+
+      <aside class="side-panel" aria-label="Sommaire">
+        <h4>Sur cette page</h4>
+        <ul>
+          <li><a href="#solution">La solution Kolya</a></li>
+          <li><a href="#methode">Comment on déploie</a></li>
+          <li><a href="#resultats">Résultats à attendre</a></li>
+          <li><a href="#faq">Questions fréquentes</a></li>
+          <li><a href="#audit">Réserver l'audit gratuit</a></li>
+        </ul>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<!-- ============== SOLUTION ============== -->
+<section id="solution" class="metier-section">
+  <div class="wrap">
+    <article class="prose reveal">
+      <h2>Une estimation <em>en quelques minutes</em>, calée sur votre tarification réelle.</h2>
+      <p>
+        Kolya, en tant qu'<strong>agence d'intégration IA pour les entreprises</strong> de déménagement,
+        installe un parcours d'estimation accessible <strong>par simple lien SMS ou email</strong>.
+        Votre client reçoit le lien, filme ses pièces une par une (3 à 5 minutes par logement), valide
+        les meubles encombrants reconnus par l'IA, indique l'étage et le type d'accès. En sortie,
+        il reçoit une fourchette de prix paramétrée sur <strong>votre</strong> tarif au m³, votre
+        majoration trajet et votre majoration accès difficile.
+      </p>
+      <p>
+        Côté commercial, vous voyez chaque estimation entrante : le volume détecté, la liste des
+        meubles, les éventuels points d'attention (escalier complexe, monte-meuble, bien fragile).
+        Vous validez ou ajustez en deux minutes, le devis ferme part automatiquement par email
+        avec votre signature et votre charte. Pour les dossiers atypiques que l'IA flagge,
+        vous décidez de programmer une visite physique courte ou de demander des compléments vidéo.
+      </p>
+      <h3>Ce que l'IA fait pour vous, concrètement, en déménagement</h3>
+      <ol>
+        <li><strong>Reconnaissance des meubles par vidéo</strong> : canapé 3 places, lit double, armoire 2 portes, table de salle à manger, électroménager. L'IA identifie automatiquement environ 90 % des meubles courants et les valorise selon votre table de volumes.</li>
+        <li><strong>Calcul du volume en m³</strong> avec marge d'incertitude affichée. Vous voyez d'un coup d'œil si l'estimation est fiable ou s'il faut compléter.</li>
+        <li><strong>Tarification automatique</strong> selon votre grille : prix au m³, majoration kilométrique, étage sans ascenseur, monte-meuble, jour férié, saisonnalité. Le devis arrive prêt, vous validez.</li>
+        <li><strong>Pré-qualification du client</strong> : un client qui filme sérieusement ses pièces a 4 fois plus de chances de signer qu'un comparateur de prix. Vous concentrez votre temps commercial sur les vrais dossiers.</li>
+        <li><strong>Tableau de bord saisonnier</strong> : volume de demandes par semaine, taux de transformation, valeur moyenne de devis, semaines de saturation prévues. Vous calez vos embauches saisonnières et votre flotte sans vous tromper.</li>
+      </ol>
+      <blockquote>
+        Le but n'est pas de remplacer votre commercial qui sait lire un client en visite.
+        Le but est de retirer la visite préalable obligatoire pour les 70 % de dossiers
+        standards où elle n'apporte rien.
+        <cite>Principe de design Kolya</cite>
+      </blockquote>
+    </article>
+  </div>
+</section>
+
+<!-- ============== MÉTHODE ============== -->
+<section id="methode" class="metier-section alt">
+  <div class="wrap">
+    <article class="prose reveal">
+      <h2>Mise en place en <em>4 semaines</em>, opérationnel sur votre prochain pic de saison.</h2>
+      <p>
+        On n'achète rien à votre place, on ne change pas votre logiciel devis, on ne touche pas à
+        votre flotte. On installe un parcours d'estimation qui tourne en parallèle, on le calibre sur
+        vos prix, on le teste avec vos commerciaux, vous gardez la main sur la validation.
+      </p>
+      <h3>Semaine 1 · On vous écoute</h3>
+      <p>
+        Une journée chez vous (ou en visio si vous préférez). On regarde vos prestations, votre grille
+        tarifaire, votre saisonnalité, votre logiciel devis, vos commerciaux. On note vos cas
+        atypiques (gardes-meubles, internationaux, monte-meuble) qui resteront en visite physique.
+        Aucun engagement à ce stade.
+      </p>
+      <h3>Semaine 2 · On configure</h3>
+      <p>
+        On paramètre votre estimation Kolya : votre table de volumes, votre prix au m³, vos
+        majorations, vos zones de tarif. On configure la connexion à votre logiciel devis si
+        compatible. On forme votre équipe en 30 minutes (les commerciaux préfèrent valider une
+        estimation IA que faire la visite eux-mêmes).
+      </p>
+      <h3>Semaine 3 · On teste</h3>
+      <p>
+        Vous nous envoyez 5 à 10 dossiers réels en cours d'instruction. On les passe en double :
+        votre méthode actuelle d'un côté, l'estimation Kolya de l'autre. On compare les écarts,
+        on ajuste votre paramétrage. À la fin de la semaine, vous savez exactement à quel niveau
+        de précision vous arrivez sur votre activité.
+      </p>
+      <h3>Semaine 4 · On lâche</h3>
+      <p>
+        Les nouveaux leads passent par le parcours Kolya. Vos commerciaux valident en deux minutes.
+        On reste joignable par SMS et téléphone si quoi que ce soit cale. Au bout d'un mois, on fait
+        un point ensemble : volume de devis émis, taux de transformation, temps gagné par commercial.
+      </p>
+    </article>
+  </div>
+</section>
+
+<!-- ============== RÉSULTATS ============== -->
+<section id="resultats" class="metier-section">
+  <div class="wrap">
+    <article class="prose reveal">
+      <h2>Ce que vous gagnez, <em>concrètement</em>, en entreprise de déménagement.</h2>
+      <p>
+        Sur les déménageurs qui ont déployé une intégration IA Kolya, les chiffres convergent.
+        Voici les ordres de grandeur typiques sur les trois premiers mois.
+      </p>
+      <div class="stats-inline">
+        <div class="stat-pill">
+          <div class="v"><em>× 5</em></div>
+          <div class="l">Devis émis par jour et par commercial sur les dossiers standards.</div>
+        </div>
+        <div class="stat-pill">
+          <div class="v"><em>− 80 %</em></div>
+          <div class="l">Temps passé en visite préalable sur les T1 à T4 standards.</div>
+        </div>
+        <div class="stat-pill">
+          <div class="v"><em>+ 35 %</em></div>
+          <div class="l">Taux de signature, par effet de réactivité (24h vs 4 jours).</div>
+        </div>
+        <div class="stat-pill">
+          <div class="v"><em>8 h</em></div>
+          <div class="l">Économisées par semaine et par commercial, redéployées sur les vrais dossiers.</div>
+        </div>
+      </div>
+      <p>
+        Ces chiffres ne sont pas des promesses : ce sont des ordres de grandeur observés sur les
+        entreprises qu'on a accompagnées. L'effet est plus marqué pour les déménageurs en zone urbaine
+        à fort flux de demandes (Paris, Lyon, Bordeaux, Toulouse) et ceux qui se battent contre les
+        comparateurs en ligne. L'effet est plus calme (mais positif) sur les déménageurs régionaux
+        avec un flux de leads stable.
+      </p>
+    </article>
+  </div>
+</section>
+
+<!-- ============== FAQ ============== -->
+<section id="faq" class="metier-section alt">
+  <div class="wrap">
+    <article class="prose reveal" style="max-width: 920px;">
+      <h2>Questions fréquentes des <em>entreprises</em> de déménagement.</h2>
+      <div class="faq-list">
+        <details class="faq-item">
+          <summary>Comment fonctionne l'estimation pour le client ?</summary>
+          <div class="faq-body">
+            <p>Le client reçoit un lien par SMS ou email. Il filme ses pièces une par une avec son smartphone (3 à 5 minutes par logement), valide les meubles encombrants, indique l'étage et l'accès.</p>
+            <p>L'IA renvoie une estimation de volume en m³ et une fourchette de prix calée sur votre tarification. Le devis ferme est ensuite généré automatiquement après votre validation commerciale.</p>
+          </div>
+        </details>
+        <details class="faq-item">
+          <summary>L'estimation est-elle suffisamment précise pour engager un devis ?</summary>
+          <div class="faq-body">
+            <p>Sur les déménagements standards (T1 à T4 sans pièces atypiques), la marge d'erreur est de ±10 à 15 % en volume, ce qui équivaut à une visite physique rapide. Pour les dossiers complexes (caves très encombrées, antiquités fragiles, escaliers techniques), l'IA flagge le dossier et propose une visite physique courte avant signature.</p>
+          </div>
+        </details>
+        <details class="faq-item">
+          <summary>Qu'est-ce qui n'est pas estimable par l'IA ?</summary>
+          <div class="faq-body">
+            <p>Trois cas restent humains : les biens fragiles à classer (œuvres d'art, instruments de musique, vins de cave), les accès complexes nécessitant un monte-meuble ou une autorisation de stationnement, et les dossiers internationaux.</p>
+            <p>Dans ces cas, l'IA prépare le dossier, vous arrivez sur site avec le brief déjà fait.</p>
+          </div>
+        </details>
+        <details class="faq-item">
+          <summary>Compatible avec mon logiciel devis (Movinga, MoveAgain, ProDevis) ?</summary>
+          <div class="faq-body">
+            <p>Oui. Notre intégration IA fonctionne en parallèle de votre logiciel de gestion sans le remplacer. Pour les outils les plus utilisés en France (MoveAgain, ProDevis, Movinga, Movestic), nous proposons une connexion directe pour que les estimations validées s'enregistrent automatiquement comme devis.</p>
+            <p>Pour les autres outils, vous restez en double saisie pendant la phase de test, puis on développe le connecteur si la volumétrie le justifie.</p>
+          </div>
+        </details>
+        <details class="faq-item">
+          <summary>Comment fonctionne la tarification ?</summary>
+          <div class="faq-body">
+            <p>Chaque intégration IA est cadrée au cas par cas, en fonction de votre activité : volume mensuel de devis, nombre de commerciaux, logiciel utilisé, périmètre géographique. Il n'y a pas de grille standard, parce qu'il n'y a pas de déménageur standard.</p>
+            <p>Après l'audit gratuit de 45 minutes, on vous remet une proposition claire avec un montant ferme. Aucun coût caché, aucun engagement de durée.</p>
+          </div>
+        </details>
+        <details class="faq-item">
+          <summary>Combien de temps avant un retour mesurable ?</summary>
+          <div class="faq-body">
+            <p>La majorité des déménageurs observe le delta dès les premières semaines : moins de visites pré-déménagement, plus de devis traités par jour, taux de signature qui monte parce que le client a sa fourchette en quelques minutes au lieu de 48 heures.</p>
+            <p>Le retour sur investissement complet se voit en général sur le premier trimestre, avec une stabilisation au sixième mois.</p>
+          </div>
+        </details>
+        <details class="faq-item">
+          <summary>Comment gérez-vous les vidéos clients (RGPD) ?</summary>
+          <div class="faq-body">
+            <p>Le client donne son consentement explicite avant de filmer. Les vidéos sont hébergées en France, traitées par notre IA pour extraire le volume, puis automatiquement supprimées après validation du devis (sauf opt-in pour le dossier client).</p>
+            <p>Aucune revente, aucun usage secondaire. Conforme RGPD, traçabilité complète des accès.</p>
+          </div>
+        </details>
+        <details class="faq-item">
+          <summary>Si je ne suis pas convaincu, je peux arrêter ?</summary>
+          <div class="faq-body">
+            <p>Oui. Aucun engagement de durée, vous arrêtez quand vous voulez avec un préavis d'un mois. On préfère un déménageur content qui reste qu'un déménageur coincé qui râle.</p>
+          </div>
+        </details>
+      </div>
+    </article>
+  </div>
+</section>
+
+<!-- ============== CTA AUDIT ============== -->
+<section id="audit" class="cta">
+  <div class="wrap">
+    <div class="cta-card">
+      <div class="deco"></div>
+      <div class="inner">
+        <span class="eyebrow on-lime label">Démarrer</span>
+        <h2>Réservez votre<br/><em>audit gratuit.</em></h2>
+        <p class="cta-lede">
+          45 minutes pour comprendre votre activité de déménagement, repérer où vos commerciaux
+          perdent leurs journées, et vous dire honnêtement si une intégration IA peut, ou non,
+          vous faire avancer.
+        </p>
+
+        <div class="contact-error" id="contact-error" role="alert">
+          Une erreur est survenue. Vérifiez vos informations et réessayez.
+        </div>
+
+        <div class="contact-form-wrap" id="contact-form-wrap">
+          <form class="contact-form" action="../../contact.php" method="POST" novalidate>
+            <div class="row-2">
+              <div class="field">
+                <label for="f-name">Nom</label>
+                <input id="f-name" name="name" type="text" required maxlength="100" autocomplete="name" placeholder="Thomas Martin" />
+              </div>
+              <div class="field">
+                <label for="f-company">Entreprise <span class="opt">(optionnel)</span></label>
+                <input id="f-company" name="company" type="text" maxlength="120" autocomplete="organization" placeholder="Move Pro Déménagements" />
+              </div>
+            </div>
+
+            <div class="row-2">
+              <div class="field">
+                <label for="f-email">Email</label>
+                <input id="f-email" name="email" type="email" required maxlength="200" autocomplete="email" placeholder="vous@entreprise.fr" />
+              </div>
+              <div class="field">
+                <label for="f-phone">Téléphone <span class="opt">(optionnel)</span></label>
+                <input id="f-phone" name="phone" type="tel" maxlength="40" autocomplete="tel" placeholder="01 23 45 67 89" />
+              </div>
+            </div>
+
+            <input type="hidden" name="sector" value="demenageur" />
+
+            <div class="field">
+              <label for="f-message">Votre situation en quelques lignes</label>
+              <textarea id="f-message" name="message" required maxlength="5000" placeholder="Volume mensuel de devis, votre logiciel de gestion, ce qui vous fait perdre du temps, ce que vous aimeriez automatiser..."></textarea>
+            </div>
+
+            <div class="field-pot" aria-hidden="true">
+              <label for="f-website">Ne pas remplir ce champ.</label>
+              <input id="f-website" name="website" type="text" tabindex="-1" autocomplete="off" />
+            </div>
+
+            <div class="submit-row">
+              <button type="submit" class="btn btn-dark">
+                <span>Envoyer ma demande</span>
+                <span class="btn-icon" aria-hidden="true"><svg><use href="#arr"/></svg></span>
+              </button>
+              <p class="small">Réponse sous 24h ouvrées. Pas de pré-qualif commerciale, pas de discovery call interminable.</p>
+            </div>
+          </form>
+        </div>
+
+        <div class="contact-thanks" id="contact-thanks" role="status" aria-live="polite">
+          <div class="check"><svg viewBox="0 0 16 16" aria-hidden="true"><use href="#check"/></svg></div>
+          <h3>Message <em>bien reçu.</em></h3>
+          <p>On revient vers vous sous 24h ouvrées avec une proposition de créneau pour l'audit. À très vite.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============== FOOTER ============== -->
+<footer class="footer">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <div class="foot-brand">
+<img src="../../assets/kolya-logo-white.png" width="800" height="339" alt="Kolya · Agence d'intégration IA" />
+        </div>
+        <p class="foot-blurb">
+          Agence d'intégration IA pour les entreprises. Des solutions simples,
+          des résultats concrets.
+        </p>
+      </div>
+      <div class="foot-col">
+        <h6>Agence</h6>
+        <ul>
+          <li><a href="../../#probleme">Problème</a></li>
+          <li><a href="../../#services">Services</a></li>
+          <li><a href="../../#methode">Méthode</a></li>
+          <li><a href="../../#resultats">Résultats</a></li>
+        </ul>
+      </div>
+      <div class="foot-col">
+        <h6>Cas d'usage</h6>
+        <ul>
+          <li><a href="../marches/">Marchés</a></li>
+          <li><a href="../pharmacie/">Pharmacie</a></li>
+          <li><a href="./" aria-current="page">Déménageur</a></li>
+          <li><a href="../../#cas">Tous les métiers</a></li>
+        </ul>
+      </div>
+      <div class="foot-col">
+        <h6>Contact</h6>
+        <ul>
+          <li><a href="#audit">Réserver un audit</a></li>
+          <li><a href="#audit">Demander un devis</a></li>
+          <li><a href="#">LinkedIn ↗</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="foot-word serif">Kolya<span class="dot">.</span></div>
+
+    <div class="foot-meta">
+      <div>© 2026 Kolya · Des solutions simples. Des résultats concrets.</div>
+      <nav>
+        <a href="#">Mentions légales</a>
+        <a href="#">Confidentialité</a>
+        <a href="#">CGV</a>
+      </nav>
+    </div>
+  </div>
+</footer>
+
+<script>(function(){const hash=window.location.hash;if(!hash||hash.length<2)return;if(hash==='#audit')return;const sc=()=>{const el=document.getElementById(hash.slice(1));if(!el)return;const nh=(document.getElementById('nav')?.offsetHeight||80)+24;const h=document.documentElement;const prev=h.style.scrollBehavior;h.style.scrollBehavior='auto';window.scrollTo(0,el.getBoundingClientRect().top+window.scrollY-nh);h.style.scrollBehavior=prev};requestAnimationFrame(()=>requestAnimationFrame(sc));setTimeout(sc,150);setTimeout(sc,400)})();
+  // === Brand: smooth scroll to top instead of full page reload ===
+  (function () {
+    const brand = document.querySelector('.brand');
+    if (!brand) return;
+    brand.addEventListener('click', (e) => {
+      if (window.location.pathname === '/' || window.location.pathname.endsWith('/index.html')) {
+        if (e.metaKey || e.ctrlKey || e.shiftKey || e.button !== 0) return;
+        e.preventDefault();
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+    });
+  })();
+
+  // === Placeholder links: stop href="#" from appending # to the URL ===
+  (function () {
+    document.addEventListener('click', (e) => {
+      const link = e.target.closest('a[href="#"]');
+      if (link) e.preventDefault();
+    });
+  })();
+
+  // === Sticky-state on the floating nav ===
+  (function () {
+    const nav = document.getElementById('nav');
+    if (!nav) return;
+    let scrolled = false;
+    const onScroll = () => {
+      const should = window.scrollY > 16;
+      if (should === scrolled) return;
+      scrolled = should;
+      nav.classList.toggle('scrolled', should);
+    };
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+  })();
+
+  // === Reveal on scroll ===
+  (function () {
+    const els = document.querySelectorAll('.reveal');
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach((e) => {
+        if (!e.isIntersecting) return;
+        const d = parseInt(e.target.dataset.delay || '0', 10);
+        setTimeout(() => e.target.classList.add('in'), d);
+        io.unobserve(e.target);
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
+    els.forEach((el) => io.observe(el));
+  })();
+
+  (function () {
+    const scrollToAudit = () => {
+      const target = document.getElementById('audit');
+      if (!target) return;
+      const navH = (document.getElementById('nav')?.offsetHeight || 80) + 24;
+      const html = document.documentElement;
+      const prev = html.style.scrollBehavior;
+      html.style.scrollBehavior = 'auto';
+      window.scrollTo(0, target.getBoundingClientRect().top + window.scrollY - navH);
+      html.style.scrollBehavior = prev;
+    };
+    document.addEventListener('click', (ev) => {
+      const link = ev.target.closest('a[href="#audit"]');
+      if (!link) return;
+      if (ev.metaKey || ev.ctrlKey || ev.shiftKey || ev.button !== 0) return;
+      ev.preventDefault();
+      const w = document.getElementById('contact-form-wrap');
+      const t = document.getElementById('contact-thanks');
+      const e = document.getElementById('contact-error');
+      if (w) w.classList.remove('hide');
+      if (t) t.classList.remove('show');
+      if (e) e.classList.remove('show');
+      scrollToAudit();
+      setTimeout(scrollToAudit, 50);
+      setTimeout(scrollToAudit, 200);
+      history.replaceState({}, '', window.location.pathname + '#audit');
+    });
+    window.addEventListener('pageshow', (ev) => {
+      if (!ev.persisted) return;
+      if (w) w.classList.remove('hide');
+      if (t) t.classList.remove('show');
+      if (e) e.classList.remove('show');
+    });
+  })();
+
+  // === Contact form: thank-you / error states from URL param ===
+  (function () {
+    const params = new URLSearchParams(window.location.search);
+    const sent = params.get('sent');
+    if (sent === null) return;
+
+    const wrap = document.getElementById('contact-form-wrap');
+    const thanks = document.getElementById('contact-thanks');
+    const errBox = document.getElementById('contact-error');
+    if (!wrap || !thanks || !errBox) return;
+
+    if (sent === '1') {
+      wrap.classList.add('hide');
+      thanks.classList.add('show');
+      history.replaceState({}, '', window.location.pathname);
+      setTimeout(() => thanks.scrollIntoView({ behavior: 'instant', block: 'start' }), 80);
+    } else if (sent === '0') {
+      errBox.classList.add('show');
+      const code = params.get('error') || '';
+      if (code) errBox.textContent = errorMessage(code);
+      setTimeout(() => wrap.scrollIntoView({ behavior: 'instant', block: 'start' }), 80);
+    }
+
+    function errorMessage(code) {
+      const parts = code.split(',').filter(Boolean);
+      if (parts.includes('mail')) return "L'envoi a échoué côté serveur. Réessayez dans un instant ou écrivez-nous via LinkedIn.";
+      const labels = { name: 'le nom', email: 'un email valide', message: 'un message' };
+      const missing = parts.map((k) => labels[k]).filter(Boolean);
+      if (missing.length) return 'Merci de renseigner ' + missing.join(', ') + '.';
+      return 'Une erreur est survenue. Vérifiez vos informations et réessayez.';
+    }
+  })();
+</script>
+
+</body>
+</html>
