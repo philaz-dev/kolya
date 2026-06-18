@@ -8,6 +8,18 @@
     <priority>1.0</priority>
   </url>
   <url>
+    <loc>https://www.kolya.fr/agence-ia-paris/</loc>
+    <lastmod>2026-06-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.95</priority>
+  </url>
+  <url>
+    <loc>https://www.kolya.fr/audit-ia-gratuit/</loc>
+    <lastmod>2026-06-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.95</priority>
+  </url>
+  <url>
     <loc>https://www.kolya.fr/metiers/marches/</loc>
     <lastmod>2026-06-18</lastmod>
     <changefreq>monthly</changefreq>
