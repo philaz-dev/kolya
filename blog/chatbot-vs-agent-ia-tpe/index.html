@@ -1,0 +1,341 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+
+<title>Chatbot ou agent IA : que choisir pour une TPE ? | Blog Kolya</title>
+<meta name="description" content="Chatbot vs agent IA : la différence réelle, les 3 cas où un chatbot suffit, les 3 cas où un agent IA est nécessaire. Guide pratique pour TPE et PME." />
+<link rel="canonical" href="https://www.kolya.fr/blog/chatbot-vs-agent-ia-tpe/" />
+
+<meta property="og:type" content="article" />
+<meta property="og:locale" content="fr_FR" />
+<meta property="og:site_name" content="Kolya" />
+<meta property="og:title" content="Chatbot ou agent IA : que choisir pour une TPE ?" />
+<meta property="og:description" content="La différence réelle entre les deux outils, et quand chacun fait sens dans une TPE." />
+<meta property="og:url" content="https://www.kolya.fr/blog/chatbot-vs-agent-ia-tpe/" />
+<meta property="og:image" content="https://www.kolya.fr/assets/hero-photo.jpg" />
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Chatbot ou agent IA : que choisir pour une TPE ?" />
+<meta name="twitter:description" content="La différence réelle, et quand chacun fait sens." />
+<meta name="twitter:image" content="https://www.kolya.fr/assets/hero-photo.jpg" />
+
+<link rel="icon" type="image/png" href="../../assets/kolya-mark.png" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;1,9..144,300;1,9..144,400&family=Plus+Jakarta+Sans:wght@400;500&family=JetBrains+Mono:wght@400;500&display=swap" onload="this.onload=null;this.rel='stylesheet'" />
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;1,9..144,300;1,9..144,400&family=Plus+Jakarta+Sans:wght@400;500&family=JetBrains+Mono:wght@400;500&display=swap" /></noscript>
+<style>
+:root{--bg:#fff;--soft:#F5F4EF;--ink:#0E0E0C;--ink-2:#1A1A18;--muted:#6B6B66;--line:rgba(14,14,12,.08);--accent:#C5F548;--accent-deep:#1F2D0A;--ease:cubic-bezier(.32,.72,0,1);--ease-out:cubic-bezier(.16,1,.3,1);--dur:700ms;--dur-fast:380ms}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--ink);font-family:'Plus Jakarta Sans',system-ui,sans-serif;font-size:16px;line-height:1.55;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img,svg{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+ul{list-style:none}
+.skip-link{position:absolute;left:-9999px}
+.wrap{width:100%;max-width:1320px;margin:0 auto;padding:0 32px}
+@media (max-width:720px){.wrap{padding:0 20px}}
+.eyebrow{display:inline-flex;align-items:center;gap:8px;padding:7px 14px;border-radius:999px;background:rgba(14,14,12,.04);box-shadow:inset 0 0 0 1px rgba(14,14,12,.06);font-family:'JetBrains Mono',monospace;font-size:10px;font-weight:500;letter-spacing:.22em;text-transform:uppercase;color:var(--muted)}
+.eyebrow .dot{width:5px;height:5px;border-radius:50%;background:var(--accent);display:inline-block;animation:pulse-dot 1.6s ease-in-out infinite}
+@keyframes pulse-dot{0%,100%{opacity:.4}50%{opacity:1}}
+.btn{display:inline-flex;align-items:center;gap:12px;padding:6px 6px 6px 22px;border-radius:999px;font-family:inherit;font-weight:500;font-size:14px;cursor:pointer;user-select:none;white-space:nowrap;transition:transform var(--dur-fast) var(--ease),background var(--dur-fast) var(--ease),color var(--dur-fast) var(--ease),box-shadow var(--dur-fast) var(--ease)}
+.btn .btn-icon{width:36px;height:36px;border-radius:999px;display:inline-flex;align-items:center;justify-content:center;transition:transform var(--dur-fast) var(--ease),background var(--dur-fast) var(--ease)}
+.btn .btn-icon svg{width:12px;height:12px}
+.btn-lime{background:var(--accent);color:var(--ink)}
+.btn-lime .btn-icon{background:rgba(14,14,12,.10)}
+.btn-sm{padding:5px 5px 5px 16px;font-size:13px;gap:10px}
+.btn-sm .btn-icon{width:30px;height:30px}
+.btn-sm .btn-icon svg{width:11px;height:11px}
+.reveal{opacity:0;transform:translate3d(0,36px,0);filter:blur(10px);transition:opacity 1100ms var(--ease-out),transform 1100ms var(--ease-out),filter 900ms var(--ease-out);will-change:transform,opacity,filter}
+.reveal.in{opacity:1;transform:translate3d(0,0,0);filter:blur(0)}
+.nav{position:fixed;top:0;left:0;right:0;z-index:50;padding:18px 20px;pointer-events:none;transition:padding var(--dur) var(--ease)}
+.nav-inner{pointer-events:auto;max-width:1280px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:8px 8px 8px 22px;background:rgba(255,255,255,.62);backdrop-filter:blur(28px) saturate(180%);-webkit-backdrop-filter:blur(28px) saturate(180%);border-radius:999px;box-shadow:inset 0 1px 0 rgba(255,255,255,.7),inset 0 0 0 1px rgba(14,14,12,.06),0 14px 40px -16px rgba(14,14,12,.18)}
+.brand{display:flex;align-items:center;gap:10px}
+.brand img{height:56px;width:auto;object-fit:contain}
+.nav-min{display:flex;gap:2px;padding:4px;background:rgba(14,14,12,.04);box-shadow:inset 0 0 0 1px rgba(14,14,12,.05);border-radius:999px}
+.nav-min a{padding:8px 16px;font-size:13px;font-weight:500;color:var(--ink-2);border-radius:999px}
+@media (max-width:980px){.nav-min{display:none}}
+@media (max-width:540px){.nav-cta .btn-label{display:none}.nav-cta{padding:4px}}
+.breadcrumb{padding:110px 0 0}
+.breadcrumb ol{display:flex;align-items:center;flex-wrap:wrap;gap:10px;font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:var(--muted)}
+.breadcrumb li{display:inline-flex;align-items:center;gap:10px}
+.breadcrumb li:not(:last-child)::after{content:"/";color:var(--line);opacity:.6}
+.breadcrumb a{color:var(--muted)}
+.breadcrumb [aria-current="page"]{color:var(--ink)}
+.article-hero{padding:48px 0 32px}
+.article-hero .eyebrow{margin-bottom:24px}
+.article-hero h1{font-family:'Fraunces',serif;font-weight:400;font-variation-settings:"opsz" 144;font-size:clamp(40px,6vw,80px);letter-spacing:-.04em;line-height:1.02;color:var(--ink);margin:0 0 24px;max-width:22ch}
+.article-hero h1 em{font-style:italic;font-weight:300;color:var(--muted)}
+.article-hero .meta{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--muted);margin-top:24px}
+.compare-table{width:100%;border-collapse:collapse;margin:24px 0;font-size:15px}
+.compare-table th,.compare-table td{padding:14px 18px;text-align:left;border-bottom:1px solid var(--line);vertical-align:top}
+.compare-table th{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:var(--muted);font-weight:500;background:var(--soft)}
+.compare-table tr:last-child td{border-bottom:0}
+</style>
+<link rel="preload" as="style" href="../../assets/kolya.css?v=3" onload="this.onload=null;this.rel='stylesheet'" />
+<noscript><link rel="stylesheet" href="../../assets/kolya.css?v=3" /></noscript>
+
+<script type="application/ld+json">
+{ "@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [
+  { "@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://www.kolya.fr/" },
+  { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://www.kolya.fr/blog/" },
+  { "@type": "ListItem", "position": 3, "name": "Chatbot ou agent IA : que choisir pour une TPE ?" }
+]}
+</script>
+
+<script type="application/ld+json">
+{ "@context": "https://schema.org", "@type": "Article",
+  "headline": "Chatbot ou agent IA : que choisir pour une TPE ?",
+  "description": "Chatbot vs agent IA : la différence réelle, les 3 cas où un chatbot suffit, les 3 cas où un agent IA est nécessaire.",
+  "datePublished": "2026-06-18",
+  "dateModified": "2026-06-18",
+  "inLanguage": "fr-FR",
+  "image": "https://www.kolya.fr/assets/hero-photo.jpg",
+  "author": { "@type": "Organization", "name": "Kolya", "url": "https://www.kolya.fr" },
+  "publisher": { "@type": "Organization", "name": "Kolya", "url": "https://www.kolya.fr", "logo": { "@type": "ImageObject", "url": "https://www.kolya.fr/assets/kolya-logo.png" } },
+  "mainEntityOfPage": { "@type": "WebPage", "@id": "https://www.kolya.fr/blog/chatbot-vs-agent-ia-tpe/" }
+}
+</script>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="arr" viewBox="0 0 14 14"><path d="M2 12L12 2M12 2H5M12 2V9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" fill="none"/></symbol>
+</svg>
+
+<nav class="nav" id="nav">
+  <div class="nav-inner">
+    <a href="../../" class="brand" aria-label="Retour à l'accueil Kolya">
+      <img src="../../assets/kolya-logo.png" width="800" height="273" alt="Kolya · Agence d'intégration IA" />
+    </a>
+    <div class="nav-min">
+      <a href="../../#probleme">Problème</a>
+      <a href="../../#services">Services</a>
+      <a href="../../#cas">Cas d'usage</a>
+      <a href="../../#methode">Méthode</a>
+      <a href="../">Blog</a>
+    </div>
+    <a href="../../audit-ia-gratuit/" class="btn btn-lime btn-sm nav-cta" aria-label="Réserver l'audit IA gratuit">
+      <span class="btn-label">Audit gratuit</span>
+      <span class="btn-icon" aria-hidden="true"><svg><use href="#arr"/></svg></span>
+    </a>
+  </div>
+</nav>
+
+<nav class="breadcrumb" aria-label="Fil d'Ariane">
+  <div class="wrap">
+    <ol>
+      <li><a href="../../">Accueil</a></li>
+      <li><a href="../">Blog</a></li>
+      <li aria-current="page">Chatbot vs agent IA</li>
+    </ol>
+  </div>
+</nav>
+
+<section class="article-hero">
+  <div class="wrap">
+    <span class="eyebrow"><span class="dot"></span>Choix d'outils · 5 min</span>
+    <h1>Chatbot ou agent IA : que choisir pour une <em>TPE</em> ?</h1>
+    <div class="meta">Publié le 18 juin 2026 · Par l'équipe Kolya</div>
+  </div>
+</section>
+
+<section class="metier-section">
+  <div class="wrap">
+    <article class="prose reveal" style="max-width:760px">
+      <p>
+        Dans les présentations commerciales, on entend les deux termes
+        utilisés de manière interchangeable. C'est trompeur. Un chatbot
+        et un agent IA ne font pas le même travail, ne coûtent pas le
+        même prix, et ne demandent pas le même temps de mise en place.
+        Pour une TPE, choisir l'un quand l'autre suffit, c'est dépenser
+        trois fois trop. Choisir l'inverse, c'est ne pas résoudre le
+        problème.
+      </p>
+
+      <h2>La vraie différence en une phrase</h2>
+      <p>
+        Un <strong>chatbot</strong> répond à partir d'un script préétabli :
+        on a programmé à l'avance les questions et les réponses. Un
+        <strong>agent IA</strong> raisonne à partir d'un modèle de langage
+        et peut agir sur d'autres systèmes : lire un agenda, écrire dans
+        un CRM, envoyer un email, mettre à jour une fiche client.
+      </p>
+
+      <h3>Un chatbot, c'est quoi exactement ?</h3>
+      <p>
+        Un chatbot classique fonctionne avec ce qu'on appelle des "intents"
+        et des "entités". Quand vous tapez "à quelle heure vous fermez ce
+        soir ?", il reconnaît l'intent "horaires" et l'entité "ce soir",
+        et il renvoie la réponse qui correspond. Si vous tapez une question
+        qu'on n'a pas prévue, il répond une variante de "désolé, je n'ai
+        pas compris".
+      </p>
+      <p>
+        Outils typiques : Crisp, Drift, ManyChat, les bots Facebook
+        Messenger d'avant 2023, la plupart des chats sur les sites
+        e-commerce.
+      </p>
+
+      <h3>Un agent IA, c'est quoi exactement ?</h3>
+      <p>
+        Un agent IA s'appuie sur un grand modèle de langage (LLM)
+        comme Claude, GPT-4 ou Mistral. Il comprend le sens d'une
+        question même formulée bizarrement, peut consulter une base
+        de connaissances pour répondre, et peut déclencher des actions
+        dans vos systèmes. Si vous lui demandez "vous avez encore un
+        créneau jeudi avant 18h ?", il lit votre agenda, vous propose
+        des créneaux réels, et peut réserver à votre place.
+      </p>
+      <p>
+        Outils typiques : agents construits sur OpenAI Assistants,
+        Anthropic Claude, Mistral Le Chat Pro, ou des plateformes
+        d'orchestration comme Voiceflow, Botpress, ou des intégrations
+        sur mesure.
+      </p>
+
+      <h2>Trois cas où un chatbot suffit</h2>
+
+      <h3>Cas 1 · Vous voulez répondre à 5 questions qui reviennent</h3>
+      <p>
+        Horaires, adresse, parking, accès PMR, modes de paiement
+        acceptés. C'est court, c'est figé, c'est répétitif. Un
+        chatbot avec 5 boutons en répond aussi bien qu'un agent IA,
+        pour 10 fois moins cher.
+      </p>
+
+      <h3>Cas 2 · Vous voulez collecter des contacts qualifiés</h3>
+      <p>
+        "Quel est votre besoin ?" → 3 boutons. "Votre email ?" → champ
+        texte. "On vous recontacte sous 24h." Un chatbot pré-formaté
+        sur un site B2B fait largement l'affaire et passe les leads
+        à votre CRM par webhook.
+      </p>
+
+      <h3>Cas 3 · Vous avez un volume très faible</h3>
+      <p>
+        Si vous recevez moins de 50 demandes par mois et qu'elles
+        sont gérées en 30 secondes par votre standard, l'agent IA
+        est sur-dimensionné. Un FAQ enrichi ou un formulaire bien
+        pensé peut même suffire avant d'envisager un chatbot.
+      </p>
+
+      <h2>Trois cas où un agent IA est nécessaire</h2>
+
+      <h3>Cas 1 · Les demandes nécessitent une réponse personnalisée</h3>
+      <p>
+        "Mon abonnement expire quand ?", "Quelle est ma prochaine
+        séance de kiné ?", "Pouvez-vous me ressortir la facture de
+        mars ?". Sans accès à vos données, un chatbot ne peut que
+        renvoyer vers un humain. Un agent IA lit votre base, répond,
+        agit.
+      </p>
+
+      <h3>Cas 2 · Vous voulez prendre des rendez-vous en direct</h3>
+      <p>
+        Lire un agenda en temps réel, proposer des créneaux, confirmer,
+        envoyer un rappel SMS la veille : c'est de l'action sur des
+        systèmes externes. Un chatbot peut au mieux orienter vers
+        Calendly. Un agent IA fait le travail de bout en bout dans
+        la conversation.
+      </p>
+
+      <h3>Cas 3 · Vos clients posent des questions techniques variées</h3>
+      <p>
+        Un pharmacien qui se fait demander "j'ai mal à la tête avec
+        de la fièvre depuis hier, qu'est-ce que je peux prendre ?"
+        ne peut pas pré-scripter toutes les variantes. Un agent IA
+        s'appuyant sur une base de connaissances métier peut répondre,
+        avec les disclaimers qui s'imposent, et orienter vers le
+        pharmacien si nécessaire.
+      </p>
+
+      <h2>Tableau récapitulatif</h2>
+      <table class="compare-table">
+        <thead>
+          <tr><th>Critère</th><th>Chatbot</th><th>Agent IA</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Source des réponses</td><td>Scripts préécrits</td><td>Modèle de langage + base de connaissances</td></tr>
+          <tr><td>Questions hors-script</td><td>"Je n'ai pas compris"</td><td>Réponse contextualisée ou passage à un humain</td></tr>
+          <tr><td>Accès à vos données</td><td>Limité (rare)</td><td>Natif, sur autorisation</td></tr>
+          <tr><td>Actions possibles</td><td>Orienter, collecter</td><td>Lire, écrire, déclencher</td></tr>
+          <tr><td>Délai de mise en place</td><td>Jours</td><td>Semaines</td></tr>
+          <tr><td>Coût récurrent</td><td>Très faible</td><td>Modéré, proportionnel à l'usage</td></tr>
+          <tr><td>Adapté à</td><td>FAQ, capture de leads</td><td>Service client, prise de RDV, qualification</td></tr>
+        </tbody>
+      </table>
+
+      <h2>Le bon réflexe</h2>
+      <p>
+        Avant de choisir l'outil, regardez le volume et la nature
+        des demandes que vous recevez aujourd'hui. Si 80 % des
+        demandes sont 5 à 10 questions standard, commencez par un
+        chatbot ou même un FAQ enrichi. Si la majorité des demandes
+        nécessitent un accès à vos données ou une action, allez
+        directement sur un agent IA, sans passer par une étape
+        intermédiaire qui sera à jeter dans 6 mois.
+      </p>
+      <p>
+        L'audit IA gratuit Kolya répond précisément à cette question :
+        chatbot ou agent ? Sur quel canal ? Sur quels cas d'usage en
+        priorité ? Pas de réponse générique, on regarde votre activité
+        réelle.
+      </p>
+    </article>
+  </div>
+</section>
+
+<section class="metier-section alt">
+  <div class="wrap">
+    <article class="prose reveal" style="max-width:760px">
+      <h3>Aller plus loin</h3>
+      <ul>
+        <li><a href="../cout-agent-ia-pme/">Combien coûte un agent IA pour une PME ?</a> — Setup, run, maintenance : les fourchettes par type d'usage.</li>
+        <li><a href="../../#services">Nos services IA pour PME</a> — Les 4 leviers d'intégration IA chez Kolya.</li>
+        <li><a href="../../#cas">Cas d'usage par métier</a> — 20 verticales avec des exemples concrets.</li>
+      </ul>
+    </article>
+  </div>
+</section>
+
+<section class="cta">
+  <div class="wrap">
+    <div class="cta-card">
+      <div class="deco"></div>
+      <div class="inner">
+        <span class="eyebrow on-lime label">Audit gratuit</span>
+        <h2>Chatbot ou agent IA : qu'est-ce qui marche <em>chez vous</em> ?</h2>
+        <p class="cta-lede">45 minutes pour évaluer votre activité et vous dire honnêtement quel outil est adapté. À Paris ou en visio, sans engagement.</p>
+        <p><a href="../../audit-ia-gratuit/" class="btn btn-lime"><span>Réserver l'audit gratuit</span><span class="btn-icon" aria-hidden="true"><svg><use href="#arr"/></svg></span></a></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <div class="foot-brand"><img src="../../assets/kolya-logo-white.png" width="800" height="339" alt="Kolya · Agence d'intégration IA" /></div>
+        <p class="foot-blurb">Agence d'intégration IA pour les PME, à Paris et partout en France. Des solutions simples, des résultats concrets.</p>
+      </div>
+      <div class="foot-col"><h6>Agence</h6><ul><li><a href="../../#probleme">Problème</a></li><li><a href="../../#services">Services</a></li><li><a href="../../#methode">Méthode</a></li><li><a href="../../#resultats">Résultats</a></li></ul></div>
+      <div class="foot-col"><h6>Pages clés</h6><ul><li><a href="../../agence-ia-paris/">Agence IA à Paris</a></li><li><a href="../../audit-ia-gratuit/">Audit IA gratuit</a></li><li><a href="../">Blog</a></li></ul></div>
+      <div class="foot-col"><h6>Contact</h6><ul><li><a href="../../audit-ia-gratuit/">Réserver un audit</a></li><li><a href="#">LinkedIn ↗</a></li></ul></div>
+    </div>
+    <div class="foot-word serif">Kolya<span class="dot">.</span></div>
+    <div class="foot-meta"><div>© 2026 Kolya · Des solutions simples. Des résultats concrets.</div><nav><a href="#">Mentions légales</a><a href="#">Confidentialité</a><a href="#">CGV</a></nav></div>
+  </div>
+</footer>
+
+<script>
+  (function(){const n=document.getElementById('nav');if(!n)return;let s=false;const o=()=>{const x=window.scrollY>16;if(x===s)return;s=x;n.classList.toggle('scrolled',x)};window.addEventListener('scroll',o,{passive:true});o()})();
+  (function(){const e=document.querySelectorAll('.reveal');const o=new IntersectionObserver((a)=>{a.forEach((b)=>{if(!b.isIntersecting)return;const c=parseInt(b.target.dataset.delay||'0',10);setTimeout(()=>b.target.classList.add('in'),c);o.unobserve(b.target)})},{threshold:.12,rootMargin:'0px 0px -8% 0px'});e.forEach((a)=>o.observe(a))})();
+  (function(){document.addEventListener('click',(e)=>{const l=e.target.closest('a[href="#"]');if(l)e.preventDefault()})})();
+</script>
+</body>
+</html>

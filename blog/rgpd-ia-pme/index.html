@@ -1,0 +1,363 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+
+<title>RGPD et IA pour PME : les 3 règles à connaître | Blog Kolya</title>
+<meta name="description" content="RGPD et IA pour PME : les 3 règles qui vous évitent 90 % des problèmes. Base légale, limitation des données, information des personnes. Bonus AI Act résumé." />
+<link rel="canonical" href="https://www.kolya.fr/blog/rgpd-ia-pme/" />
+
+<meta property="og:type" content="article" />
+<meta property="og:locale" content="fr_FR" />
+<meta property="og:site_name" content="Kolya" />
+<meta property="og:title" content="RGPD et IA pour PME : les 3 règles à connaître" />
+<meta property="og:description" content="3 règles RGPD à appliquer dès qu'on déploie de l'IA en PME. Plus l'AI Act résumé en 3 phrases." />
+<meta property="og:url" content="https://www.kolya.fr/blog/rgpd-ia-pme/" />
+<meta property="og:image" content="https://www.kolya.fr/assets/hero-photo.jpg" />
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="RGPD et IA pour PME : les 3 règles à connaître" />
+<meta name="twitter:description" content="3 règles RGPD à appliquer dès qu'on déploie de l'IA en PME." />
+<meta name="twitter:image" content="https://www.kolya.fr/assets/hero-photo.jpg" />
+
+<link rel="icon" type="image/png" href="../../assets/kolya-mark.png" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;1,9..144,300;1,9..144,400&family=Plus+Jakarta+Sans:wght@400;500&family=JetBrains+Mono:wght@400;500&display=swap" onload="this.onload=null;this.rel='stylesheet'" />
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;1,9..144,300;1,9..144,400&family=Plus+Jakarta+Sans:wght@400;500&family=JetBrains+Mono:wght@400;500&display=swap" /></noscript>
+<style>
+:root{--bg:#fff;--soft:#F5F4EF;--ink:#0E0E0C;--ink-2:#1A1A18;--muted:#6B6B66;--line:rgba(14,14,12,.08);--accent:#C5F548;--accent-deep:#1F2D0A;--ease:cubic-bezier(.32,.72,0,1);--ease-out:cubic-bezier(.16,1,.3,1);--dur:700ms;--dur-fast:380ms}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--ink);font-family:'Plus Jakarta Sans',system-ui,sans-serif;font-size:16px;line-height:1.55;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img,svg{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+ul{list-style:none}
+.skip-link{position:absolute;left:-9999px}
+.wrap{width:100%;max-width:1320px;margin:0 auto;padding:0 32px}
+@media (max-width:720px){.wrap{padding:0 20px}}
+.eyebrow{display:inline-flex;align-items:center;gap:8px;padding:7px 14px;border-radius:999px;background:rgba(14,14,12,.04);box-shadow:inset 0 0 0 1px rgba(14,14,12,.06);font-family:'JetBrains Mono',monospace;font-size:10px;font-weight:500;letter-spacing:.22em;text-transform:uppercase;color:var(--muted)}
+.eyebrow .dot{width:5px;height:5px;border-radius:50%;background:var(--accent);display:inline-block;animation:pulse-dot 1.6s ease-in-out infinite}
+@keyframes pulse-dot{0%,100%{opacity:.4}50%{opacity:1}}
+.btn{display:inline-flex;align-items:center;gap:12px;padding:6px 6px 6px 22px;border-radius:999px;font-family:inherit;font-weight:500;font-size:14px;cursor:pointer;user-select:none;white-space:nowrap;transition:transform var(--dur-fast) var(--ease),background var(--dur-fast) var(--ease),color var(--dur-fast) var(--ease),box-shadow var(--dur-fast) var(--ease)}
+.btn .btn-icon{width:36px;height:36px;border-radius:999px;display:inline-flex;align-items:center;justify-content:center;transition:transform var(--dur-fast) var(--ease),background var(--dur-fast) var(--ease)}
+.btn .btn-icon svg{width:12px;height:12px}
+.btn-lime{background:var(--accent);color:var(--ink)}
+.btn-lime .btn-icon{background:rgba(14,14,12,.10)}
+.btn-sm{padding:5px 5px 5px 16px;font-size:13px;gap:10px}
+.btn-sm .btn-icon{width:30px;height:30px}
+.btn-sm .btn-icon svg{width:11px;height:11px}
+.reveal{opacity:0;transform:translate3d(0,36px,0);filter:blur(10px);transition:opacity 1100ms var(--ease-out),transform 1100ms var(--ease-out),filter 900ms var(--ease-out);will-change:transform,opacity,filter}
+.reveal.in{opacity:1;transform:translate3d(0,0,0);filter:blur(0)}
+.nav{position:fixed;top:0;left:0;right:0;z-index:50;padding:18px 20px;pointer-events:none;transition:padding var(--dur) var(--ease)}
+.nav-inner{pointer-events:auto;max-width:1280px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:8px 8px 8px 22px;background:rgba(255,255,255,.62);backdrop-filter:blur(28px) saturate(180%);-webkit-backdrop-filter:blur(28px) saturate(180%);border-radius:999px;box-shadow:inset 0 1px 0 rgba(255,255,255,.7),inset 0 0 0 1px rgba(14,14,12,.06),0 14px 40px -16px rgba(14,14,12,.18)}
+.brand{display:flex;align-items:center;gap:10px}
+.brand img{height:56px;width:auto;object-fit:contain}
+.nav-min{display:flex;gap:2px;padding:4px;background:rgba(14,14,12,.04);box-shadow:inset 0 0 0 1px rgba(14,14,12,.05);border-radius:999px}
+.nav-min a{padding:8px 16px;font-size:13px;font-weight:500;color:var(--ink-2);border-radius:999px}
+@media (max-width:980px){.nav-min{display:none}}
+@media (max-width:540px){.nav-cta .btn-label{display:none}.nav-cta{padding:4px}}
+.breadcrumb{padding:110px 0 0}
+.breadcrumb ol{display:flex;align-items:center;flex-wrap:wrap;gap:10px;font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:var(--muted)}
+.breadcrumb li{display:inline-flex;align-items:center;gap:10px}
+.breadcrumb li:not(:last-child)::after{content:"/";color:var(--line);opacity:.6}
+.breadcrumb a{color:var(--muted)}
+.breadcrumb [aria-current="page"]{color:var(--ink)}
+.article-hero{padding:48px 0 32px}
+.article-hero .eyebrow{margin-bottom:24px}
+.article-hero h1{font-family:'Fraunces',serif;font-weight:400;font-variation-settings:"opsz" 144;font-size:clamp(40px,6vw,80px);letter-spacing:-.04em;line-height:1.02;color:var(--ink);margin:0 0 24px;max-width:22ch}
+.article-hero h1 em{font-style:italic;font-weight:300;color:var(--muted)}
+.article-hero .meta{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--muted);margin-top:24px}
+.disclaimer-box{background:var(--soft);padding:22px 26px;border-radius:14px;margin:32px 0;font-size:14px;color:var(--ink-2);border-left:3px solid var(--accent-deep)}
+</style>
+<link rel="preload" as="style" href="../../assets/kolya.css?v=3" onload="this.onload=null;this.rel='stylesheet'" />
+<noscript><link rel="stylesheet" href="../../assets/kolya.css?v=3" /></noscript>
+
+<script type="application/ld+json">
+{ "@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [
+  { "@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://www.kolya.fr/" },
+  { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://www.kolya.fr/blog/" },
+  { "@type": "ListItem", "position": 3, "name": "RGPD et IA pour PME : les 3 règles à connaître" }
+]}
+</script>
+
+<script type="application/ld+json">
+{ "@context": "https://schema.org", "@type": "Article",
+  "headline": "RGPD et IA pour PME : les 3 règles à connaître",
+  "description": "3 règles RGPD à appliquer dès qu'on déploie de l'IA en PME : base légale, limitation des données, information des personnes. Plus l'AI Act résumé.",
+  "datePublished": "2026-06-18",
+  "dateModified": "2026-06-18",
+  "inLanguage": "fr-FR",
+  "image": "https://www.kolya.fr/assets/hero-photo.jpg",
+  "author": { "@type": "Organization", "name": "Kolya", "url": "https://www.kolya.fr" },
+  "publisher": { "@type": "Organization", "name": "Kolya", "url": "https://www.kolya.fr", "logo": { "@type": "ImageObject", "url": "https://www.kolya.fr/assets/kolya-logo.png" } },
+  "mainEntityOfPage": { "@type": "WebPage", "@id": "https://www.kolya.fr/blog/rgpd-ia-pme/" }
+}
+</script>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="arr" viewBox="0 0 14 14"><path d="M2 12L12 2M12 2H5M12 2V9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" fill="none"/></symbol>
+</svg>
+
+<nav class="nav" id="nav">
+  <div class="nav-inner">
+    <a href="../../" class="brand" aria-label="Retour à l'accueil Kolya">
+      <img src="../../assets/kolya-logo.png" width="800" height="273" alt="Kolya · Agence d'intégration IA" />
+    </a>
+    <div class="nav-min">
+      <a href="../../#probleme">Problème</a>
+      <a href="../../#services">Services</a>
+      <a href="../../#cas">Cas d'usage</a>
+      <a href="../../#methode">Méthode</a>
+      <a href="../">Blog</a>
+    </div>
+    <a href="../../audit-ia-gratuit/" class="btn btn-lime btn-sm nav-cta" aria-label="Réserver l'audit IA gratuit">
+      <span class="btn-label">Audit gratuit</span>
+      <span class="btn-icon" aria-hidden="true"><svg><use href="#arr"/></svg></span>
+    </a>
+  </div>
+</nav>
+
+<nav class="breadcrumb" aria-label="Fil d'Ariane">
+  <div class="wrap">
+    <ol>
+      <li><a href="../../">Accueil</a></li>
+      <li><a href="../">Blog</a></li>
+      <li aria-current="page">RGPD &amp; IA pour PME</li>
+    </ol>
+  </div>
+</nav>
+
+<section class="article-hero">
+  <div class="wrap">
+    <span class="eyebrow"><span class="dot"></span>Conformité · 5 min</span>
+    <h1>RGPD et IA pour PME : les <em>3 règles</em> à connaître.</h1>
+    <div class="meta">Publié le 18 juin 2026 · Par l'équipe Kolya</div>
+  </div>
+</section>
+
+<section class="metier-section">
+  <div class="wrap">
+    <article class="prose reveal" style="max-width:760px">
+      <p>
+        Une idée reçue tenace : "l'IA, c'est nouveau, le RGPD ne s'y
+        applique pas". C'est faux. Dès qu'un agent IA traite des
+        données personnelles de vos clients (nom, email, numéro de
+        téléphone, historique d'achat, message d'un chat), le RGPD
+        s'applique exactement comme pour votre CRM ou votre base
+        clients existante. Et depuis 2025, l'AI Act ajoute une couche
+        européenne qui concerne aussi les PME.
+      </p>
+      <p>
+        Pas de panique. Voici les trois règles qui vous évitent
+        l'écrasante majorité des problèmes, sans transformer chaque
+        projet IA en chantier juridique de 6 mois.
+      </p>
+
+      <div class="disclaimer-box">
+        Cet article résume des principes RGPD applicables aux PME en
+        France en 2026. Il n'a pas valeur d'avis juridique. Pour un
+        traitement sensible (santé, données de mineurs, profilage),
+        consultez un DPO ou un avocat spécialisé.
+      </div>
+
+      <h2>Règle 1 · Une base légale claire, par traitement</h2>
+      <p>
+        Le RGPD ne vous interdit jamais de traiter des données
+        personnelles. Il exige que vous puissiez justifier
+        <em>pourquoi</em> vous les traitez. Pour une PME, les bases
+        légales utilisables dans 95 % des cas sont au nombre de trois.
+      </p>
+
+      <h3>Le contrat</h3>
+      <p>
+        Vous traitez les données nécessaires à l'exécution d'un
+        service avec votre client. Exemple : votre agent IA prend
+        un rendez-vous pour une coupe de cheveux, il a besoin du
+        nom et du téléphone du client. Pas de consentement à
+        demander, c'est inhérent à la prestation.
+      </p>
+
+      <h3>L'intérêt légitime</h3>
+      <p>
+        Vous traitez les données pour un intérêt légitime de votre
+        entreprise qui n'est pas disproportionné face aux droits
+        des personnes. Exemple : analyser les conversations de
+        votre agent IA pour améliorer ses réponses. Vous devez
+        documenter la mise en balance (l'analyse est utile, elle
+        ne porte pas atteinte aux personnes, vous ne croisez pas
+        avec des données externes).
+      </p>
+
+      <h3>Le consentement</h3>
+      <p>
+        Vous demandez explicitement à la personne l'autorisation
+        de traiter ses données pour une finalité précise.
+        Indispensable pour : envoi de newsletter, profilage marketing
+        avancé, partage de données avec un partenaire.
+        Le consentement doit être libre, spécifique, éclairé,
+        retirable à tout moment.
+      </p>
+
+      <p>
+        En pratique : pour chaque cas d'usage IA (agent prise de RDV,
+        chatbot service client, programme de fidélité, prospection
+        IA), vous écrivez en une phrase la base légale qui s'applique.
+        C'est court, c'est suffisant pour 90 % des cas, et ça vous
+        protège.
+      </p>
+
+      <h2>Règle 2 · Limitation des données</h2>
+      <p>
+        Vous ne collectez et ne conservez que ce qui est strictement
+        nécessaire au traitement. C'est le principe de minimisation,
+        et il a deux conséquences concrètes pour un projet IA.
+      </p>
+
+      <h3>Ne pas tout envoyer au modèle</h3>
+      <p>
+        Quand votre agent IA traite une demande, il n'a pas besoin
+        de connaître l'historique complet de vos 5 000 clients.
+        Donnez-lui accès au strict minimum : la conversation en
+        cours, les données du client concerné, les informations
+        métier nécessaires pour répondre. Tout le reste reste
+        chez vous, n'est pas envoyé au fournisseur du modèle (OpenAI,
+        Anthropic, Mistral, etc.).
+      </p>
+
+      <h3>Effacer les conversations après usage</h3>
+      <p>
+        Définissez une durée de conservation des conversations
+        traitées par l'agent IA. Pour la plupart des cas en PME,
+        12 à 24 mois suffisent largement. Au-delà, les données
+        anciennes sont supprimées automatiquement, sauf intérêt
+        métier documenté.
+      </p>
+
+      <h2>Règle 3 · Information et droits des personnes</h2>
+      <p>
+        Les personnes dont vous traitez les données doivent savoir
+        ce que vous faites et pouvoir exercer leurs droits (accès,
+        rectification, effacement, opposition). Pour un projet IA,
+        deux ajouts concrets à votre politique de confidentialité.
+      </p>
+
+      <h3>Indiquer l'usage d'IA</h3>
+      <p>
+        Si vos clients interagissent avec un agent IA (chatbot,
+        agent vocal), il faut le dire clairement. Pas en petits
+        caractères en bas de page : dès le début de la conversation,
+        l'agent doit se présenter ("Bonjour, je suis Léo, l'assistant
+        virtuel de la pharmacie X. Je peux répondre aux questions
+        courantes ou vous orienter vers un pharmacien.").
+      </p>
+
+      <h3>Pouvoir passer à un humain</h3>
+      <p>
+        Le client doit pouvoir, à tout moment, demander à parler
+        à une personne humaine. Cela peut être un transfert vers
+        un standard, un email, ou la promesse d'un rappel. Le
+        droit existe aussi quand votre agent IA prend une décision
+        qui affecte significativement le client (refus d'un service,
+        application d'un tarif spécifique).
+      </p>
+
+      <h2>Bonus · L'AI Act résumé en 3 phrases</h2>
+      <p>
+        L'AI Act européen, applicable depuis 2025, classe les
+        systèmes d'IA selon leur niveau de risque (inacceptable,
+        élevé, limité, minimal). Pour 99 % des cas en PME (agent
+        de prise de rendez-vous, chatbot FAQ, programme de fidélité
+        personnalisé), vous tombez dans la catégorie "risque
+        limité" : obligations légères, surtout de transparence
+        (dire que c'est une IA).
+      </p>
+      <p>
+        Les obligations lourdes (analyse d'impact, registre, audit)
+        ne concernent que les usages à "risque élevé" : recrutement,
+        notation de crédit, gestion de l'éducation, sécurité critique.
+        Si vous n'êtes pas dans ces secteurs, l'AI Act ne change pas
+        grand-chose pour vous au quotidien.
+      </p>
+
+      <h2>Le bon réflexe avant chaque déploiement IA</h2>
+      <p>
+        Avant chaque nouveau projet IA, posez-vous trois questions
+        en 5 minutes :
+      </p>
+      <ol>
+        <li>Quelles données personnelles vais-je traiter, et sous
+        quelle base légale ?</li>
+        <li>Combien de temps je les conserve, et qui y a accès ?</li>
+        <li>Comment je préviens mes clients, et comment ils peuvent
+        exercer leurs droits ?</li>
+      </ol>
+      <p>
+        Si vous savez répondre à ces trois questions en une phrase
+        chacune, vous êtes dans 90 % des bons cas RGPD. Le reste,
+        c'est de la documentation et un peu de pédagogie en interne.
+      </p>
+      <p>
+        Toutes les intégrations IA Kolya respectent le RGPD par
+        construction : données hébergées en Europe, traitements
+        documentés, durées de conservation paramétrées, informations
+        des personnes intégrées dans les conversations.
+      </p>
+    </article>
+  </div>
+</section>
+
+<section class="metier-section alt">
+  <div class="wrap">
+    <article class="prose reveal" style="max-width:760px">
+      <h3>Aller plus loin</h3>
+      <ul>
+        <li><a href="../cout-agent-ia-pme/">Combien coûte un agent IA pour une PME ?</a> — Comprendre l'investissement avant de se lancer.</li>
+        <li><a href="../chatbot-vs-agent-ia-tpe/">Chatbot ou agent IA : que choisir pour une TPE ?</a> — Le bon outil selon le besoin.</li>
+        <li><a href="../../agence-ia-paris/">Agence IA à Paris pour PME</a> — Comment Kolya accompagne les PME parisiennes.</li>
+      </ul>
+    </article>
+  </div>
+</section>
+
+<section class="cta">
+  <div class="wrap">
+    <div class="cta-card">
+      <div class="deco"></div>
+      <div class="inner">
+        <span class="eyebrow on-lime label">Audit gratuit</span>
+        <h2>RGPD : on regarde <em>votre cas</em> ensemble.</h2>
+        <p class="cta-lede">45 minutes pour cadrer votre projet IA et anticiper les questions de conformité, sans noyer la discussion dans le juridique. À Paris ou en visio, sans engagement.</p>
+        <p><a href="../../audit-ia-gratuit/" class="btn btn-lime"><span>Réserver l'audit gratuit</span><span class="btn-icon" aria-hidden="true"><svg><use href="#arr"/></svg></span></a></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <div class="foot-brand"><img src="../../assets/kolya-logo-white.png" width="800" height="339" alt="Kolya · Agence d'intégration IA" /></div>
+        <p class="foot-blurb">Agence d'intégration IA pour les PME, à Paris et partout en France. Des solutions simples, des résultats concrets.</p>
+      </div>
+      <div class="foot-col"><h6>Agence</h6><ul><li><a href="../../#probleme">Problème</a></li><li><a href="../../#services">Services</a></li><li><a href="../../#methode">Méthode</a></li><li><a href="../../#resultats">Résultats</a></li></ul></div>
+      <div class="foot-col"><h6>Pages clés</h6><ul><li><a href="../../agence-ia-paris/">Agence IA à Paris</a></li><li><a href="../../audit-ia-gratuit/">Audit IA gratuit</a></li><li><a href="../">Blog</a></li></ul></div>
+      <div class="foot-col"><h6>Contact</h6><ul><li><a href="../../audit-ia-gratuit/">Réserver un audit</a></li><li><a href="#">LinkedIn ↗</a></li></ul></div>
+    </div>
+    <div class="foot-word serif">Kolya<span class="dot">.</span></div>
+    <div class="foot-meta"><div>© 2026 Kolya · Des solutions simples. Des résultats concrets.</div><nav><a href="#">Mentions légales</a><a href="#">Confidentialité</a><a href="#">CGV</a></nav></div>
+  </div>
+</footer>
+
+<script>
+  (function(){const n=document.getElementById('nav');if(!n)return;let s=false;const o=()=>{const x=window.scrollY>16;if(x===s)return;s=x;n.classList.toggle('scrolled',x)};window.addEventListener('scroll',o,{passive:true});o()})();
+  (function(){const e=document.querySelectorAll('.reveal');const o=new IntersectionObserver((a)=>{a.forEach((b)=>{if(!b.isIntersecting)return;const c=parseInt(b.target.dataset.delay||'0',10);setTimeout(()=>b.target.classList.add('in'),c);o.unobserve(b.target)})},{threshold:.12,rootMargin:'0px 0px -8% 0px'});e.forEach((a)=>o.observe(a))})();
+  (function(){document.addEventListener('click',(e)=>{const l=e.target.closest('a[href="#"]');if(l)e.preventDefault()})})();
+</script>
+</body>
+</html>
