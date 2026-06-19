@@ -308,7 +308,7 @@ ul { list-style: none; }
 .sec-head h2 {
   font-family:'IBM Plex Sans',sans-serif; font-weight: 400;
   letter-spacing: -0.04em; line-height: 0.94;
-  font-size: clamp(44px, 6vw, 96px); color: var(--ink);
+  font-size: clamp(32px, 4.2vw, 64px); color: var(--ink);
   
 }
 .sec-head em { font-style: italic; color: var(--muted); }
@@ -459,7 +459,7 @@ ul { list-style: none; }
 .solution .accent-mark svg { width: 28px; height: 28px; color: var(--accent-deep); }
 .solution .label { color: var(--muted); margin-bottom: 24px; display: inline-flex; }
 .solution h2 {
-  font-size: clamp(48px, 7vw, 112px); color: var(--ink);
+  font-size: clamp(34px, 5vw, 76px); color: var(--ink);
   margin: 16px 0 36px;
 }
 .solution em { font-style: italic; color: var(--muted); }
@@ -658,7 +658,7 @@ ul { list-style: none; }
 }
 .results-head h2 {
   font-family:'IBM Plex Sans',sans-serif; font-weight: 400;
-  font-size: clamp(44px, 6vw, 96px); letter-spacing: -0.04em; line-height: 0.94;
+  font-size: clamp(32px, 4.2vw, 64px); letter-spacing: -0.04em; line-height: 0.94;
   color: white;
   
 }
@@ -718,7 +718,7 @@ ul { list-style: none; }
 .cta-card .label { color: var(--accent-deep); margin-bottom: 32px; display: inline-flex; }
 .cta-card h2 {
   font-family:'IBM Plex Sans',sans-serif; font-weight: 400;
-  font-size: clamp(52px, 8vw, 140px); letter-spacing: -0.04em; line-height: 0.92;
+  font-size: clamp(38px, 5.5vw, 96px); letter-spacing: -0.04em; line-height: 0.92;
   color: var(--ink); margin-bottom: 48px;
   
 }
@@ -1285,9 +1285,9 @@ ul { list-style: none; }
   font-family:'IBM Plex Sans',sans-serif;
   font-weight: 400;
   
-  font-size: clamp(36px, 5vw, 64px);
+  font-size: clamp(26px, 3.5vw, 44px);
   letter-spacing: -0.035em;
-  line-height: 1;
+  line-height: 1.05;
   color: var(--ink);
   margin-top: 1.6em;
   margin-bottom: 0.6em;
