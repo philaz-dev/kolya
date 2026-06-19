@@ -52,7 +52,7 @@ body::after {
   mix-blend-mode: multiply;
 }
 
-.serif { font-family: 'Fraunces', serif; font-weight: 400; letter-spacing: -0.025em; }
+.serif { font-family:'IBM Plex Sans',sans-serif; font-weight: 400; letter-spacing: -0.025em; }
 .mono  { font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.04em; text-transform: uppercase; }
 a { color: inherit; text-decoration: none; }
 button { font: inherit; cursor: pointer; border: none; background: none; color: inherit; }
@@ -63,9 +63,9 @@ ul { list-style: none; }
 @media (max-width: 720px) { .wrap { padding: 0 20px; } }
 
 .h-display {
-  font-family: 'Fraunces', serif; font-weight: 400;
+  font-family:'IBM Plex Sans',sans-serif; font-weight: 400;
   letter-spacing: -0.04em; line-height: 0.92;
-  font-variation-settings: "opsz" 144;
+  
 }
 
 /* === Eyebrow micro pill === */
@@ -272,12 +272,12 @@ ul { list-style: none; }
   font-size: clamp(56px, 10vw, 168px);
   color: var(--ink);
 }
-/* Hero headline italics: Fraunces italic 300, opsz 144 (Italics-as-Color Rule) */
+/* Hero headline italics: IBM Plex Sans italic 300 (Italics-as-Color Rule) */
 .hero-title em {
   font-style: italic;
   font-weight: 300;
   color: var(--ink);
-  font-variation-settings: "opsz" 144;
+  
 }
 /* SEO kicker line above the iconic two-line headline */
 .hero-title .hero-kicker {
@@ -306,10 +306,10 @@ ul { list-style: none; }
   margin-bottom: 80px;
 }
 .sec-head h2 {
-  font-family: 'Fraunces', serif; font-weight: 400;
+  font-family:'IBM Plex Sans',sans-serif; font-weight: 400;
   letter-spacing: -0.04em; line-height: 0.94;
   font-size: clamp(44px, 6vw, 96px); color: var(--ink);
-  font-variation-settings: "opsz" 144;
+  
 }
 .sec-head em { font-style: italic; color: var(--muted); }
 .sec-head p.lede { font-size: 16px; color: var(--ink-2); max-width: 380px; }
@@ -356,14 +356,14 @@ ul { list-style: none; }
 .pain:last-child { border-bottom: 1px solid var(--line); }
 
 .pain .num {
-  font-family: 'Fraunces', serif;
+  font-family:'IBM Plex Sans',sans-serif;
   font-style: italic;
   font-weight: 300;
   font-size: clamp(72px, 11vw, 184px);
   line-height: 0.85;
   letter-spacing: -0.05em;
   color: var(--ink);
-  font-variation-settings: "opsz" 144;
+  
   text-transform: none;
 }
 .pain .num::after {
@@ -376,13 +376,13 @@ ul { list-style: none; }
 }
 
 .pain .text {
-  font-family: 'Fraunces', serif;
+  font-family:'IBM Plex Sans',sans-serif;
   font-weight: 400;
   font-size: clamp(26px, 3.4vw, 48px);
   letter-spacing: -0.03em;
   line-height: 1.04;
   color: var(--ink);
-  font-variation-settings: "opsz" 144;
+  
 }
 .pain .text small {
   display: block;
@@ -504,7 +504,7 @@ ul { list-style: none; }
 }
 .srv-card:hover .arrcircle { background: var(--accent); color: var(--ink); transform: rotate(-45deg); box-shadow: inset 0 0 0 1px rgba(31,45,10,0.16); }
 .srv-body h3 {
-  font-family: 'Fraunces', serif; font-weight: 400; letter-spacing: -0.025em;
+  font-family:'IBM Plex Sans',sans-serif; font-weight: 400; letter-spacing: -0.025em;
   font-size: clamp(26px, 3vw, 36px); line-height: 1.05;
 }
 .srv-body p { font-size: 15px; color: var(--ink-2); line-height: 1.55; }
@@ -562,7 +562,7 @@ ul { list-style: none; }
   font-size: 10px; letter-spacing: 0.2em;
 }
 .case-body h3 {
-  font-family: 'Fraunces', serif; font-weight: 400; letter-spacing: -0.025em;
+  font-family:'IBM Plex Sans',sans-serif; font-weight: 400; letter-spacing: -0.025em;
   font-size: 22px; color: var(--ink); line-height: 1.2; margin-bottom: 12px;
 }
 .case-body p { font-size: 14px; color: var(--ink-2); line-height: 1.55; }
@@ -625,7 +625,7 @@ ul { list-style: none; }
 }
 .meth-num span { color: var(--ink); font-size: 12px; font-family: 'JetBrains Mono', monospace; }
 .meth-core h3 {
-  font-family: 'Fraunces', serif; font-weight: 400; letter-spacing: -0.025em;
+  font-family:'IBM Plex Sans',sans-serif; font-weight: 400; letter-spacing: -0.025em;
   font-size: 30px; color: var(--ink); margin-bottom: 10px;
 }
 .meth-core p { font-size: 14px; color: var(--ink-2); line-height: 1.55; }
@@ -657,10 +657,10 @@ ul { list-style: none; }
   margin-bottom: 80px;
 }
 .results-head h2 {
-  font-family: 'Fraunces', serif; font-weight: 400;
+  font-family:'IBM Plex Sans',sans-serif; font-weight: 400;
   font-size: clamp(44px, 6vw, 96px); letter-spacing: -0.04em; line-height: 0.94;
   color: white;
-  font-variation-settings: "opsz" 144;
+  
 }
 .results-head em { font-style: italic; color: rgba(255,255,255,0.5); }
 .results-head p { font-size: 16px; color: rgba(255,255,255,0.72); max-width: 380px; }
@@ -684,7 +684,7 @@ ul { list-style: none; }
 }
 .res-icon svg { width: 16px; height: 16px; }
 .res-cell .h {
-  font-family: 'Fraunces', serif; font-weight: 400; letter-spacing: -0.025em;
+  font-family:'IBM Plex Sans',sans-serif; font-weight: 400; letter-spacing: -0.025em;
   font-size: clamp(28px, 3vw, 40px); color: white; line-height: 1.05; margin: 24px 0 12px;
 }
 .res-cell p { font-size: 14px; color: rgba(255,255,255,0.72); line-height: 1.55; }
@@ -717,10 +717,10 @@ ul { list-style: none; }
 .cta-card .inner { position: relative; }
 .cta-card .label { color: var(--accent-deep); margin-bottom: 32px; display: inline-flex; }
 .cta-card h2 {
-  font-family: 'Fraunces', serif; font-weight: 400;
+  font-family:'IBM Plex Sans',sans-serif; font-weight: 400;
   font-size: clamp(52px, 8vw, 140px); letter-spacing: -0.04em; line-height: 0.92;
   color: var(--ink); margin-bottom: 48px;
-  font-variation-settings: "opsz" 144;
+  
 }
 .cta-card em { font-style: italic; color: var(--accent-deep); }
 .cta-lede {
@@ -748,7 +748,7 @@ ul { list-style: none; }
 }
 .foot-col a:hover { opacity: 1; }
 .foot-word {
-  font-family: 'Fraunces', serif; font-weight: 400;
+  font-family:'IBM Plex Sans',sans-serif; font-weight: 400;
   font-size: clamp(120px, 22vw, 360px); line-height: 0.88;
   letter-spacing: -0.06em;
   border-top: 1px solid rgba(255,255,255,0.12); padding-top: 32px;
@@ -917,7 +917,7 @@ ul { list-style: none; }
 /* Same scroll-margin for the error banner so it lands cleanly under the nav */
 .contact-error { scroll-margin-top: 110px; }
 .contact-thanks h3 {
-  font-family: 'Fraunces', serif; font-weight: 400;
+  font-family:'IBM Plex Sans',sans-serif; font-weight: 400;
   font-size: clamp(28px, 3.6vw, 40px);
   letter-spacing: -0.025em; line-height: 1;
   color: var(--ink); margin-bottom: 14px;
@@ -1021,9 +1021,9 @@ ul { list-style: none; }
 }
 .metier-hero .eyebrow { margin-bottom: 32px; }
 .metier-hero h1 {
-  font-family: 'Fraunces', serif;
+  font-family:'IBM Plex Sans',sans-serif;
   font-weight: 400;
-  font-variation-settings: "opsz" 144;
+  
   font-size: clamp(48px, 7vw, 112px);
   letter-spacing: -0.04em;
   line-height: 0.96;
@@ -1130,7 +1130,7 @@ ul { list-style: none; }
   gap: 12px;
 }
 .app-bar .ttl {
-  font-family: 'Fraunces', serif;
+  font-family:'IBM Plex Sans',sans-serif;
   font-size: 18px; font-weight: 400;
   letter-spacing: -0.02em;
 }
@@ -1154,7 +1154,7 @@ ul { list-style: none; }
   border: 1px solid var(--line);
 }
 .app-stats .v {
-  font-family: 'Fraunces', serif;
+  font-family:'IBM Plex Sans',sans-serif;
   font-weight: 400;
   font-size: 26px; line-height: 1;
   letter-spacing: -0.02em;
@@ -1282,9 +1282,9 @@ ul { list-style: none; }
   color: var(--ink-2);
 }
 .prose h2 {
-  font-family: 'Fraunces', serif;
+  font-family:'IBM Plex Sans',sans-serif;
   font-weight: 400;
-  font-variation-settings: "opsz" 144;
+  
   font-size: clamp(36px, 5vw, 64px);
   letter-spacing: -0.035em;
   line-height: 1;
@@ -1295,7 +1295,7 @@ ul { list-style: none; }
 .prose > h2:first-child { margin-top: 0; }
 .prose h2 em { font-style: italic; color: var(--muted); }
 .prose h3 {
-  font-family: 'Fraunces', serif;
+  font-family:'IBM Plex Sans',sans-serif;
   font-weight: 400;
   font-size: clamp(22px, 2vw, 30px);
   letter-spacing: -0.02em;
@@ -1354,7 +1354,7 @@ ul { list-style: none; }
   padding: 28px 36px;
   background: var(--soft);
   border-radius: 24px;
-  font-family: 'Fraunces', serif;
+  font-family:'IBM Plex Sans',sans-serif;
   font-weight: 400;
   font-style: italic;
   font-size: clamp(20px, 1.8vw, 26px);
@@ -1433,7 +1433,7 @@ ul { list-style: none; }
   padding: 22px 28px;
   display: flex; justify-content: space-between; align-items: center;
   gap: 24px;
-  font-family: 'Fraunces', serif;
+  font-family:'IBM Plex Sans',sans-serif;
   font-weight: 400;
   font-size: clamp(18px, 1.6vw, 22px);
   color: var(--ink);
@@ -1474,9 +1474,9 @@ ul { list-style: none; }
   border-radius: 20px;
 }
 .stat-pill .v {
-  font-family: 'Fraunces', serif;
+  font-family:'IBM Plex Sans',sans-serif;
   font-weight: 400;
-  font-variation-settings: "opsz" 144;
+  
   font-size: clamp(36px, 4vw, 56px);
   letter-spacing: -0.03em;
   line-height: 1;
