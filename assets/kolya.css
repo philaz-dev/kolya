@@ -1523,7 +1523,13 @@ ul { list-style: none; }
 
 /* === Cas client pages — espacement plus serré === */
 .cas-client-page .case-hero { padding: clamp(16px, 2vw, 24px) 0 clamp(8px, 1vw, 16px); }
+.cas-client-page .case-hero h1, .cas-client-page .case-hero .eyebrow, .cas-client-page .case-hero .meta { margin-left: auto; margin-right: auto; }
+.cas-client-page .case-hero h1 { text-align: center; }
+.cas-client-page .case-hero .eyebrow { display: inline-flex; }
+.cas-client-page .case-hero .meta { justify-content: center; }
+.cas-client-page .case-hero > .wrap { text-align: center; }
 .cas-client-page .metier-section { padding: clamp(32px, 4vw, 56px) 0; }
+.cas-client-page .metier-section .prose { margin-left: auto; margin-right: auto; }
 .cas-client-page .pull-quote { margin: clamp(20px, 2.5vw, 32px) auto; padding: clamp(28px, 3.5vw, 40px) clamp(24px, 3vw, 36px); }
 .cas-client-page .cta { padding: clamp(40px, 5vw, 64px) 0 clamp(56px, 7vw, 88px); }
 .cas-client-page .footer { padding-top: clamp(48px, 6vw, 80px); }
