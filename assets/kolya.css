@@ -269,7 +269,8 @@ ul { list-style: none; }
 .hero-eyebrow { margin-bottom: 32px; }
 
 .hero-title {
-  font-size: clamp(56px, 10vw, 168px);
+  font-size: clamp(32px, 4.5vw, 72px);
+  line-height: 1.05;
   color: var(--ink);
 }
 /* Hero headline italics: IBM Plex Sans italic 300 (Italics-as-Color Rule) */
