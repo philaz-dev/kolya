@@ -91,7 +91,10 @@ ul{list-style:none}
 .guide-form-card .thanks .check-icon{width:48px;height:48px;border-radius:50%;background:var(--accent);display:flex;align-items:center;justify-content:center;margin:0 auto 16px}
 .guide-form-card .thanks h3{font-family:'IBM Plex Sans',sans-serif;font-weight:400;font-size:20px;color:#fff;margin-bottom:8px}
 .guide-form-card .thanks h3 em{font-style:italic;color:var(--accent)}
-.guide-form-card .thanks p{font-size:13px;color:rgba(255,255,255,.7);line-height:1.55}
+.guide-form-card .thanks p{font-size:13px;color:rgba(255,255,255,.7);line-height:1.55;margin-bottom:20px}
+.guide-form-card .btn-download{display:inline-flex;align-items:center;justify-content:center;gap:10px;width:100%;padding:14px 18px;border-radius:999px;background:var(--accent);color:var(--ink);font-family:inherit;font-weight:500;font-size:14px;text-decoration:none;transition:background var(--dur-fast) var(--ease)}
+.guide-form-card .btn-download:hover{background:#D2FA60}
+.guide-form-card .btn-download svg{width:14px;height:14px}
 .cas-section{padding:48px 0;background:var(--soft);border-radius:24px;margin:48px 0}
 .cas-section h2{font-family:'IBM Plex Sans',sans-serif;font-weight:400;font-size:clamp(28px,3vw,44px);letter-spacing:-.03em;color:var(--ink);margin:0 0 12px}
 .cas-section h2 em{font-style:italic;color:var(--muted)}
@@ -220,8 +223,12 @@ ul{list-style:none}
 
         <div class="thanks" id="thanks">
           <div class="check-icon"><svg width="20" height="20" viewBox="0 0 16 16" aria-hidden="true"><use href="#check"/></svg></div>
-          <h3>Merci, c'est <em>noté</em>.</h3>
-          <p>Le guide arrive dans votre boîte mail sous quelques minutes. Pensez à vérifier vos spams si vous ne le voyez pas.</p>
+          <h3>Merci, voici votre <em>guide</em>.</h3>
+          <p>Téléchargement direct ci-dessous. Vous recevrez aussi un email pour le retrouver facilement.</p>
+          <a href="../../assets/guide-10-cas-usage-ia-pme.pdf" download class="btn-download">
+            Télécharger le PDF (489 ko)
+            <svg aria-hidden="true"><use href="#arr"/></svg>
+          </a>
         </div>
       </form>
 
