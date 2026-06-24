@@ -43,5 +43,8 @@ node_modules/
 dist/
 .cache/
 
-# Local tools cache (ffmpeg, etc.)
-.tools/
+# Local tools cache (ffmpeg, etc.) — binaires lourds non versionnés
+.tools/*
+# …mais on garde la source et le script de génération du PDF du guide
+!.tools/guide-pdf-source.html
+!.tools/generate-guide-pdf.sh

@@ -1,0 +1,565 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8" />
+<title>Guide : 10 cas d'usage IA pour PME — Kolya</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Plus+Jakarta+Sans:wght@400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<style>
+@page { size: A4; margin: 18mm 16mm 18mm 16mm; }
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#fff;--soft:#F5F4EF;--ink:#0E0E0C;--ink-2:#1A1A18;--muted:#6B6B66;
+  --line:rgba(14,14,12,.10);--accent:#C5F548;--accent-deep:#1F2D0A;
+}
+html,body{background:#fff;color:var(--ink);font-family:'Plus Jakarta Sans',sans-serif;font-size:10.5pt;line-height:1.55;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+a{color:var(--ink);text-decoration:none}
+ul{list-style:none;padding:0;margin:0}
+.eyebrow{display:inline-block;padding:4px 10px;border-radius:999px;background:rgba(14,14,12,.06);font-family:'JetBrains Mono',monospace;font-size:7pt;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:var(--muted)}
+.mono{font-family:'JetBrains Mono',monospace}
+
+/* === COVER === */
+.cover{height:calc(100vh - 36mm);min-height:240mm;display:flex;flex-direction:column;justify-content:space-between;page-break-after:always}
+.cover .top{display:flex;justify-content:space-between;align-items:flex-start}
+.cover .logo{font-family:'IBM Plex Sans',sans-serif;font-weight:500;font-size:14pt;letter-spacing:-.02em;color:var(--ink)}
+.cover .logo .dot{color:var(--accent-deep);background:var(--accent);padding:0 4px;border-radius:4px;margin-left:2px}
+.cover .ref{font-family:'JetBrains Mono',monospace;font-size:8pt;color:var(--muted);text-transform:uppercase;letter-spacing:.18em}
+.cover .mid{flex:1;display:flex;flex-direction:column;justify-content:center;margin-top:40mm}
+.cover .kicker{font-family:'JetBrains Mono',monospace;font-size:9pt;color:var(--muted);text-transform:uppercase;letter-spacing:.22em;margin-bottom:18mm}
+.cover h1{font-family:'IBM Plex Sans',sans-serif;font-weight:400;font-size:48pt;letter-spacing:-.04em;line-height:1;color:var(--ink);margin:0;max-width:18em}
+.cover h1 em{font-style:italic;font-weight:300;color:var(--muted)}
+.cover .sub{margin-top:10mm;font-size:13pt;line-height:1.45;color:var(--ink-2);max-width:34em;font-weight:300}
+.cover .bot{display:flex;justify-content:space-between;align-items:flex-end;color:var(--muted);font-family:'JetBrains Mono',monospace;font-size:8pt;letter-spacing:.18em;text-transform:uppercase}
+.cover .bot .right{text-align:right}
+
+/* === INTRO === */
+.intro{page-break-after:always}
+.intro h2{font-family:'IBM Plex Sans',sans-serif;font-weight:400;font-size:28pt;letter-spacing:-.03em;line-height:1.04;color:var(--ink);margin:0 0 8mm;max-width:20em}
+.intro h2 em{font-style:italic;color:var(--muted)}
+.intro p{font-size:11pt;line-height:1.65;color:var(--ink-2);margin-bottom:5mm;max-width:36em}
+.intro .toc{margin-top:14mm}
+.intro .toc h3{font-family:'IBM Plex Sans',sans-serif;font-weight:400;font-size:14pt;color:var(--ink);margin-bottom:6mm;letter-spacing:-.02em}
+.intro .toc ol{list-style:none;counter-reset:cas-toc;padding:0;margin:0;display:grid;grid-template-columns:1fr 1fr;gap:4mm 10mm}
+.intro .toc li{counter-increment:cas-toc;padding:3mm 0;border-bottom:1px solid var(--line);font-size:10pt;color:var(--ink-2)}
+.intro .toc li::before{content:"0" counter(cas-toc);font-family:'JetBrains Mono',monospace;font-size:8pt;color:var(--muted);margin-right:6mm;letter-spacing:.1em}
+
+/* === CASE === */
+.case{page-break-before:always;page-break-inside:avoid}
+.case .head{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:8mm;padding-bottom:5mm;border-bottom:1px solid var(--line)}
+.case .head .num{font-family:'JetBrains Mono',monospace;font-size:8pt;letter-spacing:.22em;text-transform:uppercase;color:var(--muted)}
+.case h2{font-family:'IBM Plex Sans',sans-serif;font-weight:400;font-size:22pt;letter-spacing:-.025em;line-height:1.1;color:var(--ink);margin:5mm 0 8mm;max-width:22em}
+.case h2 em{font-style:italic;color:var(--muted)}
+.case h3{font-family:'IBM Plex Sans',sans-serif;font-weight:500;font-size:9pt;letter-spacing:.04em;text-transform:uppercase;color:var(--accent-deep);margin:6mm 0 3mm}
+.case p{font-size:10pt;line-height:1.6;color:var(--ink-2);margin-bottom:3mm;max-width:38em}
+.case ul.bullets{padding-left:0;margin:3mm 0 4mm}
+.case ul.bullets li{position:relative;padding:1mm 0 1mm 6mm;font-size:10pt;line-height:1.5;color:var(--ink-2)}
+.case ul.bullets li::before{content:"";position:absolute;left:0;top:3.5mm;width:2mm;height:2mm;border-radius:50%;background:var(--accent)}
+.case ul.bullets li strong{color:var(--ink);font-weight:500}
+.case .kpis{display:grid;grid-template-columns:repeat(3,1fr);gap:3mm;margin:5mm 0 4mm}
+.case .kpi{padding:5mm 5mm;background:var(--soft);border-radius:5mm}
+.case .kpi .v{font-family:'IBM Plex Sans',sans-serif;font-weight:300;font-size:18pt;line-height:1;color:var(--ink);margin-bottom:1mm}
+.case .kpi .v em{font-style:italic;color:var(--accent-deep)}
+.case .kpi .l{font-size:8pt;color:var(--muted);line-height:1.35}
+.case .meta-line{display:flex;gap:8mm;font-family:'JetBrains Mono',monospace;font-size:7.5pt;letter-spacing:.1em;color:var(--muted);text-transform:uppercase;padding-top:4mm;border-top:1px solid var(--line);margin-top:4mm}
+.case .meta-line .lbl{color:var(--ink);font-weight:500}
+
+/* === CLOSING === */
+.closing{page-break-before:always}
+.closing h2{font-family:'IBM Plex Sans',sans-serif;font-weight:400;font-size:28pt;letter-spacing:-.03em;line-height:1.04;color:var(--ink);margin:0 0 8mm;max-width:20em}
+.closing h2 em{font-style:italic;color:var(--muted)}
+.closing p{font-size:11pt;line-height:1.65;color:var(--ink-2);margin-bottom:5mm;max-width:36em}
+.cta-box{margin-top:10mm;padding:14mm 12mm;background:var(--accent);border-radius:8mm}
+.cta-box .lbl{font-family:'JetBrains Mono',monospace;font-size:8pt;letter-spacing:.22em;text-transform:uppercase;color:var(--accent-deep);margin-bottom:4mm;display:inline-block}
+.cta-box h3{font-family:'IBM Plex Sans',sans-serif;font-weight:400;font-size:24pt;letter-spacing:-.03em;line-height:1.04;color:var(--ink);margin:0 0 5mm}
+.cta-box h3 em{font-style:italic;color:var(--accent-deep)}
+.cta-box p{font-size:11pt;line-height:1.55;color:var(--ink-2);margin-bottom:5mm;max-width:34em}
+.cta-box .url{display:inline-block;padding:3mm 6mm;background:var(--ink);color:#fff;border-radius:999px;font-family:'JetBrains Mono',monospace;font-size:9pt;letter-spacing:.04em}
+.foot-card{margin-top:14mm;padding-top:8mm;border-top:1px solid var(--line);display:flex;justify-content:space-between;align-items:flex-end;font-family:'JetBrains Mono',monospace;font-size:8pt;letter-spacing:.12em;color:var(--muted);text-transform:uppercase}
+.foot-card strong{color:var(--ink);font-weight:500}
+</style>
+</head>
+<body>
+
+<!-- ========================= COVER ========================= -->
+<section class="cover">
+  <div class="top">
+    <div class="logo">Kolya<span class="dot">.</span></div>
+    <div class="ref">Édition · Juin 2026</div>
+  </div>
+  <div class="mid">
+    <div class="kicker">Livre blanc · IA pour PME</div>
+    <h1>10 cas d'usage IA pour <em>PME</em></h1>
+    <div class="sub">Pour chaque cas : la situation typique avant intégration, la solution déployée, les résultats moyens observés, le délai et le coût indicatifs. Basé sur des intégrations réelles sur une vingtaine de métiers PME.</div>
+  </div>
+  <div class="bot">
+    <div>kolya.fr · Agence IA pour PME</div>
+    <div class="right">Paris &amp; France</div>
+  </div>
+</section>
+
+<!-- ========================= INTRO ========================= -->
+<section class="intro">
+  <div class="eyebrow">Introduction</div>
+  <h2 style="margin-top:6mm">Lisez ce guide si vous voulez avancer sur l'IA <em>sans perdre 3 mois</em>.</h2>
+  <p>
+    Ce guide s'adresse aux dirigeants de TPE et de PME qui veulent
+    comprendre concrètement ce que l'IA peut faire dans une entreprise
+    de leur taille — sans passer par 3 mois de veille, par un cabinet
+    de conseil à 800 € de l'heure, ou par un programme de formation
+    générique de 6 mois.
+  </p>
+  <p>
+    Les 10 cas qui suivent sont organisés par métier mais les
+    mécanismes sont transposables. Si vous dirigez une boulangerie ou
+    une pharmacie, vous trouvez votre cas tel quel. Si vous dirigez
+    une activité hors liste, vous identifierez par analogie quel cas
+    ressemble au vôtre — la prise de rendez-vous d'une auto-école et
+    celle d'un institut de beauté partagent 80 % de leur logique.
+  </p>
+  <p>
+    Les chiffres présentés sont des ordres de grandeur observés
+    moyens. Votre cas peut s'en éloigner sensiblement, à la hausse
+    comme à la baisse. L'audit gratuit Kolya, en 45 minutes, chiffre
+    précisément les économies attendues sur votre activité réelle.
+  </p>
+
+  <div class="toc">
+    <h3>Les 10 cas du guide</h3>
+    <ol>
+      <li>Pré-commande et prévision de fournée en boulangerie</li>
+      <li>Gestion de file d'attente et click &amp; collect en pharmacie</li>
+      <li>Réservations sans no-show et agent IA téléphone en restaurant</li>
+      <li>Estimation volume et devis automatique en déménagement</li>
+      <li>Planning intelligent et relances examen en auto-école</li>
+      <li>Agenda intelligent et rappels en cabinet de kinésithérapie</li>
+      <li>Gestion de planning et fidélité numérique en institut de beauté</li>
+      <li>Prise de rendez-vous et devis assistés en garage automobile</li>
+      <li>Tri intelligent des appels et devis pour électricien</li>
+      <li>Reporting financier temps réel et alertes trésorerie en PME</li>
+    </ol>
+  </div>
+</section>
+
+<!-- ========================= CASE 1 ========================= -->
+<section class="case">
+  <div class="head">
+    <div class="num">Cas 01 · Boulangerie</div>
+    <div class="num">Pages 4 — 5</div>
+  </div>
+  <h2>Pré-commande et prévision de fournée en <em>boulangerie</em>.</h2>
+
+  <h3>Le contexte</h3>
+  <p>Sur une boulangerie qui sort 200 baguettes par jour, 15 % d'invendus représentent 30 baguettes données ou jetées. À 1,20 € l'unité, c'est 36 € par jour, plus de 1 000 € par mois. Et c'est juste sur la baguette : ajoutez les viennoiseries du dimanche soir, les pâtisseries du samedi, les sandwichs invendus du vendredi.</p>
+
+  <h3>Le déclencheur</h3>
+  <p>Le problème n'est pas le savoir-faire ni l'équipe : c'est qu'une fournée se décide à 4h du matin au feeling, sans signal précis sur ce que les clients vont demander aujourd'hui. À cela s'ajoutent les pics violents des fêtes (galette, bûche, Saint-Valentin) où les pré-commandes au cahier finissent en confusion.</p>
+
+  <h3>La solution déployée</h3>
+  <p>Kolya installe un module qui combine pré-commande client, prévision de fournée par IA, et programme de fidélité personnalisé. Quatre briques activables indépendamment selon le besoin :</p>
+  <ul class="bullets">
+    <li><strong>Pré-commande des fêtes</strong> : galette, bûche, gâteau d'anniversaire, plateau apéro. Le client commande en ligne, paye, vient retirer au créneau choisi.</li>
+    <li><strong>Prévision de fournée du quotidien</strong> : l'IA croise l'historique de ventes, la météo, les jours fériés et événements locaux pour proposer une fournée prévisionnelle chaque soir pour le lendemain.</li>
+    <li><strong>Programme de fidélité personnalisé</strong> : le client cumule des points via son numéro de téléphone, l'IA propose des récompenses ciblées selon ses produits préférés.</li>
+    <li><strong>Tableau de bord journée</strong> : ventes en cours, comparatif vs. semaine passée, alertes invendus, top produits, profils de clients fidèles.</li>
+  </ul>
+
+  <h3>Les résultats observés</h3>
+  <div class="kpis">
+    <div class="kpi"><div class="v"><em>−25 %</em></div><div class="l">d'invendus moyens, tous produits confondus.</div></div>
+    <div class="kpi"><div class="v"><em>+40 %</em></div><div class="l">de CA généré sur les fêtes (galette, bûche).</div></div>
+    <div class="kpi"><div class="v"><em>×3</em></div><div class="l">d'habitués activés vs. carte papier précédente.</div></div>
+  </div>
+  <p>L'effet est plus marqué sur les boulangeries-pâtisseries à forte activité événementielle que sur les boulangeries 100 % pain. Le programme de fidélité a un impact stable quelle que soit la typologie.</p>
+
+  <div class="meta-line">
+    <span><span class="lbl">Délai</span> &nbsp; 3 à 4 semaines</span>
+    <span><span class="lbl">Setup</span> &nbsp; 8 à 12 k€</span>
+    <span><span class="lbl">Run mensuel</span> &nbsp; 150 à 300 €</span>
+  </div>
+</section>
+
+<!-- ========================= CASE 2 ========================= -->
+<section class="case">
+  <div class="head">
+    <div class="num">Cas 02 · Pharmacie</div>
+    <div class="num">Pages 6 — 7</div>
+  </div>
+  <h2>Gestion de file d'attente et click &amp; collect en <em>pharmacie</em>.</h2>
+
+  <h3>Le contexte</h3>
+  <p>Dans une pharmacie de quartier, l'affluence est très irrégulière : pics de 20 minutes d'attente à 12h et 18h, creux complet à 15h. L'équipe galère à la fois pendant les pics (3-4 clients en attente, conseils écourtés) et pendant les creux (sous-occupation). Les patients réguliers se découragent et changent d'officine.</p>
+
+  <h3>Le déclencheur</h3>
+  <p>La pré-commande d'ordonnance par téléphone existe déjà chez la plupart des pharmacies mais reste sous-utilisée : les patients oublient, le standard est saturé pendant les pics, l'information passe mal. Côté caisse, l'équipe ne sait pas qui vient retirer et quand.</p>
+
+  <h3>La solution déployée</h3>
+  <p>Kolya déploie un module de gestion de la file d'attente couplé au click &amp; collect d'ordonnances et de produits courants :</p>
+  <ul class="bullets">
+    <li><strong>Pré-commande d'ordonnance par QR code en vitrine</strong> ou via SMS : le patient envoie sa photo, reçoit une confirmation et un créneau de retrait.</li>
+    <li><strong>Click &amp; collect produits courants</strong> (parapharmacie, OTC) : commande en ligne, retrait au comptoir prioritaire en moins de 2 minutes.</li>
+    <li><strong>Notifications d'affluence en temps réel</strong> : SMS au patient quand son ordonnance est prête, signalement automatique des pics au comptoir pour bascule du personnel.</li>
+    <li><strong>Préservation du conseil pharmaceutique</strong> : l'IA filtre, le pharmacien garde la main sur tout ce qui touche au conseil thérapeutique réel.</li>
+  </ul>
+
+  <h3>Les résultats observés</h3>
+  <div class="kpis">
+    <div class="kpi"><div class="v"><em>−40 %</em></div><div class="l">de temps d'attente moyen en heure de pointe.</div></div>
+    <div class="kpi"><div class="v"><em>+35 %</em></div><div class="l">de fidélisation des patients réguliers.</div></div>
+    <div class="kpi"><div class="v"><em>+25 %</em></div><div class="l">de panier moyen sur la parapharmacie.</div></div>
+  </div>
+  <p>L'équipe retrouve du temps pour le conseil, les patients réguliers reviennent plus volontiers, et la parapharmacie progresse car les patients passent moins de temps en attente et plus en exploration de rayon.</p>
+
+  <div class="meta-line">
+    <span><span class="lbl">Délai</span> &nbsp; 4 à 6 semaines</span>
+    <span><span class="lbl">Setup</span> &nbsp; 10 à 16 k€</span>
+    <span><span class="lbl">Run mensuel</span> &nbsp; 200 à 400 €</span>
+  </div>
+</section>
+
+<!-- ========================= CASE 3 ========================= -->
+<section class="case">
+  <div class="head">
+    <div class="num">Cas 03 · Restaurant</div>
+    <div class="num">Pages 8 — 9</div>
+  </div>
+  <h2>Réservations sans no-show et agent IA téléphone en <em>restaurant</em>.</h2>
+
+  <h3>Le contexte</h3>
+  <p>Un restaurant de 40 couverts à Paris subit en moyenne 15 % de no-show sur les réservations en ligne. À 35 € le couvert moyen, c'est 200 € de marge perdue chaque service. Sur un mois, plus de 5 000 € qui s'évaporent. Et c'est sans compter le téléphone qui sonne pendant le service, mobilise un serveur, finit en cluster d'appels manqués hors créneaux.</p>
+
+  <h3>Le déclencheur</h3>
+  <p>La table de réservation TheFork/Zenchef n'intègre pas la confirmation pro-active. Les SMS génériques de la plateforme ne sont pas lus. Le client oublie son créneau, ne prévient pas, le restaurant ne réagit qu'après la perte sèche.</p>
+
+  <h3>La solution déployée</h3>
+  <p>Kolya combine rappel intelligent + agent IA téléphone + relance automatique :</p>
+  <ul class="bullets">
+    <li><strong>Rappel SMS la veille</strong> avec bouton "Je confirme" / "Je décale" / "J'annule" en un clic. Les créneaux annulés sont automatiquement proposés à la liste d'attente.</li>
+    <li><strong>Agent IA téléphone</strong> qui prend les réservations 24h/24, propose des créneaux, gère les modifications, transfère à un humain pour les demandes complexes (groupe, allergies, événement).</li>
+    <li><strong>Détection des comportements à risque</strong> : un client qui a déjà no-show une fois reçoit un rappel renforcé ; au-delà de deux no-show, la réservation passe en pré-paiement obligatoire.</li>
+  </ul>
+
+  <h3>Les résultats observés</h3>
+  <div class="kpis">
+    <div class="kpi"><div class="v"><em>÷ 2</em></div><div class="l">de taux de no-show, en 2 mois.</div></div>
+    <div class="kpi"><div class="v"><em>+18 %</em></div><div class="l">de réservations capturées hors heures de service.</div></div>
+    <div class="kpi"><div class="v"><em>0</em></div><div class="l">appel manqué pendant le service.</div></div>
+  </div>
+  <p>L'agent IA téléphone est particulièrement rentable pour les restaurants à forte demande téléphonique (cuisine traditionnelle, bistrot de quartier) où les plateformes en ligne sont sous-utilisées par la clientèle senior.</p>
+
+  <div class="meta-line">
+    <span><span class="lbl">Délai</span> &nbsp; 3 à 5 semaines</span>
+    <span><span class="lbl">Setup</span> &nbsp; 9 à 15 k€</span>
+    <span><span class="lbl">Run mensuel</span> &nbsp; 250 à 500 €</span>
+  </div>
+</section>
+
+<!-- ========================= CASE 4 ========================= -->
+<section class="case">
+  <div class="head">
+    <div class="num">Cas 04 · Déménagement</div>
+    <div class="num">Pages 10 — 11</div>
+  </div>
+  <h2>Estimation volume et devis automatique en <em>déménagement</em>.</h2>
+
+  <h3>Le contexte</h3>
+  <p>L'estimation du volume à transporter chez un déménageur repose traditionnellement sur un appel client, quelques questions sur la taille du logement, et l'œil exercé du commercial. Résultat : un devis sur deux finit corrigé le jour J, avec une discussion désagréable sur les majorations et un client parfois mécontent.</p>
+
+  <h3>Le déclencheur</h3>
+  <p>Côté commercial, le rythme est lourd : entre la prise d'information, l'estimation manuelle et la rédaction du devis, chaque dossier prend deux à trois jours. Le commercial passe plus de temps à chiffrer qu'à prospecter ou à signer.</p>
+
+  <h3>La solution déployée</h3>
+  <p>Kolya déploie une app dédiée à l'estimation du volume par photos :</p>
+  <ul class="bullets">
+    <li><strong>Capture client en autonomie</strong> : depuis un lien SMS ou email, le client photographie chaque pièce depuis son téléphone, sans installer d'application.</li>
+    <li><strong>Calcul du volume par IA</strong> : un modèle de vision analyse les photos pour estimer le mobilier, le nombre de cartons à prévoir, et le volume total en m³.</li>
+    <li><strong>Génération du devis chiffré</strong> : volume × distance × options (étages sans ascenseur, portage, monte-meuble, garde-meuble) → devis complet en un clic.</li>
+    <li><strong>Validation commerciale en 10 minutes</strong> : le commercial vérifie, ajuste, ajoute les contraintes spécifiques, envoie au client.</li>
+  </ul>
+
+  <h3>Les résultats observés</h3>
+  <div class="kpis">
+    <div class="kpi"><div class="v"><em>1 h</em></div><div class="l">délai d'envoi du devis, vs. 2 à 3 jours auparavant.</div></div>
+    <div class="kpi"><div class="v"><em>÷ 2</em></div><div class="l">d'écart moyen entre estimation et volume réel le jour J.</div></div>
+    <div class="kpi"><div class="v"><em>+ 30 %</em></div><div class="l">de taux de signature sur les demandes entrantes.</div></div>
+  </div>
+  <p>L'effet le plus marqué porte sur la disponibilité du commercial qui peut désormais traiter plus de demandes, relancer les devis en attente, et reprendre la prospection sortante.</p>
+
+  <div class="meta-line">
+    <span><span class="lbl">Délai</span> &nbsp; 5 à 7 semaines</span>
+    <span><span class="lbl">Setup</span> &nbsp; 12 à 20 k€</span>
+    <span><span class="lbl">Run mensuel</span> &nbsp; 300 à 600 €</span>
+  </div>
+</section>
+
+<!-- ========================= CASE 5 ========================= -->
+<section class="case">
+  <div class="head">
+    <div class="num">Cas 05 · Auto-école</div>
+    <div class="num">Pages 12 — 13</div>
+  </div>
+  <h2>Planning intelligent et relances examen en <em>auto-école</em>.</h2>
+
+  <h3>Le contexte</h3>
+  <p>Une auto-école indépendante jongle entre trois outils mal connectés pour gérer le planning des moniteurs, les réservations d'élèves, et les relances avant examen. Le moniteur passe ses soirées à confirmer les rendez-vous par téléphone, la pré-réservation repose sur des allers-retours SMS qui s'étalent sur la semaine.</p>
+
+  <h3>Le déclencheur</h3>
+  <p>Les no-show élèves représentent 12 à 18 % des leçons en moyenne. Côté examen, les oublis d'inscription ou de documents font perdre une session entière à l'élève (et 2 à 4 semaines à l'auto-école).</p>
+
+  <h3>La solution déployée</h3>
+  <p>Trois briques liées dans une même app pour les élèves et le secrétariat :</p>
+  <ul class="bullets">
+    <li><strong>Pré-réservation en ligne</strong> : l'élève réserve depuis son navigateur, l'IA propose les créneaux libres en croisant agenda moniteur et préférence élève.</li>
+    <li><strong>Agenda intelligent moniteur</strong> : les créneaux sont remplis en priorité selon la progression de l'élève et les échéances d'examen, pas dans l'ordre d'arrivée.</li>
+    <li><strong>Relances examen automatiques</strong> : SMS aux élèves proches de l'échéance, rappels des documents à préparer, disponibilités des centres d'examen mises à jour en temps réel.</li>
+  </ul>
+
+  <h3>Les résultats observés</h3>
+  <div class="kpis">
+    <div class="kpi"><div class="v"><em>−40 %</em></div><div class="l">de temps sur la prise et confirmation de RDV.</div></div>
+    <div class="kpi"><div class="v"><em>×2</em></div><div class="l">de pré-réservations en ligne vs. canal téléphone.</div></div>
+    <div class="kpi"><div class="v"><em>3 sem.</em></div><div class="l">entre l'audit et la mise en production.</div></div>
+  </div>
+  <p>Le moniteur récupère ses soirées, le secrétariat traite plus de dossiers, et les élèves arrivent à l'examen avec leurs documents en règle.</p>
+
+  <div class="meta-line">
+    <span><span class="lbl">Délai</span> &nbsp; 3 à 4 semaines</span>
+    <span><span class="lbl">Setup</span> &nbsp; 7 à 12 k€</span>
+    <span><span class="lbl">Run mensuel</span> &nbsp; 180 à 350 €</span>
+  </div>
+</section>
+
+<!-- ========================= CASE 6 ========================= -->
+<section class="case">
+  <div class="head">
+    <div class="num">Cas 06 · Kinésithérapie</div>
+    <div class="num">Pages 14 — 15</div>
+  </div>
+  <h2>Agenda intelligent et rappels en <em>cabinet de kinésithérapie</em>.</h2>
+
+  <h3>Le contexte</h3>
+  <p>Un cabinet de kiné de 3 praticiens traite 50 à 70 patients par jour. Le planning est tendu, les annulations de dernière minute laissent des créneaux vides difficiles à recombler. Le no-show patient (oubli pur, perte de motivation entre 2 séances) tourne autour de 8-12 % et grève sérieusement le chiffre d'affaires.</p>
+
+  <h3>Le déclencheur</h3>
+  <p>Doctolib gère la prise de RDV mais pas la fidélisation patient ni la relance contextuelle entre 2 séances. Les patients abandonnent leur protocole de soin (typiquement 10 séances) à mi-parcours, ce qui réduit l'efficacité du traitement et le CA récurrent.</p>
+
+  <h3>La solution déployée</h3>
+  <p>Module complémentaire à Doctolib pour la rétention et le suivi :</p>
+  <ul class="bullets">
+    <li><strong>Rappel SMS 24h et 2h avant</strong> chaque séance, avec bouton de confirmation et de report en un clic.</li>
+    <li><strong>Suggestion automatique de créneau de remplacement</strong> en cas d'annulation tardive — proposé aux patients sur liste d'attente.</li>
+    <li><strong>Suivi de l'observance du protocole</strong> : si un patient saute 2 séances consécutives, le praticien reçoit une alerte pour appeler personnellement.</li>
+    <li><strong>Mini-exercices entre séances</strong> envoyés en SMS ou email, adaptés à la pathologie du patient — améliore les résultats et l'attachement au cabinet.</li>
+  </ul>
+
+  <h3>Les résultats observés</h3>
+  <div class="kpis">
+    <div class="kpi"><div class="v"><em>−30 %</em></div><div class="l">de taux de no-show patient.</div></div>
+    <div class="kpi"><div class="v"><em>+15 %</em></div><div class="l">de protocoles complétés jusqu'à la dernière séance.</div></div>
+    <div class="kpi"><div class="v"><em>+8 %</em></div><div class="l">de CA récurrent moyen par praticien.</div></div>
+  </div>
+  <p>Le cabinet retrouve une visibilité claire sur son taux de remplissage, et la qualité du suivi patient progresse mécaniquement.</p>
+
+  <div class="meta-line">
+    <span><span class="lbl">Délai</span> &nbsp; 3 à 5 semaines</span>
+    <span><span class="lbl">Setup</span> &nbsp; 8 à 13 k€</span>
+    <span><span class="lbl">Run mensuel</span> &nbsp; 200 à 400 €</span>
+  </div>
+</section>
+
+<!-- ========================= CASE 7 ========================= -->
+<section class="case">
+  <div class="head">
+    <div class="num">Cas 07 · Institut de beauté</div>
+    <div class="num">Pages 16 — 17</div>
+  </div>
+  <h2>Gestion de planning et fidélité numérique en <em>institut de beauté</em>.</h2>
+
+  <h3>Le contexte</h3>
+  <p>Un institut indépendant gère son carnet de rendez-vous sur agenda papier et beaucoup de coups de fil pour confirmer les soins de la semaine. Le programme de fidélité tient sur une carte papier à tampons que les clientes oublient une fois sur deux. Résultat : 2 à 3 no-show par semaine, et une clientèle d'habituées difficile à activer ponctuellement (promo saisonnière, nouveau soin, créneau libéré).</p>
+
+  <h3>Le déclencheur</h3>
+  <p>La gérante cherche un outil capable de libérer du temps à l'équipe sans passer par un gros logiciel généraliste à 500 € par mois, mal adapté à la taille de l'institut.</p>
+
+  <h3>La solution déployée</h3>
+  <p>Deux briques liées sur 4 semaines :</p>
+  <ul class="bullets">
+    <li><strong>Gestion du planning et rappels SMS</strong> : la veille de chaque soin, la cliente reçoit un SMS de confirmation avec bouton pour confirmer, reporter ou annuler en un clic. Les créneaux annulés sont proposés automatiquement aux clientes inscrites sur liste d'attente.</li>
+    <li><strong>Agent IA de réservation 24h/24</strong> : sur le site et via Instagram, l'agent prend les nouvelles réservations, propose les soins disponibles, calcule la durée et bloque le créneau en temps réel.</li>
+    <li><strong>Programme de fidélité numérique</strong> : chaque cliente accumule des points selon ses soins, l'IA propose des récompenses personnalisées (réduction sur soin préféré, nouveau soin à essayer, promo saisonnière ciblée).</li>
+  </ul>
+
+  <h3>Les résultats observés</h3>
+  <div class="kpis">
+    <div class="kpi"><div class="v"><em>÷ 2</em></div><div class="l">de taux de no-show grâce aux rappels SMS.</div></div>
+    <div class="kpi"><div class="v"><em>×3</em></div><div class="l">d'activation du programme de fidélité vs. carte papier.</div></div>
+    <div class="kpi"><div class="v"><em>+25 %</em></div><div class="l">de réactivation des clientes dormantes.</div></div>
+  </div>
+  <p>Le programme de fidélité numérique sait identifier les habituées absentes depuis quelques semaines et leur propose une raison concrète de revenir — récompense ciblée, nouveau soin adapté à leur profil.</p>
+
+  <div class="meta-line">
+    <span><span class="lbl">Délai</span> &nbsp; 3 à 4 semaines</span>
+    <span><span class="lbl">Setup</span> &nbsp; 7 à 11 k€</span>
+    <span><span class="lbl">Run mensuel</span> &nbsp; 180 à 320 €</span>
+  </div>
+</section>
+
+<!-- ========================= CASE 8 ========================= -->
+<section class="case">
+  <div class="head">
+    <div class="num">Cas 08 · Garage automobile</div>
+    <div class="num">Pages 18 — 19</div>
+  </div>
+  <h2>Prise de rendez-vous et devis assistés en <em>garage automobile</em>.</h2>
+
+  <h3>Le contexte</h3>
+  <p>Un garage indépendant reçoit 50 à 80 appels par jour : prise de rendez-vous révision, panne en urgence, contrôle technique, demande de devis. Le mécanicien chef passe 1h30 par jour au téléphone, le secrétariat qualifie mal les demandes, certains clients en panne n'obtiennent pas de créneau et partent à la concurrence.</p>
+
+  <h3>Le déclencheur</h3>
+  <p>Le pic d'appels entre 8h30 et 10h30 coïncide avec la prise en charge des véhicules — le téléphone sonne dans le vide, les clients ne rappellent pas. Estimation : 15 à 20 % des appels entrants sont manqués sans rappel.</p>
+
+  <h3>La solution déployée</h3>
+  <p>Agent IA téléphone + plateforme de devis pré-rempli :</p>
+  <ul class="bullets">
+    <li><strong>Agent IA qui qualifie chaque appel entrant</strong> : révision, panne, contrôle technique, autre — propose les bons créneaux, escalade à un humain pour les pannes complexes.</li>
+    <li><strong>Devis pré-rempli pour les interventions standard</strong> (révision selon modèle, vidange, plaquettes) — le mécanicien valide en 5 minutes au lieu de 20 minutes de rédaction manuelle.</li>
+    <li><strong>Rappels client J-1 et J-3</strong> avant le rendez-vous, avec confirmation et lien de prise en charge.</li>
+    <li><strong>Relances post-révision</strong> : à 6 mois et 11 mois après la dernière révision, l'IA propose un créneau pour la suivante.</li>
+  </ul>
+
+  <h3>Les résultats observés</h3>
+  <div class="kpis">
+    <div class="kpi"><div class="v"><em>+30 %</em></div><div class="l">de RDV pris hors heures d'ouverture.</div></div>
+    <div class="kpi"><div class="v"><em>0</em></div><div class="l">appel manqué pendant les pics du matin.</div></div>
+    <div class="kpi"><div class="v"><em>−50 %</em></div><div class="l">de temps passé en téléphone par le chef d'atelier.</div></div>
+  </div>
+  <p>Le mécanicien retrouve du temps atelier, les clients en panne obtiennent une réponse immédiate, et la fidélisation s'améliore grâce aux relances de révision.</p>
+
+  <div class="meta-line">
+    <span><span class="lbl">Délai</span> &nbsp; 4 à 6 semaines</span>
+    <span><span class="lbl">Setup</span> &nbsp; 10 à 16 k€</span>
+    <span><span class="lbl">Run mensuel</span> &nbsp; 250 à 500 €</span>
+  </div>
+</section>
+
+<!-- ========================= CASE 9 ========================= -->
+<section class="case">
+  <div class="head">
+    <div class="num">Cas 09 · Électricien</div>
+    <div class="num">Pages 20 — 21</div>
+  </div>
+  <h2>Tri intelligent des appels et devis automatiques pour <em>électricien</em>.</h2>
+
+  <h3>Le contexte</h3>
+  <p>Un artisan électricien à son compte reçoit 30 à 50 appels par jour : dépannage urgent, devis travaux, suivi de chantier en cours, démarchage commercial. L'artisan répond entre deux interventions, perd du temps sur des appels non qualifiés, et oublie de rappeler certains prospects.</p>
+
+  <h3>Le déclencheur</h3>
+  <p>Les pics d'appels arrivent typiquement à 18h-19h quand les clients particuliers rentrent du travail et constatent un problème électrique. L'artisan est encore sur un chantier, ne peut pas répondre, et rate la moitié des dépannages potentiels.</p>
+
+  <h3>La solution déployée</h3>
+  <p>Agent IA pour qualifier et router les appels + devis automatique pour les standards :</p>
+  <ul class="bullets">
+    <li><strong>Qualification automatique de chaque appel</strong> : dépannage urgent (transfert immédiat à l'artisan), devis travaux (création de fiche projet), suivi de chantier (réponse en mode self-service avec calendrier partagé).</li>
+    <li><strong>Pré-devis sur les interventions standard</strong> (changement tableau, mise aux normes appartement, installation prises) en partant des questions standard posées au client.</li>
+    <li><strong>Calendrier intelligent</strong> : l'IA propose les bons créneaux selon l'urgence du dépannage et la localisation (regroupement géographique pour éviter les déplacements inutiles).</li>
+    <li><strong>Suivi de chantier client en self-service</strong> : portail avec photos, factures, calendrier intervention.</li>
+  </ul>
+
+  <h3>Les résultats observés</h3>
+  <div class="kpis">
+    <div class="kpi"><div class="v"><em>+40 %</em></div><div class="l">d'appels traités sans perte (vs. ~50 % avant).</div></div>
+    <div class="kpi"><div class="v"><em>+20 %</em></div><div class="l">de signature sur les devis envoyés sous 1h.</div></div>
+    <div class="kpi"><div class="v"><em>2 h/j</em></div><div class="l">de temps libéré pour l'artisan.</div></div>
+  </div>
+  <p>Le dépannage urgent ne se perd plus dans la nature, les devis standard se génèrent sans bloquer l'artisan, et le client perçoit un service plus pro.</p>
+
+  <div class="meta-line">
+    <span><span class="lbl">Délai</span> &nbsp; 3 à 4 semaines</span>
+    <span><span class="lbl">Setup</span> &nbsp; 7 à 11 k€</span>
+    <span><span class="lbl">Run mensuel</span> &nbsp; 180 à 350 €</span>
+  </div>
+</section>
+
+<!-- ========================= CASE 10 ========================= -->
+<section class="case">
+  <div class="head">
+    <div class="num">Cas 10 · Pilotage financier PME</div>
+    <div class="num">Pages 22 — 23</div>
+  </div>
+  <h2>Reporting financier temps réel et alertes trésorerie en <em>PME</em>.</h2>
+
+  <h3>Le contexte</h3>
+  <p>Une PME de 30 salariés pilote ses finances sur un Excel à 35 onglets, mis à jour manuellement chaque semaine par le directeur administratif. Le dirigeant n'a pas de visibilité live sur la trésorerie, découvre les anomalies (impayés qui s'accumulent, marge qui dérape sur un produit) avec 2 à 3 semaines de retard.</p>
+
+  <h3>Le déclencheur</h3>
+  <p>Un trou de trésorerie inattendu (impayé important non détecté + provisions sous-estimées) déclenche une recherche d'outil. Les logiciels du marché (Pennylane, Sage, Cegid) sont jugés trop lourds, trop chers, et nécessitent une migration douloureuse depuis le tableur historique.</p>
+
+  <h3>La solution déployée</h3>
+  <p>Un tableau de bord live alimenté par votre comptabilité existante (FEC, exports compta) :</p>
+  <ul class="bullets">
+    <li><strong>Indicateurs live</strong> : trésorerie projetée à 30/60/90 jours, marge par client, DSO (jours d'impayés), pipe commercial, charges fixes vs. variables.</li>
+    <li><strong>Alertes automatiques</strong> : impayé qui dépasse N jours, marge qui chute de plus de X % sur un produit, trésorerie projetée qui passe sous un seuil critique.</li>
+    <li><strong>Prévisionnel actualisé en continu</strong> : à chaque nouvelle vente ou dépense enregistrée, le prévisionnel mensuel est mis à jour automatiquement.</li>
+    <li><strong>Connexion aux outils existants</strong> : compta (FEC), banque (Bridge), CRM (HubSpot, Pipedrive), facturation (Pennylane, QuickBooks, Tiime).</li>
+  </ul>
+
+  <h3>Les résultats observés</h3>
+  <div class="kpis">
+    <div class="kpi"><div class="v"><em>−5 j</em></div><div class="l">de DSO moyen grâce aux relances automatiques.</div></div>
+    <div class="kpi"><div class="v"><em>0</em></div><div class="l">surprise trésorerie en 6 mois.</div></div>
+    <div class="kpi"><div class="v"><em>+8 h/sem</em></div><div class="l">économisées par le DAF sur le reporting.</div></div>
+  </div>
+  <p>Le dirigeant arbitre sur des chiffres live au lieu d'un Excel daté d'hier, et le DAF retrouve du temps pour les sujets à plus forte valeur.</p>
+
+  <div class="meta-line">
+    <span><span class="lbl">Délai</span> &nbsp; 5 à 8 semaines</span>
+    <span><span class="lbl">Setup</span> &nbsp; 15 à 28 k€</span>
+    <span><span class="lbl">Run mensuel</span> &nbsp; 350 à 800 €</span>
+  </div>
+</section>
+
+<!-- ========================= CLOSING ========================= -->
+<section class="closing">
+  <div class="eyebrow">Et maintenant</div>
+  <h2 style="margin-top:6mm">Identifier votre cas, en <em>45 minutes</em>.</h2>
+  <p>
+    Si l'un des 10 cas ci-dessus ressemble à votre activité, ou si vous
+    pensez que votre cas n'est dans aucun mais ressemble à un mélange
+    de plusieurs, l'audit IA gratuit Kolya vous permet de cadrer
+    précisément le périmètre, l'effort et le retour attendu.
+  </p>
+  <p>
+    Le format : 45 minutes en visio ou dans vos bureaux à Paris.
+    Nous regardons ensemble votre activité, vos outils actuels, vos
+    points de friction. À l'issue, vous repartez avec une note écrite
+    listant les 2 ou 3 cas d'usage IA prioritaires chez vous, leur
+    impact estimé, et un plan d'action sur 30 jours.
+  </p>
+  <p>
+    Aucune obligation, aucune pré-qualification commerciale agressive.
+    Si l'audit conclut que l'IA n'est pas la bonne réponse pour vous
+    aujourd'hui, nous vous le disons franchement. C'est le cas pour
+    environ un audit sur cinq.
+  </p>
+
+  <div class="cta-box">
+    <span class="lbl">Réservez votre audit</span>
+    <h3>Audit IA gratuit<br/><em>45 minutes</em>.</h3>
+    <p>Sur place à Paris ou en visio partout en France. Sans engagement.</p>
+    <span class="url">kolya.fr/audit-ia-gratuit/</span>
+  </div>
+
+  <div class="foot-card">
+    <div>
+      <strong>Kolya</strong> · Agence d'intégration IA pour PME<br/>
+      Paris &amp; France · kolya.fr
+    </div>
+    <div style="text-align:right">
+      Édition juin 2026<br/>
+      Document gratuit, libre de partage
+    </div>
+  </div>
+</section>
+
+</body>
+</html>
