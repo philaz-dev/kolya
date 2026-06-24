@@ -1,0 +1,391 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+
+<title>Formation IA pour PME — Atelier sur-mesure intra-entreprise | Kolya</title>
+<meta name="description" content="Formation IA pour PME : atelier sur-mesure 1 à 3 jours dans vos locaux ou en visio. Acculturation, prise en main des outils, identification des cas d'usage chez vous. Non Qualiopi/CPF — pour aller vite et pratique." />
+<meta name="author" content="Kolya" />
+<meta name="theme-color" content="#C5F548" />
+<link rel="canonical" href="https://www.kolya.fr/formation-ia-pme/" />
+
+<meta property="og:type" content="website" />
+<meta property="og:locale" content="fr_FR" />
+<meta property="og:site_name" content="Kolya" />
+<meta property="og:title" content="Formation IA pour PME — Atelier sur-mesure | Kolya" />
+<meta property="og:description" content="Atelier IA 1-3 jours intra-entreprise pour PME. Acculturation, outils, cas d'usage. Sur-mesure, sans Qualiopi/CPF, pragmatique." />
+<meta property="og:url" content="https://www.kolya.fr/formation-ia-pme/" />
+<meta property="og:image" content="https://www.kolya.fr/assets/hero-photo.jpg" />
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Formation IA pour PME — Atelier sur-mesure | Kolya" />
+<meta name="twitter:description" content="Atelier IA 1-3 jours intra-entreprise pour PME. Pragmatique, sans Qualiopi." />
+<meta name="twitter:image" content="https://www.kolya.fr/assets/hero-photo.jpg" />
+
+<link rel="preload" as="image" href="../assets/hero-photo.jpg" fetchpriority="high" />
+<link rel="icon" type="image/png" href="../assets/kolya-mark.png" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,400;0,500;1,300;1,400&family=Plus+Jakarta+Sans:wght@400;500&family=JetBrains+Mono:wght@400;500&display=swap" onload="this.onload=null;this.rel='stylesheet'" />
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,400;0,500;1,300;1,400&family=Plus+Jakarta+Sans:wght@400;500&family=JetBrains+Mono:wght@400;500&display=swap" /></noscript>
+<style>
+:root{--bg:#fff;--soft:#F5F4EF;--ink:#0E0E0C;--ink-2:#1A1A18;--muted:#6B6B66;--line:rgba(14,14,12,.08);--accent:#C5F548;--accent-deep:#1F2D0A;--ease:cubic-bezier(.32,.72,0,1);--ease-out:cubic-bezier(.16,1,.3,1);--dur:700ms;--dur-fast:380ms}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--ink);font-family:'Plus Jakarta Sans',system-ui,sans-serif;font-size:16px;line-height:1.55;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img,svg{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+ul{list-style:none}
+.skip-link{position:absolute;left:-9999px}
+.wrap{width:100%;max-width:1320px;margin:0 auto;padding:0 32px}
+@media (max-width:720px){.wrap{padding:0 20px}}
+.eyebrow{display:inline-flex;align-items:center;gap:8px;padding:7px 14px;border-radius:999px;background:rgba(14,14,12,.04);box-shadow:inset 0 0 0 1px rgba(14,14,12,.06);font-family:'JetBrains Mono',monospace;font-size:10px;font-weight:500;letter-spacing:.22em;text-transform:uppercase;color:var(--muted)}
+.eyebrow .dot{width:5px;height:5px;border-radius:50%;background:var(--accent);display:inline-block;animation:pulse-dot 1.6s ease-in-out infinite}
+@keyframes pulse-dot{0%,100%{opacity:.4}50%{opacity:1}}
+.btn{display:inline-flex;align-items:center;gap:12px;padding:6px 6px 6px 22px;border-radius:999px;font-family:inherit;font-weight:500;font-size:14px;cursor:pointer;user-select:none;white-space:nowrap;transition:transform var(--dur-fast) var(--ease),background var(--dur-fast) var(--ease),color var(--dur-fast) var(--ease),box-shadow var(--dur-fast) var(--ease)}
+.btn .btn-icon{width:36px;height:36px;border-radius:999px;display:inline-flex;align-items:center;justify-content:center;transition:transform var(--dur-fast) var(--ease),background var(--dur-fast) var(--ease)}
+.btn .btn-icon svg{width:12px;height:12px}
+.btn-lime{background:var(--accent);color:var(--ink)}
+.btn-lime .btn-icon{background:rgba(14,14,12,.10)}
+.btn-ghost{background:rgba(255,255,255,.6);color:var(--ink);box-shadow:inset 0 0 0 1px rgba(14,14,12,.10);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px)}
+.btn-ghost .btn-icon{background:rgba(14,14,12,.06)}
+.btn-sm{padding:5px 5px 5px 16px;font-size:13px;gap:10px}
+.btn-sm .btn-icon{width:30px;height:30px}
+.btn-sm .btn-icon svg{width:11px;height:11px}
+.reveal{opacity:0;transform:translate3d(0,36px,0);filter:blur(10px);transition:opacity 1100ms var(--ease-out),transform 1100ms var(--ease-out),filter 900ms var(--ease-out);will-change:transform,opacity,filter}
+.reveal.in{opacity:1;transform:translate3d(0,0,0);filter:blur(0)}
+.nav{position:fixed;top:0;left:0;right:0;z-index:50;padding:18px 20px;pointer-events:none;transition:padding var(--dur) var(--ease)}
+.nav-inner{pointer-events:auto;max-width:1280px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:8px 8px 8px 22px;background:rgba(255,255,255,.62);backdrop-filter:blur(28px) saturate(180%);-webkit-backdrop-filter:blur(28px) saturate(180%);border-radius:999px;box-shadow:inset 0 1px 0 rgba(255,255,255,.7),inset 0 0 0 1px rgba(14,14,12,.06),0 14px 40px -16px rgba(14,14,12,.18)}
+.brand{display:flex;align-items:center;gap:10px}
+.brand img{height:56px;width:auto;object-fit:contain}
+.nav-min{display:flex;gap:2px;padding:4px;background:rgba(14,14,12,.04);box-shadow:inset 0 0 0 1px rgba(14,14,12,.05);border-radius:999px}
+.nav-min a{padding:8px 16px;font-size:13px;font-weight:500;color:var(--ink-2);border-radius:999px}
+@media (max-width:980px){.nav-min{display:none}}
+@media (max-width:540px){.nav-cta .btn-label{display:none}.nav-cta{padding:4px}}
+.breadcrumb{padding:110px 0 0}
+.breadcrumb ol{display:flex;align-items:center;flex-wrap:wrap;gap:10px;font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:var(--muted)}
+.breadcrumb li{display:inline-flex;align-items:center;gap:10px}
+.breadcrumb li:not(:last-child)::after{content:"/";color:var(--line);opacity:.6}
+.breadcrumb a{color:var(--muted)}
+.breadcrumb [aria-current="page"]{color:var(--ink)}
+.metier-hero{position:relative;min-height:80vh;min-height:80dvh;padding:56px 0 96px;display:flex;flex-direction:column;justify-content:center;overflow:hidden}
+.metier-hero .hero-bg-img{position:absolute;inset:0;z-index:0;width:100%;height:100%;object-fit:cover;object-position:center right;display:block}
+.metier-hero .hero-overlay{position:absolute;inset:0;z-index:1;background:linear-gradient(90deg,rgba(255,255,255,.96) 0%,rgba(255,255,255,.84) 30%,rgba(255,255,255,.5) 58%,rgba(255,255,255,.1) 100%),linear-gradient(180deg,rgba(255,255,255,.18) 0%,transparent 32%,rgba(255,255,255,.5) 100%)}
+.metier-hero>.wrap{position:relative;z-index:2}
+@media (max-width:900px){.metier-hero .hero-bg-img{object-position:center}.metier-hero .hero-overlay{background:linear-gradient(180deg,rgba(255,255,255,.55) 0%,rgba(255,255,255,.88) 50%,rgba(255,255,255,.98) 80%,white 100%)}}
+.metier-hero .eyebrow{margin-bottom:32px}
+.metier-hero h1{font-family:'IBM Plex Sans',sans-serif;font-weight:400;font-size:clamp(48px,7vw,112px);letter-spacing:-.04em;line-height:.96;color:var(--ink);margin:0 0 32px;max-width:18ch}
+.metier-hero h1 em{font-style:italic;font-weight:300;color:var(--muted)}
+.metier-hero p.lede{font-size:clamp(18px,1.5vw,22px);color:var(--ink-2);line-height:1.55;max-width:60ch;margin-bottom:36px}
+.metier-hero .ctas{display:flex;gap:12px;flex-wrap:wrap}
+.format-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px;margin:32px 0}
+.format-card{padding:36px 32px;background:var(--soft);border-radius:24px;display:flex;flex-direction:column}
+.format-card .dur{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:var(--muted);margin-bottom:14px}
+.format-card h3{font-family:'IBM Plex Sans',sans-serif;font-weight:400;font-size:24px;line-height:1.15;letter-spacing:-.02em;color:var(--ink);margin:0 0 12px}
+.format-card h3 em{font-style:italic;color:var(--muted)}
+.format-card p{font-size:14px;color:var(--ink-2);line-height:1.55;margin:0 0 18px;flex:1}
+.format-card .for{font-size:12px;color:var(--muted);font-family:'JetBrains Mono',monospace;letter-spacing:.04em;text-transform:uppercase;margin-top:auto;padding-top:18px;border-top:1px solid var(--line)}
+</style>
+<link rel="preload" as="style" href="../assets/kolya.css?v=9" onload="this.onload=null;this.rel='stylesheet'" />
+<noscript><link rel="stylesheet" href="../assets/kolya.css?v=9" /></noscript>
+
+<script type="application/ld+json">
+{ "@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [
+  { "@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://www.kolya.fr/" },
+  { "@type": "ListItem", "position": 2, "name": "Formation IA pour PME" }
+]}
+</script>
+
+<script type="application/ld+json">
+{ "@context": "https://schema.org", "@type": "Service",
+  "name": "Formation IA pour PME — Atelier sur-mesure intra-entreprise",
+  "url": "https://www.kolya.fr/formation-ia-pme/",
+  "serviceType": "Atelier de formation à l'IA en intra-entreprise pour PME",
+  "description": "Atelier de formation à l'IA, 1 à 3 jours, intra-entreprise, sur-mesure. Acculturation, prise en main des outils (Claude, ChatGPT, Mistral), identification des cas d'usage propres à l'activité. Non certifié Qualiopi/CPF.",
+  "areaServed": [
+    { "@type": "Country", "name": "France" },
+    { "@type": "City", "name": "Paris" }
+  ],
+  "audience": { "@type": "BusinessAudience", "audienceType": "PME et TPE de 5 à 80 salariés" },
+  "provider": { "@type": "Organization", "name": "Kolya", "url": "https://www.kolya.fr", "logo": "https://www.kolya.fr/assets/kolya-logo.png" }
+}
+</script>
+
+<script type="application/ld+json">
+{ "@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [
+  { "@type": "Question", "name": "Vos formations sont-elles certifiées Qualiopi ?", "acceptedAnswer": { "@type": "Answer", "text": "Non, par choix assumé. Notre format est volontairement non certifié Qualiopi pour rester rapide à monter (quelques jours au lieu de plusieurs mois), pragmatique et focalisé sur votre activité réelle. Si la certification CPF est un prérequis chez vous, nous vous orienterons vers un partenaire Qualiopi adapté." } },
+  { "@type": "Question", "name": "Combien coûte un atelier ?", "acceptedAnswer": { "@type": "Answer", "text": "Le tarif dépend du format choisi (demi-journée, 1, 2 ou 3 jours), du nombre de participants et du lieu (Paris ou visio sans surcoût, déplacement province facturé au réel). Compter typiquement entre 1 500 € pour une demi-journée d'introduction et 8 000 € pour un atelier de 3 jours intensif. Devis ferme remis après audit gratuit." } },
+  { "@type": "Question", "name": "À combien de personnes minimum ou maximum ?", "acceptedAnswer": { "@type": "Answer", "text": "Format idéal : 5 à 15 personnes par session. En dessous, le format devient un coaching individuel et on adapte. Au-dessus, l'interactivité baisse — nous recommandons alors plusieurs sessions ou un format conférence dédié." } },
+  { "@type": "Question", "name": "Quels outils sont couverts dans l'atelier ?", "acceptedAnswer": { "@type": "Answer", "text": "ChatGPT, Claude, Mistral Le Chat Pro, Microsoft Copilot, Gemini, plus les outils d'automatisation type Make, Zapier, n8n et les bases de connaissance type NotebookLM. La sélection est faite avec vous en pré-atelier selon vos outils existants et vos cas d'usage prioritaires." } },
+  { "@type": "Question", "name": "Présentiel ou distanciel ?", "acceptedAnswer": { "@type": "Answer", "text": "Les deux fonctionnent. Le présentiel est conseillé pour les ateliers de 2-3 jours et les équipes nouvellement acculturées. Le distanciel (Google Meet ou Teams) marche très bien pour la demi-journée et le format 1 jour. Sur Paris, le présentiel n'engendre aucun surcoût. Hors Paris, déplacement facturé au réel." } },
+  { "@type": "Question", "name": "Vos formations sont-elles éligibles au CPF ?", "acceptedAnswer": { "@type": "Answer", "text": "Non, car non Qualiopi. Pour les PME, nous recommandons de financer l'atelier en formation interne classique ou via votre OPCO si éligible (entretien préalable possible). Le coût est généralement amorti en moins de deux mois grâce au temps gagné par l'équipe formée." } },
+  { "@type": "Question", "name": "Comment se déroule un atelier type ?", "acceptedAnswer": { "@type": "Answer", "text": "Pré-atelier (30 min) : entretien avec vous pour cadrer vos enjeux. Atelier (1 à 3 jours) : alternance entre apports, démonstrations live et ateliers pratiques sur vos propres cas. Post-atelier (15 jours) : canal de support écrit pour répondre aux questions des participants pendant qu'ils mettent en pratique." } }
+]}
+</script>
+</head>
+<body>
+
+<a href="#contact" class="skip-link">Aller au formulaire</a>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="arr" viewBox="0 0 14 14"><path d="M2 12L12 2M12 2H5M12 2V9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" fill="none"/></symbol>
+  <symbol id="check" viewBox="0 0 16 16"><path d="M3 8.5L6.5 12L13 4.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/></symbol>
+</svg>
+
+<nav class="nav" id="nav">
+  <div class="nav-inner">
+    <a href="../" class="brand" aria-label="Retour à l'accueil Kolya">
+      <img src="../assets/kolya-logo.png" width="800" height="273" alt="Kolya · Agence d'intégration IA" />
+    </a>
+    <div class="nav-min">
+      <a href="../">Accueil</a>
+      <a href="../#services">Services</a>
+      <a href="../#cas">Cas d'usage</a>
+      <a href="../#methode">Méthode</a>
+      <a href="../blog/">Blog</a>
+    </div>
+    <a href="../audit-ia-gratuit/" class="btn btn-lime btn-sm nav-cta" aria-label="Réserver l'audit IA gratuit">
+      <span class="btn-label">Audit gratuit</span>
+      <span class="btn-icon" aria-hidden="true"><svg><use href="#arr"/></svg></span>
+    </a>
+  </div>
+</nav>
+
+<nav class="breadcrumb" aria-label="Fil d'Ariane">
+  <div class="wrap">
+    <ol>
+      <li><a href="../">Accueil</a></li>
+      <li aria-current="page">Formation IA pour PME</li>
+    </ol>
+  </div>
+</nav>
+
+<section class="metier-hero">
+  <img src="../assets/hero-photo.jpg" class="hero-bg-img" width="1200" height="669" fetchpriority="high" decoding="async" alt="Équipe d'une PME en atelier formation IA Kolya" />
+  <div class="hero-overlay"></div>
+  <div class="wrap">
+    <div class="reveal">
+      <span class="eyebrow"><span class="dot"></span>Formation IA · Atelier intra-entreprise</span>
+      <h1>Former votre équipe à l'IA, <em>sans usine à gaz</em>.</h1>
+      <p class="lede">
+        Un atelier sur-mesure de <strong>1 à 3 jours</strong>, dans vos
+        locaux ou en visio, pour acculturer votre équipe à l'IA, prendre
+        en main les outils du marché (ChatGPT, Claude, Mistral, Copilot)
+        et identifier ensemble les cas d'usage prioritaires chez vous.
+        Pas de Qualiopi, pas de CPF, pas de syllabus générique : du
+        concret sur votre activité réelle, en quelques jours.
+      </p>
+      <div class="ctas">
+        <a href="../audit-ia-gratuit/" class="btn btn-lime"><span>Discuter d'un atelier</span><span class="btn-icon" aria-hidden="true"><svg><use href="#arr"/></svg></span></a>
+        <a href="#formats" class="btn btn-ghost"><span>Voir les formats</span><span class="btn-icon" aria-hidden="true"><svg><use href="#arr"/></svg></span></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="metier-section alt">
+  <div class="wrap">
+    <div class="metier-grid">
+      <article class="prose reveal">
+        <h2>Pourquoi un atelier <em>sur-mesure</em>, pas une formation continue ?</h2>
+        <p>
+          Beaucoup de PME nous demandent une formation IA pour leur
+          équipe. La plupart pensent d'abord à un parcours Qualiopi /
+          CPF certifié, parce que c'est ce qu'on leur a vendu. C'est
+          parfois la bonne réponse. Mais pour la majorité des PME que
+          nous accompagnons, ce n'est pas le format adapté.
+        </p>
+        <p>
+          Une formation Qualiopi exige des mois de mise en conformité
+          pour le formateur, un syllabus pré-défini, une évaluation
+          standardisée. Pour vous, c'est une formation longue, générique,
+          coûteuse et qui aborde des cas qui ne sont pas les vôtres.
+        </p>
+        <p>
+          Un atelier Kolya, c'est l'inverse : <strong>court, pragmatique,
+          adapté à votre activité</strong>. On vient avec nos questions,
+          on regarde vos outils existants, on identifie vos vrais points
+          de friction. À la sortie, votre équipe sait quoi faire avec
+          l'IA chez vous lundi matin — pas dans six mois.
+        </p>
+      </article>
+      <aside class="side-panel" aria-label="Sommaire">
+        <h4>Sur cette page</h4>
+        <ul>
+          <li><a href="#formats">Les 3 formats</a></li>
+          <li><a href="#programme">Programme type</a></li>
+          <li><a href="#pour-qui">Pour qui</a></li>
+          <li><a href="#faq">Questions fréquentes</a></li>
+          <li><a href="#contact">Discuter d'un atelier</a></li>
+        </ul>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<section id="formats" class="metier-section">
+  <div class="wrap">
+    <article class="prose reveal">
+      <h2>Trois formats, <em>selon votre besoin</em>.</h2>
+      <p>
+        On a structuré l'offre en trois formats standard pour clarifier
+        ce qu'on propose. Chaque format est ensuite ajusté à votre
+        activité après un échange préalable gratuit.
+      </p>
+    </article>
+    <div class="format-grid">
+
+      <div class="format-card reveal">
+        <div class="dur">Demi-journée · 3 h</div>
+        <h3>Découverte <em>IA</em></h3>
+        <p>
+          Pour acculturer rapidement votre direction et vos managers
+          aux enjeux de l'IA en entreprise : ce que ça fait
+          aujourd'hui, ce que ça ne fait pas encore, où ça crée de
+          la valeur dans une PME. Démonstrations live, pas de
+          jargon technique.
+        </p>
+        <div class="for">Dirigeants · Codir · 3-10 personnes</div>
+      </div>
+
+      <div class="format-card reveal">
+        <div class="dur">1 jour · 7 h</div>
+        <h3>Acculturation <em>équipe</em></h3>
+        <p>
+          Format le plus demandé. Acculturation complète de votre
+          équipe opérationnelle : panorama des outils, prise en main
+          guidée de ChatGPT/Claude, ateliers pratiques sur vos propres
+          cas, identification des chantiers prioritaires chez vous.
+        </p>
+        <div class="for">Équipes opérationnelles · 5-15 personnes</div>
+      </div>
+
+      <div class="format-card reveal">
+        <div class="dur">2 à 3 jours · 14 à 21 h</div>
+        <h3>Atelier <em>action</em></h3>
+        <p>
+          Pour les équipes prêtes à passer à la pratique. Jour 1 :
+          fondamentaux et outils. Jour 2 : conception d'agents IA
+          spécifiques à vos cas (no-code). Jour 3 (optionnel) : mise
+          en production accompagnée du premier agent.
+        </p>
+        <div class="for">Équipes engagées · 5-12 personnes</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section id="programme" class="metier-section alt">
+  <div class="wrap">
+    <article class="prose reveal">
+      <h2>Programme type d'un <em>atelier 1 jour</em>.</h2>
+      <p>
+        Le programme exact est cadré avec vous lors de l'échange
+        préalable. Voici la trame typique pour un atelier d'une
+        journée, ajustée à votre activité.
+      </p>
+      <h3>Matin · Fondamentaux et démonstrations (3 h)</h3>
+      <ul>
+        <li>Panorama de l'IA en 2026 : ce qui marche, ce qui ne marche pas, ce qui arrive</li>
+        <li>Démonstrations live : ChatGPT, Claude, Mistral Le Chat, Microsoft Copilot</li>
+        <li>Les 4 leviers IA pour PME : automatisation, agents conversationnels, prospection assistée, pilotage data</li>
+        <li>Questions ouvertes : ce que votre équipe attend, craint, espère</li>
+      </ul>
+      <h3>Après-midi · Pratique sur vos cas (4 h)</h3>
+      <ul>
+        <li>Prise en main guidée des outils sur vos vrais documents et cas</li>
+        <li>Atelier collectif : identification des 3 à 5 cas d'usage prioritaires chez vous</li>
+        <li>Estimation rapide du temps gagné et du coût d'implémentation pour chaque cas</li>
+        <li>Plan d'action sur 30 jours : qui fait quoi, avec quels outils, mesuré comment</li>
+      </ul>
+      <p>
+        À la sortie, chaque participant repart avec : un récap écrit des
+        outils vus, ses propres prompts testés, et une feuille de route
+        chiffrée pour les premiers chantiers IA chez vous.
+      </p>
+    </article>
+  </div>
+</section>
+
+<section id="pour-qui" class="metier-section">
+  <div class="wrap">
+    <article class="prose reveal">
+      <h2>Pour <em>qui</em> ?</h2>
+      <p>
+        Nos ateliers IA sont conçus pour les PME qui veulent
+        accélérer sans s'enliser dans un programme de formation lourd.
+        Typiquement :
+      </p>
+      <ul>
+        <li>PME de <strong>5 à 80 salariés</strong> qui débutent en IA ou ont essayé en autonomie sans structurer</li>
+        <li>Direction qui veut <strong>aligner toute son équipe</strong> en quelques jours, pas en six mois</li>
+        <li>Équipes qui ont déjà accès à <strong>ChatGPT, Copilot ou Claude</strong> mais l'utilisent à 10 % de leur potentiel</li>
+        <li>Dirigeants qui veulent <strong>valider une intuition IA</strong> avant d'investir dans un chantier d'intégration</li>
+        <li>Entreprises qui cherchent un <strong>format pragmatique non Qualiopi</strong> (rapide à monter, focus sur l'usage réel)</li>
+      </ul>
+      <p>
+        Si vous avez besoin d'une formation certifiée Qualiopi avec
+        financement CPF, nous ne sommes pas le bon partenaire — nous
+        pouvons vous orienter vers des organismes qui correspondent.
+      </p>
+    </article>
+  </div>
+</section>
+
+<section id="faq" class="metier-section alt">
+  <div class="wrap">
+    <article class="prose reveal" style="max-width: 920px;">
+      <h2>Questions fréquentes sur la <em>formation IA</em>.</h2>
+      <div class="faq-list">
+        <details class="faq-item"><summary>Vos formations sont-elles certifiées Qualiopi ?</summary><div class="faq-body"><p>Non, par choix assumé. Notre format est volontairement non certifié Qualiopi pour rester rapide à monter (quelques jours au lieu de plusieurs mois), pragmatique et focalisé sur votre activité réelle.</p><p>Si la certification CPF est un prérequis chez vous, nous vous orienterons vers un partenaire Qualiopi adapté.</p></div></details>
+        <details class="faq-item"><summary>Combien coûte un atelier ?</summary><div class="faq-body"><p>Le tarif dépend du format choisi (demi-journée, 1, 2 ou 3 jours), du nombre de participants et du lieu (Paris ou visio sans surcoût, déplacement province facturé au réel).</p><p>Compter typiquement entre 1 500 € pour une demi-journée d'introduction et 8 000 € pour un atelier de 3 jours intensif. Devis ferme remis après audit gratuit.</p></div></details>
+        <details class="faq-item"><summary>À combien de personnes minimum ou maximum ?</summary><div class="faq-body"><p>Format idéal : 5 à 15 personnes par session. En dessous, le format devient un coaching individuel et on adapte.</p><p>Au-dessus, l'interactivité baisse — nous recommandons alors plusieurs sessions ou un format conférence dédié.</p></div></details>
+        <details class="faq-item"><summary>Quels outils sont couverts dans l'atelier ?</summary><div class="faq-body"><p>ChatGPT, Claude, Mistral Le Chat Pro, Microsoft Copilot, Gemini, plus les outils d'automatisation type Make, Zapier, n8n et les bases de connaissance type NotebookLM.</p><p>La sélection est faite avec vous en pré-atelier selon vos outils existants et vos cas d'usage prioritaires.</p></div></details>
+        <details class="faq-item"><summary>Présentiel ou distanciel ?</summary><div class="faq-body"><p>Les deux fonctionnent. Le présentiel est conseillé pour les ateliers de 2-3 jours et les équipes nouvellement acculturées. Le distanciel (Google Meet ou Teams) marche très bien pour la demi-journée et le format 1 jour.</p><p>Sur Paris, le présentiel n'engendre aucun surcoût. Hors Paris, déplacement facturé au réel.</p></div></details>
+        <details class="faq-item"><summary>Vos formations sont-elles éligibles au CPF ?</summary><div class="faq-body"><p>Non, car non Qualiopi. Pour les PME, nous recommandons de financer l'atelier en formation interne classique ou via votre OPCO si éligible (entretien préalable possible).</p><p>Le coût est généralement amorti en moins de deux mois grâce au temps gagné par l'équipe formée.</p></div></details>
+        <details class="faq-item"><summary>Comment se déroule un atelier type ?</summary><div class="faq-body"><p>Pré-atelier (30 min) : entretien avec vous pour cadrer vos enjeux. Atelier (1 à 3 jours) : alternance entre apports, démonstrations live et ateliers pratiques sur vos propres cas.</p><p>Post-atelier (15 jours) : canal de support écrit pour répondre aux questions des participants pendant qu'ils mettent en pratique.</p></div></details>
+      </div>
+    </article>
+  </div>
+</section>
+
+<section id="contact" class="cta">
+  <div class="wrap">
+    <div class="cta-card">
+      <div class="deco"></div>
+      <div class="inner">
+        <span class="eyebrow on-lime label">Discuter d'un atelier</span>
+        <h2>On cadre votre atelier en <em>45 minutes</em>.</h2>
+        <p class="cta-lede">Audit gratuit pour comprendre votre équipe, votre activité, vos outils actuels. À l'issue, on vous propose un format ferme avec contenu, durée et tarif. Aucun engagement.</p>
+        <p><a href="../audit-ia-gratuit/" class="btn btn-lime"><span>Réserver l'audit gratuit</span><span class="btn-icon" aria-hidden="true"><svg><use href="#arr"/></svg></span></a></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <div class="foot-brand"><img src="../assets/kolya-logo-white.png" width="800" height="339" alt="Kolya · Agence d'intégration IA" /></div>
+        <p class="foot-blurb">Agence d'intégration IA pour les PME, à Paris et partout en France. Des solutions simples, des résultats concrets.</p>
+      </div>
+      <div class="foot-col"><h6>Agence</h6><ul><li><a href="../">Accueil</a></li><li><a href="../#services">Services</a></li><li><a href="../#methode">Méthode</a></li><li><a href="../#resultats">Résultats</a></li></ul></div>
+      <div class="foot-col"><h6>Pages clés</h6><ul><li><a href="../agence-ia-paris/">Agence IA à Paris</a></li><li><a href="../agence-ia-pme/">Agence IA pour PME</a></li><li><a href="../audit-ia-gratuit/">Audit IA gratuit</a></li><li><a href="../blog/">Blog</a></li></ul></div>
+      <div class="foot-col"><h6>Contact</h6><ul><li><a href="../audit-ia-gratuit/">Réserver un audit</a></li><li><a href="https://www.linkedin.com/company/kolyaparis/" target="_blank" rel="noopener">LinkedIn ↗</a></li></ul></div>
+    </div>
+    <div class="foot-word serif">Kolya<span class="dot">.</span></div>
+    <div class="foot-meta"><div>© 2026 Kolya · Des solutions simples. Des résultats concrets.</div><nav><a href="#">Mentions légales</a><a href="#">Confidentialité</a><a href="#">CGV</a></nav></div>
+  </div>
+</footer>
+
+<script>
+  (function(){const n=document.getElementById('nav');if(!n)return;let s=false;const o=()=>{const x=window.scrollY>16;if(x===s)return;s=x;n.classList.toggle('scrolled',x)};window.addEventListener('scroll',o,{passive:true});o()})();
+  (function(){const e=document.querySelectorAll('.reveal');const o=new IntersectionObserver((a)=>{a.forEach((b)=>{if(!b.isIntersecting)return;const c=parseInt(b.target.dataset.delay||'0',10);setTimeout(()=>b.target.classList.add('in'),c);o.unobserve(b.target)})},{threshold:0,rootMargin:'0px 0px 200px 0px'});e.forEach((a)=>o.observe(a))})();
+  (function(){document.addEventListener('click',(e)=>{const l=e.target.closest('a[href="#"]');if(l)e.preventDefault()})})();
+</script>
+</body>
+</html>
