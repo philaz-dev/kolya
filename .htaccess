@@ -41,6 +41,25 @@ DirectoryIndex index.html
 </IfModule>
 
 # ============================================================
+# Redirections 301 — vieux slugs hérités d'un ancien template
+# Google les re-crawle régulièrement et renvoie 404 dans Search Console.
+# On les redirige vers leur équivalent moderne pour nettoyer le rapport
+# + capturer le jus SEO d'éventuels backlinks externes oubliés.
+# Match exact via ^$ pour ne pas attraper /home-foo, /events/2024, etc.
+# ============================================================
+<IfModule mod_alias.c>
+  RedirectMatch 301 ^/home/?$              /
+  RedirectMatch 301 ^/about-us/?$          /
+  RedirectMatch 301 ^/contact-us/?$        /audit-ia-gratuit/
+  RedirectMatch 301 ^/testimonials/?$      /cas-clients/
+  RedirectMatch 301 ^/events/?$            /blog/
+  RedirectMatch 301 ^/blogs/?$             /blog/
+  RedirectMatch 301 ^/faqs/?$              /audit-ia-gratuit/
+  RedirectMatch 301 ^/single-course/?$     /formation-ia-pme/
+  RedirectMatch 301 ^/single-even/?$       /blog/
+</IfModule>
+
+# ============================================================
 # Long-cache static assets, short-cache HTML
 # ============================================================
 <IfModule mod_expires.c>
